@@ -1,7 +1,7 @@
 package com.android.gaospconf;
 
 import java.io.BufferedReader;
-import java.io.File;
+//import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,12 +15,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-//import android.content.Context;
-//import android.os.PowerManager;
-//import android.os.PowerManager.WakeLock;
-//import android.os.SystemClock;
-//import android.util.Log;
-//import android.widget.ArrayAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,7 +50,7 @@ public class conf extends Activity {
         Boolean prov = false;
         Boolean vnc = false;
         Boolean swap = false;
-        Boolean bootani = false;
+        //Boolean bootani = false;
 
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
@@ -78,7 +72,7 @@ public class conf extends Activity {
         final CheckBox Check_sensors_sampling_eco = (CheckBox) findViewById(R.id.sensors04);
         final CheckBox Check_sensors_sampling_mix = (CheckBox) findViewById(R.id.sensors05);
         final CheckBox Check_sensors_sampling_perf = (CheckBox) findViewById(R.id.sensors06);
-        final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
+        //final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
 		TextView Desccomptext = (TextView) findViewById(R.id.Textcomp);
 		TextView Desccompedit = (TextView) findViewById(R.id.Textcompedit);
 		TextView Descswap = (TextView) findViewById(R.id.Textswap);
@@ -90,7 +84,7 @@ public class conf extends Activity {
 		TextView Descrenice = (TextView) findViewById(R.id.Textrenice);
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
 		TextView Descvnc = (TextView) findViewById(R.id.Textvnc);
-		TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
+		//TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
 		TextView Descservice = (TextView) findViewById(R.id.Textservice);
 		TextView Desckitchen = (TextView) findViewById(R.id.Textkitchen);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
@@ -156,12 +150,12 @@ public class conf extends Activity {
 			    if (record.equals("swap=yes")) {
 			    	swap = true;
 			    }
-			    if (record.equals("bootani=no")) {
-			    	swap = false;
+			    /*if (record.equals("bootani=no")) {
+			    	bootani = false;
 			    }
 			    if (record.equals("bootani=yes")) {
-			    	swap = true;
-			    }
+			    	bootani = true;
+			    }*/
 			    if (record.equals("overclocking=yes")) {
 			    	overclocking = true;
 			    }
@@ -229,9 +223,9 @@ public class conf extends Activity {
 		if (! Toggle_Swap.isChecked()) {
 			Toggle_Compcache.setEnabled(true);
 		}		
-		if (bootani == true) {
-			Toggle_Bootani.setChecked(true);
-		}				
+		//if (bootani == true) {
+			//Toggle_Bootani.setChecked(true);
+		//}				
 		if (overclocking == true) {
 			Toggle_OverClocking.setChecked(true);
 		}
@@ -421,7 +415,7 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         }); 
-		Descbootani.setOnClickListener(new View.OnClickListener() {
+		/*Descbootani.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVbootani);
     		alertbox.setMessage(R.string.bootani);
@@ -435,7 +429,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });    
+        });*/    
 		Descservice.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVservicemode);
@@ -506,7 +500,7 @@ public class conf extends Activity {
 				Check_sensors_sampling_mix.setChecked(false);
 				Check_sensors_sampling_perf.setChecked(false);
 				Toggle_Swap.setChecked(false);
-				Toggle_Bootani.setChecked(true);
+				//Toggle_Bootani.setChecked(true);
             }
         });   
 		
@@ -671,15 +665,16 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying Bootanimation setting to conf file
+					/*	//Copying Bootanimation setting to conf file
 					out.println("# Bootanimation");
 					if (Toggle_Bootani.isChecked()) { //Awesome? Of course!
 						out.println("bootani=yes");
 				        File boot = new File("/system/media/bootanimation.zip");
 						File bootold = new File("/system/media/bootanimation_old.zip");
 						File boottemp = new File("/system/media/bootanimation_temp.zip");
-				        if (boot.exists() == true) {
+						if (boot.exists() == true) {
 							if (boot.length() > 3000000 ) {
+								out.println("go/YES");
 								bootold.renameTo(boottemp);
 								boot.renameTo(bootold);
 								boottemp.renameTo(boot);
@@ -693,13 +688,14 @@ public class conf extends Activity {
 						File boottemp = new File("/system/media/bootanimation_temp.zip");
 				        if (boot.exists() == true) {
 							if (boot.length() < 3000000 ) {
+								out.println("go/NO");
 								bootold.renameTo(boottemp);
 								boot.renameTo(bootold);
 								boottemp.renameTo(boot);
 							}
 						}
 					}
-					out.println(" ");
+					out.println(" ");			*/
 					
 					// Copying Overclocking setting to conf file
 					out.println("# Overclocking");
