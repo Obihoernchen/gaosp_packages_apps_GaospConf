@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TextViews -->
+    <string name="TVcompcache">Compcache</string>
+    <string name="TVcompcachedisk">Größe</string>
+    <string name="TVswap">Nur Swap</string>
+    <string name="TVoverclock1">Übertakte die CPU auf 614 MHz</string>
+    <string name="TVoverclock2">Übertakte die CPU auf 710 MHz</string>
+    <string name="TVsampling">CPU Sampling</string>
+    <string name="TVsensors">Sensoren Reaktion</string>
+    <string name="TVssh">SSH Server</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisioned</string>
+    <string name="TVvnc">VNC Server (Port 5901)</string>
+    <string name="TVbootani">Kleinere Bootanimation</string>
+    <string name="TVservicemode">Samsung Service Modus App öffnen</string>
+    <string name="TVkitchen">GAOSP Kitchen öffnen</string>
+    <!-- CheckBoxes -->
+    <string name="CBeco">Eco</string>
+    <string name="CBmix">Mix</string>
+    <string name="CBperf">Perf</string>
+    <!-- Buttons -->
+    <string name="Bopen">Start</string>
+    <string name="Bdefaults">Standard Einstellungen</string>
+    <string name="Bapply">Neue Einstellungen anwenden</string>
+    <!-- Messages -->
+    <string name="wait">Bitte warten..</string>
+    <string name="applied">Neue Config wurde gespeichert und angewendet. Eventuell ist ein Neustart nötig.</string>
+	<string name="comptobig">Compcache Größe ist zu groß!</string>
+	<string name="swapwarning">Du musst eine externe SD Karte mit Swap Partition haben (Recovery > Format swap+fat32)</string>
+</resources>

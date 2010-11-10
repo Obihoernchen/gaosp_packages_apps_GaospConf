@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="compcache">Compressing pages and keeping them in RAM virtually increases its capacity. This allows more applications to fit in given amount of memory. But it uses additional CPU time. It also activates Swap.</string>
+	<string name="compcachedisk">The size of compcache</string>
+	<string name="swap">Android uses swap space as "extra" memory for pages of application memory that are not being actively used by the application but have been modified (written to). The swap space size plus RAM size is the total amount of virtual memory for the system. Create swap partition with recovery mode first. You need a external SD card (Class 6 recommend).</string>
+	<string name="overclock1">Overclocking your processor to 614 MHz.</string>
+	<string name="overclock2">Overclocking your processor to 710 MHz. Unstable on some devices.</string>
+	<string name="sampling">It is the time interval in which the device get it is own load. After each sample, the device increase or decrease cpu speed regarding the load.</string>
+	<string name="sensors">How fast all Sensors will react.</string>
+	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
+	<string name="renice">Renice alters the scheduling priority of one or more running processes.</string>
+	<string name="provisionned">You can use your Galaxy without a SIM Card.</string>
+	<string name="vnc">You can control your phone from your computer (using a specialized app).</string>
+	<string name="bootani">Uses a smaller bootanimation to decrease boot time.</string>
+	<string name="servicemode">For experts only! You can apply Audio Hack here.</string>
+	<string name="kitchen">Create your own custom Google Application Package.</string>
+</resources>

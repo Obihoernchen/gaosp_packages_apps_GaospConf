@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="compcache">Komprimiert den Arbeitsspeicher (RAM). Dies erlaubt dir mehr Programme auszuführen. Wichtig, durch die Aktivierung wird die CPU beansprucht und Swap mitaktiviert.</string>
+	<string name="compcachedisk">Compachgröße</string>
+	<string name="swap"> Android nutzt Swap als "extra" Arbeitsspeicher, sodass mehr Ram zur Verfügung steht. Die Swapgröße und der eigenliche Ram ergeben zusammen den für das System komplett nutzbaren Arbeitsspeicher. Erstelle zuerst eine Swappartition auf deiner externen Speicherkarte im Recovery Menü. Eine Class 6 oder höhere Micro-SD Karte wird dafür ausdrücklich empfohlen. </string>
+	<string name="overclock1">Übertaktet deinen Prozessor auf 614 MHz.</string>
+	<string name="overclock2">Übertaktet deinen Prozessor auf 710 MHz. Wichtig, auf manchen Geräten kann dies zu Instabilität führen.</string>
+	<string name="sampling">Der Zeitintervall indem das Galaxy überprüft, ob die CPU hoch- oder runtergetaktet werden muss.</string>
+	<string name="sensors">Wie schnell alle Sensoren reagieren</string>
+	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
+	<string name="renice">Renice alters the scheduling priority of one or more running processes.</string>
+	<string name="provisionned">Erlaubt es dir dein Handy ohne eine Sim-Karte zu benutzen..</string>
+	<string name="vnc">Erlaubt es dir dein Handy vom PC aus mit einem speziellen Programm zu steuern.</string>
+	<string name="bootani">Nutzt eine kleinere Bootanimation um die Bootzeit zu verkürzen.</string>
+	<string name="servicemode">Nur für Experten! Damit kann der Audio Hack angewandt werden.</string>
+	<string name="kitchen">Erstelle dein eingenes Google Application Paket.</string>	
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVcompcache">Compcache</string>
+    <string name="TVcompcachedisk">Disk size</string>
+    <string name="TVswap">Swap only</string>
+    <string name="TVoverclock1">Overclock CPU to 614 MHz</string>
+    <string name="TVoverclock2">Overclock CPU to 710 MHz</string>
+    <string name="TVsampling">CPU sampling</string>
+    <string name="TVsensors">Sensors reaction</string>
+    <string name="TVssh">SSH server</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisioned</string>
+    <string name="TVvnc">VNC server (port 5901)</string>
+    <string name="TVbootani">Use smaller bootanimation</string>
+    <string name="TVservicemode">Open Samsung service mode</string>
+	<string name="TVkitchen">Open GAOSP Kitchen</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Open</string>
+    <string name="Bdefaults">Set defaults</string>
+    <string name="Bapply">Apply new config</string>
+    <!-- Messages -->
+    <string name="wait">Please wait..</string>
+    <string name="applied">New config saved and applied. You may have to restart.</string>
+	<string name="comptobig">Compcache disksize is too big!</string>
+	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
+</resources>
