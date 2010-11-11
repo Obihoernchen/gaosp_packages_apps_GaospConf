@@ -1,7 +1,7 @@
 package com.android.gaospconf;
 
 import java.io.BufferedReader;
-//import java.io.File;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -50,7 +50,7 @@ public class conf extends Activity {
         Boolean prov = false;
         Boolean vnc = false;
         Boolean swap = false;
-        //Boolean bootani = false;
+        Boolean bootani = false;
 
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
@@ -72,7 +72,7 @@ public class conf extends Activity {
         final CheckBox Check_sensors_sampling_eco = (CheckBox) findViewById(R.id.sensors04);
         final CheckBox Check_sensors_sampling_mix = (CheckBox) findViewById(R.id.sensors05);
         final CheckBox Check_sensors_sampling_perf = (CheckBox) findViewById(R.id.sensors06);
-        //final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
+        final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
 		TextView Desccomptext = (TextView) findViewById(R.id.Textcomp);
 		TextView Desccompedit = (TextView) findViewById(R.id.Textcompedit);
 		TextView Descswap = (TextView) findViewById(R.id.Textswap);
@@ -84,11 +84,11 @@ public class conf extends Activity {
 		TextView Descrenice = (TextView) findViewById(R.id.Textrenice);
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
 		TextView Descvnc = (TextView) findViewById(R.id.Textvnc);
-		//TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
+		TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
 		TextView Descservice = (TextView) findViewById(R.id.Textservice);
 		TextView Desckitchen = (TextView) findViewById(R.id.Textkitchen);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
-		
+        
         // Open config file
         FileReader FR = null;
 		try {
@@ -150,12 +150,12 @@ public class conf extends Activity {
 			    if (record.equals("swap=yes")) {
 			    	swap = true;
 			    }
-			    /*if (record.equals("bootani=no")) {
+			    if (record.equals("bootani=no")) {
 			    	bootani = false;
 			    }
 			    if (record.equals("bootani=yes")) {
 			    	bootani = true;
-			    }*/
+			    }
 			    if (record.equals("overclocking=yes")) {
 			    	overclocking = true;
 			    }
@@ -213,7 +213,7 @@ public class conf extends Activity {
 			Toggle_VNC.setChecked(true);
 		}
 		if (swap == true) {
-			Toggle_Swap.setChecked(true);			
+			Toggle_Swap.setChecked(true);
 		}
 		// Disable Compcache if Swap only is enabled
 		if (Toggle_Swap.isChecked()) {
@@ -223,9 +223,9 @@ public class conf extends Activity {
 		if (! Toggle_Swap.isChecked()) {
 			Toggle_Compcache.setEnabled(true);
 		}		
-		//if (bootani == true) {
-			//Toggle_Bootani.setChecked(true);
-		//}				
+		if (bootani == true) {
+			Toggle_Bootani.setChecked(true);
+		}				
 		if (overclocking == true) {
 			Toggle_OverClocking.setChecked(true);
 		}
@@ -415,7 +415,7 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         }); 
-		/*Descbootani.setOnClickListener(new View.OnClickListener() {
+		Descbootani.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVbootani);
     		alertbox.setMessage(R.string.bootani);
@@ -429,7 +429,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });*/    
+        });    
 		Descservice.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVservicemode);
@@ -500,7 +500,8 @@ public class conf extends Activity {
 				Check_sensors_sampling_mix.setChecked(false);
 				Check_sensors_sampling_perf.setChecked(false);
 				Toggle_Swap.setChecked(false);
-				//Toggle_Bootani.setChecked(true);
+				Toggle_Bootani.setChecked(true);
+				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             }
         });   
 		
@@ -665,37 +666,43 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					/*	//Copying Bootanimation setting to conf file
+					// Copying Bootanimation setting to conf file
 					out.println("# Bootanimation");
-					if (Toggle_Bootani.isChecked()) { //Awesome? Of course!
+					if (Toggle_Bootani.isChecked()) {
 						out.println("bootani=yes");
 				        File boot = new File("/system/media/bootanimation.zip");
-						File bootold = new File("/system/media/bootanimation_old.zip");
-						File boottemp = new File("/system/media/bootanimation_temp.zip");
-						if (boot.exists() == true) {
 							if (boot.length() > 3000000 ) {
-								out.println("go/YES");
-								bootold.renameTo(boottemp);
-								boot.renameTo(bootold);
-								boottemp.renameTo(boot);
+					    		String[] change1 = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'"};
+					    		String[] change2 = { "/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'"};
+					    		String[] change3 = { "/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'"};
+					    		shell.doExec(change1, true);
+					    		shell.doExec(change2, true);
+					    		shell.doExec(change3, true);
+					    		/*
+					    		NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'");
+								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'");
+								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'");
+								*/
 							}
-						}
 					}
 					else {
 						out.println("bootani=no");
 				        File boot = new File("/system/media/bootanimation.zip");
-						File bootold = new File("/system/media/bootanimation_old.zip");
-						File boottemp = new File("/system/media/bootanimation_temp.zip");
-				        if (boot.exists() == true) {
 							if (boot.length() < 3000000 ) {
-								out.println("go/NO");
-								bootold.renameTo(boottemp);
-								boot.renameTo(bootold);
-								boottemp.renameTo(boot);
+					    		String[] change1 = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'"};
+					    		String[] change2 = { "/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'"};
+					    		String[] change3 = { "/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'"};
+					    		shell.doExec(change1, true);
+					    		shell.doExec(change2, true);
+					    		shell.doExec(change3, true);
+								/*
+					    		NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'");
+								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'");
+								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'");
+								*/
 							}
-						}
 					}
-					out.println(" ");			*/
+					out.println(" ");
 					
 					// Copying Overclocking setting to conf file
 					out.println("# Overclocking");
@@ -759,7 +766,7 @@ public class conf extends Activity {
 					out.close();
 					
 					// Remount in read only
-					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo done"};
+					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo done" };
             		shell.doExec(ro, true);
 					// NativeTask.runCommand("/system/xbin/su -c /system/xbin/remountro");
             	}
@@ -812,6 +819,7 @@ public class conf extends Activity {
 		{
 			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
 				if (Toggle_Swap.isChecked()) {
+					Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
 					Toggle_Compcache.setEnabled(false);
 					Toggle_Compcache.setChecked(false);
 				}
@@ -850,13 +858,6 @@ public class conf extends Activity {
 				}
 			}
 		});
-		Toggle_Swap.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-				Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
-			}
-		});	
-		
     }
     
     public boolean onCreateOptionsMenu(Menu menu) 
@@ -893,7 +894,7 @@ public class conf extends Activity {
     	ProgressDialog myProgressDialog; 
     	protected void onPreExecute() {
     			 myProgressDialog = ProgressDialog.show(conf.this,"", getString(R.string.wait), true, true);
-    		}
+    	}
     	
     	@Override
     	protected Void doInBackground(String... params) {
@@ -908,14 +909,6 @@ public class conf extends Activity {
     			if (myProgressDialog.isShowing()) {
     				myProgressDialog.dismiss();
 	            	Toast.makeText(getBaseContext(), R.string.applied, Toast.LENGTH_LONG).show();
-	            	/*try {
-	            		Thread.sleep(5000);
-	            		Toast.makeText(getBaseContext(), R.string.applied, Toast.LENGTH_SHORT).show();
-						finish();
-					} catch (Throwable e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}*/
     			}
     	}
     }

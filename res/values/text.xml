@@ -28,4 +28,5 @@
     <string name="applied">New config saved and applied. You may have to restart.</string>
 	<string name="comptobig">Compcache disksize is too big!</string>
 	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Defaults successfully loaded. Press "Apply new config" to save.</string>
 </resources>

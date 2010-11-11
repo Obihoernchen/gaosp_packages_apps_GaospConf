@@ -5,7 +5,7 @@
 	<string name="swap">Android uses swap space as "extra" memory for pages of application memory that are not being actively used by the application but have been modified (written to). The swap space size plus RAM size is the total amount of virtual memory for the system. Create swap partition with recovery mode first. You need a external SD card (Class 6 recommend).</string>
 	<string name="overclock1">Overclocking your processor to 614 MHz.</string>
 	<string name="overclock2">Overclocking your processor to 710 MHz. Unstable on some devices.</string>
-	<string name="sampling">It is time interval in which the device gets its own load. After each sample, device increases or decreases cpu speed regarding the load.</string>
+	<string name="sampling">It is the time interval in which the device gets its own load. After each sample, device increases or decreases cpu speed regarding the load.</string>
 	<string name="sensors">How fast all Sensors will react.</string>
 	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
 	<string name="renice">Renice alters the scheduling priority of one or more running processes.</string>

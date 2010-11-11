@@ -4,7 +4,8 @@
       package="com.android.gaospconf" android:versionName="2.0">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".conf"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:windowSoftInputMode="stateUnchanged">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
