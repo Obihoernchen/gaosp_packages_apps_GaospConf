@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Comprimir páginas e deixá-las em memória RAM virtualmente aumenta sua capacidade. Isso permite que mais aplicações caibam em uma dada porção de memória, mas usa tempo adicional de CPU. Isso também ativa a Swap.</string>
-	<string name="compcachedisk">O tamanho do compcache</string>
-	<string name="swap">Android usa o espaço Swap como memória extra para páginas da memória da aplicação que não estão efetivamente sendo usadas pela aplicação, mas foram modificadas (escritas). O espaço Swap mais o espaço RAM é a quantidade de memória virtual para o sistema. Crie a partição Swap com o Recovery primeiro.</string>
-	<string name="overclock1">Overclock de seu processador para 614 MHz.</string>
-	<string name="overclock2">Overclock de seu processador para 710 MHz. Instável em alguns dispositivos.</string>
-	<string name="sampling">.........</string>
-	<string name="sensors">.........</string>
-	<string name="ssh">Permite rodar um shell Linux de seu computador no seu Galaxy.</string>
-	<string name="renice">Renasce/altera as prioridade de um ou mais processos rodando.</string>
-	<string name="provisionned">Você pode usar o seu Galaxy sem um cartão SIM.</string>
-	<string name="vnc">Você pode controlar o seu aparelho através do computador (usando um aplicativo especializado).</string>
-	<string name="bootani">.........</string>
-	<string name="servicemode">.........</string>
-	<string name="kitchen">.........</string>	
+    <string name="compcache">Kompresja stron trzymanych w pamięci sztucznie zwiększa jej pojemność. Pozwala to zmieścić się w danej ilości pamięci większej liczbie aplikacji (używając dodatkowej mocy procesora). Ustawienie to aktywuje też Swap.</string>
+	<string name="compcachedisk">Rozmiar dysku dla compcache</string>
+	<string name="swap">Android używa przestrzeni wymiany (ang. swap) jako dodatkowej pamięci dla stron aplikacji nieużywanych w danym czasie, lecz zmodyfikowanych przez aplikację. Rozmiar przestrzeni wymiany oraz fizycznej pamięci składają się na całkowitą ilość wirtualnej pamięci dla systemu. Wymaga zewnętrznej karty SD (zalecana karta klasy 6) i stworzenia partycji Swap przy użyciu trybu recovery.</string>
+	<string name="overclock1">Podkręca procesor telefonu do 614 MHz.</string>
+	<string name="overclock2">Podkręca procesor telefonu do 710 MHz. Niestabilne na niektórych urządzeniach.</string>
+	<string name="sampling">Odstęp czasu, w którym urządzenie odczytuje swoje obciążenie. Po każdym odczycie, Galaxy zwiększa bądź zmniejsza prędkość procesora w zależności od obciążenia.</string>
+	<string name="sensors">Prędkość reakcji wszystkich sensorów.</string>
+	<string name="ssh">Pozwala uruchomić zdalny dostęp do powłoki Linuksa na telefonie przy użyciu komputera.</string>
+	<string name="renice">Renice zmienia pierwszeństwo planowania uruchomionych procesów.</string>
+	<string name="provisionned">Opcja ta pozwala na używanie Galaxy bez karty SIM.</string>
+	<string name="vnc">Opcja ta pozwala na kontrolowanie telefonu przy użyciu klienta VNC na komputerze.</string>
+	<string name="bootani">Używa mniejszej animacji aby skrócić czas uruchamiania telefonu.</string>
+	<string name="servicemode">Tylko dla zaawansowanych użytkowników - można tutaj zastosować Audio Hack.</string>
+	<string name="kitchen">Stwórz niestandardową paczkę z aplikacjami Google.</string>	
 </resources>

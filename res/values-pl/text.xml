@@ -24,8 +24,8 @@
     <string name="Bdefaults">Ustaw domyślne</string>
     <string name="Bapply">Zastosuj ustawienia</string>
     <!-- Messages -->
-    <string name="wait">Please wait..</string>
-    <string name="applied">New config saved and applied. You may have to restart.</string>
-	<string name="comptobig">Compcache disksize is too big!</string>
-	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
+    <string name="wait">Proszę czekać...</string>
+    <string name="applied">Nowe ustawienia zapisane i zastosowane. Może być wymagane ponowne uruchomienie telefonu.</string>
+	<string name="comptobig">Za duży rozmiar dysku Compcache!</string>
+	<string name="swapwarning">Musisz mieć zewnętrzną kartę SD z partycją swap (tryb recovery > Format swap+fat32)</string>
 </resources>
