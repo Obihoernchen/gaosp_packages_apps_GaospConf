@@ -28,5 +28,5 @@
     <string name="applied">Neue Config wurde gespeichert und angewendet. Eventuell ist ein Neustart nötig.</string>
 	<string name="comptobig">Compcache Größe ist zu groß!</string>
 	<string name="swapwarning">Du musst eine externe SD Karte mit Swap Partition haben (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Standard Einstellungen geladen. Drücke "Neue Einstellungen anwenden" um diese zu speichern.</string>
+	<string name="defaults">Standard Einstellungen geladen. Drücke Neue Einstellungen anwenden um diese zu speichern.</string>
 </resources>

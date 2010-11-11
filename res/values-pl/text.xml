@@ -28,5 +28,5 @@
     <string name="applied">Nowe ustawienia zapisane i zastosowane. Może być wymagane ponowne uruchomienie telefonu.</string>
 	<string name="comptobig">Za duży rozmiar dysku Compcache!</string>
 	<string name="swapwarning">Musisz mieć zewnętrzną kartę SD z partycją swap (tryb recovery > Format swap+fat32)</string>
-	<string name="defaults">Defaults successfully loaded. Press "Apply new config" to save.</string>
+	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
 </resources>
