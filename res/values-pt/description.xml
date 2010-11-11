@@ -5,13 +5,13 @@
 	<string name="swap">Android usa o espaço Swap como memória extra para páginas da memória da aplicação que não estão efetivamente sendo usadas pela aplicação, mas foram modificadas (escritas). O espaço Swap mais o espaço RAM é a quantidade de memória virtual para o sistema. Crie a partição Swap com o Recovery primeiro.</string>
 	<string name="overclock1">Overclock de seu processador para 614 MHz.</string>
 	<string name="overclock2">Overclock de seu processador para 710 MHz. Instável em alguns dispositivos.</string>
-	<string name="sampling">.........</string>
-	<string name="sensors">.........</string>
+	<string name="sampling">It is time interval in which the device gets its own load. After each sample, device increases or decreases cpu speed regarding the load.</string>
+	<string name="sensors">How fast all Sensors will react.</string>
 	<string name="ssh">Permite rodar um shell Linux de seu computador no seu Galaxy.</string>
 	<string name="renice">Renasce/altera as prioridade de um ou mais processos rodando.</string>
 	<string name="provisionned">Você pode usar o seu Galaxy sem um cartão SIM.</string>
 	<string name="vnc">Você pode controlar o seu aparelho através do computador (usando um aplicativo especializado).</string>
-	<string name="bootani">.........</string>
-	<string name="servicemode">.........</string>
-	<string name="kitchen">.........</string>	
+	<string name="bootani">Uses a smaller bootanimation to decrease boot time.</string>
+	<string name="servicemode">For experts only! You can apply Audio Hack here.</string>
+	<string name="kitchen">Create your own custom Google Application Package.</string>
 </resources>

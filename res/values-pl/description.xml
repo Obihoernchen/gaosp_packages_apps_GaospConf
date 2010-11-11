@@ -13,5 +13,5 @@
 	<string name="vnc">Opcja ta pozwala na kontrolowanie telefonu przy użyciu klienta VNC na komputerze.</string>
 	<string name="bootani">Używa mniejszej animacji aby skrócić czas uruchamiania telefonu.</string>
 	<string name="servicemode">Tylko dla zaawansowanych użytkowników - można tutaj zastosować Audio Hack.</string>
-	<string name="kitchen">Stwórz niestandardową paczkę z aplikacjami Google.</string>	
+	<string name="kitchen">Stwórz niestandardową paczkę z aplikacjami Google.</string>
 </resources>
