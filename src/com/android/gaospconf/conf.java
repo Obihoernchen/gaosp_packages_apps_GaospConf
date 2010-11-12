@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,10 +34,10 @@ public class conf extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+           
         // Define variables
         String record = null;
-        int recCount = 0; 
+        String record2 = null;
         
         Boolean compcache = false;
         String compcache_disksize = null;
@@ -73,6 +74,12 @@ public class conf extends Activity {
         final CheckBox Check_sensors_sampling_mix = (CheckBox) findViewById(R.id.sensors05);
         final CheckBox Check_sensors_sampling_perf = (CheckBox) findViewById(R.id.sensors06);
         final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
+        final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
+        final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
+        final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
+        final EditText memory4_edit = (EditText) findViewById(R.id.memory4);
+        final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
+        final EditText memory6_edit = (EditText) findViewById(R.id.memory6);        
 		TextView Desccomptext = (TextView) findViewById(R.id.Textcomp);
 		TextView Desccompedit = (TextView) findViewById(R.id.Textcompedit);
 		TextView Descswap = (TextView) findViewById(R.id.Textswap);
@@ -101,7 +108,6 @@ public class conf extends Activity {
 		// Read config file
 		try {
 			while ((record = BR.readLine()) != null) {
-			    recCount++;
 			    if (record.equals("compcache=yes")) {
 			    	compcache = true;
 			    }
@@ -175,6 +181,31 @@ public class conf extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
+		
+		// Open minfree file
+		FileReader FR2 = null;
+		try {
+			FR2 = new FileReader("/sys/module/lowmemorykiller/parameters/minfree");
+			} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			} 
+		BufferedReader BR2 = new BufferedReader(FR2);
+			
+		// Read minfree file
+		try {
+		    while ((record2 = BR2.readLine()) != null) {
+		    	Pattern p = Pattern.compile(",");
+		   	   	String[] mem = p.split(record2);		   	   	
+		   	   	memory1_edit.setText(Integer.valueOf(mem[0]).intValue()*4/1024);
+		    	memory2_edit.setText(Integer.valueOf(mem[1]).intValue()*4/1024);
+		    	memory3_edit.setText(Integer.valueOf(mem[2]).intValue()*4/1024);
+		    	memory4_edit.setText(Integer.valueOf(mem[3]).intValue()*4/1024);
+		    	memory5_edit.setText(Integer.valueOf(mem[4]).intValue()*4/1024);
+		    	memory6_edit.setText(Integer.valueOf(mem[5]).intValue()*4/1024);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		// Complete and validate the fields and other
 		compcache_disksize_edit.setText(compcache_disksize);
@@ -479,7 +510,7 @@ public class conf extends Activity {
 				intent.setData(Uri.parse("http://kitchen.yaam.mobi/"));
 				startActivity(intent);
             }
-        });		
+        });
 		
 		Default_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -501,6 +532,12 @@ public class conf extends Activity {
 				Check_sensors_sampling_perf.setChecked(false);
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
+		   	   	memory1_edit.setText("6");
+		    	memory2_edit.setText("8");
+		    	memory3_edit.setText("16");
+		    	memory4_edit.setText("36");
+		    	memory5_edit.setText("40");
+		    	memory6_edit.setText("40");
 				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             }
         });   
@@ -756,8 +793,18 @@ public class conf extends Activity {
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
 					out.println("sensors_sampling=" + final_sensors_sampling);
 					out.println(" ");
+			
+					// Copying minfree settings to rc
 					
-					
+					out.println("# Minfree settings");
+					//out.println("mem1=" + (Integer.valueOf(memory1_edit.getText().toString()).intValue()*1024/4));
+					//out.println("mem2=" + (Integer.valueOf(memory2_edit.getText().toString()).intValue()*1024/4));
+					//out.println("mem3=" + (Integer.valueOf(memory3_edit.getText().toString()).intValue()*1024/4));
+					//out.println("mem4=" + (Integer.valueOf(memory4_edit.getText().toString()).intValue()*1024/4));
+					//out.println("mem5=" + (Integer.valueOf(memory5_edit.getText().toString()).intValue()*1024/4));
+					//out.println("mem6=" + (Integer.valueOf(memory6_edit.getText().toString()).intValue()*1024/4));
+					out.println(" ");
+															
 					// Executing rc with scrolling
 					new Task().execute();
 				

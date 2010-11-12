@@ -361,6 +361,170 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="4dip"
+	android:background="#FFFFFF"/>
+
+<!-- Memory thresholds -->	
+<TextView
+	android:id="@+id/Textmemorythresholds"
+	android:layout_width="fill_parent"
+	android:layout_height="40dip"
+    android:text="@string/TVmemorythresholds"
+	android:textSize="20sp"
+	android:textStyle="bold"
+	android:gravity="center"
+	android:clickable="true"/>
+
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="#222222">
+<TextView
+	android:id="@+id/Textforegroundapp"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVforegroundapp"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>	
+<EditText
+   	android:id="@+id/memory1"
+   	android:numeric="integer"
+  	android:singleLine="true"
+   	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>	
+	
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<TextView
+	android:id="@+id/Textvisibleapp"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVvisibleapp"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>	
+<EditText
+   	android:id="@+id/memory2"
+   	android:numeric="integer"
+  	android:singleLine="true"
+   	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="#222222">
+<TextView
+	android:id="@+id/Textsecondaryapp"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVsecondaryapp"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>	
+<EditText
+   	android:id="@+id/memory3"
+   	android:numeric="integer"
+  	android:singleLine="true"
+   	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<TextView
+	android:id="@+id/Texthiddenapp"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVhiddenapp"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>	
+<EditText
+   	android:id="@+id/memory4"
+   	android:numeric="integer"
+  	android:singleLine="true"
+   	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="#222222">
+<TextView
+	android:id="@+id/Textcontentapp"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVcontentapp"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>	
+<EditText
+   	android:id="@+id/memory5"
+   	android:numeric="integer"
+  	android:singleLine="true"
+   	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<TextView
+	android:id="@+id/Textemptyapp"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVemptyapp"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>	
+<EditText
+   	android:id="@+id/memory6"
+   	android:numeric="integer"
+  	android:singleLine="true"
+   	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
 <!-- Buttons -->
 <LinearLayout
 	android:layout_width="fill_parent"
