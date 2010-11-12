@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVcompcache">压缩缓存</string>
+    <string name="TVcompcachedisk">磁盘大小</string>
+    <string name="TVswap">只使用 Swap</string>
+    <string name="TVoverclock1">CPU 超频到 614 MHz</string>
+    <string name="TVoverclock2">CPU 超频到 710 MHz</string>
+    <string name="TVsampling">CPU 性能</string>
+    <string name="TVsensors">传感器反应</string>
+    <string name="TVssh">SSH 服务器</string>
+    <string name="TVrenice">重调优先级</string>
+    <string name="TVprovisionned">授权</string>
+    <string name="TVvnc">VNC 服务器 (端口 5901)</string>
+    <string name="TVbootani">使用小的开机动画</string>
+    <string name="TVservicemode">打开三星服务模式</string>
+	<string name="TVkitchen">打开 GAOSP Kitchen</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">经济</string>
+	<string name="CBmix">混合</string>
+	<string name="CBperf">性能</string>
+	<!-- Buttons -->
+	<string name="Bopen">打开</string>
+    <string name="Bdefaults">设置默认值</string>
+    <string name="Bapply">应用新设置</string>
+    <!-- Messages -->
+    <string name="wait">请稍等...</string>
+    <string name="applied">新配置已经保存并应用。你可以需要重启动。</string>
+	<string name="comptobig">压缩缓存的磁盘大小太大了！</string>
+	<string name="swapwarning">你的外置 SD 卡上必须有 SWAP 分区 (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+</resources>

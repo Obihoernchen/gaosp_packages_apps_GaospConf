@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVcompcache">Compcache</string>
+    <string name="TVcompcachedisk">Tamaño del compcache</string>
+    <string name="TVswap">Solo Swap</string>
+    <string name="TVoverclock1">Overclock del CPU a 614 MHz</string>
+    <string name="TVoverclock2">Overclock del CPU a 710 MHz</string>
+    <string name="TVsampling">Muestreo del CPU</string>
+    <string name="TVsensors">Reacción de sensores</string>
+    <string name="TVssh">Servidor SSH</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisionados</string>
+    <string name="TVvnc">Servidor VNC (puerto 5901)</string>
+    <string name="TVbootani">Usar animación de arranque más corta</string>
+    <string name="TVservicemode">Abrir el Modo de Servicio de Samsung</string>
+	<string name="TVkitchen">Abrir la Cocina de GAOSP</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Abrir</string>
+    <string name="Bdefaults">Volver a valores predeterminados</string>
+    <string name="Bapply">Aplicar nueva configuración</string>
+    <!-- Messages -->
+    <string name="wait">Favor de esperar..</string>
+    <string name="applied">Nueva configuración guardada y aplicada. Posiblemente necesite reiniciar.</string>
+	<string name="comptobig">¡El tamaño de Compcache es demasiado grande!</string>
+	<string name="swapwarning">Debe tener una tarjeta SD exterior con una partición Swap (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Ajustes predeterminados cargados exitosamente. Presione Aplicar nueva configuración para guardar.</string>
+</resources>

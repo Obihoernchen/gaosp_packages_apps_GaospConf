@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="compcache">Pakkaa sivutiedostot ja pidä ne RAM:issa virtuaalisesti lisäten RAM:in kapasiteettia. Tämä mahdollistaa useampien sovellusten samanaikaisen käytön, mutta se käyttää enemmän laitteen prosessoria. Tämä asetus aktivoi myös Swap osion.</string>
+	<string name="compcachedisk">Compcache:n levykoko</string>
+	<string name="swap">Android käyttää Swap tilaa "extra" muistina sivutiedostoille sovellusmuistissa, joita ei ole aktiivisesti käytetty sovelluksen toimesta, mutta on muokattu. Swap tilan koko plus RAM:in koko on systeemin käytettävissä olevan virtuaalisen muistin määrä. Luo Swap osio Recovery tilassa ennen käyttöä. Tarvitset erillisen SD kortin (Class 6 suositeltu).</string>
+	<string name="overclock1">Ylikellota prosessori -> 614 MHz.</string>
+	<string name="overclock2">Ylikellota prosessori -> 710 MHz. Epävakaa joillakin laitteilla.</string>
+	<string name="sampling">Laite säätelee prosessorin nopeutta tarpeen mukaan.</string>
+	<string name="sensors">Kuinka nopeasti sensorit reagoivat.</string>
+	<string name="ssh">Voit suorittaa Linux runkoa PC:ltäsi Galaxy laitteessasi.</string>
+	<string name="renice">Renice järjestelee prosessit uudelleen prioriteetin mukaan.</string>
+	<string name="provisionned">Voit käyttää Galaxy puhelintasi ilman SIM-korttia.</string>
+	<string name="vnc">Voit kontrolloida puhelinta tietokoneella(Käyttäen erikoistunutta sovellusta).</string>
+	<string name="bootani">Käyttää pienempää käynnistys animaatiota käynnistyksen nopeuttamiseksi.</string>
+	<string name="servicemode">Vain experteille! Täältä voit aktivoida Audio Hack.</string>
+	<string name="kitchen">Tee oma Google Sovellus Pakettisi.</string>
+</resources>

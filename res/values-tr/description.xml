@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="compcache">Sıkıştırılmış sayfaları RAM´de tutmak kapasiteyi arttırır. Bu, varolan alanda daha fazla program çalıştırılmasını sağlar. Ama daha fazla CPU süresi gerektirir. Aynı zamanda Swap´ı etkinleştirir.</string>
+	<string name="compcachedisk">Compcache büyüklüğü</string>
+	<string name="swap">Android,aktif ama uygulama belleği tarafından kullanılmayan,uygulama belleği sayfaları için "ekstra" bellek olarak takas alanı kullanır. Takas alanı ve RAM´in toplam büyüklüğü sistemin sanal bellek alanıdır. Öncelikle recovery modda takas bölümü oluşturun. Harici bir SD karta ihtiyacınız var.(Önerilen kart tipi Class 6).</string>
+	<string name="overclock1">İşlemciniz 614 Mhz´e overclock ediliyor.</string>
+	<string name="overclock2">İşlemciniz 710 Mhz´e overclock ediliyor. Bazı cihazlarda kararsızlığa neden olabilir.</string>
+	<string name="sampling">Her örneklemeden sonra işlemci hızı yüke bağlı olarak artar veya azalır.</string>
+	<string name="sensors">Sensörlerin ne kadar hızlı tepki vereceği.</string>
+	<string name="ssh">PC2niz üzerinden Galaxy´de Linux shellerini çalıştırmanıza izin verir.</string>
+	<string name="renice">Renice, çalışmakta olan bir veya daha fazla programın öncelik sırasını belirler.</string>
+	<string name="provisionned">Galaxy´nizi SIM Kart olmadan kullanabilirsiniz.</string>
+	<string name="vnc">Telefonunuzu bilgisayardan kontrol edebilirsiniz.(özel programlar kullanarak).</string>
+	<string name="bootani">Açılış süresini kısaltmak için daha hafif bir açılış animasyonu kullanır.</string>
+	<string name="servicemode">Sadece profesyoneller için! Audio Hack´i burdan yapabilirsiniz.</string>
+	<string name="kitchen">Kendi Google Program Paketinizi oluşturun.</string>
+</resources>

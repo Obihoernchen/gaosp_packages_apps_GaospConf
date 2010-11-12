@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- TextViews -->
+    <string name="TVcompcache">Compcache</string>
+    <string name="TVcompcachedisk">Grootte Compcache</string>
+    <string name="TVswap">Alleen swap</string>
+    <string name="TVoverclock1">Overklok CPU tot 614 MHz</string>
+    <string name="TVoverclock2">Overklok CPU tot 710 MHz</string>
+    <string name="TVsampling">CPU bemonstering</string>
+    <string name="TVsensors">Sensor bemonstering</string>
+    <string name="TVssh">SSH server</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisioned</string>
+    <string name="TVvnc">VNC server (port 5901)</string>
+    <string name="TVbootani">Gebruik kleinere opstartanimatie</string>
+    <string name="TVservicemode">Open Samsung service modus</string>
+	<string name="TVkitchen">Open GAOSP Keuken</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Open</string>
+    <string name="Bdefaults">Zet standaarden terug</string>
+    <string name="Bapply">Pas instellingen toe</string>
+    <!-- Messages -->
+    <string name="wait">Even geduld..</string>
+    <string name="applied">Nieuwe configuratie opgeslagen en toegepast. Mogelijk is een herstart vereist.</string>
+	<string name="comptobig">Te veel compcache!</string>
+	<string name="swapwarning">Je moet een externe SD kaart hebben met een swap partitie. (Recovery > Formwat swap+fat32)</string>
+	<string name="defaults">Standaarden geladen. Pas instellingen toe om ze op te slaan.</string>
+</resources>

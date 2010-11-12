@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVcompcache">Компресиран кеш</string>
+    <string name="TVcompcachedisk">Размер на диска</string>
+    <string name="TVswap">Само Swap</string>
+    <string name="TVoverclock1">Вдигане честотата на процесора до 614 MHz</string>
+    <string name="TVoverclock2">Вдигане честотата на процесора до 710 MHz</string>
+    <string name="TVsampling">Наблюдение на заетостта на CPU </string>
+    <string name="TVsensors">Реакция на сензорите</string>
+    <string name="TVssh">SSH сървър</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Заделен</string>
+    <string name="TVvnc">VNC сървър (порт 5901)</string>
+    <string name="TVbootani">Използва малка boot анимация</string>
+    <string name="TVservicemode">Отвори сервизен режим на Samsung</string>
+	<string name="TVkitchen">Отвори GAOSP Kitchen</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Отвори</string>
+    <string name="Bdefaults">Възстанови по подразбиране</string>
+    <string name="Bapply">Зарежда нова конфигурация</string>
+    <!-- Messages -->
+    <string name="wait">Моля изчакайте..</string>
+    <string name="applied">Новите настройки са запазени и активирани. Можете да рестартирате.</string>
+	<string name="comptobig">Размерът на дисковото пространство за compcache е твърде голям!</string>
+	<string name="swapwarning">Трябва да имате външна SD карта със swap дял (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+</resources>

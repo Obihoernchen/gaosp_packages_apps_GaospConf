@@ -24,9 +24,9 @@
     <string name="Bdefaults">Tornar padrão</string>
     <string name="Bapply">Aplicar nova configuração</string>
     <!-- Messages -->
-    <string name="wait">Please wait..</string>
-    <string name="applied">New config saved and applied. You may have to restart.</string>
-	<string name="comptobig">Compcache disksize is too big!</string>
-	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
+    <string name="wait">Aguarde..</string>
+    <string name="applied">Novas configurações salvas e aplicadas. Necessário reiniciar.</string>
+	<string name="comptobig">Espaço de Compcache é muito grande!</string>
+	<string name="swapwarning">É necessário um SD Card externo com uma partição SWAP (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
 </resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="compcache">压缩页面并保持在内存中以提高它的容量。这可以使用更多的程序可以在内存中运行，但是占用更多的 CPU 时间。它也同时激活 SWAP。</string>
+	<string name="compcachedisk">压缩缓存的大小</string>
+	<string name="swap">Android 使用交换空间做为额外的内存使用，可以使应用程序在不激活时保留在交换空间上。交换空间增加了系统的虚拟内存数量。如果没有建立 SWAP 分区，可以先使用复模式建立。你需要有外置 SD 卡（推荐使用 Class 6 的高速卡）。</string>
+	<string name="overclock1">超频你的处理器到 614 MHz。</string>
+	<string name="overclock2">超频你的处理器到 710 MHz。有些手机会不稳定。</string>
+	<string name="sampling">这是手机获取它的负载的时间间隔。每次采样后，手机会增加或减少 CPU 速度来调整负载。</string>
+	<string name="sensors">所有传感器的反应速度。</string>
+	<string name="ssh">允许你从电脑上运行一个在你的 Galaxy 上的 Linux 终端。</string>
+	<string name="renice">改变正在运行程序的优先优先级。</string>
+	<string name="provisionned">你可以无 SIM 卡时使用你的 Galaxy。</string>
+	<string name="vnc">你可以从电脑上控制你的手机（使用指定的程序）。</string>
+	<string name="bootani">使用小的开机动画以减少启动时间。</string>
+	<string name="servicemode">只有专家可以使用！你可以调整声音设置等。</string>
+	<string name="kitchen">建立你自己的 Google 应用程序包。</string>
+</resources>
