@@ -13,8 +13,8 @@
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC Server (Port 5901)</string>
     <string name="TVbootani">Kleinere Bootanimation</string>
-    <string name="TVservicemode">Samsung Service Modus App öffnen</string>
-    <string name="TVkitchen">GAOSP Kitchen öffnen</string>
+    <string name="TVservicemode">Samsung Service Modus App</string>
+    <string name="TVkitchen">GAOSP Kitchen</string>
     <!-- CheckBoxes -->
     <string name="CBeco">Eco</string>
     <string name="CBmix">Mix</string>
