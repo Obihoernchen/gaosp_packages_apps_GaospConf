@@ -195,13 +195,19 @@ public class conf extends Activity {
 		try {
 		    while ((record2 = BR2.readLine()) != null) {
 		    	Pattern p = Pattern.compile(",");
-		   	   	String[] mem = p.split(record2);		   	   	
-		   	   	memory1_edit.setText(Integer.valueOf(mem[0]).intValue()*4/1024);
-		    	memory2_edit.setText(Integer.valueOf(mem[1]).intValue()*4/1024);
-		    	memory3_edit.setText(Integer.valueOf(mem[2]).intValue()*4/1024);
-		    	memory4_edit.setText(Integer.valueOf(mem[3]).intValue()*4/1024);
-		    	memory5_edit.setText(Integer.valueOf(mem[4]).intValue()*4/1024);
-		    	memory6_edit.setText(Integer.valueOf(mem[5]).intValue()*4/1024);
+		   	   	String[] mem = p.split(record2);				   	   		   	   	
+		   	   	memory1_edit.setText(mem[0]);
+		    	memory2_edit.setText(mem[1]);
+		    	memory3_edit.setText(mem[2]);
+		    	memory4_edit.setText(mem[3]);
+		    	memory5_edit.setText(mem[4]);
+		    	memory6_edit.setText(mem[5]);
+		   	   	//memory1_edit.setText(Integer.valueOf(mem[0]).intValue()*4/1024);
+		    	//memory2_edit.setText(Integer.valueOf(mem[1]).intValue()*4/1024);
+		    	//memory3_edit.setText(Integer.valueOf(mem[2]).intValue()*4/1024);
+		    	//memory4_edit.setText(Integer.valueOf(mem[3]).intValue()*4/1024);
+		    	//memory5_edit.setText(Integer.valueOf(mem[4]).intValue()*4/1024);
+		    	//memory6_edit.setText(Integer.valueOf(mem[5]).intValue()*4/1024);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -532,12 +538,18 @@ public class conf extends Activity {
 				Check_sensors_sampling_perf.setChecked(false);
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
-		   	   	memory1_edit.setText("6");
-		    	memory2_edit.setText("8");
-		    	memory3_edit.setText("16");
-		    	memory4_edit.setText("36");
-		    	memory5_edit.setText("40");
-		    	memory6_edit.setText("40");
+				memory1_edit.setText("1536");
+		    	memory2_edit.setText("2048");
+		    	memory3_edit.setText("4096");
+		    	memory4_edit.setText("9216");
+		    	memory5_edit.setText("10240");
+		    	memory6_edit.setText("10240");
+				//memory1_edit.setText("6");
+		    	//memory2_edit.setText("8");
+		    	//memory3_edit.setText("16");
+		    	//memory4_edit.setText("36");
+		    	//memory5_edit.setText("40");
+		    	//memory6_edit.setText("40");
 				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             }
         });   
@@ -797,6 +809,12 @@ public class conf extends Activity {
 					// Copying minfree settings to rc
 					
 					out.println("# Minfree settings");
+					out.println("mem1=" + memory1_edit.getText());
+					out.println("mem2=" + memory2_edit.getText());
+					out.println("mem3=" + memory3_edit.getText());
+					out.println("mem4=" + memory4_edit.getText());
+					out.println("mem5=" + memory5_edit.getText());
+					out.println("mem6=" + memory6_edit.getText());
 					//out.println("mem1=" + (Integer.valueOf(memory1_edit.getText().toString()).intValue()*1024/4));
 					//out.println("mem2=" + (Integer.valueOf(memory2_edit.getText().toString()).intValue()*1024/4));
 					//out.println("mem3=" + (Integer.valueOf(memory3_edit.getText().toString()).intValue()*1024/4));
