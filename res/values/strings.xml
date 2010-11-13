@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">--- GAOSPConf v2 ---</string>
     <string name="app_name">GAOSP Configuration 2</string>
+    <string name="main_screen">MainScreen</string>
+    <string name="splash_screen">SplashScreen</string>    
 </resources>
