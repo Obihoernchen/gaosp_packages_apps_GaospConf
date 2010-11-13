@@ -2,17 +2,17 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Wielkosc dysku</string>
+    <string name="TVcompcachedisk">Wielkość dysku</string>
     <string name="TVswap">Tylko Swap</string>
-    <string name="TVoverclock1">Podkrec procesor do 614 MHz</string>
-    <string name="TVoverclock2">Podkrec procesor do 710 MHz</string>
+    <string name="TVoverclock1">Podkręć procesor do 614 MHz</string>
+    <string name="TVoverclock2">Podkręć procesor do 710 MHz</string>
     <string name="TVsampling">Samplowanie CPU</string>
     <string name="TVsensors">Reakcja czujników</string>
     <string name="TVssh">Serwer SSH</string>
     <string name="TVrenice">Renice</string>
     <string name="TVprovisionned">Provision</string>
     <string name="TVvnc">Serwer VNC (port 5901)</string>
-    <string name="TVbootani">Uzyj mniejszej animacji uruchamiania</string>
+    <string name="TVbootani">Użyj mniejszej animacji uruchamiania</string>
     <string name="TVservicemode">Otwórz tryb serwisowy Samsunga</string>
 	<string name="TVkitchen">Otwórz GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>
@@ -28,12 +28,12 @@
 	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otwórz</string>
-    <string name="Bdefaults">Ustaw domyslne</string>
+    <string name="Bdefaults">Ustaw domyślne</string>
     <string name="Bapply">Zastosuj ustawienia</string>
     <!-- Messages -->
-    <string name="wait">Prosze czekac...</string>
-    <string name="applied">Nowe ustawienia zapisane i zastosowane. Moze byc wymagane ponowne uruchomienie telefonu.</string>
-	<string name="comptobig">Za duzy rozmiar dysku Compcache!</string>
-	<string name="swapwarning">Musisz miec zewnetrzna karte SD z partycja swap (tryb recovery > Format swap+fat32)</string>
-	<string name="defaults">Domyslne ustawienia zaladowane. Wcisnij "Zastosuj ustawienia" nowej konfiguracji aby je zapisac.</string>
+    <string name="wait">Proszę czekać...</string>
+    <string name="applied">Nowe ustawienia zapisane i zastosowane. Może być wymagane ponowne uruchomienie telefonu.</string>
+	<string name="comptobig">Za duży rozmiar dysku Compcache!</string>
+	<string name="swapwarning">Musisz mieć zewnętrzną kartę SD z partycją swap (tryb recovery > Format swap+fat32)</string>
+	<string name="defaults">Domyślne ustawienia załadowane. Wciśnij "Zastosuj ustawienia" nowej konfiguracji aby je zapisać.</string>
 </resources>
