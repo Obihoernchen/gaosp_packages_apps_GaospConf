@@ -15,7 +15,7 @@
     <string name="TVbootani">Use smaller bootanimation</string>
     <string name="TVservicemode">Open Samsung service mode</string>
 	<string name="TVkitchen">Open GAOSP Kitchen</string>
-	<string name="TVmemorythresholds">Memory thresholds</string>	
+	<string name="TVmemorythresholds">Memory Thresholds</string>
 	<string name="TVforegroundapp">Foreground app</string>
 	<string name="TVvisibleapp">Visible app</string>
 	<string name="TVsecondaryapp">Secondary Server</string>

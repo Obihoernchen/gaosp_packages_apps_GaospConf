@@ -34,7 +34,7 @@ public class conf extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-           
+        
         // Define variables
         String record = null;
         String record2 = null;
@@ -79,8 +79,8 @@ public class conf extends Activity {
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
         final EditText memory4_edit = (EditText) findViewById(R.id.memory4);
         final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
-        final EditText memory6_edit = (EditText) findViewById(R.id.memory6);        
-		TextView Desccomptext = (TextView) findViewById(R.id.Textcomp);
+        final EditText memory6_edit = (EditText) findViewById(R.id.memory6);	
+        TextView Desccomptext = (TextView) findViewById(R.id.Textcomp);
 		TextView Desccompedit = (TextView) findViewById(R.id.Textcompedit);
 		TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descoverclock1 = (TextView) findViewById(R.id.Textoverclock1);
@@ -94,6 +94,13 @@ public class conf extends Activity {
 		TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
 		TextView Descservice = (TextView) findViewById(R.id.Textservice);
 		TextView Desckitchen = (TextView) findViewById(R.id.Textkitchen);
+		TextView Descmemorythresholds = (TextView) findViewById(R.id.Textmemorythresholds);		
+		TextView Descforegroundapp = (TextView) findViewById(R.id.Textforegroundapp);
+		TextView Descvisibleapp = (TextView) findViewById(R.id.Textvisibleapp);
+		TextView Descsecondaryapp = (TextView) findViewById(R.id.Textsecondaryapp);
+		TextView Deschiddenapp = (TextView) findViewById(R.id.Texthiddenapp);
+		TextView Desccontentapp = (TextView) findViewById(R.id.Textcontentapp);
+		TextView Descemptyapp = (TextView) findViewById(R.id.Textemptyapp);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
         
         // Open config file
@@ -202,7 +209,8 @@ public class conf extends Activity {
 		    	memory4_edit.setText(mem[3]);
 		    	memory5_edit.setText(mem[4]);
 		    	memory6_edit.setText(mem[5]);
-		   	   	//memory1_edit.setText(Integer.valueOf(mem[0]).intValue()*4/1024);
+		    	//memory1_edit.setText(Integer.parseInt(mem[0])*4/1024);    	
+		    	//memory1_edit.setText(Integer.valueOf(mem[0]).intValue()*4/1024);
 		    	//memory2_edit.setText(Integer.valueOf(mem[1]).intValue()*4/1024);
 		    	//memory3_edit.setText(Integer.valueOf(mem[2]).intValue()*4/1024);
 		    	//memory4_edit.setText(Integer.valueOf(mem[3]).intValue()*4/1024);
@@ -286,7 +294,7 @@ public class conf extends Activity {
 			Check_sensors_sampling_perf.setChecked(true);
 		}
 		
-		// Listener
+		// TextView Listener (Descriptions)
 	    Desccomptext.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVcompcache);
@@ -491,13 +499,119 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
     		}
-        });    
-				
+        });
+		Descmemorythresholds.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVmemorythresholds);
+	    		alertbox.setMessage(R.string.memorythresholds);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Descforegroundapp.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVforegroundapp);
+	    		alertbox.setMessage(R.string.foregroundapp);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Descvisibleapp.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVvisibleapp);
+	    		alertbox.setMessage(R.string.visibleapp);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Descsecondaryapp.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVsecondaryapp);
+	    		alertbox.setMessage(R.string.secondaryapp);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Deschiddenapp.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVhiddenapp);
+	    		alertbox.setMessage(R.string.hiddenapp);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Desccontentapp.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVcontentapp);
+	    		alertbox.setMessage(R.string.contentapp);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Descemptyapp.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVemptyapp);
+	    		alertbox.setMessage(R.string.emptyapp);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}               	
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		
+		// Button Listener
 		Service_Button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 	            	String encodedHash = Uri.encode("#");
@@ -509,7 +623,6 @@ public class conf extends Activity {
 	                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             }
         });
-		
 		Kitchen_Button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -518,6 +631,7 @@ public class conf extends Activity {
             }
         });
 		
+		// Default Button
 		Default_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Toggle_Compcache.setChecked(false);
@@ -552,8 +666,9 @@ public class conf extends Activity {
 		    	//memory6_edit.setText("40");
 				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             }
-        });   
+        });
 		
+		// Apply Button
 		Apply_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	PrintWriter out = null;            	        	
@@ -802,12 +917,11 @@ public class conf extends Activity {
 
 					}
 					out.println("# Sensors sampling rate");
-					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
+					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
 					out.println("sensors_sampling=" + final_sensors_sampling);
 					out.println(" ");
 			
-					// Copying minfree settings to rc
-					
+					// Copying minfree settings to rc				
 					out.println("# Minfree settings");
 					out.println("mem1=" + memory1_edit.getText());
 					out.println("mem2=" + memory2_edit.getText());
@@ -825,7 +939,7 @@ public class conf extends Activity {
 															
 					// Executing rc with scrolling
 					new Task().execute();
-				
+
 					// Close file
 					out.flush();
 					out.close();
@@ -836,8 +950,8 @@ public class conf extends Activity {
 					// NativeTask.runCommand("/system/xbin/su -c /system/xbin/remountro");
             	}
             }
-        });   
-				
+        });
+		// Check for dependences
 		Check_sampling_eco.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
@@ -924,7 +1038,7 @@ public class conf extends Activity {
 			}
 		});
     }
-    
+    // Create Menu
     public boolean onCreateOptionsMenu(Menu menu) 
     {
     	super.onCreateOptionsMenu(menu);
@@ -955,20 +1069,20 @@ public class conf extends Activity {
        }
     
     final class Task extends UserTask<String, Void, Void> {
-
+    	// Create ProgressDialog
     	ProgressDialog myProgressDialog; 
     	protected void onPreExecute() {
     			 myProgressDialog = ProgressDialog.show(conf.this,"", getString(R.string.wait), true, true);
     	}
-    	
+    	// Execute rc
     	@Override
     	protected Void doInBackground(String... params) {
-    		String[] rc = { "/system/xbin/su -c /system/bin/rc"};
+    		String[] rc = { "/system/xbin/su -c /system/bin/rc" };
     		shell.doExec(rc, true);
     		//NativeTask.runCommand("/system/xbin/su -c /system/bin/rc");
 			return null;
     	}
-    	
+    	// Success message
     	protected void onPostExecute(Void unused) {
     			
     			if (myProgressDialog.isShowing()) {
