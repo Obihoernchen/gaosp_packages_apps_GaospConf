@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Pakkaa sivutiedostot ja pidä ne RAM:issa virtuaalisesti lisäten RAM:in kapasiteettia. Tämä mahdollistaa useampien sovellusten samanaikaisen käytön, mutta se käyttää enemmän laitteen prosessoria. Tämä asetus aktivoi myös Swap osion.</string>
-	<string name="compcachedisk">Compcache:n levykoko</string>
-	<string name="swap">Android käyttää Swap tilaa "extra" muistina sivutiedostoille sovellusmuistissa, joita ei ole aktiivisesti käytetty sovelluksen toimesta, mutta on muokattu. Swap tilan koko plus RAM:in koko on systeemin käytettävissä olevan virtuaalisen muistin määrä. Luo Swap osio Recovery tilassa ennen käyttöä. Tarvitset erillisen SD kortin (Class 6 suositeltu).</string>
-	<string name="overclock1">Ylikellota prosessori -> 614 MHz.</string>
-	<string name="overclock2">Ylikellota prosessori -> 710 MHz. Epävakaa joillakin laitteilla.</string>
-	<string name="sampling">Laite säätelee prosessorin nopeutta tarpeen mukaan.</string>
-	<string name="sensors">Kuinka nopeasti sensorit reagoivat.</string>
-	<string name="ssh">Voit suorittaa Linux runkoa PC:ltäsi Galaxy laitteessasi.</string>
-	<string name="renice">Renice järjestelee prosessit uudelleen prioriteetin mukaan.</string>
-	<string name="provisionned">Voit käyttää Galaxy puhelintasi ilman SIM-korttia.</string>
-	<string name="vnc">Voit kontrolloida puhelinta tietokoneella(Käyttäen erikoistunutta sovellusta).</string>
-	<string name="bootani">Käyttää pienempää käynnistys animaatiota käynnistyksen nopeuttamiseksi.</string>
-	<string name="servicemode">Vain experteille! Täältä voit aktivoida Audio Hack.</string>
-	<string name="kitchen">Tee oma Google Sovellus Pakettisi.</string>
+    <string name="compcache">Compresarea paginilor (compcache) si pastrarea lor in RAM-ul virtual mareste capcitatea sa. Aceasta permite aplicatiilor sa se deschida in memoria alocata. Dar foloseste mai mult procesorul. Aceasta mai activeaza si Swap.</string>
+	<string name="compcachedisk">Dimensiune compcache</string>
+	<string name="swap">Android foloseşte spatiul de swap ca "extra" memorie pentru aplicatii care nu sunt folosite in mod activ de punerea in aplicare, dar au fost modificate (scrise). Dimensiunea spatiu swap plus RAM reprezinta cantitatea totala de memorie virtuala a sistem-ului. Creaza paritie swap in recovery prima data. Ai nevoie de un card SD extern (recomandat Clasa 6 ).</string>
+	<string name="overclock1">Overclock la 614 MHz.</string>
+	<string name="overclock2">Overclock la 710 MHz. Instabil pe unele aparate.</string>
+	<string name="sampling">Reprezinta intervalul de timp in care aparatul se incarca. Dupa fiecare "proba", aparatul creste sau scade frecventa in functie de incarcare.</string>
+	<string name="sensors">Cat de repede reactioneaza senzorii.</string>
+	<string name="ssh">Va permite ss rulati un shell Linux de pe PC pe Galaxy-ul dumneavoastra</string>
+	<string name="renice">Renice modifica programarea prioritatii  a unuia sau a mai multor procese care ruleaza.</string>
+	<string name="provisionned">Puteti folosi Galaxy-ul dvs fara o cartela SIM.</string>
+	<string name="vnc">Puteti controla telefonul de pe PC (folosind o aplicatie dedicata).</string>
+	<string name="bootani">Foloseste o animatie de boot mai mica pentru a reduce timpul de incarcare a sistemului.</string>
+	<string name="servicemode">Doar pentru experti! Puteti aplica Audio Hack aici.</string>
+	<string name="kitchen">Creazati propriul pachet de aplicatii  Google.</string>
 	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
 	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
 	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>

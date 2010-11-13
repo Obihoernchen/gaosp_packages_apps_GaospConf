@@ -15,6 +15,13 @@
     <string name="TVbootani">Daha hafif açılış animasyonu kullan</string>
     <string name="TVservicemode">Samsung servis modunda aç</string>
 	<string name="TVkitchen">GAOSP Kitchen´ı aç</string>
+	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app</string>
+	<string name="TVvisibleapp">Visible app</string>
+	<string name="TVsecondaryapp">Secondary Server</string>
+	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVcontentapp">Content provider</string>
+	<string name="TVemptyapp">Empty app</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>

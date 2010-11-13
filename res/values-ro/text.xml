@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- TextViews -->
+    <string name="TVcompcache">Compcache</string>
+    <string name="TVcompcachedisk">Dimensiune</string>
+    <string name="TVswap">Doar Swap</string>
+    <string name="TVoverclock1">Overclock la 614 MHz</string>
+    <string name="TVoverclock2">Overclock la 710 MHz</string>
+    <string name="TVsampling">CPU sampling</string>
+    <string name="TVsensors">Reactia senzorilor</string>
+    <string name="TVssh">Server SSH</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisioned</string>
+    <string name="TVvnc">Server VNC(port 5901)</string>
+    <string name="TVbootani">Foloseste o animatie de boot mai mica</string>
+    <string name="TVservicemode">Deschide mod service Samsung</string>
+	<string name="TVkitchen">Deschide GAOSP Kitchen</string>
+	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app</string>
+	<string name="TVvisibleapp">Visible app</string>
+	<string name="TVsecondaryapp">Secondary Server</string>
+	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVcontentapp">Content provider</string>
+	<string name="TVemptyapp">Empty app</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Deschide</string>
+    <string name="Bdefaults">Setari implicite</string>
+    <string name="Bapply">Aplica noua configuratie</string>
+    <!-- Messages -->
+    <string name="wait">Va rugam asteptati...</string>
+    <string name="applied">Noua configuratie aplicata si salvata. S-ar putea sa fie nevoie de un restart.</string>
+	<string name="comptobig">Dimensiunea spatiului Compcache este prea mare!</string>
+	<string name="swapwarning">Trebuie sa aveti un card SD extern pentru Swap (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Setari implicite incarcate cu succes. Apasati Aplica noua configuratie pentru a salva.</string>
+</resources>

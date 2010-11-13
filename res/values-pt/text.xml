@@ -2,7 +2,7 @@
 <resources>
     <!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Tamanho de disco</string>
+    <string name="TVcompcachedisk">Tamanho</string>
     <string name="TVswap">Somente Swap</string>
     <string name="TVoverclock1">Overclock CPU para 710 MHz</string>
     <string name="TVoverclock2">Overclock CPU para 614 MHz</string>
@@ -15,6 +15,13 @@
     <string name="TVbootani">Usa uma animação de boot menor</string>
     <string name="TVservicemode">Abre o modo de serviço Samsung</string>
     <string name="TVkitchen">Abre o GAOSP Kitchen</string>
+	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app</string>
+	<string name="TVvisibleapp">Visible app</string>
+	<string name="TVsecondaryapp">Secondary Server</string>
+	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVcontentapp">Content provider</string>
+	<string name="TVemptyapp">Empty app</string>
     <!-- CheckBoxes -->
     <string name="CBeco">Econômico</string>
     <string name="CBmix">Meio termo</string>

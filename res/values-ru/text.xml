@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- TextViews -->
-    <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Размер на диске</string>
-    <string name="TVswap">Только Swap</string>
-    <string name="TVoverclock1">Разгон CPU до 614 MHz</string>
-    <string name="TVoverclock2">Разгон CPU до 710 MHz</string>
-    <string name="TVsampling">CPU sampling</string>
-    <string name="TVsensors">Скорость сенсоров</string>
-    <string name="TVssh">SSH сервер</string>
-    <string name="TVrenice">Renice</string>
-    <string name="TVprovisionned">Provisioned</string>
-    <string name="TVvnc">Сервер VNC (порт 5901)</string>
-    <string name="TVbootani">Использовать меньший логотип загрузки</string>
-    <string name="TVservicemode">Войти в сервисный режим</string>
-	<string name="TVkitchen">Открыть кухню GAOSP</string>
+	<string name="TVcompcache">Compcache</string>
+	<string name="TVcompcachedisk">Размер</string>
+	<string name="TVswap">Только Swap</string>
+	<string name="TVoverclock1">Разгон ЦП до 614 МГц</string>
+	<string name="TVoverclock2">Разгон ЦП до 710 МГц</string>
+	<string name="TVsampling">Режим</string>
+	<string name="TVsensors">Скорость сенсоров</string>
+	<string name="TVssh">Сервер SSH</string>
+	<string name="TVrenice">Renice</string>
+	<string name="TVprovisionned">Provisionned</string>
+	<string name="TVvnc">Сервер VNC (порт 5901)</string>
+	<string name="TVbootani">Упрощённая анимация при загрузке</string>
+	<string name="TVservicemode">Войти в сервисный режим Samsung</string>
+	<string name="TVkitchen">Запустить "кухню" GAOSP</string>
+	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app</string>
+	<string name="TVvisibleapp">Visible app</string>
+	<string name="TVsecondaryapp">Secondary Server</string>
+	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVcontentapp">Content provider</string>
+	<string name="TVemptyapp">Empty app</string>
 	<!-- CheckBoxes -->
-	<string name="CBeco">Эко.</string>
-	<string name="CBmix">Смешан.</string>
+	<string name="CBeco">Экон.</string>
+	<string name="CBmix">Смеш.</string>
 	<string name="CBperf">Произв.</string>
 	<!-- Buttons -->
-	<string name="Bopen">Открыть</string>
-    <string name="Bdefaults">Настройки по-умолчанию</string>
-    <string name="Bapply">Применить новую конфигурацию</string>
-    <!-- Messages -->
-    <string name="wait">Пожалуйста, ждите...</string>
-    <string name="applied">Новая конфигурация применена. Необходимо сделать перезагрузку.</string>
+	<string name="Bopen">Пуск!</string>
+	<string name="Bdefaults">По умолчанию</string>
+	<string name="Bapply">Применить</string>
+	<!-- Messages -->
+	<string name="wait">Подождите, пожалуйста...</string>
+	<string name="applied">Новая конфигурация применена и сохранена. Вероятно, понадобится перезагрузка.</string>
 	<string name="comptobig">Размер Compcache слишком большой!</string>
-	<string name="swapwarning">У вас должна быть внешняя SD карта с подготовленным разделом для swap файла (Recovery > Format swap+fat32).</string>
-	<string name="defaults">Настройки по-умолчанию загружены. Нажмите "Применить новую конфигурацию" для сохранения.</string>
+	<string name="swapwarning">Вам необходима внешняя карта памяти с разделом Swap (Recovery » Format swap+fat32).</string>
+	<string name="defaults">Загружены настройки по умолчанию. Нажмите "Применить" для подтверждения.</string>
 </resources>

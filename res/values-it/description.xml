@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Pakkaa sivutiedostot ja pidä ne RAM:issa virtuaalisesti lisäten RAM:in kapasiteettia. Tämä mahdollistaa useampien sovellusten samanaikaisen käytön, mutta se käyttää enemmän laitteen prosessoria. Tämä asetus aktivoi myös Swap osion.</string>
-	<string name="compcachedisk">Compcache:n levykoko</string>
-	<string name="swap">Android käyttää Swap tilaa "extra" muistina sivutiedostoille sovellusmuistissa, joita ei ole aktiivisesti käytetty sovelluksen toimesta, mutta on muokattu. Swap tilan koko plus RAM:in koko on systeemin käytettävissä olevan virtuaalisen muistin määrä. Luo Swap osio Recovery tilassa ennen käyttöä. Tarvitset erillisen SD kortin (Class 6 suositeltu).</string>
-	<string name="overclock1">Ylikellota prosessori -> 614 MHz.</string>
-	<string name="overclock2">Ylikellota prosessori -> 710 MHz. Epävakaa joillakin laitteilla.</string>
-	<string name="sampling">Laite säätelee prosessorin nopeutta tarpeen mukaan.</string>
-	<string name="sensors">Kuinka nopeasti sensorit reagoivat.</string>
-	<string name="ssh">Voit suorittaa Linux runkoa PC:ltäsi Galaxy laitteessasi.</string>
-	<string name="renice">Renice järjestelee prosessit uudelleen prioriteetin mukaan.</string>
-	<string name="provisionned">Voit käyttää Galaxy puhelintasi ilman SIM-korttia.</string>
-	<string name="vnc">Voit kontrolloida puhelinta tietokoneella(Käyttäen erikoistunutta sovellusta).</string>
-	<string name="bootani">Käyttää pienempää käynnistys animaatiota käynnistyksen nopeuttamiseksi.</string>
-	<string name="servicemode">Vain experteille! Täältä voit aktivoida Audio Hack.</string>
-	<string name="kitchen">Tee oma Google Sovellus Pakettisi.</string>
+    <string name="compcache">Compressione pagine nella memoria RAM virtuale aumentandone la disponibilità. Consente la gestione di più applicazioni a parità di memoria disponibile. Richiede lavoro aggiuntivo per la CPU. Richiede l´attivazione della memoria SWAP.</string>
+    <string name="compcachedisk">Dimensione di compcache</string>
+    <string name="swap">Android utilizza la memoria SWAP per aumentare la memoria a disposizione; utile per applicazioni che lavorano in background, utilizzate meno frequentemente o che richiedono molta memoria. La memoria SWAP aumenta la memoria virtuale a disposizione. Prima di attivare creare la partizione SWAP mediante l´opzione in recovery. Necessaria MicroSD esterna (consigliata Classe6).</string>
+    <string name="overclock1">Overclocca il processore a 614 MHz. MHz.</string>
+    <string name="overclock2">Overclocca il processore a 710 MHz. Instabile su alcuni telefoni.</string>
+    <string name="sampling">Intervallo di tempo in cui il processore analizza il carico di lavoro. Dopo l´analisi, viene aumentata o diminuita la frequenza della CPU in base al carico.</string>
+  	<string name="sensors">Velocità di reazione dei sensori.</string>
+    <string name="ssh">Possibilità di aprire un terminale Linux dal PC sul Galaxy.</string>
+    <string name="renice">Renice modifica le priorità di esecuzione dei processi attivi.</string>
+  	<string name="provisionned">Possibilità di utilizzo del Galaxy senza SIM Card.</string>
+    <string name="vnc">Possibilità di controllare il Galaxy dal proprio computer attraverso un´applicazione specifica.</string>
+    <string name="bootani">Utilizza una  bootanimation più leggera per velocizzare l´avvio del telefono.</string>
+    <string name="servicemode">Per esperti! Possibilità di applicare Hack dell´Audio.</string>
+    <string name="kitchen">Crea un pacchetto personalizzato di applicazioni Google.</string>
 	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
 	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
 	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>

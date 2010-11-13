@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVcompcache">Compcache</string>
+    <string name="TVcompcachedisk">Disk størrelse</string>
+    <string name="TVswap">Kun swap</string>
+    <string name="TVoverclock1">Overclock CPU til 614 MHz</string>
+    <string name="TVoverclock2">Overclock CPU til 710 MHz</string>
+    <string name="TVsampling">CPU sampling</string>
+    <string name="TVsensors">Sensor reaktion</string>
+    <string name="TVssh">SSH server</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Forsynet</string>
+    <string name="TVvnc">VNC server (port 5901)</string>
+    <string name="TVbootani">Brug mindre opstarts animation</string>
+    <string name="TVservicemode">Åben Samsung service tilstand</string>
+	<string name="TVkitchen">Åben GAOSP Køkken</string>
+	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app</string>
+	<string name="TVvisibleapp">Visible app</string>
+	<string name="TVsecondaryapp">Secondary Server</string>
+	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVcontentapp">Content provider</string>
+	<string name="TVemptyapp">Empty app</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Øko</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Fart</string>
+	<!-- Buttons -->
+	<string name="Bopen">Åben</string>
+    <string name="Bdefaults">Sæt standard indstillinger</string>
+    <string name="Bapply">Aktiver ny konfiguration</string>
+    <!-- Messages -->
+    <string name="wait">Vent venligst..</string>
+    <string name="applied">Ny konfiguration gemt og aktiveret. Du er nok nødsaget til at genstarte.</string>
+	<string name="comptobig">Compcache diskstørrelse er for stor!</string>
+	<string name="swapwarning">Du er nødt til at have et eksternt SD med swap område tildelt (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Standard indstillinger indlæst med succes. Tryk Aktiver ny konfiguration for at tildele dem.</string>
+</resources>

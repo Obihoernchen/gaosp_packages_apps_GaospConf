@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Pakkaa sivutiedostot ja pidä ne RAM:issa virtuaalisesti lisäten RAM:in kapasiteettia. Tämä mahdollistaa useampien sovellusten samanaikaisen käytön, mutta se käyttää enemmän laitteen prosessoria. Tämä asetus aktivoi myös Swap osion.</string>
-	<string name="compcachedisk">Compcache:n levykoko</string>
-	<string name="swap">Android käyttää Swap tilaa "extra" muistina sivutiedostoille sovellusmuistissa, joita ei ole aktiivisesti käytetty sovelluksen toimesta, mutta on muokattu. Swap tilan koko plus RAM:in koko on systeemin käytettävissä olevan virtuaalisen muistin määrä. Luo Swap osio Recovery tilassa ennen käyttöä. Tarvitset erillisen SD kortin (Class 6 suositeltu).</string>
-	<string name="overclock1">Ylikellota prosessori -> 614 MHz.</string>
-	<string name="overclock2">Ylikellota prosessori -> 710 MHz. Epävakaa joillakin laitteilla.</string>
-	<string name="sampling">Laite säätelee prosessorin nopeutta tarpeen mukaan.</string>
-	<string name="sensors">Kuinka nopeasti sensorit reagoivat.</string>
-	<string name="ssh">Voit suorittaa Linux runkoa PC:ltäsi Galaxy laitteessasi.</string>
-	<string name="renice">Renice järjestelee prosessit uudelleen prioriteetin mukaan.</string>
-	<string name="provisionned">Voit käyttää Galaxy puhelintasi ilman SIM-korttia.</string>
-	<string name="vnc">Voit kontrolloida puhelinta tietokoneella(Käyttäen erikoistunutta sovellusta).</string>
-	<string name="bootani">Käyttää pienempää käynnistys animaatiota käynnistyksen nopeuttamiseksi.</string>
-	<string name="servicemode">Vain experteille! Täältä voit aktivoida Audio Hack.</string>
-	<string name="kitchen">Tee oma Google Sovellus Pakettisi.</string>
+    <string name="compcache">Kompresira stranice i drzi ih u RAM-u te virtualno povecava svoj kapacitet. Ovo omogucava da vise aplikacija stane u zadanoj memoriji. Ali to koristi dodatno vrijeme procesora. Takoder aktivira Swap.</string>
+	<string name="compcachedisk">Velicina od compcache-a</string>
+	<string name="swap">Android koristi swap prostor kao dodatnu memoriju za stranice memorija aplikacija koje se ne koriste aktivno od strane aplikacija ali su modificirane (upisane u). Swap prostor plus velicina RAM-a je sveukupna kolicina virtualne memorije u sistemu. Kreiraj swap particiju u recovery mode-u prvo. Tribas vanjsku SD karticu (Class-a 6 preporucena).</string>
+	<string name="overclock1">Overklokanje procesora na 614 MHz.</string>
+	<string name="overclock2">Overklokanje procesora na 710 MHz. Nestabilno na nekim uredajima.</string>
+	<string name="sampling">To je vremenski iterval u kojem uredaj dobija svoje opterecenje. Nakon svakog uzorka, uredaj povecava i smanjuje brzinu procesora s obzirom na opterecenje.</string>
+	<string name="sensors">Kako brzo ce svi senzori reagirati.</string>
+	<string name="ssh">Dopusta ti pokretanje Linux shell-a sa PC-a na Galaxy.</string>
+	<string name="renice">Renice mijenja raspored prioriteta jednog ili vise procesa u tijeku.</string>
+	<string name="provisionned">Mozes koristit svoj Galaksi bez SIM kartice.</string>
+	<string name="vnc">Mozes kontrolirati mobitel sa kompjutera (koristeci specijalnu aplikaciju).</string>
+	<string name="bootani">Koristi manju animaciju pri pokrecanju da skrati vrijeme pokretanja.</string>
+	<string name="servicemode">Za eksperte samo! Mozes primjeniti Audio Hack ovdje.</string>
+	<string name="kitchen">Kreiraj svoj vlastit Google Aplikacijski paket.</string>
 	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
 	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
 	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>

@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Реализует хранение раздела подкачки в сжатом виде в оперативной памяти. Это позволяет большему количеству приложений уместиться в памяти, за счет ресурсов процессора. Также активирует и Swap.</string>
+	<string name="compcache">Compcache (Compressed Cache) реализует хранение раздела подкачки в оперативной памяти в сжатом виде. Сжатие позволяет большему количеству приложений уместиться в том же количестве памяти. Однако это увеличивает нагрузку на процессор, а также активирует Swap.</string>
 	<string name="compcachedisk">Размер Compcache</string>
-	<string name="swap">Увеличение виртуальной памяти для неактивно работающих программ, за счет свободного места  на внешней SD карте. Общий объем виртуальной памяти = сумма объемов Swap файла и оперативной памяти. Сначала необходимо создать раздел для Swap через рекавери, используя для этого внешнюю SD карту (рекомендуется не ниже 6 класса).</string>
-	<string name="overclock1">Увеличение частоты процессора до 614 MHz.</string>
-	<string name="overclock2">Увеличение частоты процессора до 710 MHz. Может привести к нестабильности на некоторых устройствах.</string>
-	<string name="sampling">Временной интервал, в течение которого телефон определяет нагрузку. После каждого замера, телефон увеличивает или уменьшает частоту работы процессора, в зависимости от нагрузки.</string>
-	<string name="sensors">Скорость реакции сенсорных датчиков телефона.</string>
-	<string name="ssh">Позволяет запустить с вашего компьютера консоль Linux на телефоне.</string>
-	<string name="renice">Изменяет приоритет использования процессора для одного или нескольких запущенных процессов.</string>
-	<string name="provisionned">Возможность использования телефона без сим-карты.</string>
-	<string name="vnc">Возможность управлять вашим телефоном с компьютера (используя специальное приложение).</string>
-	<string name="bootani">Использовать меньший по размеру логотип для уменьшения времени загрузки телефона.</string>
-	<string name="servicemode">Сервисный режим, только для экспертов! Здесь можно настроить громкость звука (Audio Hack).</string>
-	<string name="kitchen">Кухня приложений - создание своего собственного набора приложений Google.</string>
+	<string name="swap">Android использует Swap как дополнительную память для тех страниц памяти приложения, которые не используются активно, но запись в которые производилась. Размер Swap плюс размер оперативной памяти составляют фактический (виртуальный) размер памяти системы. Для использования данного механизма необходимо создать в режиме Recovery Swap-раздел, для чего вам понадобится внешняя карта памяти (желательно не ниже 6 класса).</string>
+	<string name="overclock1">Увеличение частоты процессора до 614 МГц.</string>
+	<string name="overclock2">Увеличение частоты процессора до 710 МГц. Может привести к нестабильной работе на некоторых устройствах.</string>
+	<string name="sampling">CPU Sampling - временной интервал, в течение которого устройство определяет свою нагрузку. После каждого замера частота процессора увеличивается или уменьшается в зависимости от этой нагрузки.</string>
+	<string name="sensors">Скорость реакции сенсорных датчиков.</string>
+	<string name="ssh">Позволяет запустить с вашего компьютера консоль Linux на коммуникаторе.</string>
+	<string name="renice">Позволяет изменять приоритеты для запущенных процессов.</string>
+	<string name="provisionned">Возможность использования коммуникатора без сим-карты.</string>
+	<string name="vnc">Возможность управлять коммуникатором через компьютер (используя специализированное приложение).</string>
+	<string name="bootani">Упрощённая анимация во время загрузки системы (для ускорения процесса загрузки).</string>
+	<string name="servicemode">Сервисный режим, только для экспертов! Здесь можно произвести тонкую настройку звука (Audio Hack).</string>
+	<string name="kitchen">"Кухня приложений" - создание своего собственного пакета приложений Google.</string>
+	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
+	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
+	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>
+	<string name="secondaryapp">This is a process (a service that an application needs) that is alive and ready in case it is needed to do something. Do not change this value unless you have much knowledge about that!</string>
+	<string name="hiddenapp">This again is a process, that sits idle (but still alive) in case it is needed by an app that is alive and running. Be careful with this setting!</string>
+	<string name="contentapp">They are applications that provide data (content) to the system. So are things like the Android Market, or Google Sync. If they are alive, they can refresh and provide the content they are supposed to at the set interval. If you kill them, they can not of course.</string>
+	<string name="emptyapp">We call these "ghosts." They are applications that you have opened, but are done with them. Android uses a unique style of handling memory management. When an activity is ended, instead of killing it off Android keeps the application in memory so that opening them again is a faster process. Theses "ghost" applications use no battery or CPU time, they just fill RAM that would be otherwise empty. When this memory is needed by a different application or process, the RAM is flushed and made available for the new application.</string>	
 </resources>

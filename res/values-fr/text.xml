@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVcompcache">Compression mémoire</string>
+    <string name="TVcompcachedisk">Taille compressible</string>
+    <string name="TVswap">Swap uniquement</string>
+    <string name="TVoverclock1">Overclocking CPU à 614 MHz</string>
+    <string name="TVoverclock2">Overclocking CPU à 710 MHz</string>
+    <string name="TVsampling">CPU sampling</string>
+    <string name="TVsensors">Réaction senseurs</string>
+    <string name="TVssh">Serveur SSH</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisionned</string>
+    <string name="TVvnc">Serveur VNC (port 5901)</string>
+    <string name="TVbootani">Utiliser une animation de démarrage plus légère</string>
+    <string name="TVservicemode">Ouvrir le mode Samsung service</string>
+	<string name="TVkitchen">Ouvrir GAOSP Kitchen</string>
+	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app</string>
+	<string name="TVvisibleapp">Visible app</string>
+	<string name="TVsecondaryapp">Secondary Server</string>
+	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVcontentapp">Content provider</string>
+	<string name="TVemptyapp">Empty app</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Ouvrir</string>
+    <string name="Bdefaults">Restaurer valeurs par défaut</string>
+    <string name="Bapply">Appliquer</string>
+    <!-- Messages -->
+    <string name="wait">Veuillez patientez..</string>
+    <string name="applied">Nouvelle configuration sauvegardée et appliquée. Vous pouvez avoir à redémarrer le téléphone.</string>
+	<string name="comptobig">La taille du cache mémoire est trop élevée</string>
+	<string name="swapwarning">Vous devez avoir une carte SD avec une partition swap (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Paramètres par défaut restaurés. Appuyez sur appliquer pour les enregistrer.</string>
+</resources>
