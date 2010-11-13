@@ -44,6 +44,7 @@
 <EditText
    	android:id="@+id/disksize"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="70dip"
 	android:layout_height="wrap_content"
@@ -396,6 +397,7 @@
 <EditText
    	android:id="@+id/memory1"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="80dip"
 	android:layout_height="wrap_content"
@@ -420,6 +422,7 @@
 <EditText
    	android:id="@+id/memory2"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="80dip"
 	android:layout_height="wrap_content"
@@ -445,6 +448,7 @@
 <EditText
    	android:id="@+id/memory3"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="80dip"
 	android:layout_height="wrap_content"
@@ -469,6 +473,7 @@
 <EditText
    	android:id="@+id/memory4"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="80dip"
 	android:layout_height="wrap_content"
@@ -494,6 +499,7 @@
 <EditText
    	android:id="@+id/memory5"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="80dip"
 	android:layout_height="wrap_content"
@@ -518,6 +524,7 @@
 <EditText
    	android:id="@+id/memory6"
    	android:numeric="integer"
+   	android:gravity="right|center_vertical"
   	android:singleLine="true"
    	android:layout_width="80dip"
 	android:layout_height="wrap_content"

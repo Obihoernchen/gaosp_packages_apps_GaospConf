@@ -202,14 +202,14 @@ public class conf extends Activity {
 		try {
 		    while ((record2 = BR2.readLine()) != null) {
 		    	Pattern p = Pattern.compile(",");
-		   	   	String[] mem = p.split(record2);				   	   		   	   	
+		   	   	String[] mem = p.split(record2);
 		   	   	memory1_edit.setText(mem[0]);
 		    	memory2_edit.setText(mem[1]);
 		    	memory3_edit.setText(mem[2]);
 		    	memory4_edit.setText(mem[3]);
 		    	memory5_edit.setText(mem[4]);
 		    	memory6_edit.setText(mem[5]);
-		    	//memory1_edit.setText(Integer.parseInt(mem[0])*4/1024);    	
+		    	//memory1_edit.setText(Integer.parseInt(mem[0])*4/1024);
 		    	//memory1_edit.setText(Integer.valueOf(mem[0]).intValue()*4/1024);
 		    	//memory2_edit.setText(Integer.valueOf(mem[1]).intValue()*4/1024);
 		    	//memory3_edit.setText(Integer.valueOf(mem[2]).intValue()*4/1024);
