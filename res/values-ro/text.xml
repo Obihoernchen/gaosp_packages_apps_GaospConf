@@ -2,7 +2,7 @@
 <resources>
 <!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Dimensiune</string>
+    <string name="TVcompcachedisk">Dimensiune spatiu</string>
     <string name="TVswap">Doar Swap</string>
     <string name="TVoverclock1">Overclock la 614 MHz</string>
     <string name="TVoverclock2">Overclock la 710 MHz</string>
@@ -15,13 +15,13 @@
     <string name="TVbootani">Foloseste o animatie de boot mai mica</string>
     <string name="TVservicemode">Deschide mod service Samsung</string>
 	<string name="TVkitchen">Deschide GAOSP Kitchen</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app</string>
-	<string name="TVvisibleapp">Visible app</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden app</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Empty app</string>
+	<string name="TVmemorythresholds">Limitele memoriei</string>
+	<string name="TVforegroundapp">Aplicatie din background</string>
+	<string name="TVvisibleapp">Aplicatie vizibila</string>
+	<string name="TVsecondaryapp">Server secundar</string>
+	<string name="TVhiddenapp">Aplicatie ascunsa</string>
+	<string name="TVcontentapp">Provider de date</string>
+	<string name="TVemptyapp">Aplicatie goala</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>
