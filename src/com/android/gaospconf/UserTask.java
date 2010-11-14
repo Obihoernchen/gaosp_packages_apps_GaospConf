@@ -190,7 +190,8 @@ public abstract class UserTask<Params, Progress, Result> {
         };
 
         mFuture = new FutureTask<Result>(mWorker) {
-            @Override
+            @SuppressWarnings("unchecked")
+			@Override
             protected void done() {
                 Message message;
                 Result result = null;

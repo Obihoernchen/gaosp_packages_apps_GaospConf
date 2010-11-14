@@ -4,8 +4,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-//import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
@@ -21,21 +19,21 @@ public class shell {
                 try {                       
                         if (suNeeded) {
                                 // Getting Root ;)
-                                Log.i("MarketEnabler", "Starting exec of su");
+                                Log.i("GaospConf", "Starting exec of su");
                                 process = Runtime.getRuntime().exec("su");
                         } else {
-                                Log.i("MarketEnabler", "Starting exec of sh");
+                                Log.i("GaospConf", "Starting exec of sh");
                                 process = Runtime.getRuntime().exec("sh");
                         }
 
                         os = new DataOutputStream(process.getOutputStream());
                        
                         // Doing Stuff ;)
-                        Log.i("MarketEnabler", "Starting command loop");
+                        Log.i("GaospConf", "Starting command loop");
                         for (String single : commands) {
-                                Log.i("MarketEnabler", "Executing [" + single + "]");
+                                Log.i("GaospConf", "Executing [" + single + "]");
                                 os.writeBytes(single + "\n");
-                                Log.i("MarketEnabler", "Executing [" + single + "] os.flush()");
+                                Log.i("GaospConf", "Executing [" + single + "] os.flush()");
                                 os.flush();
                                 msg = Message.obtain();
                                 msg.arg1 = i++;
@@ -55,7 +53,7 @@ public class shell {
  
 
         } catch (Exception e) {
-                        Log.d("MarketEnabler", "Unexpected error - Here is what I know: "
+                        Log.d("GaospConf", "Unexpected error - Here is what I know: "
                                         + e.getMessage());
                         e.printStackTrace();
                         msg = Message.obtain();

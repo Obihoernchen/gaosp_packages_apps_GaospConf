@@ -46,7 +46,7 @@ public class conf extends Activity {
         int cpu_sampling = 0;
         int sensors_sampling = 0;
         Boolean ssh = false;
-        Boolean inadyn = false;
+        //Boolean inadyn = false;
         Boolean renice = false;
         Boolean prov = false;
         Boolean vnc = false;
@@ -110,7 +110,7 @@ public class conf extends Activity {
 			} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} 
-		BufferedReader BR = new BufferedReader(FR);
+		BufferedReader BR = new BufferedReader(FR, 8192);
 	
 		// Read config file
 		try {
@@ -133,12 +133,12 @@ public class conf extends Activity {
 			    if (record.equals("sshd=yes")) {
 			    	ssh = true;
 			    }
-			    if (record.equals("inadyn=no")) {
+			    /*if (record.equals("inadyn=no")) {
 			    	inadyn = false;
 			    }
 			    if (record.equals("inadyn=yes")) {
 			    	inadyn = true;
-			    }
+			    }*/
 			    if (record.equals("renice=no")) {
 			    	renice = false;
 			    }
@@ -196,7 +196,7 @@ public class conf extends Activity {
 			} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			} 
-		BufferedReader BR2 = new BufferedReader(FR2);
+		BufferedReader BR2 = new BufferedReader(FR2, 8192);
 			
 		// Read minfree file
 		try {
@@ -678,10 +678,8 @@ public class conf extends Activity {
             	else {
             	            	            	
 	            	// Remount in read/write
-            		
             		String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo done"};
             		shell.doExec(rw, true);
-            		//NativeTask.runCommand("/system/xbin/su -c /system/xbin/remountrw");
             		
 	            	try {
 						out  = new PrintWriter(new FileWriter("/system/etc/gaosp.conf"));
@@ -693,47 +691,28 @@ public class conf extends Activity {
 					out.println("##### Gaosp config file ########");
 					out.println("################################");
 					out.println(" ");
-					out.println("# Compcache");
 					
 					// Copying compcache setting to conf file
+					out.println("# Compcache");
 					if (Toggle_Compcache.isChecked()) {
 						out.println("compcache=yes");	
-					/*	NativeTask.runCommand("/system/xbin/su -c 'swapoff /dev/block/ramzswap0'");
-						NativeTask.runCommand("/system/xbin/su -c 'rmmod ramzswap'");
-						NativeTask.runCommand("/system/xbin/su -c 'rmmod xvmalloc'");	
-						NativeTask.runCommand("/system/xbin/su -c 'insmod /system/libmodules/xvmalloc.ko'");
-						NativeTask.runCommand("/system/xbin/su -c 'if [ -r /dev/block/mmcblk1p2 ]; then mkswap /dev/block/mmcblk1p2; insmod /system/libmodules/ramzswap.ko memlimit_kb= " + compcache_disksize_edit.getText() + " backing_swap=/dev/block/mmcblk1p2;	else insmod /system/libmodules/ramzswap.ko disksize_kb=" + compcache_disksize_edit.getText() + "; fi; sleep 5'");		
-						NativeTask.runCommand("/system/xbin/su -c 'swapon /dev/block/ramzswap0 -p 100'");
-					*/
 					}
 					else {
 						out.println("compcache=no");
-					/*
-						NativeTask.runCommand("/system/xbin/su -c 'swapoff /dev/block/ramzswap0'");
-						NativeTask.runCommand("/system/xbin/su -c 'rmmod ramzswap'");
-						NativeTask.runCommand("/system/xbin/su -c 'rmmod xvmalloc'");	
-					*/
 					}
-					
 					out.println("compcache_disksize=" + compcache_disksize_edit.getText());
 					out.println(" ");
+					
 					// Copying cpu sampling setting to conf file
-					int final_sampling = 0;
-					
-					//NativeTask.runCommand("/system/xbin/su -c 'echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");				
-					
+					int final_sampling = 0;	
 					if (Check_sampling_eco.isChecked()) {
 						final_sampling = 0;
-					//	NativeTask.runCommand("/system/xbin/su -c 'echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");
 					}
 					if (Check_sampling_mix.isChecked()) {
 						final_sampling = 1;
-					//	NativeTask.runCommand("/system/xbin/su -c 'echo 500000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");
 					}
 					if (Check_sampling_perf.isChecked()) {
 						final_sampling = 2;
-					//	NativeTask.runCommand("/system/xbin/su -c 'echo 100000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");
-
 					}
 					out.println("# CpuFreq sampling rate");
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
@@ -744,19 +723,9 @@ public class conf extends Activity {
 					out.println("# SSH server");
 					if (Toggle_SSH.isChecked()) {
 						out.println("sshd=yes");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'kill -9 `pidof dropbear`'");
-						NativeTask.runCommand("/system/xbin/su -c 'if [ ! -d /data/ssh/ ]; then /system/bin/mkdir /data/ssh/; fi'");
-						NativeTask.runCommand("/system/xbin/su -c 'if [ ! -f /data/ssh/rsa_host_key ]; then /system/xbin/dropbearkey -t rsa -f /data/ssh/rsa_host_key; fi'");
-						NativeTask.runCommand("/system/xbin/su -c 'if [ ! -f /data/ssh/dss_host_key ]; then /system/xbin/dropbearkey -t dss -f /data/ssh/dss_host_key; fi'");
-						NativeTask.runCommand("/system/xbin/su -c '/system/bin/logwrapper /system/xbin/dropbear &'");
-						*/
 					}
 					else {
 						out.println("sshd=no");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'kill -9 `pidof dropbear`'");
-						*/
 					}
 					out.println(" ");
 					
@@ -769,21 +738,9 @@ public class conf extends Activity {
 					out.println("# Renice");
 					if (Toggle_Renice.isChecked()) {
 						out.println("renice=yes");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'renice -20 `pidof com.android.mms'");
-						NativeTask.runCommand("/system/xbin/su -c 'renice -19 `pidof com.android.phone`'");
-						NativeTask.runCommand("/system/xbin/su -c 'renice -18 `pidof mediaserver`");
-						NativeTask.runCommand("/system/xbin/su -c 'renice 0 `pidof com.google.process.gapps`'");
-						*/
 					}
 					else {
 						out.println("renice=no");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'renice 0 `pidof com.android.mms'");
-						NativeTask.runCommand("/system/xbin/su -c 'renice 0 `pidof com.android.phone`'");
-						NativeTask.runCommand("/system/xbin/su -c 'renice 0 `pidof mediaserver`");
-						NativeTask.runCommand("/system/xbin/su -c 'renice 0 `pidof com.google.process.gapps`'");
-						*/
 					}
 					out.println(" ");
 					
@@ -801,16 +758,9 @@ public class conf extends Activity {
 					out.println("# VNC Server");
 					if (Toggle_VNC.isChecked()) {
 						out.println("vnc=yes");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'kill -9 `pidof fbvncserver`'");
-						NativeTask.runCommand("/system/xbin/su -c '/system/bin/logwrapper /system/xbin/fbvncserver &'");
-						*/
 					}
 					else {
 						out.println("vnc=no");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'kill -9 `pidof fbvncserver`'");
-						*/
 					}
 					out.println(" ");
 					
@@ -818,15 +768,9 @@ public class conf extends Activity {
 					out.println("# Swap");
 					if (Toggle_Swap.isChecked()) {
 						out.println("swap=yes");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'swapon /dev/block/mmcblk1p2'"); and some more ;)
-						*/
 					}
 					else {
 						out.println("swap=no");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'swapoff /dev/block/mmcblk1p2'"); and some more ;)
-						*/
 					}
 					out.println(" ");
 					
@@ -842,11 +786,6 @@ public class conf extends Activity {
 					    		shell.doExec(change1, true);
 					    		shell.doExec(change2, true);
 					    		shell.doExec(change3, true);
-					    		/*
-					    		NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'");
-								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'");
-								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'");
-								*/
 							}
 					}
 					else {
@@ -859,11 +798,6 @@ public class conf extends Activity {
 					    		shell.doExec(change1, true);
 					    		shell.doExec(change2, true);
 					    		shell.doExec(change3, true);
-								/*
-					    		NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'");
-								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'");
-								NativeTask.runCommand("/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'");
-								*/
 							}
 					}
 					out.println(" ");
@@ -872,49 +806,31 @@ public class conf extends Activity {
 					out.println("# Overclocking");
 					if (Toggle_OverClocking.isChecked()) {
 						out.println("overclocking=yes");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'echo 614400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq'");
-						*/
 					}
 					else {
 						out.println("overclocking=no");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'echo 528000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq'");
-						*/
 					}
 					out.println(" ");
 					// Copying Overclocking2 setting to conf file
 					out.println("# Overclocking2");
 					if (Toggle_OverClocking2.isChecked()) {
 						out.println("overclocking2=yes");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'echo 614400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq'");
-						*/
 					}
 					else {
 						out.println("overclocking2=no");
-						/*
-						NativeTask.runCommand("/system/xbin/su -c 'echo 528000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq'");
-						*/
 					}
 					out.println(" ");
+					
 					// Copying Sensors setting to conf file
 					int final_sensors_sampling = 0;
-					
-					//NativeTask.runCommand("/system/xbin/su -c 'echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");				
-					
 					if (Check_sensors_sampling_eco.isChecked()) {
 						final_sensors_sampling = 0;
-					//	NativeTask.runCommand("/system/xbin/su -c 'echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");
 					}
 					if (Check_sensors_sampling_mix.isChecked()) {
 						final_sensors_sampling = 1;
-					//	NativeTask.runCommand("/system/xbin/su -c 'echo 500000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");
 					}
 					if (Check_sensors_sampling_perf.isChecked()) {
 						final_sensors_sampling = 2;
-					//	NativeTask.runCommand("/system/xbin/su -c 'echo 100000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate'");
-
 					}
 					out.println("# Sensors sampling rate");
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
@@ -947,7 +863,6 @@ public class conf extends Activity {
 					// Remount in read only
 					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo done" };
             		shell.doExec(ro, true);
-					// NativeTask.runCommand("/system/xbin/su -c /system/xbin/remountro");
             	}
             }
         });
@@ -1066,7 +981,7 @@ public class conf extends Activity {
          }
          // Consume the selection event.
          return true;
-       }
+       }    
     
     final class Task extends UserTask<String, Void, Void> {
     	// Create ProgressDialog
@@ -1079,7 +994,6 @@ public class conf extends Activity {
     	protected Void doInBackground(String... params) {
     		String[] rc = { "/system/xbin/su -c /system/bin/rc" };
     		shell.doExec(rc, true);
-    		//NativeTask.runCommand("/system/xbin/su -c /system/bin/rc");
 			return null;
     	}
     	// Success message
