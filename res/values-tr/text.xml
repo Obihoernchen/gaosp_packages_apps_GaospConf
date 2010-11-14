@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- TextViews -->
+<!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
     <string name="TVcompcachedisk">Disk boyutu</string>
     <string name="TVswap">Sadece Swap</string>
     <string name="TVoverclock1">İşlemciyi 614 Mhz´e overclock et</string>
-    <string name="TVoverclock2">İşlemciyi 614 Mhz´e overclock et</string>
+    <string name="TVoverclock2">İşlemciyi 710 Mhz´e overclock et</string>
     <string name="TVsampling">CPU Örnekleme</string>
     <string name="TVsensors">Sensör tepkileri</string>
     <string name="TVssh">SSH server</string>
     <string name="TVrenice">Renice</string>
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC server (port 5901)</string>
-    <string name="TVbootani">Daha hafif açılış animasyonu kullan</string>
+    <string name="TVbootani">Daha hafif bir açılış animasyonu kullan</string>
     <string name="TVservicemode">Samsung servis modunda aç</string>
 	<string name="TVkitchen">GAOSP Kitchen´ı aç</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>
@@ -35,5 +35,5 @@
     <string name="applied">Yeni ayarlar uygulandı ve kaydedildi. Yeniden başlatmanız gerekiyor.</string>
 	<string name="comptobig">Compcache disk boyutu çok büyük!</string>
     <string name="swapwarning">Takas bölümü olan ext formatında bir SD gerekli. (Recovery > Format swap+fat32)</string>
-    <string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+    <string name="defaults">Varsayılan ayarlar başarıyla yüklendi. Kaydetmek için "Yeni ayarları uygula"ya tıklayın.</string>
 </resources>

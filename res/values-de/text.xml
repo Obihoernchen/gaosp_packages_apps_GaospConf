@@ -15,13 +15,13 @@
     <string name="TVbootani">Kleinere Bootanimation</string>
     <string name="TVservicemode">Samsung Service Modus App</string>
     <string name="TVkitchen">GAOSP Kitchen</string>
-	<string name="TVmemorythresholds">Speicher thresholds</string>
-	<string name="TVforegroundapp">Vordergründige Programme</string>
-	<string name="TVvisibleapp">Sichtbare Programme</string>
+	<string name="TVmemorythresholds">Speicher Thresholds</string>
+	<string name="TVforegroundapp">Foreground App</string>
+	<string name="TVvisibleapp">Visible App</string>
 	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Verborgene Programme</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">empty app</string>
+	<string name="TVhiddenapp">Hidden App</string>
+	<string name="TVcontentapp">Content Provider</string>
+	<string name="TVemptyapp">Empty App</string>
     <!-- CheckBoxes -->
     <string name="CBeco">Eco</string>
     <string name="CBmix">Mix</string>

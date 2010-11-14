@@ -7,7 +7,7 @@
 	<string name="overclock2">İşlemciniz 710 Mhz´e overclock ediliyor. Bazı cihazlarda kararsızlığa neden olabilir.</string>
 	<string name="sampling">Her örneklemeden sonra işlemci hızı yüke bağlı olarak artar veya azalır.</string>
 	<string name="sensors">Sensörlerin ne kadar hızlı tepki vereceği.</string>
-	<string name="ssh">PC2niz üzerinden Galaxy´de Linux shellerini çalıştırmanıza izin verir.</string>
+	<string name="ssh">PC´niz üzerinden Galaxy´de Linux shellerini çalıştırmanıza izin verir.</string>
 	<string name="renice">Renice, çalışmakta olan bir veya daha fazla programın öncelik sırasını belirler.</string>
 	<string name="provisionned">Galaxy´nizi SIM Kart olmadan kullanabilirsiniz.</string>
 	<string name="vnc">Telefonunuzu bilgisayardan kontrol edebilirsiniz.(özel programlar kullanarak).</string>
