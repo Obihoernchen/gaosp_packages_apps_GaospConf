@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!-- TextViews -->
+	<!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
     <string name="TVcompcachedisk">Grootte</string>
     <string name="TVswap">Alleen swap</string>
@@ -15,13 +15,13 @@
     <string name="TVbootani">Gebruik kleinere opstartanimatie</string>
     <string name="TVservicemode">Open Samsung service modus</string>
 	<string name="TVkitchen">Open GAOSP Keuken</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app</string>
-	<string name="TVvisibleapp">Visible app</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden app</string>
+	<string name="TVmemorythresholds">Geheugen drempels</string>
+	<string name="TVforegroundapp">Voorgrond app</string>
+	<string name="TVvisibleapp">Zichtbare app</string>
+	<string name="TVsecondaryapp">Secundaire server</string>
+	<string name="TVhiddenapp">Verborgen app</string>
 	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Empty app</string>
+	<string name="TVemptyapp">Lege app</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>

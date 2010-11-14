@@ -14,11 +14,11 @@
 	<string name="bootani">Een kleinere opstartanimatie resulteert in een kortere opstarttijd.</string>
 	<string name="servicemode">Alleen voor experts! Hier kun je de audiohack activeren.</string>
 	<string name="kitchen">Maak hier je eigen pakket met Google Apps.</string>
-	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
-	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
-	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>
-	<string name="secondaryapp">This is a process (a service that an application needs) that is alive and ready in case it is needed to do something. Do not change this value unless you have much knowledge about that!</string>
-	<string name="hiddenapp">This again is a process, that sits idle (but still alive) in case it is needed by an app that is alive and running. Be careful with this setting!</string>
-	<string name="contentapp">They are applications that provide data (content) to the system. So are things like the Android Market, or Google Sync. If they are alive, they can refresh and provide the content they are supposed to at the set interval. If you kill them, they can not of course.</string>
-	<string name="emptyapp">We call these "ghosts." They are applications that you have opened, but are done with them. Android uses a unique style of handling memory management. When an activity is ended, instead of killing it off Android keeps the application in memory so that opening them again is a faster process. Theses "ghost" applications use no battery or CPU time, they just fill RAM that would be otherwise empty. When this memory is needed by a different application or process, the RAM is flushed and made available for the new application.</string>	
+	<string name="memorythresholds">Bij minder geheugen dan deze drempel zal je Galaxy processen afsluiten om geheugen vrij te maken. Maak eerst een Nandroid Backup!</string>
+	<string name="foregroundapp">Dit is de applicatie die wordt weergegeven en actief is. Verander dit alleen als je weet wat je doet!</string>
+	<string name="visibleapp">Dit is de applicatie die in de achtergrond nog actief is. Verander dit alleen als je weet wat je doet!</string>
+	<string name="secondaryapp">Dit is een proces (een service die een applicatie nodig heeft) die klaar staat voor wanneer er iets te doen is. Verander dit alleen als je weet wat je doet!</string>
+	<string name="hiddenapp">Ook dit is een proces, idle, maar nog altijd bestaand, voor het geval een applicatie de service nodig heeft. Verander dit alleen als je weet wat je doet!</string>
+	<string name="contentapp">Applicaties die het systeem van data voorzien. Als ze bestaan kunnen ze gegevens vernieuwen op de ingestelde intervals. Als ze worden afgesloten kunnen ze dit niet.</string>
+	<string name="emptyapp">Deze worden "spoken" genoemd. Het zijn applicaties die geopend zijn, maar niets hoeven te doen. Android laat deze applicatie bestaan in het geheugen, zodat het opnieuw starten van deze applicatie sneller is. Dit kost RAM geheugen, geen CPU of batterijen, en Android zal de applicatie sluiten zodra het geheugen nodig is voor een andere applicatie.</string>	
 </resources>

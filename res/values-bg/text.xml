@@ -28,5 +28,5 @@
     <string name="applied">Новите настройки са запазени и активирани. Можете да рестартирате.</string>
 	<string name="comptobig">Размерът на дисковото пространство за compcache е твърде голям!</string>
 	<string name="swapwarning">Трябва да имате външна SD карта със swap дял (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+	<string name="defaults">Стандартните настройки са успешно заредени. Натистни "Приложи новата конфигурация" за да съхраните настройките.</string>
 </resources>
