@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class SplashScreen extends Activity {
-    protected int _splashTime = 3000;
+    protected int _splashTime = 2000;
     
     /** Called when the activity is first created. */
     @Override
