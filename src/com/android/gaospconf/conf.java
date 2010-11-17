@@ -665,7 +665,7 @@ public class conf extends Activity {
             	else {
             	            	            	
 	            	// Remount in read/write
-            		String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo done"};
+            		String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"};
             		shell.doExec(rw, true);
             		
 	            	try {
@@ -767,24 +767,22 @@ public class conf extends Activity {
 						out.println("bootani=yes");
 				        File boot = new File("/system/media/bootanimation.zip");
 							if (boot.length() > 3000000 ) {
-					    		String[] change1 = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'"};
-					    		String[] change2 = { "/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'"};
-					    		String[] change3 = { "/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'"};
-					    		shell.doExec(change1, true);
-					    		shell.doExec(change2, true);
-					    		shell.doExec(change3, true);
+					    		String[] change = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+					    							"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+					    							"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+					    							"echo Bootanimation changed"};
+					    		shell.doExec(change, true);
 							}
 					}
 					else {
 						out.println("bootani=no");
 				        File boot = new File("/system/media/bootanimation.zip");
 							if (boot.length() < 3000000 ) {
-					    		String[] change1 = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'"};
-					    		String[] change2 = { "/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'"};
-					    		String[] change3 = { "/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'"};
-					    		shell.doExec(change1, true);
-					    		shell.doExec(change2, true);
-					    		shell.doExec(change3, true);
+					    		String[] change = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+					    							"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+					    							"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+					    							"echo Bootanimation changed"};
+					    		shell.doExec(change, true);
 							}
 					}
 					out.println(" ");
@@ -842,7 +840,7 @@ public class conf extends Activity {
 					out.close();
 					
 					// Remount in read only
-					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo done" };
+					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo remount ro done" };
             		shell.doExec(ro, true);
             	}
             }
@@ -973,7 +971,7 @@ public class conf extends Activity {
     	// Execute rc
     	@Override
     	protected Void doInBackground(String... params) {
-    		String[] rc = { "/system/xbin/su -c /system/bin/rc" };
+    		String[] rc = { "/system/xbin/su -c /system/bin/rc", "echo rc executed" };
     		shell.doExec(rc, true);
 			return null;
     	}
