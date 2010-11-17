@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TextViews -->
+	<!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Tamanho</string>
-    <string name="TVswap">Somente Swap</string>
-    <string name="TVoverclock1">Overclock CPU para 710 MHz</string>
-    <string name="TVoverclock2">Overclock CPU para 614 MHz</string>
-    <string name="TVsampling">Amostragem de CPU</string>
-    <string name="TVsensors">Velocidade dos sensores</string>
+    <string name="TVcompcachedisk">Tamanho do disco</string>
+    <string name="TVswap">Apenas swap</string>
+    <string name="TVoverclock1">Overclock do CPU para 614 MHz</string>
+    <string name="TVoverclock2">Overclock do CPU para 710 MHz</string>
+    <string name="TVsampling">Amostragem do CPU</string>
+    <string name="TVsensors">Reacção dos Sensores</string>
     <string name="TVssh">Servidor SSH</string>
-    <string name="TVrenice">Renasce</string>
-    <string name="TVprovisionned">Prepara e equipa a rede</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">Servidor VNC (porta 5901)</string>
-    <string name="TVbootani">Usa uma animação de boot menor</string>
-    <string name="TVservicemode">Abre o modo de serviço Samsung</string>
-    <string name="TVkitchen">Abre o GAOSP Kitchen</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app</string>
-	<string name="TVvisibleapp">Visible app</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden app</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Empty app</string>
-    <!-- CheckBoxes -->
-    <string name="CBeco">Econômico</string>
-    <string name="CBmix">Meio termo</string>
-    <string name="CBperf">Performance</string>
-    <!-- Buttons -->
-    <string name="Bopen">Abrir</string>
-    <string name="Bdefaults">Tornar padrão</string>
+    <string name="TVbootani">Animação de arranque mais pequena</string>
+    <string name="TVservicemode">Iniciar o modo de serviço da Samsung</string>
+	<string name="TVkitchen">Iniciar o GAOSP Kitchen</string>
+	<string name="TVmemorythresholds">Limiares de memória</string>
+	<string name="TVforegroundapp">Aplicação em primeiro plano (MB)</string>
+	<string name="TVvisibleapp">Aplicação visível (MB)</string>
+	<string name="TVsecondaryapp">Servidor secundário (MB)</string>
+	<string name="TVhiddenapp">Aplicação escondida (MB)</string>
+	<string name="TVcontentapp">Provedor de conteúdos (MB)</string>
+	<string name="TVemptyapp">Aplicação vazia (MB)</string>	
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eco</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Perf</string>
+	<!-- Buttons -->
+	<string name="Bopen">Abrir</string>
+    <string name="Bdefaults">Definir como padrão</string>
     <string name="Bapply">Aplicar nova configuração</string>
     <!-- Messages -->
-    <string name="wait">Aguarde..</string>
-    <string name="applied">Novas configurações salvas e aplicadas. Necessário reiniciar.</string>
-	<string name="comptobig">Espaço de Compcache é muito grande!</string>
-	<string name="swapwarning">É necessário um SD Card externo com uma partição SWAP (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+    <string name="wait">Aguardar...</string>
+    <string name="applied">A nova configuração foi gravada e aplicada. Poderá ser necessário reiniciar o dispositivo para activar as alterações.</string>
+	<string name="comptobig">O tamanho do disco para o Compcache é demasiado grande!</string>
+	<string name="swapwarning">É necessário um cartão SD externo com uma partição swap. (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Padrões carregados com sucesso. Pressione "Aplicar nova configuração" para guardar.</string>
 </resources>

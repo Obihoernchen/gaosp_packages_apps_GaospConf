@@ -16,12 +16,12 @@
     <string name="TVservicemode">Open Samsung service modus</string>
 	<string name="TVkitchen">Open GAOSP Keuken</string>
 	<string name="TVmemorythresholds">Geheugen drempels</string>
-	<string name="TVforegroundapp">Voorgrond app</string>
-	<string name="TVvisibleapp">Zichtbare app</string>
-	<string name="TVsecondaryapp">Secundaire server</string>
-	<string name="TVhiddenapp">Verborgen app</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Lege app</string>
+	<string name="TVforegroundapp">Voorgrond app (MB)</string>
+	<string name="TVvisibleapp">Zichtbare app (MB)</string>
+	<string name="TVsecondaryapp">Secundaire server (MB)</string>
+	<string name="TVhiddenapp">Verborgen app (MB)</string>
+	<string name="TVcontentapp">Content provider (MB)</string>
+	<string name="TVemptyapp">Lege app (MB)</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>

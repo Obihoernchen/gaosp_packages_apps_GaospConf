@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Kompresira stranice i drzi ih u RAM-u te virtualno povecava svoj kapacitet. Ovo omogucava da vise aplikacija stane u zadanoj memoriji. Ali to koristi dodatno vrijeme procesora. Takoder aktivira Swap.</string>
-	<string name="compcachedisk">Velicina od compcache-a</string>
-	<string name="swap">Android koristi swap prostor kao dodatnu memoriju za stranice memorija aplikacija koje se ne koriste aktivno od strane aplikacija ali su modificirane (upisane u). Swap prostor plus velicina RAM-a je sveukupna kolicina virtualne memorije u sistemu. Kreiraj swap particiju u recovery mode-u prvo. Tribas vanjsku SD karticu (Class-a 6 preporucena).</string>
-	<string name="overclock1">Overklokanje procesora na 614 MHz.</string>
-	<string name="overclock2">Overklokanje procesora na 710 MHz. Nestabilno na nekim uredajima.</string>
-	<string name="sampling">To je vremenski iterval u kojem uredaj dobija svoje opterecenje. Nakon svakog uzorka, uredaj povecava i smanjuje brzinu procesora s obzirom na opterecenje.</string>
-	<string name="sensors">Kako brzo ce svi senzori reagirati.</string>
-	<string name="ssh">Dopusta ti pokretanje Linux shell-a sa PC-a na Galaxy.</string>
-	<string name="renice">Renice mijenja raspored prioriteta jednog ili vise procesa u tijeku.</string>
-	<string name="provisionned">Mozes koristit svoj Galaksi bez SIM kartice.</string>
-	<string name="vnc">Mozes kontrolirati mobitel sa kompjutera (koristeci specijalnu aplikaciju).</string>
-	<string name="bootani">Koristi manju animaciju pri pokrecanju da skrati vrijeme pokretanja.</string>
-	<string name="servicemode">Za eksperte samo! Mozes primjeniti Audio Hack ovdje.</string>
-	<string name="kitchen">Kreiraj svoj vlastit Google Aplikacijski paket.</string>
-	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
-	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
-	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>
-	<string name="secondaryapp">This is a process (a service that an application needs) that is alive and ready in case it is needed to do something. Do not change this value unless you have much knowledge about that!</string>
-	<string name="hiddenapp">This again is a process, that sits idle (but still alive) in case it is needed by an app that is alive and running. Be careful with this setting!</string>
-	<string name="contentapp">They are applications that provide data (content) to the system. So are things like the Android Market, or Google Sync. If they are alive, they can refresh and provide the content they are supposed to at the set interval. If you kill them, they can not of course.</string>
-	<string name="emptyapp">We call these "ghosts." They are applications that you have opened, but are done with them. Android uses a unique style of handling memory management. When an activity is ended, instead of killing it off Android keeps the application in memory so that opening them again is a faster process. Theses "ghost" applications use no battery or CPU time, they just fill RAM that would be otherwise empty. When this memory is needed by a different application or process, the RAM is flushed and made available for the new application.</string>	
+    <string name="compcache">Sažimanje i čuvanje stranica u radnoj memoriji prividno povečava njihov kapacitet. Ovo omogućuje da više aplikacija stane u zadanu količinu memorije. Ali, i koristi dodatno vrijeme procesora. Također uključuje Swap - premještanje dijelova podataka u memoriju.</string>
+	<string name="compcachedisk">Veličina od compcache-a</string>
+	<string name="swap">Android koristi prostor za premještanje dijelova podataka u memoriju kao dodatnu memoriju za stranice od aplikacijske memorije koje se ne koriste aktivno od strane aplikacija ali su izmijenjene (upisano u). Veličina prostora za premještanje dijelova podataka plus veličina radne memorije je sveukupna prividna memorija za sustav. Stvorite particiju za premještanje podataka u memoriju pomoću načina rada za oporavak - Recovery mode. Treba Vam vanjska SD kartica (preporuka - 6 klasa).</string>
+	<string name="overclock1">Overklokanje (O/C) Vašeg procesora na 614 MHz.</string>
+	<string name="overclock2">Overklokanje (O/C) Vašeg procesora na 710 MHz. Nestabino na nekim uređajima.</string>
+	<string name="sampling">Vremenski razmak u kojem uređaj dobiva svoje opterećenje. Nakon svakog uzorka uređaj povećava ili smanjuje brzinu procesora s obzirom na opterećenje.</string>
+	<string name="sensors">Kako brzo će svi senzori reagirati.</string>
+	<string name="ssh">Dopušta Vam pokretanje Linux-a sa Vašeg računala na Vaš Galaxy.</string>
+	<string name="renice">Renice izmijenjuje raspored prioriteta od jednog ili više pokrenutih procesa.</string>
+	<string name="provisionned">Možete koristiti Vaš Galaxy bez SIM kartice.</string>
+	<string name="vnc">Možete upravljati s Vašim mobitelom sa Vašeg računala (koristeći specijalizirane aplikacije).</string>
+	<string name="bootani">Koristi manju animaciju pri pokretanju mobitela da smanji vrijeme pokretanja istog.</string>
+	<string name="servicemode">Samo za stručnjake! Ovdje možete primijeniti Audio Hack.</string>
+	<string name="kitchen">Stvorite svoje vlastite Google aplikacijske pakete.</string>
+	<string name="memorythresholds">Ovo su pragovi od kojeg će uređaj prekinuti neke procese da oslobodi memoriju (ispod ovih pragova, unutarnji Prekidatelj zadataka če prekinuti ove aplikacije). Najprije učinite Nandroid kopiju!</string>
+	<string name="foregroundapp">Ovo je trenutna i pokrenuta aplikacija na ekranu. Ne mijenjajte ovu vrijednost osim ako imate mnogo znanja o tome!</string>
+	<string name="visibleapp">Ovo je otvorena i pokrenuta aplikacija u pozadini, jer još uvijek nešto radi. Ne mijenjajte ovu vrijednost osim ako imate mnogo znanja o tome!</string>
+	<string name="secondaryapp">Ovo je proces (servis koji je potreban aplikacaiji) koji je spreman u slučaju akoje potrebno uraditi nešto. Ne mijenjajte ovu vrijednost osim ako imate mnogo znanja o tome!</string>
+	<string name="hiddenapp">Ovo je ponovno proces, koji je pripravan u slučaju da je potreban od aplikacije koja je pokrenuta. Budite oprezni sa ovom postavkom!</string>
+	<string name="contentapp">Ovo su aplikacije koje pružaju podatke (informacijski sadržaj) sustavu. To su stvari kao Android Market ili Google Sync. Ako rade, one mogu osvježiti i pružati informacijski sadržaj koje moraju pružati u određenom razmaku. Ako ih prekinete, naravno to više ne mogu.</string>
+	<string name="emptyapp">Ovo nazivamo "duhovima." To su aplikacije koje ste otvorili, ali ste završili s njima. Android koristi jedinstven stil upotrebe memorijskog menadžmenta. Kada završi neka aktivnost, umjesto njenog prekidanja Android čuva aplikaciju u memoriji tako da njenom ponovnom otvaranjem jest brži proces. Ove "duhovne" aplikacije ne koriste bateriju ili procesorsko vrijeme, nego samo pune radnu memoriju koja bi inače bila prazna. Kada je ova memorija zatražena od druge aplikacije ili procesa, radna memorija se prazni i bude oslobođena za novu aplikaciju.</string>	
 </resources>

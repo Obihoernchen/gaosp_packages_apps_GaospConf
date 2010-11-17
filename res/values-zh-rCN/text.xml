@@ -16,12 +16,12 @@
     <string name="TVservicemode">打开三星服务模式</string>
 	<string name="TVkitchen">打开 GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app</string>
-	<string name="TVvisibleapp">Visible app</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden app</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Empty app</string>
+	<string name="TVforegroundapp">Foreground app (MB)</string>
+	<string name="TVvisibleapp">Visible app (MB)</string>
+	<string name="TVsecondaryapp">Secondary Server (MB)</string>
+	<string name="TVhiddenapp">Hidden app (MB)</string>
+	<string name="TVcontentapp">Content provider (MB)</string>
+	<string name="TVemptyapp">Empty app (MB)</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">经济</string>
 	<string name="CBmix">混合</string>

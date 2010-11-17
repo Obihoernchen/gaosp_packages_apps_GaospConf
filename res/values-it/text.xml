@@ -16,12 +16,12 @@
     <string name="TVservicemode">Open Samsung service mode</string>
   	<string name="TVkitchen">Personalizza applicazioni Google – GAOSP Kitchen</string>
     <string name="TVmemorythresholds">Soglie pulizia memoria</string>
-    <string name="TVforegroundapp">Applicazioni a display</string>
-  	<string name="TVvisibleapp">Applicazioni in esecuzione</string>
-   	<string name="TVsecondaryapp">Applicazioni server</string>
- 	<string name="TVhiddenapp">Applicazioni nascoste</string>
-  	<string name="TVcontentapp">Provider contenuti</string>
-   	<string name="TVemptyapp">Applicazioni terminate</string>    
+    <string name="TVforegroundapp">Applicazioni a display (MB)</string>
+  	<string name="TVvisibleapp">Applicazioni in esecuzione (MB)</string>
+   	<string name="TVsecondaryapp">Applicazioni server (MB)</string>
+ 	<string name="TVhiddenapp">Applicazioni nascoste (MB)</string>
+  	<string name="TVcontentapp">Provider contenuti (MB)</string>
+   	<string name="TVemptyapp">Applicazioni terminate (MB)</string>    
     <!-- CheckBoxes -->
     <string name="CBeco">Eco</string>
     <string name="CBmix">Mix</string>

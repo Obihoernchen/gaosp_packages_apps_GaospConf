@@ -16,12 +16,12 @@
     <string name="TVservicemode">Samsung Service Modus App</string>
     <string name="TVkitchen">GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Speicher Thresholds</string>
-	<string name="TVforegroundapp">Foreground App</string>
-	<string name="TVvisibleapp">Visible App</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden App</string>
-	<string name="TVcontentapp">Content Provider</string>
-	<string name="TVemptyapp">Empty App</string>
+	<string name="TVforegroundapp">Foreground App (MB)</string>
+	<string name="TVvisibleapp">Visible App (MB)</string>
+	<string name="TVsecondaryapp">Secondary Server (MB)</string>
+	<string name="TVhiddenapp">Hidden App (MB)</string>
+	<string name="TVcontentapp">Content Provider (MB)</string>
+	<string name="TVemptyapp">Empty App (MB)</string>
     <!-- CheckBoxes -->
     <string name="CBeco">Eco</string>
     <string name="CBmix">Mix</string>

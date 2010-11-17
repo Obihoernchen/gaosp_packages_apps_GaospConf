@@ -2,38 +2,38 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Velicina diska</string>
-    <string name="TVswap">Swap samo</string>
-    <string name="TVoverclock1">Overklokanje procesora na 614 MHz</string>
-    <string name="TVoverclock2">Overklokanje procesora na 710 MHz</string>
-    <string name="TVsampling">CPU sampliranje</string>
-    <string name="TVsensors">Reakcija senzora</string>
+    <string name="TVcompcachedisk">Veličina diska</string>
+    <string name="TVswap">Samo swap</string>
+    <string name="TVoverclock1">O/C CPU-a na 614 MHz</string>
+    <string name="TVoverclock2">O/C CPU-a na 710 MHz</string>
+    <string name="TVsampling">CPU sampling</string>
+    <string name="TVsensors">Reagiranje senzora reaction</string>
     <string name="TVssh">SSH server</string>
     <string name="TVrenice">Renice</string>
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC server (port 5901)</string>
-    <string name="TVbootani">Koristi manju animaciju pokrecanja</string>
-    <string name="TVservicemode">Otvori Samsung servis mod</string>
+    <string name="TVbootani">Koristi manju animaciju</string>
+    <string name="TVservicemode">Otvori Samsung servis nači rada</string>
 	<string name="TVkitchen">Otvori GAOSP kuhinju</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app</string>
-	<string name="TVvisibleapp">Visible app</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden app</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Empty app</string>
+	<string name="TVmemorythresholds">Memorijski pragovi</string>
+	<string name="TVforegroundapp">Primarna aplikacija (MB)</string>
+	<string name="TVvisibleapp">Vidljive aplikacije (MB)</string>
+	<string name="TVsecondaryapp">Sekundarni server (MB)</string>
+	<string name="TVhiddenapp">Skrivene aplikacije (MB)</string>
+	<string name="TVcontentapp">Pružitelj podataka (MB)</string>
+	<string name="TVemptyapp">Prazna aplikacija (MB)</string>
 	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
+	<string name="CBeco">Eko</string>
+	<string name="CBmix">Mje</string>
 	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otvori</string>
-    <string name="Bdefaults">Postavi pocetne postavke</string>
-    <string name="Bapply">Aktiviraj nove promjene</string>
+    <string name="Bdefaults">Osnovni podatci</string>
+    <string name="Bapply">Primijeni novu konfiguraciju</string>
     <!-- Messages -->
-    <string name="wait">Molim sacekaj te..</string>
-    <string name="applied">Nova postava spremljena i ukljucena. Moras restartat.</string>
-	<string name="comptobig">Compcache velicina diska je prevelika!</string>
-	<string name="swapwarning">Moras imat ext SD sa swap partocijom (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Pocetne postavke uspjedno primejnjene. Pritisni Apply za spremanje novih postavki.</string>
+    <string name="wait">Molimo pričekajte...</string>
+    <string name="applied">Nova konfiguracija spremjena i primijenjena. Morat će te ponovno pokrenuti.</string>
+	<string name="comptobig">Veličina compcache je prevelika!</string>
+	<string name="swapwarning">Morate imati vanjski SD sa swap particijom (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Osnovni podatci uspješno učitani. Pritisnite "Primijeni novu konfiguraciju" za spremanje.</string>
 </resources>

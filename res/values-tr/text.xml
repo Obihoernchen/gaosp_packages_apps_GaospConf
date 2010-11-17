@@ -16,12 +16,12 @@
     <string name="TVservicemode">Samsung servis modunda aç</string>
 	<string name="TVkitchen">GAOSP Kitchen´ı aç</string>
 	<string name="TVmemorythresholds">Bellek Eşikleri</string>
-	<string name="TVforegroundapp">Ön Plan Uygulamaları</string>
-	<string name="TVvisibleapp">Görünür Uygulamalar</string>
-	<string name="TVsecondaryapp">İkincil Server</string>
-	<string name="TVhiddenapp">Gizli Uygulamalar</string>
-	<string name="TVcontentapp">İçerik Sağlayıcı</string>
-	<string name="TVemptyapp">Boş Uygulamalar</string>
+	<string name="TVforegroundapp">Ön Plan Uygulamaları (MB)</string>
+	<string name="TVvisibleapp">Görünür Uygulamalar (MB)</string>
+	<string name="TVsecondaryapp">İkincil Server (MB)</string>
+	<string name="TVhiddenapp">Gizli Uygulamalar (MB)</string>
+	<string name="TVcontentapp">İçerik Sağlayıcı (MB)</string>
+	<string name="TVemptyapp">Boş Uygulamalar (MB)</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>

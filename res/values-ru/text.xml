@@ -16,12 +16,12 @@
 	<string name="TVservicemode">Войти в сервисный режим Samsung</string>
 	<string name="TVkitchen">Запустить "кухню" GAOSP</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app</string>
-	<string name="TVvisibleapp">Visible app</string>
-	<string name="TVsecondaryapp">Secondary Server</string>
-	<string name="TVhiddenapp">Hidden app</string>
-	<string name="TVcontentapp">Content provider</string>
-	<string name="TVemptyapp">Empty app</string>
+	<string name="TVforegroundapp">Foreground app (MB)</string>
+	<string name="TVvisibleapp">Visible app (MB)</string>
+	<string name="TVsecondaryapp">Secondary Server (MB)</string>
+	<string name="TVhiddenapp">Hidden app (MB)</string>
+	<string name="TVcontentapp">Content provider (MB)</string>
+	<string name="TVemptyapp">Empty app (MB)</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Экон.</string>
 	<string name="CBmix">Смеш.</string>
