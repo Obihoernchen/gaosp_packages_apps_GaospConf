@@ -39,8 +39,6 @@ public class conf extends Activity {
         String record = null;
         String record2 = null;
         
-        Boolean compcache = false;
-        String compcache_disksize = null;
         Boolean overclocking = false;
         Boolean overclocking2 = false;
         int cpu_sampling = 0;
@@ -58,8 +56,6 @@ public class conf extends Activity {
         Button Apply_Button = (Button) findViewById(R.id.apply);
         Button Service_Button = (Button) findViewById(R.id.service);
         Button Kitchen_Button = (Button) findViewById(R.id.kitchen);
-        final ToggleButton Toggle_Compcache = (ToggleButton) findViewById(R.id.comp);
-        final EditText compcache_disksize_edit = (EditText) findViewById(R.id.disksize);
         final CheckBox Check_sampling_eco = (CheckBox) findViewById(R.id.sampling01);
         final CheckBox Check_sampling_mix = (CheckBox) findViewById(R.id.sampling02);
         final CheckBox Check_sampling_perf = (CheckBox) findViewById(R.id.sampling03);
@@ -80,8 +76,6 @@ public class conf extends Activity {
         final EditText memory4_edit = (EditText) findViewById(R.id.memory4);
         final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
         final EditText memory6_edit = (EditText) findViewById(R.id.memory6);	
-        TextView Desccomptext = (TextView) findViewById(R.id.Textcomp);
-		TextView Desccompedit = (TextView) findViewById(R.id.Textcompedit);
 		TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descoverclock1 = (TextView) findViewById(R.id.Textoverclock1);
 		TextView Descoverclock2 = (TextView) findViewById(R.id.Textoverclock2);
@@ -115,15 +109,6 @@ public class conf extends Activity {
 		// Read config file
 		try {
 			while ((record = BR.readLine()) != null) {
-			    if (record.equals("compcache=yes")) {
-			    	compcache = true;
-			    }
-			    if (record.equals("compcache=no")) {
-			    	compcache = false;
-			    }
-			    if (record.startsWith("compcache_disksize=")) {
-			    	compcache_disksize = record.substring(19);
-			    }
 			    if (record.startsWith("cpu_sampling=")) {
 			    	cpu_sampling = Integer.parseInt(record.substring(13));
 			    }
@@ -133,12 +118,14 @@ public class conf extends Activity {
 			    if (record.equals("sshd=yes")) {
 			    	ssh = true;
 			    }
-			    /*if (record.equals("inadyn=no")) {
-			    	inadyn = false;
-			    }
-			    if (record.equals("inadyn=yes")) {
-			    	inadyn = true;
-			    }*/
+			    /*
+			     * if (record.equals("inadyn=no")) {
+			     * 	inadyn = false;
+			     * }
+			     * if (record.equals("inadyn=yes")) {
+			     * 	inadyn = true;			    	
+			     * }
+			    */
 			    if (record.equals("renice=no")) {
 			    	renice = false;
 			    }
@@ -215,20 +202,6 @@ public class conf extends Activity {
 		}
 
 		// Complete and validate the fields and other
-		compcache_disksize_edit.setText(compcache_disksize);
-		if (compcache == true) {
-			Toggle_Compcache.setChecked(true);
-		}
-		// Enable Disk size if Compcache is enabled
-		if (Toggle_Compcache.isChecked()) {
-			compcache_disksize_edit.setEnabled(true);
-			compcache_disksize_edit.setFocusable(true);
-			compcache_disksize_edit.setFocusableInTouchMode(true);
-		}
-		if (! Toggle_Compcache.isChecked()) {
-			compcache_disksize_edit.setEnabled(false);
-			compcache_disksize_edit.setFocusable(false);
-		}
 		if (cpu_sampling == 0) {
 			Check_sampling_eco.setChecked(true);
 		}
@@ -253,14 +226,6 @@ public class conf extends Activity {
 		if (swap == true) {
 			Toggle_Swap.setChecked(true);
 		}
-		// Disable Compcache if Swap only is enabled
-		if (Toggle_Swap.isChecked()) {
-			Toggle_Compcache.setEnabled(false);
-			Toggle_Compcache.setChecked(false);
-		}
-		if (! Toggle_Swap.isChecked()) {
-			Toggle_Compcache.setEnabled(true);
-		}		
 		if (bootani == true) {
 			Toggle_Bootani.setChecked(true);
 		}				
@@ -288,36 +253,6 @@ public class conf extends Activity {
 		}
 		
 		// TextView Listener (Descriptions)
-	    Desccomptext.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
-    		alertbox.setTitle(R.string.TVcompcache);
-    		alertbox.setMessage(R.string.compcache);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}               	
-                }
-            });
-    		alertbox.show();
-    		}
-        });
-		Desccompedit.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
-    		alertbox.setTitle(R.string.TVcompcachedisk);
-    		alertbox.setMessage(R.string.compcachedisk);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}               	
-                }
-            });
-    		alertbox.show();
-    		}
-        });  
 		Descswap.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVswap);
@@ -627,10 +562,6 @@ public class conf extends Activity {
 		// Default Button
 		Default_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Toggle_Compcache.setChecked(false);
-            	compcache_disksize_edit.setEnabled(false);
-				compcache_disksize_edit.setFocusable(false);
-            	compcache_disksize_edit.setText("25600");
             	Check_sampling_eco.setChecked(false);
             	Check_sampling_mix.setChecked(false);
 				Check_sampling_perf.setChecked(true);
@@ -659,11 +590,7 @@ public class conf extends Activity {
 		Apply_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	PrintWriter out = null;            	        	
-            	if (Integer.parseInt(compcache_disksize_edit.getText().toString()) > 90000) {
-                	Toast.makeText(getBaseContext(), R.string.comptobig, Toast.LENGTH_LONG).show();
-            	}
-            	else {
-            	            	            	
+
 	            	// Remount in read/write
             		String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"};
             		shell.doExec(rw, true);
@@ -677,17 +604,6 @@ public class conf extends Activity {
 					out.println("################################");
 					out.println("##### Gaosp config file ########");
 					out.println("################################");
-					out.println(" ");
-					
-					// Copying compcache setting to conf file
-					out.println("# Compcache");
-					if (Toggle_Compcache.isChecked()) {
-						out.println("compcache=yes");	
-					}
-					else {
-						out.println("compcache=no");
-					}
-					out.println("compcache_disksize=" + compcache_disksize_edit.getText());
 					out.println(" ");
 					
 					// Copying cpu sampling setting to conf file
@@ -841,51 +757,62 @@ public class conf extends Activity {
 					
 					// Remount in read only
 					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo remount ro done" };
-            		shell.doExec(ro, true);
-            	}
+            		shell.doExec(ro, true);         		
             }
         });
 		// Check for dependences
 		Check_sampling_eco.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					Check_sampling_mix.setChecked(false);
-					Check_sampling_perf.setChecked(false);	
+					if (Check_sampling_eco.isChecked()) {
+						Check_sampling_mix.setChecked(false);
+						Check_sampling_perf.setChecked(false);
+					}
 			}
 		});
 		Check_sampling_mix.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					Check_sampling_eco.setChecked(false);
-					Check_sampling_perf.setChecked(false);
+					if (Check_sampling_mix.isChecked()) {
+						Check_sampling_eco.setChecked(false);
+						Check_sampling_perf.setChecked(false);
+					}
 			}
 		});
 		Check_sampling_perf.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					Check_sampling_mix.setChecked(false);
-					Check_sampling_eco.setChecked(false);
+					if (Check_sampling_perf.isChecked()) {
+						Check_sampling_mix.setChecked(false);
+						Check_sampling_eco.setChecked(false);
+					}
 			}
 		});
 		Check_sensors_sampling_eco.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					Check_sensors_sampling_mix.setChecked(false);
-					Check_sensors_sampling_perf.setChecked(false);	
+					if (Check_sensors_sampling_eco.isChecked()) {
+						Check_sensors_sampling_mix.setChecked(false);
+						Check_sensors_sampling_perf.setChecked(false);
+					}
 			}
 		});
 		Check_sensors_sampling_mix.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					Check_sensors_sampling_eco.setChecked(false);
-					Check_sensors_sampling_perf.setChecked(false);
+					if (Check_sensors_sampling_mix.isChecked()) {
+						Check_sensors_sampling_eco.setChecked(false);
+						Check_sensors_sampling_perf.setChecked(false);
+					}
 			}
 		});
 		Check_sensors_sampling_perf.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					Check_sensors_sampling_mix.setChecked(false);
-					Check_sensors_sampling_eco.setChecked(false);
+					if (Check_sensors_sampling_perf.isChecked()) {
+						Check_sensors_sampling_mix.setChecked(false);
+						Check_sensors_sampling_eco.setChecked(false);
+					}
 			}
 		});
 		Toggle_Swap.setOnCheckedChangeListener(new OnCheckedChangeListener()
@@ -893,11 +820,6 @@ public class conf extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
 				if (Toggle_Swap.isChecked()) {
 					Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
-					Toggle_Compcache.setEnabled(false);
-					Toggle_Compcache.setChecked(false);
-				}
-				if (! Toggle_Swap.isChecked()) {
-					Toggle_Compcache.setEnabled(true);
 				}
 			}
 		});
@@ -916,23 +838,11 @@ public class conf extends Activity {
 					Toggle_OverClocking.setChecked(false);
 				}
 			}
-		});	
-		Toggle_Compcache.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-				if (Toggle_Compcache.isChecked()) {
-					compcache_disksize_edit.setEnabled(true);
-					compcache_disksize_edit.setFocusable(true);
-					compcache_disksize_edit.setFocusableInTouchMode(true);
-				}
-				if (! Toggle_Compcache.isChecked()) {
-					compcache_disksize_edit.setEnabled(false);
-					compcache_disksize_edit.setFocusable(false);
-				}
-			}
 		});
-    }
-    // Create Menu
+	}
+			
+
+	// Create Menu
     public boolean onCreateOptionsMenu(Menu menu) 
     {
     	super.onCreateOptionsMenu(menu);

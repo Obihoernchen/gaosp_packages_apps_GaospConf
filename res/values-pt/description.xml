@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Comprime os segmentos de memória volátil, aumentando a sua capacidade. Desta forma cabem mais aplicações na memória RAM, em troca de um pequeno aumento na utilização dp processador. Também activa o SWAP.</string>
-	<string name="compcachedisk">O tamanho do compcache</string>
 	<string name="swap">O Android usa o espaço swap como memória "extra" para as aplicações que não estão activas, mas cujo estado foi guardado. O espaço swap mais o tamanho da memória RAM equivalem ao total de memória virtual no sistema. É necessário criar uma partição swap no modo Recovery primeiro, e um cartão SD de no mínimo classe 6.</string>
 	<string name="overclock1">Fazer overclock do seu processador para 614 MHz.</string>
 	<string name="overclock2">Fazer overclock do seu processador para 710 MHz. Esta opção é instável em certos dispositivos.</string>

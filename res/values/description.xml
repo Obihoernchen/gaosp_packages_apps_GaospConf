@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Compressing pages and keeping them in RAM virtually increases its capacity. This allows more applications to fit in given amount of memory. But it uses additional CPU time. It also activates Swap.</string>
-	<string name="compcachedisk">The size of compcache</string>
 	<string name="swap">Android uses swap space as "extra" memory for pages of application memory that are not being actively used by the application but have been modified (written to). The swap space size plus RAM size is the total amount of virtual memory for the system. Create swap partition with recovery mode first. You need a external SD card (Class 6 recommend).</string>
 	<string name="overclock1">Overclocking your processor to 614 MHz.</string>
 	<string name="overclock2">Overclocking your processor to 710 MHz. Unstable on some devices.</string>

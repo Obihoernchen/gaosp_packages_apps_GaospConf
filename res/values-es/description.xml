@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Comprimir páginas y mantenerlas en RAM incrementa virtualmente su capacidad. Esto permite que más aplicaciones sean almacenadas en una cantidad de memoria dada, pero utiliza tiempo de CPu adicional. También activa el Swap.</string>
-	<string name="compcachedisk">El tamaño del compcache</string>
 	<string name="swap">Android utiliza espacio swap como memoria "extra" para páginas de aplicaciones en memoria que no son usadas activamente por la aplicación, pero que han sido modificadas (escritas en memoria). El tamaño del espacio swap, más el tamaño de la memoria RAM es la cantidad total de memoria virtual del sistema. Primero debe crear una partición swap en el modo Recovery. Necesitará una tarjeta SD externa (Clase 6 recomendada).</string>
 	<string name="overclock1">Overclocking del procesador a 614 MHz.</string>
 	<string name="overclock2">Overclocking del procesador a 710 MHz. Inestable en algunos dispositivos.</string>

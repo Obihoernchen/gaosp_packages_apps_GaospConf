@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- TextViews -->
-    <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Veličina diska</string>
     <string name="TVswap">Samo swap</string>
     <string name="TVoverclock1">O/C CPU-a na 614 MHz</string>
     <string name="TVoverclock2">O/C CPU-a na 710 MHz</string>

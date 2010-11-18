@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- TextViews -->
-    <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Größe</string>
     <string name="TVswap">Nur Swap</string>
     <string name="TVoverclock1">Übertakte die CPU auf 614 MHz</string>
     <string name="TVoverclock2">Übertakte die CPU auf 710 MHz</string>

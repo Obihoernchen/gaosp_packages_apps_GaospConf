@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="compcache">Compresarea paginilor (compcache) si pastrarea lor in RAM-ul virtual mareste capcitatea sa. Aceasta permite aplicatiilor sa se deschida in memoria alocata. Dar foloseste mai mult procesorul. Aceasta mai activeaza si Swap.</string>
-	<string name="compcachedisk">Dimensiune compcache</string>
 	<string name="swap">Android foloseşte spatiul de swap ca "extra" memorie pentru aplicatii care nu sunt folosite in mod activ de punerea in aplicare, dar au fost modificate (scrise). Dimensiunea spatiu swap plus RAM reprezinta cantitatea totala de memorie virtuala a sistem-ului. Creaza paritie swap in recovery prima data. Ai nevoie de un card SD extern (recomandat Clasa 6 ).</string>
 	<string name="overclock1">Overclock la 614 MHz.</string>
 	<string name="overclock2">Overclock la 710 MHz. Instabil pe unele aparate.</string>

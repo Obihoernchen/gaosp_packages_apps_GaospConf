@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Sıkıştırılmış sayfaları RAM´de tutmak kapasiteyi arttırır. Bu, varolan alanda daha fazla program çalıştırılmasını sağlar. Ama daha fazla CPU süresi gerektirir. Aynı zamanda Swap´ı etkinleştirir.</string>
-	<string name="compcachedisk">Compcache büyüklüğü</string>
 	<string name="swap">Android,aktif ama uygulama belleği tarafından kullanılmayan,uygulama belleği sayfaları için "ekstra" bellek olarak takas alanı kullanır. Takas alanı ve RAM´in toplam büyüklüğü sistemin sanal bellek alanıdır. Öncelikle recovery modda takas bölümü oluşturun. Harici bir SD karta ihtiyacınız var.(Önerilen kart tipi Class 6).</string>
 	<string name="overclock1">İşlemciniz 614 Mhz´e overclock ediliyor.</string>
 	<string name="overclock2">İşlemciniz 710 Mhz´e overclock ediliyor. Bazı cihazlarda kararsızlığa neden olabilir.</string>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Komprimering af sider og beholde dem i RAM forøger kapaciteten. Dette tillader at flere applikationer kan være i samme mængde hukommelse. Men det kræver mere CPU tid. Det kræver også Swap.</string>
-	<string name="compcachedisk">Størrelsen af compcache</string>
 	<string name="swap">Android benytter swap som "ekstra" hukommelse til sider af en applikations hukommelse, som ikke er i aktiv brug af applikationen, men som er modificeret (skrevet til). Swap størrelsen plus RAM størrelsen er den totale mængde virtuelle hukommelse i systemet. Opret swap område i recovery tilstand først. Du skal have et eksternt SD kort (Klasse 6 anbefales).</string>
 	<string name="overclock1">Overclock din processor til 614 MHz.</string>
 	<string name="overclock2">Overclock din processor til 710 MHz. Ustabilt på nogle enheder.</string>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- TextViews -->
-    <string name="TVcompcache">Компресиран кеш</string>
-    <string name="TVcompcachedisk">Размер на диска</string>
     <string name="TVswap">Само Swap</string>
     <string name="TVoverclock1">Вдигане честотата на процесора до 614 MHz</string>
     <string name="TVoverclock2">Вдигане честотата на процесора до 710 MHz</string>

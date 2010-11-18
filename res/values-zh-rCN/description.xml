@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">压缩页面并保持在内存中以提高它的容量。这可以使用更多的程序可以在内存中运行，但是占用更多的 CPU 时间。它也同时激活 SWAP。</string>
-	<string name="compcachedisk">压缩缓存的大小</string>
 	<string name="swap">Android 使用交换空间做为额外的内存使用，可以使应用程序在不激活时保留在交换空间上。交换空间增加了系统的虚拟内存数量。如果没有建立 SWAP 分区，可以先使用复模式建立。你需要有外置 SD 卡（推荐使用 Class 6 的高速卡）。</string>
 	<string name="overclock1">超频你的处理器到 614 MHz。</string>
 	<string name="overclock2">超频你的处理器到 710 MHz。有些手机会不稳定。</string>

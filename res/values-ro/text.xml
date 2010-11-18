@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!-- TextViews -->
-    <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Dimensiune spatiu</string>
     <string name="TVswap">Doar Swap</string>
     <string name="TVoverclock1">Overclock la 614 MHz</string>
     <string name="TVoverclock2">Overclock la 710 MHz</string>

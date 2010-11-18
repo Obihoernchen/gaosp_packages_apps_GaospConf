@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- TextViews -->
-    <string name="TVcompcache">Compcache</string>
-    <string name="TVcompcachedisk">Grootte</string>
     <string name="TVswap">Alleen swap</string>
     <string name="TVoverclock1">Overklok CPU tot 614 MHz</string>
     <string name="TVoverclock2">Overklok CPU tot 710 MHz</string>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="compcache">Compression de la RAM, augmentant virtuellement sa capacité. Permet à plus d´applications de s´exécuter en même temps, mais consomme plus de temps CPU. Le swap est également activé par cette option.</string>
-	<string name="compcachedisk">Taille de la mémoire compressible.</string>
 	<string name="swap">Android utilise le swap comme mémoire supplémentaire pour les pages qui ne sont pas utilisées depuis un certain temps. La taille du swap et celle de la RAM constituent le total de mémoire virtuelle disponible pour le système. Utilisez le mode recovery pour créer une partition swap. Nécessite une carte SD externe (Classe 6 recommandée).</string>
 	<string name="overclock1">Overclocker votre processeur à 614 MHz.</string>
 	<string name="overclock2">Overclocker votre processeur à 710 MHz, peut être instable sur certains terminaux.</string>

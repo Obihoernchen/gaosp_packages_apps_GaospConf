@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- TextViews -->
-    <string name="TVcompcache">压缩缓存</string>
-    <string name="TVcompcachedisk">磁盘大小</string>
     <string name="TVswap">只使用 Swap</string>
     <string name="TVoverclock1">CPU 超频到 614 MHz</string>
     <string name="TVoverclock2">CPU 超频到 710 MHz</string>

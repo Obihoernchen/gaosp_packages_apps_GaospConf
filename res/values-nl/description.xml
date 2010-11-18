@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="compcache">Comprimeren van RAM maakt het RAM virtueel groter. Dit geeft extra ruimte voor applicaties, maar kost ook meer rekentijd. Hiermee wordt ook swap geactiveerd.</string>
-	<string name="compcachedisk">De grootte van het Compcache.</string>
 	<string name="swap">Android gebruikt swap als "extra" geheugen voor applicaties die niet actief worden gebruikt, maar wel zijn gewijzigd. De swap ruimte en de hoeveel RAM samen maken het virtuele RAM geheugen van het systeem. Maak eerst een swap partitie aan met behulp van recovery. Hier is een externe SD kaart voor nodig. (Class 6 wordt aangeraden)</string>
 	<string name="overclock1">Geeft meer rekensnelheid, ten koste van batterijduur.</string>
 	<string name="overclock2">Op sommige devices niet stabiel. Geeft meer rekensnelheid, ten koste van batterijduur.</string>
