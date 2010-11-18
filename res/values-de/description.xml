@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="swap">Android nutzt Swap als RAM-Erweiterung, so dass mehr Arbeitsspeicher zur Verfügung steht. Die Swapgröße und der eigenliche RAM ergeben zusammen den für das System komplett nutzbaren Arbeitsspeicher. Erstelle zuerst eine Swappartition auf deiner externen Speicherkarte im Recovery Menü. Eine Class 6 oder höhere Micro-SD Karte wird dafür ausdrücklich empfohlen.</string>
+	<string name="swap">Android nutzt Swap als RAM-Erweiterung, so dass mehr Arbeitsspeicher zur Verfügung steht. Die Swapgröße und der eigenliche RAM ergeben zusammen den für das System komplett nutzbaren Arbeitsspeicher. Erstelle zuerst eine Swappartition auf deiner externen Speicherkarte im Recovery Menü. Eine Class 6 oder höhere Micro-SD Karte wird dafür ausdrücklich empfohlen. Compcache wird deaktiviert.</string>
 	<string name="overclock1">Übertaktet deinen Prozessor auf 614 MHz.</string>
 	<string name="overclock2">Übertaktet deinen Prozessor auf 710 MHz. Wichtig, auf manchen Geräten kann dies zu Instabilität führen.</string>
 	<string name="sampling">Der Zeitintervall, in dem das Galaxy überprüft, ob die CPU hoch- oder heruntergetaktet werden muss.</string>
