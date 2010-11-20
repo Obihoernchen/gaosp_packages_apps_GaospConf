@@ -11,6 +11,7 @@
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC serveri (portti 5901)</string>
     <string name="TVbootani">Käytä pienempää käynnistysanimaatiota</string>
+    <string name="TVlcddensity">LCD Density</string>
     <string name="TVservicemode">Avaa Samsung palvelu moodi</string>
 	<string name="TVkitchen">Avaa GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>

@@ -11,6 +11,7 @@
     <string name="TVprovisionned">Forsynet</string>
     <string name="TVvnc">VNC server (port 5901)</string>
     <string name="TVbootani">Brug mindre opstarts animation</string>
+    <string name="TVlcddensity">LCD Density</string>
     <string name="TVservicemode">Åben Samsung service tilstand</string>
 	<string name="TVkitchen">Åben GAOSP Køkken</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>

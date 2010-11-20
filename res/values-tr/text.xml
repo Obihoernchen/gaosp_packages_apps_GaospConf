@@ -11,6 +11,7 @@
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC server (port 5901)</string>
     <string name="TVbootani">Daha hafif bir açılış animasyonu kullan</string>
+    <string name="TVlcddensity">LCD Density</string>
     <string name="TVservicemode">Samsung servis modunda aç</string>
 	<string name="TVkitchen">GAOSP Kitchen´ı aç</string>
 	<string name="TVmemorythresholds">Bellek Eşikleri</string>

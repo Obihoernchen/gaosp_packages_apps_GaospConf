@@ -11,6 +11,7 @@
     <string name="TVprovisionned">Provisionados</string>
     <string name="TVvnc">Servidor VNC (puerto 5901)</string>
     <string name="TVbootani">Usar animación de arranque más corta</string>
+    <string name="TVlcddensity">LCD Density</string>
     <string name="TVservicemode">Abrir el Modo de Servicio de Samsung</string>
 	<string name="TVkitchen">Abrir la Cocina de GAOSP</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>

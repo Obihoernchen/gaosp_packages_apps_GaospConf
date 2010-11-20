@@ -11,15 +11,16 @@
     <string name="TVprovisionned">Заделен</string>
     <string name="TVvnc">VNC сървър (порт 5901)</string>
     <string name="TVbootani">Използва малка boot анимация</string>
+	<string name="TVlcddensity">LCD Density</string>
     <string name="TVservicemode">Отвори сервизен режим на Samsung</string>
 	<string name="TVkitchen">Отвори GAOSP Kitchen</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app (MB)</string>
-	<string name="TVvisibleapp">Visible app (MB)</string>
-	<string name="TVsecondaryapp">Secondary Server (MB)</string>
-	<string name="TVhiddenapp">Hidden app (MB)</string>
-	<string name="TVcontentapp">Content provider (MB)</string>
-	<string name="TVemptyapp">Empty app (MB)</string>
+	<string name="TVmemorythresholds">Прагове на Паметта</string>
+	<string name="TVforegroundapp">Приложения на преден план (MB)</string>
+	<string name="TVvisibleapp">Видими приложения (MB)</string>
+	<string name="TVsecondaryapp">Вторичен Сървър (MB)</string>
+	<string name="TVhiddenapp">Скрити приложения (MB)</string>
+	<string name="TVcontentapp">Доставчик на съдържание (MB)</string>
+	<string name="TVemptyapp">Празни приложения (MB)</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>
@@ -32,6 +33,6 @@
     <string name="wait">Моля изчакайте..</string>
     <string name="applied">Новите настройки са запазени и активирани. Можете да рестартирате.</string>
 	<string name="comptobig">Размерът на дисковото пространство за compcache е твърде голям!</string>
-	<string name="swapwarning">Трябва да имате външна SD карта със swap дял (Recovery > Format swap+fat32)</string>
+	<string name="swapwarning">Трябва да имате външна SD карта със swap дял (Recovery --> Format swap+fat32)</string>
 	<string name="defaults">Стандартните настройки са успешно заредени. Натистни "Приложи новата конфигурация" за да съхраните настройките.</string>
 </resources>

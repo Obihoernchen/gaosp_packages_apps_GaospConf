@@ -2,36 +2,37 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Samo swap</string>
-    <string name="TVoverclock1">O/C CPU-a na 614 MHz</string>
-    <string name="TVoverclock2">O/C CPU-a na 710 MHz</string>
-    <string name="TVsampling">CPU sampling</string>
-    <string name="TVsensors">Reagiranje senzora reaction</string>
+    <string name="TVoverclock1">O/C CPU na 614 MHz</string>
+    <string name="TVoverclock2">O/C CPU na 710 MHz</string>
+    <string name="TVsampling">Sampliranje CPU-a</string>
+    <string name="TVsensors">Reagiranje senzora</string>
     <string name="TVssh">SSH server</string>
     <string name="TVrenice">Renice</string>
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC server (port 5901)</string>
-    <string name="TVbootani">Koristi manju animaciju</string>
-    <string name="TVservicemode">Otvori Samsung servis nači rada</string>
+    <string name="TVbootani">Koristi manju animaciju pri podizanju</string>
+	<string name="TVlcddensity">LCD Density</string>
+    <string name="TVservicemode">Otvori Samsungov servis način rada</string>
 	<string name="TVkitchen">Otvori GAOSP kuhinju</string>
 	<string name="TVmemorythresholds">Memorijski pragovi</string>
-	<string name="TVforegroundapp">Primarna aplikacija (MB)</string>
+	<string name="TVforegroundapp">Aplikacija u prvom planu (MB)</string>
 	<string name="TVvisibleapp">Vidljive aplikacije (MB)</string>
 	<string name="TVsecondaryapp">Sekundarni server (MB)</string>
-	<string name="TVhiddenapp">Skrivene aplikacije (MB)</string>
-	<string name="TVcontentapp">Pružitelj podataka (MB)</string>
+	<string name="TVhiddenapp">Sakrivene aplikacije (MB)</string>
+	<string name="TVcontentapp">Davatelj podataka (MB)</string>
 	<string name="TVemptyapp">Prazna aplikacija (MB)</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eko</string>
-	<string name="CBmix">Mje</string>
+	<string name="CBmix">Mix</string>
 	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otvori</string>
-    <string name="Bdefaults">Osnovni podatci</string>
-    <string name="Bapply">Primijeni novu konfiguraciju</string>
+    <string name="Bdefaults">Osnovne postavke</string>
+    <string name="Bapply">Primijeni novu konf.</string>
     <!-- Messages -->
     <string name="wait">Molimo pričekajte...</string>
-    <string name="applied">Nova konfiguracija spremjena i primijenjena. Morat će te ponovno pokrenuti.</string>
-	<string name="comptobig">Veličina compcache je prevelika!</string>
-	<string name="swapwarning">Morate imati vanjski SD sa swap particijom (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Osnovni podatci uspješno učitani. Pritisnite "Primijeni novu konfiguraciju" za spremanje.</string>
+    <string name="applied">Nova konfiguracija spremjena i primijenjena. Morati će te ponovo pokrenuti uređaj.</string>
+	<string name="comptobig">Veličina compcache-a je prevelika!</string>
+	<string name="swapwarning">Morate imati vanjsku SD karticu sa swap particijom (Recovery > Format swap+fat32).</string>
+	<string name="defaults">Osnovne postavke uspješno učitane. Pritisnite "Primijeni novu konf." za spremanje.</string>
 </resources>

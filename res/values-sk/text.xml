@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- TextViews -->
+    <string name="TVswap">Iba swap</string>
+    <string name="TVoverclock1">Pretaktovať CPU na 614 MHz</string>
+    <string name="TVoverclock2">Pretaktovať CPU na 710 MHz</string>
+    <string name="TVsampling">Vzorkovanie CPU</string>
+    <string name="TVsensors">Odozva senzorov</string>
+    <string name="TVssh">Server SSH</string>
+    <string name="TVrenice">Renice</string>
+    <string name="TVprovisionned">Aktivovaná SIM</string>
+    <string name="TVvnc">Server VNC (port 5901)</string>
+    <string name="TVbootani">Použiť menšiu zavádzaciu animáciu</string>
+	<string name="TVlcddensity">LCD Density</string>
+    <string name="TVservicemode">Otvoriť servisný režim Samsung</string>
+	<string name="TVkitchen">Otvoriť "kuchyňu" GAOSP</string>
+	<string name="TVmemorythresholds">Pamäťové prahy</string>
+	<string name="TVforegroundapp">Apl. v popredí (MB)</string>
+	<string name="TVvisibleapp">Viditeľná apl. (MB)</string>
+	<string name="TVsecondaryapp">Sekundárny server (MB)</string>
+	<string name="TVhiddenapp">Skrytá apl. (MB)</string>
+	<string name="TVcontentapp">Poskytovateľ obsahu (MB)</string>
+	<string name="TVemptyapp">Prázdna apl. (MB)</string>
+	<!-- CheckBoxes -->
+	<string name="CBeco">Eko</string>
+	<string name="CBmix">Mix</string>
+	<string name="CBperf">Výkon</string>
+	<!-- Buttons -->
+	<string name="Bopen">Otvoriť</string>
+    <string name="Bdefaults">Nastaviť predvolené</string>
+    <string name="Bapply">Použiť nové nast.</string>
+    <!-- Messages -->
+    <string name="wait">Čakajte, prosím...</string>
+    <string name="applied">Nové nastavenia boli uložené a použité. Možno budete musieť reštartovať.</string>
+	<string name="comptobig">Veľkosť disku compcache je príliš veľká!</string>
+	<string name="swapwarning">Musíte mať ext. SD s oddielom swap (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Predvolené hodnoty úspešne načítané. Pre uloženie stlačte "Použiť nové nast.".</string>
+</resources>

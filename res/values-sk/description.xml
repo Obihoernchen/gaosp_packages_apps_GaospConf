@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="swap">Android používa priestor swap ako "extra" pamäť pre stránky aplikačnej pamäte, ktoré nie sú aktívne používané aplikáciou, ale boli modifikované. Veľkosť priestoru swap spolu s veľkosťou RAM tvorí celkové množstvo virtuálnej pamäte dostupnej v systéme. Najskôr vytvorte oddiel swap v režime obnovenia (recovery mode). Budete potrebovať externú SD kartu (odporúča sa aspoň class 6).</string>
+	<string name="overclock1">Pretaktovanie vášho procesora na 614 MHz.</string>
+	<string name="overclock2">Pretaktovanie vášho procesora na 710 MHz. Nestabilné na niektorých zariadeniach.</string>
+	<string name="sampling">Je to časový interval, v ktorom zariadenie zisťuje svoju záťaž. Po každej vzorke zariadenie zvýši alebo zníži rýchlosť CPU v závislosti od aktuálnej záťaže.</string>
+	<string name="sensors">Ako rýchlo budú reagovať všetky senzory.</string>
+	<string name="ssh">Umožní beh linuxového interpretéra príkazov (shell-u) z vášho PC na vašom Galaxy.</string>
+	<string name="renice">Renice upraví prioritu plánovača pre jeden alebo viacero spustených procesov.</string>
+	<string name="provisionned">Váš mobil Galaxy môžete používať aj bez SIM karty.</string>
+	<string name="vnc">Umožní vám ovládať váš telefón z počítača (pomocou špecializovanej aplikácie).</string>
+	<string name="bootani">Použije menšiu zavádzaciu animáciu pre zníženie času zavádzania.</string>
+	<string name="servicemode">Len pre expertov! Tu môžete nastaviť "audio hack".</string>
+	<string name="kitchen">Vytvoriť vlastný balík aplikácií Google.</string>
+	<string name="memorythresholds">Toto sú prahy od ktorých zariadenie začne ukončovať niektoré procesy, aby sa uvoľnila pamäť (interný ukončovač úloh začne ukončovať aplikácie pod týmito prahmi). Pred zmenou vykonajte zálohu Nandroid!</string>
+	<string name="foregroundapp">Toto je aplikácia, ktorá práve beží na obrazovke. Nemeňte túto hodnotu, ak o nej nemáte veľa znalostí!</string>
+	<string name="visibleapp">Toto je aplikácia, ktorá je otvorená a spustená na pozadí, pretože ešte stále niečo robí. Nemeňte túto hodnotu, ak o nej nemáte veľa znalostí!</string>
+	<string name="secondaryapp">Toto je proces (služba, ktorú aplikácia potrebuje), ktorý je nažive, pripravený pre prípad, že má niečo urobiť. Nemeňte túto hodnotu, ak o nej nemáte veľa znalostí!</string>
+	<string name="hiddenapp">Toto je znovu proces, ktorý je nečinný (ale stále nažive) pre prípad, že bude potrebný pre inú aplikáciu, ktorá je spustená a nažive. Buďte opatrní s týmto nastavením!</string>
+	<string name="contentapp">Toto sú aplikácie, ktoré systému poskytujú údaje (obsah). Sú to veci ako napr. Android Market alebo Google Sync. Ak sú nažive, môžu sa obnoviť a poskytnúť obsah, ktorý majú poskytovať podľa nastaveného intervalu. Samozrejme, len ak ich neukončíte.</string>
+	<string name="emptyapp">Tieto aplikácie sa taktiež nazývajú "duchovia". Sú to aplikácie, ktoré ste síce otvorili, ale ich nepoužívate. Android využíva jedinečnú techniku pri zaobchádzaní s riadením pamäte. Keď sa ukončí aktivita, Android namiesto jej ukončenia uchováva aplikáciu v pamäti, takže jej opätovné otvorenie je rýchlejšie. Tieto aplikácie nepoužívajú ani batériu ani procesorový čas, iba zaberajú pamäť RAM, ktorá by inak bola prázdna. Keď je táto pamäť potrebná pre inú aplikáciu, RAM sa vyprázdni a sprístupní pre novú aplikáciu.</string>	
+	<string name="lcddensity">Lowering the density value will then expand the screen, allowing text to appear longer and not have to scroll or wrap as soon. It also increases spacing between home screen icons, which might come in handy if someone uses Multicon Widget or ADW Launcher’s columns change to pack in more shortcuts. Make a Nandroid Backup before!</string>
+</resources>

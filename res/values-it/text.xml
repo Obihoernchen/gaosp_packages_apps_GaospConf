@@ -11,6 +11,7 @@
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC server (port 5901)</string>
     <string name="TVbootani">Nuova Bootanimation</string>
+    <string name="TVlcddensity">LCD Density</string>
     <string name="TVservicemode">Open Samsung service mode</string>
   	<string name="TVkitchen">Personalizza applicazioni Google – GAOSP Kitchen</string>
     <string name="TVmemorythresholds">Soglie pulizia memoria</string>

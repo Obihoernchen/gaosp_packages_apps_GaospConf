@@ -38,7 +38,8 @@ public class conf extends Activity {
         // Define variables
         String record = null;
         String record2 = null;
-        
+        String record3 = null;
+                
         Boolean overclocking = false;
         Boolean overclocking2 = false;
         int cpu_sampling = 0;
@@ -50,7 +51,7 @@ public class conf extends Activity {
         Boolean vnc = false;
         Boolean swap = false;
         Boolean bootani = false;
-
+        
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
         Button Apply_Button = (Button) findViewById(R.id.apply);
@@ -75,7 +76,8 @@ public class conf extends Activity {
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
         final EditText memory4_edit = (EditText) findViewById(R.id.memory4);
         final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
-        final EditText memory6_edit = (EditText) findViewById(R.id.memory6);	
+        final EditText memory6_edit = (EditText) findViewById(R.id.memory6);
+        final EditText lcddensity = (EditText) findViewById(R.id.lcddensity);
 		TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descoverclock1 = (TextView) findViewById(R.id.Textoverclock1);
 		TextView Descoverclock2 = (TextView) findViewById(R.id.Textoverclock2);
@@ -95,6 +97,7 @@ public class conf extends Activity {
 		TextView Deschiddenapp = (TextView) findViewById(R.id.Texthiddenapp);
 		TextView Desccontentapp = (TextView) findViewById(R.id.Textcontentapp);
 		TextView Descemptyapp = (TextView) findViewById(R.id.Textemptyapp);
+		TextView Desclcddensity = (TextView) findViewById(R.id.Textlcddensity);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
         
         // Open config file
@@ -196,6 +199,26 @@ public class conf extends Activity {
 		    	memory4_edit.setText(Integer.toString(Integer.parseInt(mem[3])*4/1024));
 		    	memory5_edit.setText(Integer.toString(Integer.parseInt(mem[4])*4/1024));
 		    	memory6_edit.setText(Integer.toString(Integer.parseInt(mem[5])*4/1024));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		// Open build.prop file (LCD Density)
+		FileReader FR3 = null;
+		try {
+			FR3 = new FileReader("/system/build.prop");
+			} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			} 
+		BufferedReader BR3 = new BufferedReader(FR3, 8192);
+			
+		// Read build.prop file (LCD Density)
+		try {
+		    while ((record3 = BR3.readLine()) != null) {
+		    	if (record3.startsWith("ro.sf.lcd_density=")) {
+		    		lcddensity.setText(record3.substring(18));
+		    		}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -402,7 +425,22 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });    
+        });
+		Desclcddensity.setOnClickListener(new View.OnClickListener() {
+	    public void onClick(View v){ 	
+	    	alertbox.setTitle(R.string.TVlcddensity);
+	    	alertbox.setMessage(R.string.lcddensity);
+	        alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	        	public void onClick(DialogInterface arg0, int arg1) {
+	               	try {
+	               	return; }
+	               	catch (Throwable e) {
+	               	}               	
+	               }
+	           });
+	    	alertbox.show();
+	    	}
+	    });
 		Descservice.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVservicemode);
@@ -576,6 +614,7 @@ public class conf extends Activity {
 				Check_sensors_sampling_perf.setChecked(false);
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
+				lcddensity.setText("160");
 				memory1_edit.setText("6");
 		    	memory2_edit.setText("8");
 		    	memory3_edit.setText("16");
@@ -747,7 +786,13 @@ public class conf extends Activity {
 					out.println("mem5=" + Integer.parseInt(memory5_edit.getText().toString())*1024/4);
 					out.println("mem6=" + Integer.parseInt(memory6_edit.getText().toString())*1024/4);
 					out.println(" ");
-															
+					
+					// Set LCD Density
+					String[] lcdchange = { "density=`grep ro.sf.lcd_density= /system/build.prop | awk -F = '{print $2'}`",
+										   "/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+lcddensity.getText().toString()+"/' /system/build.prop'",
+										   "echo LCD Density changed"};
+					shell.doExec(lcdchange, true);
+					
 					// Executing rc with scrolling
 					new Task().execute();
 
