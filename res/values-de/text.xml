@@ -12,6 +12,7 @@
     <string name="TVvnc">VNC Server (Port 5901)</string>
     <string name="TVbootani">Kleinere Bootanimation</string>
     <string name="TVlcddensity">LCD Density</string>
+    <string name="TVgallery">2D gallery</string>
     <string name="TVservicemode">Samsung Service Modus App</string>
     <string name="TVkitchen">GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Speicher Thresholds</string>

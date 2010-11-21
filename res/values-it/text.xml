@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- TextViews -->
+    <!-- TextViews -->
     <string name="TVswap">Attiva memoria Swap</string>
     <string name="TVoverclock1">Overclocca a 614 MHz</string>
     <string name="TVoverclock2">Overclocca a 710 MHz</string>
@@ -11,16 +11,17 @@
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">VNC server (port 5901)</string>
     <string name="TVbootani">Nuova Bootanimation</string>
-    <string name="TVlcddensity">LCD Density</string>
+    <string name="TVlcddensity">Densità LCD</string>
+    <string name="TVgallery">2D gallery</string>
     <string name="TVservicemode">Open Samsung service mode</string>
   	<string name="TVkitchen">Personalizza applicazioni Google – GAOSP Kitchen</string>
-    <string name="TVmemorythresholds">Soglie pulizia memoria</string>
-    <string name="TVforegroundapp">Applicazioni a display (MB)</string>
-  	<string name="TVvisibleapp">Applicazioni in esecuzione (MB)</string>
-   	<string name="TVsecondaryapp">Applicazioni server (MB)</string>
- 	<string name="TVhiddenapp">Applicazioni nascoste (MB)</string>
-  	<string name="TVcontentapp">Provider contenuti (MB)</string>
-   	<string name="TVemptyapp">Applicazioni terminate (MB)</string>    
+  	<string name="TVmemorythresholds">Memory Thresholds</string>
+	<string name="TVforegroundapp">Foreground app (MB)</string>
+	<string name="TVvisibleapp">Visible app (MB)</string>
+	<string name="TVsecondaryapp">Secondary Server (MB)</string>
+	<string name="TVhiddenapp">Hidden app (MB)</string>
+	<string name="TVcontentapp">Content provider (MB)</string>
+	<string name="TVemptyapp">Empty app (MB)</string>
     <!-- CheckBoxes -->
     <string name="CBeco">Eco</string>
     <string name="CBmix">Mix</string>
@@ -30,9 +31,9 @@
     <string name="Bdefaults">Imposta defaults</string>
     <string name="Bapply">Applica nuova configurazione</string>
     <!-- Messages -->
-    <string name="wait">Attendere...</string>
+    <string name="wait">Attendere..</string>
     <string name="applied">Nuova configurazione applicata e salvata. Necessario riavvio</string>
     <string name="comptobig">Dimensione Compcache troppo grande!</string>
     <string name="swapwarning">Devi avere una microSD con una partizione SWAP(Recovery > Format swap+fat32)</string>
- 	<string name="defaults">Impostazioni di default caricate. Premi Applica nuova configurazione per salvare.</string>
+	<string name="defaults">Impostazioni di default caricate. Premi Applica nuova configurazione per salvare.</string>
 </resources>

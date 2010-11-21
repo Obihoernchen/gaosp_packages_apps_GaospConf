@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!-- TextViews -->
+	<!-- TextViews -->
     <string name="TVswap">Doar Swap</string>
     <string name="TVoverclock1">Overclock la 614 MHz</string>
     <string name="TVoverclock2">Overclock la 710 MHz</string>
@@ -11,16 +11,17 @@
     <string name="TVprovisionned">Provisioned</string>
     <string name="TVvnc">Server VNC(port 5901)</string>
     <string name="TVbootani">Foloseste o animatie de boot mai mica</string>
-    <string name="TVlcddensity">LCD Density</string>
+    <string name="TVlcddensity">Densitate LCD</string>
+    <string name="TVgallery">2D gallery</string>
     <string name="TVservicemode">Deschide mod service Samsung</string>
 	<string name="TVkitchen">Deschide GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Limitele memoriei</string>
-	<string name="TVforegroundapp">Aplicatie din background (MB)</string>
-	<string name="TVvisibleapp">Aplicatie vizibila (MB)</string>
-	<string name="TVsecondaryapp">Server secundar (MB)</string>
-	<string name="TVhiddenapp">Aplicatie ascunsa (MB)</string>
-	<string name="TVcontentapp">Provider de date (MB)</string>
-	<string name="TVemptyapp">Aplicatie goala (MB)</string>
+	<string name="TVforegroundapp">Aplicatie din background</string>
+	<string name="TVvisibleapp">Aplicatie vizibila</string>
+	<string name="TVsecondaryapp">Server secundar</string>
+	<string name="TVhiddenapp">Aplicatie ascunsa</string>
+	<string name="TVcontentapp">Provider de date</string>
+	<string name="TVemptyapp">Aplicatie goala</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>

@@ -12,6 +12,7 @@
     <string name="TVvnc">VNC 服务器 (端口 5901)</string>
     <string name="TVbootani">使用小的开机动画</string>
     <string name="TVlcddensity">LCD Density</string>
+    <string name="TVgallery">2D gallery</string>
     <string name="TVservicemode">打开三星服务模式</string>
 	<string name="TVkitchen">打开 GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>

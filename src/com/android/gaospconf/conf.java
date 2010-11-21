@@ -51,6 +51,7 @@ public class conf extends Activity {
         Boolean vnc = false;
         Boolean swap = false;
         Boolean bootani = false;
+        Boolean gallery = false;
         
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
@@ -71,6 +72,7 @@ public class conf extends Activity {
         final CheckBox Check_sensors_sampling_mix = (CheckBox) findViewById(R.id.sensors05);
         final CheckBox Check_sensors_sampling_perf = (CheckBox) findViewById(R.id.sensors06);
         final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
+        final ToggleButton Toggle_Gallery = (ToggleButton) findViewById(R.id.gallery);
         final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
         final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
@@ -78,7 +80,7 @@ public class conf extends Activity {
         final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
         final EditText memory6_edit = (EditText) findViewById(R.id.memory6);
         final EditText lcddensity = (EditText) findViewById(R.id.lcddensity);
-		TextView Descswap = (TextView) findViewById(R.id.Textswap);
+        TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descoverclock1 = (TextView) findViewById(R.id.Textoverclock1);
 		TextView Descoverclock2 = (TextView) findViewById(R.id.Textoverclock2);
 		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
@@ -88,6 +90,7 @@ public class conf extends Activity {
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
 		TextView Descvnc = (TextView) findViewById(R.id.Textvnc);
 		TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
+		TextView Descgallery = (TextView) findViewById(R.id.Textgallery);
 		TextView Descservice = (TextView) findViewById(R.id.Textservice);
 		TextView Desckitchen = (TextView) findViewById(R.id.Textkitchen);
 		TextView Descmemorythresholds = (TextView) findViewById(R.id.Textmemorythresholds);		
@@ -158,6 +161,12 @@ public class conf extends Activity {
 			    }
 			    if (record.equals("bootani=yes")) {
 			    	bootani = true;
+			    }
+			    if (record.equals("gallery=no")) {
+			    	gallery = false;
+			    }
+			    if (record.equals("gallery=yes")) {
+			    	gallery = true;
 			    }
 			    if (record.equals("overclocking=yes")) {
 			    	overclocking = true;
@@ -251,7 +260,10 @@ public class conf extends Activity {
 		}
 		if (bootani == true) {
 			Toggle_Bootani.setChecked(true);
-		}				
+		}
+		if (gallery == true) {
+			Toggle_Gallery.setChecked(true);
+		}
 		if (overclocking == true) {
 			Toggle_OverClocking.setChecked(true);
 		}
@@ -441,6 +453,21 @@ public class conf extends Activity {
 	    	alertbox.show();
 	    	}
 	    });
+		Descgallery.setOnClickListener(new View.OnClickListener() {
+		public void onClick(View v){ 	
+		   	alertbox.setTitle(R.string.TVgallery);
+		   	alertbox.setMessage(R.string.gallery);
+		    alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+		       	public void onClick(DialogInterface arg0, int arg1) {
+		           	try {
+		           	return; }
+		           	catch (Throwable e) {
+		           	}               	
+		           }
+		        });
+		   	alertbox.show();
+		    }
+		});
 		Descservice.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVservicemode);
@@ -614,6 +641,7 @@ public class conf extends Activity {
 				Check_sensors_sampling_perf.setChecked(false);
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
+				Toggle_Gallery.setChecked(false);
 				lcddensity.setText("160");
 				memory1_edit.setText("6");
 		    	memory2_edit.setText("8");
@@ -645,7 +673,7 @@ public class conf extends Activity {
 					out.println("################################");
 					out.println(" ");
 					
-					// Copying cpu sampling setting to conf file
+					// Copy cpu sampling setting to conf file
 					int final_sampling = 0;	
 					if (Check_sampling_eco.isChecked()) {
 						final_sampling = 0;
@@ -661,7 +689,7 @@ public class conf extends Activity {
 					out.println("cpu_sampling=" + final_sampling);
 					out.println(" ");
 	
-					// Copying SSH setting to conf file
+					// Copy SSH setting to conf file
 					out.println("# SSH server");
 					if (Toggle_SSH.isChecked()) {
 						out.println("sshd=yes");
@@ -671,12 +699,12 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying inadyn setting to conf file
+					// Copy inadyn setting to conf file
 					out.println("# Inadyn");
 					out.println("inadyn=no");
 					out.println(" ");
 					
-					// Copying Renice setting to conf file
+					// Copy Renice setting to conf file
 					out.println("# Renice");
 					if (Toggle_Renice.isChecked()) {
 						out.println("renice=yes");
@@ -686,7 +714,7 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying Provisioned setting to conf file
+					// Copy Provisioned setting to conf file
 					out.println("# Device provisionned");
 					if (Toggle_Renice.isChecked()) {
 						out.println("provisionned=yes");
@@ -696,7 +724,7 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying VNC Server setting to conf file
+					// Copy VNC Server setting to conf file
 					out.println("# VNC Server");
 					if (Toggle_VNC.isChecked()) {
 						out.println("vnc=yes");
@@ -706,7 +734,7 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying Swap setting to conf file
+					// Copy Swap setting to conf file
 					out.println("# Swap");
 					if (Toggle_Swap.isChecked()) {
 						out.println("swap=yes");
@@ -716,33 +744,56 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying Bootanimation setting to conf file
+					// Copy Bootanimation setting to conf file
 					out.println("# Bootanimation");
 					if (Toggle_Bootani.isChecked()) {
 						out.println("bootani=yes");
 				        File boot = new File("/system/media/bootanimation.zip");
 							if (boot.length() > 3000000 ) {
-					    		String[] change = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-					    							"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-					    							"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-					    							"echo Bootanimation changed"};
-					    		shell.doExec(change, true);
+					    		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+					    								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+					    								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+					    								"echo Bootanimation changed"};
+					    		shell.doExec(bootchange, true);
 							}
 					}
 					else {
 						out.println("bootani=no");
 				        File boot = new File("/system/media/bootanimation.zip");
 							if (boot.length() < 3000000 ) {
-					    		String[] change = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-					    							"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-					    							"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-					    							"echo Bootanimation changed"};
-					    		shell.doExec(change, true);
+					    		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+					    								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+					    								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+					    								"echo Bootanimation changed"};
+					    		shell.doExec(bootchange, true);
 							}
 					}
 					out.println(" ");
 					
-					// Copying Overclocking setting to conf file
+					// Copy Gallery setting to conf file
+					out.println("# Gallery");
+					if (Toggle_Gallery.isChecked()) {
+						out.println("gallery=yes");
+				        File gallery = new File("/data/app_s/Gallery.apk");
+							if (gallery.exists() == false) {
+					    		String[] gallerychange1 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.apk /data/app_s/Gallery3D.no'",
+					    								   	"/system/xbin/su -c 'mv /data/app_s/Gallery.no /data/app_s/Gallery.apk'",
+					    								   	"echo Gallery changed"};
+					    		shell.doExec(gallerychange1, true);
+							}
+					}
+					else {
+						out.println("gallery=no");
+				        File gallery2 = new File("/data/app_s/Gallery3D.apk");
+							if (gallery2.exists() == false) {
+					    		String[] gallerychange2 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.no /data/app_s/Gallery3D.apk'",
+					    									"/system/xbin/su -c 'mv /data/app_s/Gallery.apk /data/app_s/Gallery.no'",
+					    									"echo Gallery changed"};
+					    		shell.doExec(gallerychange2, true);
+					}		}
+					out.println(" ");
+					
+					// Copy Overclocking setting to conf file
 					out.println("# Overclocking");
 					if (Toggle_OverClocking.isChecked()) {
 						out.println("overclocking=yes");
@@ -751,7 +802,8 @@ public class conf extends Activity {
 						out.println("overclocking=no");
 					}
 					out.println(" ");
-					// Copying Overclocking2 setting to conf file
+					
+					// Copy Overclocking2 setting to conf file
 					out.println("# Overclocking2");
 					if (Toggle_OverClocking2.isChecked()) {
 						out.println("overclocking2=yes");
@@ -761,7 +813,7 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
-					// Copying Sensors setting to conf file
+					// Copy Sensors setting to conf file
 					int final_sensors_sampling = 0;
 					if (Check_sensors_sampling_eco.isChecked()) {
 						final_sensors_sampling = 0;
@@ -777,7 +829,7 @@ public class conf extends Activity {
 					out.println("sensors_sampling=" + final_sensors_sampling);
 					out.println(" ");
 			
-					// Copying minfree settings to rc				
+					// Copy minfree settings to rc				
 					out.println("# Minfree settings");
 					out.println("mem1=" + Integer.parseInt(memory1_edit.getText().toString())*1024/4);
 					out.println("mem2=" + Integer.parseInt(memory2_edit.getText().toString())*1024/4);
