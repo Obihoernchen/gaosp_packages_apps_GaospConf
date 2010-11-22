@@ -20,5 +20,5 @@
     <string name="contentapp">Applicazioni che forniscono informazioni (contenuti) al sistema. Un esempio di applicazioni che utilizzano questi dati sono il Market o Google Sync. Se attive, i contenuti vengono aggiornati a intervalli regolari.</string>
     <string name="emptyapp">Chiamate Fantasmi. Applicazioni eseguite e terminate. Android utilizza un metodo unico di gestione della memoria. Quando un processo termina di essere eseguito, invece di essere chiuso, rimane in memoria per un eventuale riavvio più veloce. Questi Fantasmi non consumano batteria, ne CPU, ma occupano memoria. Quando altre applicazioni richiedono memoria, la RAM viene ripulita da eventuali Fantasmi e resta disponibile.</string> 
 	<string name="lcddensity">Abbassando il valore è possibile ridurre lo spazio occupato da quanto visualizzato sul display. Aumenta lo spazio tra le icone, la quantità di testo visualizzato. Molto utile per Widget MultIcona; per chi usa ADW Launcer´s è possibile aumenare il numero di righe e colonne per inserire più collegamenti o icone. Eseguire Nandroid backup prima di modificare le impostazioni.</string>
-	<string name="gallery">Use a 2D gallery instead of a 3D one. The 2D gallery is faster but not that fancy.</string>
+	<string name="gallery">Utilizza Galleria 2D al posto di quella 3D. La Galleria 2D appesantisce meno il sistema.</string>
 </resources>
