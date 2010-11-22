@@ -11,8 +11,8 @@
 	<string name="TVprovisionned">Provisionned</string>
 	<string name="TVvnc">Сервер VNC (порт 5901)</string>
 	<string name="TVbootani">Упрощённая анимация при загрузке</string>
-	<string name="TVlcddensity">LCD Density</string>
-	<string name="TVgallery">2D gallery</string>
+	<string name="TVlcddensity">Плотность LCD</string>
+	<string name="TVgallery">2D галерея</string>
 	<string name="TVservicemode">Войти в сервисный режим Samsung</string>
 	<string name="TVkitchen">Запустить "кухню" GAOSP</string>
 	<string name="TVmemorythresholds">Пороги памяти</string>
