@@ -12,7 +12,7 @@
     <string name="TVvnc">Server VNC(port 5901)</string>
     <string name="TVbootani">Foloseste o animatie de boot mai mica</string>
     <string name="TVlcddensity">Densitate LCD</string>
-    <string name="TVgallery">2D gallery</string>
+    <string name="TVgallery">Galerie 2D</string>
     <string name="TVservicemode">Deschide mod service Samsung</string>
 	<string name="TVkitchen">Deschide GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Limitele memoriei</string>
