@@ -11,8 +11,8 @@
     <string name="TVprovisionned">Provision</string>
     <string name="TVvnc">Serwer VNC (port 5901)</string>
     <string name="TVbootani">Użyj mniejszej animacji uruchamiania</string>
-    <string name="TVlcddensity">LCD Density</string>
-    <string name="TVgallery">2D gallery</string>
+    <string name="TVlcddensity">Gęstość na wyświetlaczu</string>
+    <string name="TVgallery">Galeria 2D</string>
     <string name="TVservicemode">Otwórz tryb serwisowy Samsunga</string>
 	<string name="TVkitchen">Otwórz GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Progi pamięci</string>
