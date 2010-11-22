@@ -12,7 +12,7 @@
     <string name="TVvnc">VNC server (port 5901)</string>
     <string name="TVbootani">Koristi manju animaciju pri podizanju</string>
 	<string name="TVlcddensity">Gustoća LCD-a</string>
-	<string name="TVgallery">2D gallery</string>
+	<string name="TVgallery">2D galerija</string>
     <string name="TVservicemode">Otvori Samsungov servis način rada</string>
 	<string name="TVkitchen">Otvori GAOSP kuhinju</string>
 	<string name="TVmemorythresholds">Memorijski pragovi</string>
