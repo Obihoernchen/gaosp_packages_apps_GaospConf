@@ -12,7 +12,7 @@
     <string name="TVvnc">VNC server (port 5901)</string>
     <string name="TVbootani">Gebruik kleinere opstartanimatie</string>
     <string name="TVlcddensity">LCD Density</string>
-    <string name="TVgallery">2D gallery</string>
+    <string name="TVgallery">2D galerie</string>
     <string name="TVservicemode">Open Samsung service modus</string>
 	<string name="TVkitchen">Open GAOSP Keuken</string>
 	<string name="TVmemorythresholds">Geheugen drempels</string>
