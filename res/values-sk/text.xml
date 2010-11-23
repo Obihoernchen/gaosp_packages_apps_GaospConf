@@ -11,8 +11,8 @@
     <string name="TVprovisionned">Aktivovaná SIM</string>
     <string name="TVvnc">Server VNC (port 5901)</string>
     <string name="TVbootani">Použiť menšiu zavádzaciu animáciu</string>
-	<string name="TVlcddensity">LCD Density</string>
-	<string name="TVgallery">2D gallery</string>
+	<string name="TVlcddensity">Hustota LCD</string>
+	<string name="TVgallery">2D galéria</string>
     <string name="TVservicemode">Otvoriť servisný režim Samsung</string>
 	<string name="TVkitchen">Otvoriť "kuchyňu" GAOSP</string>
 	<string name="TVmemorythresholds">Pamäťové prahy</string>
