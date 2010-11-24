@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- TextViews -->
-    <string name="TVswap">Somente Swap</string>
-    <string name="TVoverclock1">Overclock CPU para 710 MHz</string>
-    <string name="TVoverclock2">Overclock CPU para 614 MHz</string>
-    <string name="TVsampling">Amostragem de CPU</string>
-    <string name="TVsensors">Velocidade dos sensores</string>
+    <string name="TVswap">Apenas Swap</string>
+    <string name="TVoverclock1">Overclock da CPU para 710 MHz</string>
+    <string name="TVoverclock2">Overclock da CPU para 614 MHz</string>
+    <string name="TVsampling">Amostragem da CPU</string>
+    <string name="TVsensors">Reação dos sensores</string>
     <string name="TVssh">Servidor SSH</string>
     <string name="TVrenice">Renasce</string>
     <string name="TVprovisionned">Prepara e equipa a rede</string>
@@ -15,17 +15,17 @@
     <string name="TVgallery">Galeria 2D</string>
     <string name="TVservicemode">Abre o modo de serviço Samsung</string>
     <string name="TVkitchen">Abre o GAOSP Kitchen</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app (MB)</string>
-	<string name="TVvisibleapp">Visible app (MB)</string>
-	<string name="TVsecondaryapp">Secondary Server (MB)</string>
-	<string name="TVhiddenapp">Hidden app (MB)</string>
-	<string name="TVcontentapp">Content provider (MB)</string>
-	<string name="TVemptyapp">Empty app (MB)</string>
+    <string name="TVmemorythresholds">Limites da memória</string>
+    <string name="TVforegroundapp">Aplicação em primeiro plano(MB)</string>
+    <string name="TVvisibleapp">Aplicação visível (MB)</string>
+    <string name="TVsecondaryapp">Servidor Secundário (MB)</string>
+    <string name="TVhiddenapp">Aplicação escondida (MB)</string>
+    <string name="TVcontentapp">Provedor de conteúdo (MB)</string>
+    <string name="TVemptyapp">Aplicação vazia (MB)</string>
     <!-- CheckBoxes -->
-    <string name="CBeco">Econômico</string>
-    <string name="CBmix">Meio termo</string>
-    <string name="CBperf">Performance</string>
+    <string name="CBeco">Eco</string>
+    <string name="CBmix">Meio</string>
+    <string name="CBperf">Perf</string>
     <!-- Buttons -->
     <string name="Bopen">Abrir</string>
     <string name="Bdefaults">Tornar padrão</string>
@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Aguarde..</string>
     <string name="applied">Novas configurações salvas e aplicadas. Necessário reiniciar.</string>
-	<string name="comptobig">Espaço de Compcache é muito grande!</string>
-	<string name="swapwarning">É necessário um SD Card externo com uma partição SWAP (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+    <string name="swapwarning">É necessário um SD Card externo com uma partição SWAP (Recovery > Format swap+fat32)</string>
+    <string name="defaults">Padrões carregados com sucesso. Pressione Aplicar nova configuração para salvar.</string>
 </resources>

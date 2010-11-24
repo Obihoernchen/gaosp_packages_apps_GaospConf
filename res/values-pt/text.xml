@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Aguardar...</string>
     <string name="applied">A nova configuração foi gravada e aplicada. Poderá ser necessário reiniciar o dispositivo para activar as alterações.</string>
-	<string name="comptobig">O tamanho do disco para o Compcache é demasiado grande!</string>
 	<string name="swapwarning">É necessário um cartão SD externo com uma partição swap. (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Padrões carregados com sucesso. Pressione "Aplicar nova configuração" para guardar.</string>
 </resources>

@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Attendere..</string>
     <string name="applied">Nuova configurazione applicata e salvata. Necessario riavvio</string>
-    <string name="comptobig">Dimensione Compcache troppo grande!</string>
     <string name="swapwarning">Devi avere una MicroSD con una partizione SWAP (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Impostazioni di default caricate. Premi Applica nuova configurazione per salvare.</string>
 </resources>

@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Čakajte, prosím...</string>
     <string name="applied">Nové nastavenia boli uložené a použité. Možno budete musieť reštartovať.</string>
-	<string name="comptobig">Veľkosť disku compcache je príliš veľká!</string>
 	<string name="swapwarning">Musíte mať ext. SD s oddielom swap (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Predvolené hodnoty úspešne načítané. Pre uloženie stlačte "Použiť nové nast.".</string>
 </resources>

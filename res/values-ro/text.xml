@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Va rugam asteptati...</string>
     <string name="applied">Noua configuratie aplicata si salvata. S-ar putea sa fie nevoie de un restart.</string>
-	<string name="comptobig">Dimensiunea spatiului Compcache este prea mare!</string>
 	<string name="swapwarning">Trebuie sa aveti un card SD extern pentru Swap (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Setari implicite incarcate cu succes. Apasati Aplica noua configuratie pentru a salva.</string>
 </resources>

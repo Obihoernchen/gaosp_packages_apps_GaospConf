@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Odota...</string>
     <string name="applied">Uudet asetukset on tallennettu ja asetettu käyttöön. Sinun tarvitsee ehkä käynnistää laite uudelleen.</string>
-	<string name="comptobig">Compcache levykoko on liian suuri!</string>
 	<string name="swapwarning">Sinulla on oltava erillinen SD kortti Swap osiolla (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Oletukset ladattu onnistuneesti. Paina käytä uusien asetuksien käyttöön ottamiseksi.</string>
 </resources>

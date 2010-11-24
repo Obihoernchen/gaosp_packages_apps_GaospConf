@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Veuillez patientez..</string>
     <string name="applied">Nouvelle configuration sauvegardée et appliquée. Vous pouvez avoir à redémarrer le téléphone.</string>
-	<string name="comptobig">La taille du cache mémoire est trop élevée</string>
 	<string name="swapwarning">Vous devez avoir une carte SD avec une partition swap (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Paramètres par défaut restaurés. Appuyez sur appliquer pour les enregistrer.</string>
 </resources>

@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Favor de esperar..</string>
     <string name="applied">Nueva configuración guardada y aplicada. Posiblemente necesite reiniciar.</string>
-	<string name="comptobig">¡El tamaño de Compcache es demasiado grande!</string>
 	<string name="swapwarning">Debe tener una tarjeta SD exterior con una partición Swap (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Ajustes predeterminados cargados exitosamente. Presione Aplicar nueva configuración para guardar.</string>
 </resources>

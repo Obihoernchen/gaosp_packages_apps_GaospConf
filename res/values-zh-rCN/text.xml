@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">请稍等...</string>
     <string name="applied">新配置已经保存并应用。你可以需要重启动。</string>
-	<string name="comptobig">压缩缓存的磁盘大小太大了！</string>
 	<string name="swapwarning">你的外置 SD 卡上必须有 SWAP 分区 (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
 </resources>

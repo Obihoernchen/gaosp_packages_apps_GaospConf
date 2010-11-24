@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Even geduld..</string>
     <string name="applied">Nieuwe configuratie opgeslagen en toegepast. Mogelijk is een herstart vereist.</string>
-	<string name="comptobig">Te veel compcache!</string>
 	<string name="swapwarning">Je moet een externe SD kaart hebben met een swap partitie. (Recovery > Formwat swap+fat32)</string>
 	<string name="defaults">Standaarden geladen. Pas instellingen toe om ze op te slaan.</string>
 </resources>

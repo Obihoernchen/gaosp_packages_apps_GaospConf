@@ -33,7 +33,6 @@
 	<!-- Messages -->
 	<string name="wait">Подождите, пожалуйста...</string>
 	<string name="applied">Новая конфигурация применена и сохранена. Вероятно, понадобится перезагрузка.</string>
-	<string name="comptobig">Размер Compcache слишком большой!</string>
 	<string name="swapwarning">Вам необходима внешняя карта памяти с разделом Swap (Recovery » Format swap+fat32).</string>
 	<string name="defaults">Загружены настройки по умолчанию. Нажмите "Применить" для подтверждения.</string>
 </resources>

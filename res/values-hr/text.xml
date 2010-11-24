@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Molimo pričekajte...</string>
     <string name="applied">Nova konfiguracija spremjena i primijenjena. Morati će te ponovo pokrenuti uređaj.</string>
-	<string name="comptobig">Veličina compcache-a je prevelika!</string>
 	<string name="swapwarning">Morate imati vanjsku SD karticu sa swap particijom (Recovery > Format swap+fat32).</string>
 	<string name="defaults">Osnovne postavke uspješno učitane. Pritisnite "Primijeni novu konf." za spremanje.</string>
 </resources>

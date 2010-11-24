@@ -33,7 +33,6 @@
     <!-- Messages -->
     <string name="wait">Lütfen bekleyin...</string>
     <string name="applied">Yeni ayarlar uygulandı ve kaydedildi. Yeniden başlatmanız gerekiyor.</string>
-	<string name="comptobig">Compcache disk boyutu çok büyük!</string>
     <string name="swapwarning">Takas bölümü olan ext formatında bir SD gerekli. (Recovery > Format swap+fat32)</string>
     <string name="defaults">Varsayılan ayarlar başarıyla yüklendi. Kaydetmek için "Yeni ayarları uygula"ya tıklayın.</string>
 </resources>
