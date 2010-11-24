@@ -11,7 +11,7 @@
     <string name="TVprovisionned">Prepara e equipa a rede</string>
     <string name="TVvnc">Servidor VNC (porta 5901)</string>
     <string name="TVbootani">Usa uma animação de boot menor</string>
-    <string name="TVlcddensity">LCD Densidade</string>
+    <string name="TVlcddensity">Densidade do LCD</string>
     <string name="TVgallery">Galeria 2D</string>
     <string name="TVservicemode">Abre o modo de serviço Samsung</string>
     <string name="TVkitchen">Abre o GAOSP Kitchen</string>
