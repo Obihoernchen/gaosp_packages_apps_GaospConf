@@ -34,7 +34,7 @@ public class conf extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+              
         // Define variables
         String record = null;
         String record2 = null;
@@ -111,7 +111,7 @@ public class conf extends Activity {
 			e.printStackTrace();
 		} 
 		BufferedReader BR = new BufferedReader(FR, 8192);
-	
+		
 		// Read config file
 		try {
 			while ((record = BR.readLine()) != null) {
@@ -297,7 +297,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -312,7 +312,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -327,7 +327,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -342,7 +342,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -357,7 +357,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -372,7 +372,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -387,7 +387,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -402,7 +402,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -417,7 +417,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -432,7 +432,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -447,9 +447,9 @@ public class conf extends Activity {
 	               	try {
 	               	return; }
 	               	catch (Throwable e) {
-	               	}               	
-	               }
-	           });
+	               	}
+	            }
+	        });
 	    	alertbox.show();
 	    	}
 	    });
@@ -462,9 +462,9 @@ public class conf extends Activity {
 		           	try {
 		           	return; }
 		           	catch (Throwable e) {
-		           	}               	
-		           }
-		        });
+		           	}
+		        }
+		    });
 		   	alertbox.show();
 		    }
 		});
@@ -477,7 +477,7 @@ public class conf extends Activity {
                 	try {
                 	return; }
                 	catch (Throwable e) {
-                	}               	
+                	}
                 }
             });
     		alertbox.show();
@@ -507,7 +507,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -522,7 +522,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -537,7 +537,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -552,7 +552,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -567,7 +567,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -582,7 +582,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -597,7 +597,7 @@ public class conf extends Activity {
 	                	try {
 	                	return; }
 	                	catch (Throwable e) {
-	                	}               	
+	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -673,7 +673,7 @@ public class conf extends Activity {
 					out.println("################################");
 					out.println(" ");
 					
-					// Copy cpu sampling setting to conf file
+					// Copy CPU sampling setting to conf file
 					int final_sampling = 0;	
 					if (Check_sampling_eco.isChecked()) {
 						final_sampling = 0;
@@ -748,24 +748,22 @@ public class conf extends Activity {
 					out.println("# Bootanimation");
 					if (Toggle_Bootani.isChecked()) {
 						out.println("bootani=yes");
-				        File boot = new File("/system/media/bootanimation.zip");
-							if (boot.length() > 3000000 ) {
-					    		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-					    								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-					    								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-					    								"echo Bootanimation changed"};
-					    		shell.doExec(bootchange, true);
+						if (new File("/system/media/bootanimation.zip").length() > 3000000 ) {
+				    		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+				    								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+				    								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+				    								"echo Bootanimation changed"};
+				    		shell.doExec(bootchange, true);
 							}
 					}
 					else {
 						out.println("bootani=no");
-				        File boot = new File("/system/media/bootanimation.zip");
-							if (boot.length() < 3000000 ) {
-					    		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-					    								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-					    								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-					    								"echo Bootanimation changed"};
-					    		shell.doExec(bootchange, true);
+						if (new File("/system/media/bootanimation.zip").length() < 3000000 ) {
+				    		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+				    								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+				    								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+				    								"echo Bootanimation changed"};
+				    		shell.doExec(bootchange, true);
 							}
 					}
 					out.println(" ");
@@ -774,23 +772,22 @@ public class conf extends Activity {
 					out.println("# Gallery");
 					if (Toggle_Gallery.isChecked()) {
 						out.println("gallery=yes");
-				        File gallery = new File("/data/app_s/Gallery.apk");
-							if (gallery.exists() == false) {
-					    		String[] gallerychange1 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.apk /data/app_s/Gallery3D.no'",
-					    								   	"/system/xbin/su -c 'mv /data/app_s/Gallery.no /data/app_s/Gallery.apk'",
-					    								   	"echo Gallery changed"};
-					    		shell.doExec(gallerychange1, true);
+						if (new File("/data/app_s/Gallery.apk").exists() == false) {
+				    		String[] gallerychange1 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.apk /data/app_s/Gallery3D.no'",
+				    								   	"/system/xbin/su -c 'mv /data/app_s/Gallery.no /data/app_s/Gallery.apk'",
+				    								   	"echo Gallery changed"};
+				    		shell.doExec(gallerychange1, true);
 							}
 					}
 					else {
 						out.println("gallery=no");
-				        File gallery2 = new File("/data/app_s/Gallery3D.apk");
-							if (gallery2.exists() == false) {
-					    		String[] gallerychange2 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.no /data/app_s/Gallery3D.apk'",
-					    									"/system/xbin/su -c 'mv /data/app_s/Gallery.apk /data/app_s/Gallery.no'",
-					    									"echo Gallery changed"};
-					    		shell.doExec(gallerychange2, true);
-					}		}
+						if (new File("/data/app_s/Gallery3D.apk").exists() == false) {
+				    		String[] gallerychange2 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.no /data/app_s/Gallery3D.apk'",
+				    									"/system/xbin/su -c 'mv /data/app_s/Gallery.apk /data/app_s/Gallery.no'",
+				    									"echo Gallery changed"};
+				    		shell.doExec(gallerychange2, true);
+							}		
+					}
 					out.println(" ");
 					
 					// Copy Overclocking setting to conf file
@@ -828,8 +825,8 @@ public class conf extends Activity {
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
 					out.println("sensors_sampling=" + final_sensors_sampling);
 					out.println(" ");
-			
-					// Copy minfree settings to rc				
+					
+					// Copy minfree settings to conf file				
 					out.println("# Minfree settings");
 					out.println("mem1=" + Integer.parseInt(memory1_edit.getText().toString())*1024/4);
 					out.println("mem2=" + Integer.parseInt(memory2_edit.getText().toString())*1024/4);
@@ -847,7 +844,7 @@ public class conf extends Activity {
 					
 					// Executing rc with scrolling
 					new Task().execute();
-
+					
 					// Close file
 					out.flush();
 					out.close();
@@ -916,7 +913,9 @@ public class conf extends Activity {
 		{
 			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
 				if (Toggle_Swap.isChecked()) {
-					Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
+					if (new File("/dev/block/mmcblk1p2").exists() == false) {
+						Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
+					}
 				}
 			}
 		});
@@ -971,7 +970,7 @@ public class conf extends Activity {
     
     final class Task extends UserTask<String, Void, Void> {
     	// Create ProgressDialog
-    	ProgressDialog myProgressDialog; 
+    	ProgressDialog myProgressDialog;
     	protected void onPreExecute() {
     			 myProgressDialog = ProgressDialog.show(conf.this,"", getString(R.string.wait), true, true);
     	}

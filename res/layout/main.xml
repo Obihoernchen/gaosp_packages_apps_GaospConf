@@ -11,7 +11,7 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-<!-- Swap-->
+<!-- Swap -->
 <LinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
@@ -34,7 +34,7 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
-<!-- Overclock to 614-->
+<!-- Overclock to 614 -->
 <LinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
-<!-- Overclock to 710-->
+<!-- Overclock to 710 -->
 <LinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
