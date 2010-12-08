@@ -13,8 +13,8 @@
     <string name="TVbootani">Use smaller bootanimation</string>
     <string name="TVlcddensity">LCD Density</string>
     <string name="TVgallery">2D gallery</string>
-    <string name="TVservicemode">Open Samsung service mode</string>
-	<string name="TVkitchen">Open GAOSP Kitchen</string>
+    <string name="TVservicemode">Samsung service mode</string>
+	<string name="TVkitchen">GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>
 	<string name="TVforegroundapp">Foreground app (MB)</string>
 	<string name="TVvisibleapp">Visible app (MB)</string>
@@ -22,10 +22,7 @@
 	<string name="TVhiddenapp">Hidden app (MB)</string>
 	<string name="TVcontentapp">Content provider (MB)</string>
 	<string name="TVemptyapp">Empty app (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
+	<string name="TVinteractive">Interactive cpufreq governor</string>
 	<!-- Buttons -->
 	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>
@@ -35,4 +32,10 @@
     <string name="applied">New config saved and applied. You may have to restart.</string>
 	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+	<!-- Spinners -->
+    <string-array name="Ssampling">
+    	<item>Battery</item>
+        <item>Mixed</item>
+        <item>Performance</item>
+    </string-array>
 </resources>

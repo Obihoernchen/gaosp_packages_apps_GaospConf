@@ -19,13 +19,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class conf extends Activity {
@@ -52,27 +53,30 @@ public class conf extends Activity {
         Boolean swap = false;
         Boolean bootani = false;
         Boolean gallery = false;
+        Boolean interactive = false;
         
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
         Button Apply_Button = (Button) findViewById(R.id.apply);
         Button Service_Button = (Button) findViewById(R.id.service);
         Button Kitchen_Button = (Button) findViewById(R.id.kitchen);
-        final CheckBox Check_sampling_eco = (CheckBox) findViewById(R.id.sampling01);
-        final CheckBox Check_sampling_mix = (CheckBox) findViewById(R.id.sampling02);
-        final CheckBox Check_sampling_perf = (CheckBox) findViewById(R.id.sampling03);
-        final ToggleButton Toggle_SSH = (ToggleButton) findViewById(R.id.ssh);
-        final ToggleButton Toggle_Renice = (ToggleButton) findViewById(R.id.renice);
-        final ToggleButton Toggle_Prov = (ToggleButton) findViewById(R.id.Prov);
-        final ToggleButton Toggle_VNC = (ToggleButton) findViewById(R.id.vnc);
-        final ToggleButton Toggle_Swap = (ToggleButton) findViewById(R.id.swap);    
-        final ToggleButton Toggle_OverClocking = (ToggleButton) findViewById(R.id.oc1);
-        final ToggleButton Toggle_OverClocking2 = (ToggleButton) findViewById(R.id.oc2);
-        final CheckBox Check_sensors_sampling_eco = (CheckBox) findViewById(R.id.sensors04);
-        final CheckBox Check_sensors_sampling_mix = (CheckBox) findViewById(R.id.sensors05);
-        final CheckBox Check_sensors_sampling_perf = (CheckBox) findViewById(R.id.sensors06);
-        final ToggleButton Toggle_Bootani = (ToggleButton) findViewById(R.id.bootani);
-        final ToggleButton Toggle_Gallery = (ToggleButton) findViewById(R.id.gallery);
+        final CheckBox Toggle_SSH = (CheckBox) findViewById(R.id.ssh);
+        final CheckBox Toggle_Renice = (CheckBox) findViewById(R.id.renice);
+        final CheckBox Toggle_Prov = (CheckBox) findViewById(R.id.Prov);
+        final CheckBox Toggle_VNC = (CheckBox) findViewById(R.id.vnc);
+        final CheckBox Toggle_Swap = (CheckBox) findViewById(R.id.swap);    
+        final CheckBox Toggle_OverClocking = (CheckBox) findViewById(R.id.oc1);
+        final CheckBox Toggle_OverClocking2 = (CheckBox) findViewById(R.id.oc2);
+        final CheckBox Toggle_Bootani = (CheckBox) findViewById(R.id.bootani);
+        final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
+        final CheckBox Toggle_Interactive = (CheckBox) findViewById(R.id.interactive);
+        final Spinner sampling = (Spinner) findViewById(R.id.sampling);
+        ArrayAdapter<CharSequence> samplingA = ArrayAdapter.createFromResource(
+                this, R.array.Ssampling, android.R.layout.simple_spinner_item);
+        samplingA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sampling.setAdapter(samplingA);
+        final Spinner sensorsampling = (Spinner) findViewById(R.id.sensorsampling);
+        sensorsampling.setAdapter(samplingA);
         final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
         final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
@@ -85,6 +89,7 @@ public class conf extends Activity {
 		TextView Descoverclock2 = (TextView) findViewById(R.id.Textoverclock2);
 		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
+		TextView Descinteractive = (TextView) findViewById(R.id.Textinteractive);
 		TextView Descssh = (TextView) findViewById(R.id.Textssh);
 		TextView Descrenice = (TextView) findViewById(R.id.Textrenice);
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
@@ -108,8 +113,8 @@ public class conf extends Activity {
 		try {
 			FR = new FileReader("/system/etc/gaosp.conf");
 			} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} 
+				e.printStackTrace();
+			} 
 		BufferedReader BR = new BufferedReader(FR, 8192);
 		
 		// Read config file
@@ -182,8 +187,15 @@ public class conf extends Activity {
 			    }
 			    if (record.startsWith("sensors_sampling=")) {
 			    	sensors_sampling = Integer.parseInt(record.substring(17));
-			    }    
-			 }
+			    }
+			    if (record.equals("interactive=yes")) {
+			    	interactive = true;
+			    }
+			    if (record.equals("interactive=no")) {
+			    	interactive = false;
+			    }
+			}
+			BR.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
@@ -193,7 +205,7 @@ public class conf extends Activity {
 		try {
 			FR2 = new FileReader("/sys/module/lowmemorykiller/parameters/minfree");
 			} catch (FileNotFoundException e) {
-			e.printStackTrace();
+				e.printStackTrace();
 			} 
 		BufferedReader BR2 = new BufferedReader(FR2, 8192);
 			
@@ -209,6 +221,7 @@ public class conf extends Activity {
 		    	memory5_edit.setText(Integer.toString(Integer.parseInt(mem[4])*4/1024));
 		    	memory6_edit.setText(Integer.toString(Integer.parseInt(mem[5])*4/1024));
 			}
+		    BR2.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -218,7 +231,7 @@ public class conf extends Activity {
 		try {
 			FR3 = new FileReader("/system/build.prop");
 			} catch (FileNotFoundException e) {
-			e.printStackTrace();
+				e.printStackTrace();
 			} 
 		BufferedReader BR3 = new BufferedReader(FR3, 8192);
 			
@@ -227,21 +240,22 @@ public class conf extends Activity {
 		    while ((record3 = BR3.readLine()) != null) {
 		    	if (record3.startsWith("ro.sf.lcd_density=")) {
 		    		lcddensity.setText(record3.substring(18));
-		    		}
+		    	}
 			}
+    		BR3.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// Complete and validate the fields and other
+		// Set read data
 		if (cpu_sampling == 0) {
-			Check_sampling_eco.setChecked(true);
+			sampling.setSelection(0);
 		}
 		if (cpu_sampling == 1) {
-			Check_sampling_mix.setChecked(true);
+			sampling.setSelection(1);
 		}
 		if (cpu_sampling == 2) {
-			Check_sampling_perf.setChecked(true);
+			sampling.setSelection(2);
 		}
 		if (ssh == true) {
 			Toggle_SSH.setChecked(true);
@@ -270,21 +284,18 @@ public class conf extends Activity {
 		if (overclocking2 == true) {
 			Toggle_OverClocking2.setChecked(true);
 		}
-		// Enable only 1 Overclocking option
-		if (Toggle_OverClocking.isChecked()) {
-			Toggle_OverClocking2.setChecked(false);
-		}
-		if (Toggle_OverClocking2.isChecked()) {
-			Toggle_OverClocking.setChecked(false);
-		}
 		if (sensors_sampling == 0) {
-			Check_sensors_sampling_eco.setChecked(true);
+			sensorsampling.setSelection(0);
 		}
 		if (sensors_sampling == 1) {
-			Check_sensors_sampling_mix.setChecked(true);
+			sensorsampling.setSelection(1);
 		}
 		if (sensors_sampling == 2) {
-			Check_sensors_sampling_perf.setChecked(true);
+			sensorsampling.setSelection(2);
+		}
+		if (interactive == true) {
+			Toggle_Interactive.setChecked(true);
+			sampling.setEnabled(false);
 		}
 		
 		// TextView Listener (Descriptions)
@@ -302,7 +313,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });  
+        });
 		Descoverclock1.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVoverclock1);
@@ -317,7 +328,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        }); 
+        });
 		Descoverclock2.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVoverclock2);
@@ -332,7 +343,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        }); 
+        });
 		Descsampling.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVsampling);
@@ -348,6 +359,21 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         });
+		Descinteractive.setOnClickListener(new View.OnClickListener() {
+	    public void onClick(View v){ 	
+	   		alertbox.setTitle(R.string.TVinteractive);
+	   		alertbox.setMessage(R.string.interactive);
+	   		alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	   			public void onClick(DialogInterface arg0, int arg1) {
+	               	try {
+	               	return; }
+	               	catch (Throwable e) {
+	               	}
+	   			}
+	        });
+	    	alertbox.show();
+	   		}
+	    });
 		Descsensors.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVsensors);
@@ -362,7 +388,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        }); 
+        });
 		Descssh.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVssh);
@@ -377,7 +403,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });   
+        });
 		Descrenice.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVrenice);
@@ -392,7 +418,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });   
+        });
 		Descprovisionned.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVprovisionned);
@@ -407,7 +433,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        });   
+        });
 		Descvnc.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVvnc);
@@ -422,7 +448,7 @@ public class conf extends Activity {
             });
     		alertbox.show();
     		}
-        }); 
+        });
 		Descbootani.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVbootani);
@@ -627,18 +653,15 @@ public class conf extends Activity {
 		// Default Button
 		Default_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Check_sampling_eco.setChecked(false);
-            	Check_sampling_mix.setChecked(false);
-				Check_sampling_perf.setChecked(true);
+            	sampling.setSelection(2);
+            	Toggle_Interactive.setChecked(false);
 				Toggle_SSH.setChecked(false);
 				Toggle_Renice.setChecked(true);
 				Toggle_Prov.setChecked(true);
 				Toggle_VNC.setChecked(false);
 				Toggle_OverClocking.setChecked(false);
 				Toggle_OverClocking2.setChecked(false);
-				Check_sensors_sampling_eco.setChecked(true);
-				Check_sensors_sampling_mix.setChecked(false);
-				Check_sensors_sampling_perf.setChecked(false);
+				sensorsampling.setSelection(0);
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
 				Toggle_Gallery.setChecked(false);
@@ -656,8 +679,8 @@ public class conf extends Activity {
 		// Apply Button
 		Apply_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	PrintWriter out = null;            	        	
-
+            	PrintWriter out = null;
+            		
 	            	// Remount in read/write
             		String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"};
             		shell.doExec(rw, true);
@@ -674,21 +697,11 @@ public class conf extends Activity {
 					out.println(" ");
 					
 					// Copy CPU sampling setting to conf file
-					int final_sampling = 0;	
-					if (Check_sampling_eco.isChecked()) {
-						final_sampling = 0;
-					}
-					if (Check_sampling_mix.isChecked()) {
-						final_sampling = 1;
-					}
-					if (Check_sampling_perf.isChecked()) {
-						final_sampling = 2;
-					}
 					out.println("# CpuFreq sampling rate");
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
-					out.println("cpu_sampling=" + final_sampling);
+					out.println("cpu_sampling=" + sampling.getSelectedItemPosition());
 					out.println(" ");
-	
+					
 					// Copy SSH setting to conf file
 					out.println("# SSH server");
 					if (Toggle_SSH.isChecked()) {
@@ -811,19 +824,9 @@ public class conf extends Activity {
 					out.println(" ");
 					
 					// Copy Sensors setting to conf file
-					int final_sensors_sampling = 0;
-					if (Check_sensors_sampling_eco.isChecked()) {
-						final_sensors_sampling = 0;
-					}
-					if (Check_sensors_sampling_mix.isChecked()) {
-						final_sensors_sampling = 1;
-					}
-					if (Check_sensors_sampling_perf.isChecked()) {
-						final_sensors_sampling = 2;
-					}
 					out.println("# Sensors sampling rate");
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
-					out.println("sensors_sampling=" + final_sensors_sampling);
+					out.println("sensors_sampling=" + sensorsampling.getSelectedItemPosition());
 					out.println(" ");
 					
 					// Copy minfree settings to conf file				
@@ -834,6 +837,16 @@ public class conf extends Activity {
 					out.println("mem4=" + Integer.parseInt(memory4_edit.getText().toString())*1024/4);
 					out.println("mem5=" + Integer.parseInt(memory5_edit.getText().toString())*1024/4);
 					out.println("mem6=" + Integer.parseInt(memory6_edit.getText().toString())*1024/4);
+					out.println(" ");
+					
+					// Copy Interactive governor setting to conf file
+					out.println("# Interactive governor");
+					if (Toggle_Interactive.isChecked()) {
+						out.println("interactive=yes");
+					}
+					else {
+						out.println("interactive=no");
+					}
 					out.println(" ");
 					
 					// Set LCD Density
@@ -854,61 +867,7 @@ public class conf extends Activity {
             		shell.doExec(ro, true);         		
             }
         });
-		// Check for dependences
-		Check_sampling_eco.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					if (Check_sampling_eco.isChecked()) {
-						Check_sampling_mix.setChecked(false);
-						Check_sampling_perf.setChecked(false);
-					}
-			}
-		});
-		Check_sampling_mix.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					if (Check_sampling_mix.isChecked()) {
-						Check_sampling_eco.setChecked(false);
-						Check_sampling_perf.setChecked(false);
-					}
-			}
-		});
-		Check_sampling_perf.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					if (Check_sampling_perf.isChecked()) {
-						Check_sampling_mix.setChecked(false);
-						Check_sampling_eco.setChecked(false);
-					}
-			}
-		});
-		Check_sensors_sampling_eco.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					if (Check_sensors_sampling_eco.isChecked()) {
-						Check_sensors_sampling_mix.setChecked(false);
-						Check_sensors_sampling_perf.setChecked(false);
-					}
-			}
-		});
-		Check_sensors_sampling_mix.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					if (Check_sensors_sampling_mix.isChecked()) {
-						Check_sensors_sampling_eco.setChecked(false);
-						Check_sensors_sampling_perf.setChecked(false);
-					}
-			}
-		});
-		Check_sensors_sampling_perf.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-				public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-					if (Check_sensors_sampling_perf.isChecked()) {
-						Check_sensors_sampling_mix.setChecked(false);
-						Check_sensors_sampling_eco.setChecked(false);
-					}
-			}
-		});
+		// Check for dependencies
 		Toggle_Swap.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{
 			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
@@ -918,6 +877,17 @@ public class conf extends Activity {
 					}
 				}
 			}
+		});
+		Toggle_Interactive.setOnCheckedChangeListener(new OnCheckedChangeListener()
+		{
+			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
+				if (Toggle_Interactive.isChecked()) {
+					sampling.setEnabled(false);
+				}
+				else {
+					sampling.setEnabled(true);
+				}		
+			}	
 		});
 		Toggle_OverClocking.setOnCheckedChangeListener(new OnCheckedChangeListener()
 		{

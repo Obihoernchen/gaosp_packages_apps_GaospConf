@@ -26,7 +26,7 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/swap"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
@@ -34,11 +34,16 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+	
 <!-- Overclock to 614 -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textoverclock1"
 	android:layout_width="wrap_content"
@@ -50,13 +55,19 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/oc1"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <!-- Overclock to 710 -->
 <LinearLayout
@@ -73,19 +84,53 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
-	android:id="@+id/oc2"
+<CheckBox	
+    android:id="@+id/oc2"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_marginRight="4dip"
-	android:layout_gravity="center_vertical"/>	
+	android:layout_marginRight="4dip"	
+	android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
+<!-- Interactive governor -->
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<TextView
+	android:id="@+id/Textinteractive"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVinteractive"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>
+<CheckBox	
+    android:id="@+id/interactive"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"	
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <!-- CPU Sampling -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textsampling"
 	android:layout_width="wrap_content"
@@ -97,26 +142,21 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<CheckBox
-    android:text="@string/CBeco"
-    android:id="@+id/sampling01"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_vertical"/>
-<CheckBox	
-    android:text="@string/CBmix"
-	android:id="@+id/sampling02"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_vertical"/>
-<CheckBox
-    android:text="@string/CBperf"
-	android:id="@+id/sampling03"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_vertical"
-	android:layout_marginRight="7dip"/> 
+<Spinner 
+    android:id="@+id/sampling"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:prompt="@string/TVsampling"
+    android:entries="@array/Ssampling"
+    android:layout_marginRight="4dip"
+    android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <!-- Sensors Speed -->
 <LinearLayout
@@ -133,32 +173,26 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<CheckBox
-    android:text="@string/CBeco"
-    android:id="@+id/sensors04"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_vertical"/>
-<CheckBox	
-    android:text="@string/CBmix"
-	android:id="@+id/sensors05"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_vertical"/>
-<CheckBox
-    android:text="@string/CBperf"
-	android:id="@+id/sensors06"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_vertical"
-	android:layout_marginRight="7dip"/> 
+<Spinner 
+    android:id="@+id/sensorsampling"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:prompt="@string/TVsensors"
+    android:entries="@array/Ssampling"
+    android:layout_marginRight="4dip"
+    android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <!-- SSH Server -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textssh"
 	android:layout_width="wrap_content"
@@ -170,7 +204,7 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/ssh"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
@@ -178,6 +212,12 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+	
 <!-- Renice -->
 <LinearLayout
 	android:layout_width="fill_parent"
@@ -193,7 +233,7 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/renice"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
@@ -201,11 +241,16 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
 <!-- Provisionned -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textprovisionned"
 	android:layout_width="wrap_content"
@@ -217,7 +262,7 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/Prov"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
@@ -225,6 +270,12 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+	
 <!-- VNC Server -->
 <LinearLayout
 	android:layout_width="fill_parent"
@@ -240,7 +291,7 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/vnc"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
@@ -248,11 +299,16 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+	
 <!-- Bootanimation -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textbootani"
 	android:layout_width="wrap_content"
@@ -264,13 +320,19 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/bootani"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <!-- LCD Density -->
 <LinearLayout
@@ -299,11 +361,16 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
 <!-- Gallery -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textgallery"
 	android:layout_width="wrap_content"
@@ -315,13 +382,19 @@
 	android:layout_weight="1"
 	android:layout_gravity="center_vertical"
 	android:clickable="true"/>
-<ToggleButton
+<CheckBox
 	android:id="@+id/gallery"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <!-- Service Mode -->
 <LinearLayout
@@ -347,11 +420,16 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
 <!-- Kitchen -->
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textkitchen"
 	android:layout_width="wrap_content"
@@ -372,11 +450,11 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
-<!-- Dividing line -->
+<!-- ### Big Dividing line ### -->
 <View 
 	android:layout_width="fill_parent"		
 	android:layout_height="4dip"
-	android:background="#FFFFFF"/>
+	android:background="#808080"/>
 
 <!-- Memory thresholds -->	
 <TextView
@@ -388,11 +466,16 @@
 	android:textStyle="bold"
 	android:gravity="center"
 	android:clickable="true"/>
+	
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textforegroundapp"
 	android:layout_width="wrap_content"
@@ -415,6 +498,12 @@
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>	
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 	
 <LinearLayout
 	android:layout_width="fill_parent"
@@ -442,10 +531,15 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textsecondaryapp"
 	android:layout_width="wrap_content"
@@ -468,6 +562,12 @@
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <LinearLayout
 	android:layout_width="fill_parent"
@@ -495,10 +595,15 @@
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
 <LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:background="#222222">
+	android:layout_height="wrap_content">
 <TextView
 	android:id="@+id/Textcontentapp"
 	android:layout_width="wrap_content"
@@ -521,6 +626,12 @@
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
 
 <LinearLayout
 	android:layout_width="fill_parent"
