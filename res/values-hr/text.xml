@@ -22,10 +22,6 @@
 	<string name="TVhiddenapp">Sakrivene aplikacije (MB)</string>
 	<string name="TVcontentapp">Davatelj podataka (MB)</string>
 	<string name="TVemptyapp">Prazna aplikacija (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eko</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otvori</string>
     <string name="Bdefaults">Osnovne postavke</string>
