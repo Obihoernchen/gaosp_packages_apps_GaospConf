@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -45,6 +44,8 @@ public class conf extends Activity {
         Boolean overclocking2 = false;
         int cpu_sampling = 0;
         int sensors_sampling = 0;
+        int minfreq = 0;
+        int maxfreq = 0;
         Boolean ssh = false;
         //Boolean inadyn = false;
         Boolean renice = false;
@@ -71,12 +72,9 @@ public class conf extends Activity {
         final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
         final CheckBox Toggle_Interactive = (CheckBox) findViewById(R.id.interactive);
         final Spinner sampling = (Spinner) findViewById(R.id.sampling);
-        ArrayAdapter<CharSequence> samplingA = ArrayAdapter.createFromResource(
-                this, R.array.Ssampling, android.R.layout.simple_spinner_item);
-        samplingA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sampling.setAdapter(samplingA);
         final Spinner sensorsampling = (Spinner) findViewById(R.id.sensorsampling);
-        sensorsampling.setAdapter(samplingA);
+        final Spinner CPUminfreq = (Spinner) findViewById(R.id.minfreq);
+        final Spinner CPUmaxfreq = (Spinner) findViewById(R.id.maxfreq);
         final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
         final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
@@ -89,6 +87,8 @@ public class conf extends Activity {
 		TextView Descoverclock2 = (TextView) findViewById(R.id.Textoverclock2);
 		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
+		TextView Descminfreq = (TextView) findViewById(R.id.Textminfreq);
+		TextView Descmaxfreq = (TextView) findViewById(R.id.Textmaxfreq);
 		TextView Descinteractive = (TextView) findViewById(R.id.Textinteractive);
 		TextView Descssh = (TextView) findViewById(R.id.Textssh);
 		TextView Descrenice = (TextView) findViewById(R.id.Textrenice);
@@ -188,6 +188,12 @@ public class conf extends Activity {
 			    if (record.startsWith("sensors_sampling=")) {
 			    	sensors_sampling = Integer.parseInt(record.substring(17));
 			    }
+			    if (record.startsWith("minfreq=")) {
+			    	minfreq = Integer.parseInt(record.substring(8));
+			    }
+			    if (record.startsWith("maxfreq=")) {
+			    	maxfreq = Integer.parseInt(record.substring(8));
+			    }
 			    if (record.equals("interactive=yes")) {
 			    	interactive = true;
 			    }
@@ -248,14 +254,10 @@ public class conf extends Activity {
 		}
 
 		// Set read data
-		if (cpu_sampling == 0) {
-			sampling.setSelection(0);
-		}
-		if (cpu_sampling == 1) {
-			sampling.setSelection(1);
-		}
-		if (cpu_sampling == 2) {
-			sampling.setSelection(2);
+		switch (cpu_sampling) {
+			case 0 : sampling.setSelection(0); break;
+			case 1 : sampling.setSelection(1); break;
+			case 2 : sampling.setSelection(2); break;
 		}
 		if (ssh == true) {
 			Toggle_SSH.setChecked(true);
@@ -284,14 +286,50 @@ public class conf extends Activity {
 		if (overclocking2 == true) {
 			Toggle_OverClocking2.setChecked(true);
 		}
-		if (sensors_sampling == 0) {
-			sensorsampling.setSelection(0);
+		switch (minfreq) {
+			case 19200 : CPUminfreq.setSelection(0); break;
+			case 120000 : CPUminfreq.setSelection(1); break;
+			case 122880 : CPUminfreq.setSelection(2); break;
+			case 176000 : CPUminfreq.setSelection(3); break;
+			case 245760 : CPUminfreq.setSelection(4); break;
+			case 320000 : CPUminfreq.setSelection(5); break;
+			case 352000 : CPUminfreq.setSelection(6); break;
+			case 480000 : CPUminfreq.setSelection(7); break;
+			case 528000 : CPUminfreq.setSelection(8); break;
+			case 547200 : CPUminfreq.setSelection(9); break;
+			case 566400 : CPUminfreq.setSelection(10); break;
+			case 585600 : CPUminfreq.setSelection(11); break;
+			case 614000 : CPUminfreq.setSelection(12); break;
+			case 633200 : CPUminfreq.setSelection(13); break;
+			case 652400 : CPUminfreq.setSelection(14); break;
+			case 671600 : CPUminfreq.setSelection(15); break;
+			case 690800 : CPUminfreq.setSelection(16); break;
+			case 710000 : CPUminfreq.setSelection(17); break;
 		}
-		if (sensors_sampling == 1) {
-			sensorsampling.setSelection(1);
+		switch (maxfreq) {
+			case 19200 : CPUmaxfreq.setSelection(0); break;
+			case 120000 : CPUmaxfreq.setSelection(1); break;
+			case 122880 : CPUmaxfreq.setSelection(2); break;
+			case 176000 : CPUmaxfreq.setSelection(3); break;
+			case 245760 : CPUmaxfreq.setSelection(4); break;
+			case 320000 : CPUmaxfreq.setSelection(5); break;
+			case 352000 : CPUmaxfreq.setSelection(6); break;
+			case 480000 : CPUmaxfreq.setSelection(7); break;
+			case 528000 : CPUmaxfreq.setSelection(8); break;
+			case 547200 : CPUmaxfreq.setSelection(9); break;
+			case 566400 : CPUmaxfreq.setSelection(10); break;
+			case 585600 : CPUmaxfreq.setSelection(11); break;
+			case 614000 : CPUmaxfreq.setSelection(12); break;
+			case 633200 : CPUmaxfreq.setSelection(13); break;
+			case 652400 : CPUmaxfreq.setSelection(14); break;
+			case 671600 : CPUmaxfreq.setSelection(15); break;
+			case 690800 : CPUmaxfreq.setSelection(16); break;
+			case 710000 : CPUmaxfreq.setSelection(17); break;
 		}
-		if (sensors_sampling == 2) {
-			sensorsampling.setSelection(2);
+		switch (sensors_sampling) {
+			case 0 : sensorsampling.setSelection(0); break;
+			case 1 : sensorsampling.setSelection(1); break;
+			case 2 : sensorsampling.setSelection(2); break;
 		}
 		if (interactive == true) {
 			Toggle_Interactive.setChecked(true);
@@ -524,6 +562,36 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         });
+		Descminfreq.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVminfreq);
+	    		alertbox.setMessage(R.string.minfreq);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
+		Descmaxfreq.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVmaxfreq);
+	    		alertbox.setMessage(R.string.maxfreq);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                	try {
+	                	return; }
+	                	catch (Throwable e) {
+	                	}
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
 		Descmemorythresholds.setOnClickListener(new View.OnClickListener() {
 	    	public void onClick(View v){ 	
 	    		alertbox.setTitle(R.string.TVmemorythresholds);
@@ -662,6 +730,8 @@ public class conf extends Activity {
 				Toggle_OverClocking.setChecked(false);
 				Toggle_OverClocking2.setChecked(false);
 				sensorsampling.setSelection(0);
+				CPUminfreq.setSelection(1);
+				CPUmaxfreq.setSelection(8);
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
 				Toggle_Gallery.setChecked(false);
@@ -823,6 +893,58 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
+					// Copy min cpu frequency setting to conf file
+					out.println("# Min cpu freqency");
+					int finalminfreq = 120000;
+					switch ((int)CPUminfreq.getSelectedItemId()) {
+						case 0 : finalminfreq = 19200; break;
+						case 1 : finalminfreq = 120000; break;
+						case 2 : finalminfreq = 122880; break;
+						case 3 : finalminfreq = 176000; break;
+						case 4 : finalminfreq = 245760; break;
+						case 5 : finalminfreq = 320000; break;
+						case 6 : finalminfreq = 352000; break;
+						case 7 : finalminfreq = 480000; break;
+						case 8 : finalminfreq = 528000; break;
+						case 9 : finalminfreq = 547200; break;
+						case 10 : finalminfreq = 566400; break;
+						case 11 : finalminfreq = 585600; break;
+						case 12 : finalminfreq = 614000; break;
+						case 13 : finalminfreq = 633200; break;
+						case 14 : finalminfreq = 652400; break;
+						case 15 : finalminfreq = 671600; break;
+						case 16 : finalminfreq = 690800; break;
+						case 17 : finalminfreq = 710000; break;
+					}
+					out.println("minfreq=" + finalminfreq);
+					out.println(" ");
+					
+					// Copy max cpu frequency setting to conf file
+					out.println("# Max cpu freqency");
+					int finalmaxfreq = 528000;
+					switch ((int)CPUmaxfreq.getSelectedItemId()) {
+						case 0 : finalmaxfreq = 19200; break;
+						case 1 : finalmaxfreq = 120000; break;
+						case 2 : finalmaxfreq = 122880; break;
+						case 3 : finalmaxfreq = 176000; break;
+						case 4 : finalmaxfreq = 245760; break;
+						case 5 : finalmaxfreq = 320000; break;
+						case 6 : finalmaxfreq = 352000; break;
+						case 7 : finalmaxfreq = 480000; break;
+						case 8 : finalmaxfreq = 528000; break;
+						case 9 : finalmaxfreq = 547200; break;
+						case 10 : finalmaxfreq = 566400; break;
+						case 11 : finalmaxfreq = 585600; break;
+						case 12 : finalmaxfreq = 614000; break;
+						case 13 : finalmaxfreq = 633200; break;
+						case 14 : finalmaxfreq = 652400; break;
+						case 15 : finalmaxfreq = 671600; break;
+						case 16 : finalmaxfreq = 690800; break;
+						case 17 : finalmaxfreq = 710000; break;
+					}
+					out.println("maxfreq=" + finalmaxfreq);
+					out.println(" ");
+					
 					// Copy Sensors setting to conf file
 					out.println("# Sensors sampling rate");
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
@@ -864,7 +986,7 @@ public class conf extends Activity {
 					
 					// Remount in read only
 					String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo remount ro done" };
-            		shell.doExec(ro, true);         		
+            		shell.doExec(ro, true);
             }
         });
 		// Check for dependencies
