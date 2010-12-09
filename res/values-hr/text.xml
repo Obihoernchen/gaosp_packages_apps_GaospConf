@@ -36,6 +36,6 @@
     <string-array name="Ssampling">
      <item>Baterija</item>
         <item>Miješano</item>
-        <item>Performansa</item>
+        <item>Učinkovitost</item>
     </string-array>
 </resources>
