@@ -32,7 +32,7 @@
     <string name="Bapply">Neue Einstellungen anwenden</string>
     <!-- Messages -->
     <string name="wait">Bitte warten..</string>
-    <string name="applied">Neue Config wurde gespeichert und angewendet. Eventuell ist ein Neustart nötig.</string>
+    <string name="applied">Neue Config wurde gespeichert und angewendet. Eventuell ist ein Neustart erforderlich.</string>
 	<string name="swapwarning">Du musst eine externe SD Karte mit Swap Partition haben (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Standard Einstellungen geladen. Drücke Neue Einstellungen anwenden um diese zu speichern.</string>
 </resources>

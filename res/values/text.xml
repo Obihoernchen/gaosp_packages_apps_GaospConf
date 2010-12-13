@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Swap only</string>
-    <string name="TVoverclock1">Overclock CPU to 614 MHz</string>
-    <string name="TVoverclock2">Overclock CPU to 710 MHz</string>
     <string name="TVsampling">CPU sampling</string>
     <string name="TVsensors">Sensors reaction</string>
     <string name="TVssh">SSH server</string>
@@ -50,14 +48,15 @@
       	<item>352.0 MHz</item>
       	<item>480.0 MHz</item>
   		<item>528.0 MHz</item>
-     	<item>547.2 MHz</item>
-        <item>566.4 MHz</item>
-      	<item>585.6 MHz</item>
-  		<item>614.0 MHz</item>
-  		<item>633.2 MHz</item>
-   		<item>652.4 MHz</item>
-   		<item>671.6 MHz</item>
-   		<item>690.8 MHz</item>
-   		<item>710.0 MHz</item>
+     	<item>576.0 MHz</item>
+        <item>624.0 MHz</item>
+      	<item>672.0 MHz</item>
+  		<item>720.0 MHz</item>
+  		<item>748.8 MHz</item>
+   		<item>758.4 MHz</item>
+   		<item>768.0 MHz</item>
+   		<item>777.6 MHz</item>
+   		<item>787.2 MHz</item>
+   		<item>796.8 MHz</item>
     </string-array>
 </resources>

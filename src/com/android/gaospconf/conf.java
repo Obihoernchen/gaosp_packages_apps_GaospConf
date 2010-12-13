@@ -12,10 +12,12 @@ import java.util.regex.Pattern;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+//import android.content.Context; for the future
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+//import android.os.PowerManager; for the future
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,14 +36,12 @@ public class conf extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-              
+
         // Define variables
         String record = null;
         String record2 = null;
         String record3 = null;
                 
-        Boolean overclocking = false;
-        Boolean overclocking2 = false;
         int cpu_sampling = 0;
         int sensors_sampling = 0;
         int minfreq = 0;
@@ -66,15 +66,15 @@ public class conf extends Activity {
         final CheckBox Toggle_Prov = (CheckBox) findViewById(R.id.Prov);
         final CheckBox Toggle_VNC = (CheckBox) findViewById(R.id.vnc);
         final CheckBox Toggle_Swap = (CheckBox) findViewById(R.id.swap);    
-        final CheckBox Toggle_OverClocking = (CheckBox) findViewById(R.id.oc1);
-        final CheckBox Toggle_OverClocking2 = (CheckBox) findViewById(R.id.oc2);
         final CheckBox Toggle_Bootani = (CheckBox) findViewById(R.id.bootani);
         final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
         final CheckBox Toggle_Interactive = (CheckBox) findViewById(R.id.interactive);
         final Spinner sampling = (Spinner) findViewById(R.id.sampling);
         final Spinner sensorsampling = (Spinner) findViewById(R.id.sensorsampling);
         final Spinner CPUminfreq = (Spinner) findViewById(R.id.minfreq);
+        CPUminfreq.setEnabled(false);
         final Spinner CPUmaxfreq = (Spinner) findViewById(R.id.maxfreq);
+        CPUmaxfreq.setEnabled(false);
         final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
         final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
@@ -83,8 +83,6 @@ public class conf extends Activity {
         final EditText memory6_edit = (EditText) findViewById(R.id.memory6);
         final EditText lcddensity = (EditText) findViewById(R.id.lcddensity);
         TextView Descswap = (TextView) findViewById(R.id.Textswap);
-		TextView Descoverclock1 = (TextView) findViewById(R.id.Textoverclock1);
-		TextView Descoverclock2 = (TextView) findViewById(R.id.Textoverclock2);
 		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
 		TextView Descminfreq = (TextView) findViewById(R.id.Textminfreq);
@@ -107,7 +105,9 @@ public class conf extends Activity {
 		TextView Descemptyapp = (TextView) findViewById(R.id.Textemptyapp);
 		TextView Desclcddensity = (TextView) findViewById(R.id.Textlcddensity);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
-        
+		final AlertDialog.Builder alertbox2 = new AlertDialog.Builder(this);
+		//final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE); for the future
+		
         // Open config file
         FileReader FR = null;
 		try {
@@ -172,18 +172,6 @@ public class conf extends Activity {
 			    }
 			    if (record.equals("gallery=yes")) {
 			    	gallery = true;
-			    }
-			    if (record.equals("overclocking=yes")) {
-			    	overclocking = true;
-			    }
-			    if (record.equals("overclocking=no")) {
-			    	overclocking = false;
-			    }
-			    if (record.equals("overclocking2=yes")) {
-			    	overclocking2 = true;
-			    }
-			    if (record.equals("overclocking2=no")) {
-			    	overclocking2 = false;
 			    }
 			    if (record.startsWith("sensors_sampling=")) {
 			    	sensors_sampling = Integer.parseInt(record.substring(17));
@@ -280,12 +268,6 @@ public class conf extends Activity {
 		if (gallery == true) {
 			Toggle_Gallery.setChecked(true);
 		}
-		if (overclocking == true) {
-			Toggle_OverClocking.setChecked(true);
-		}
-		if (overclocking2 == true) {
-			Toggle_OverClocking2.setChecked(true);
-		}
 		switch (minfreq) {
 			case 19200 : CPUminfreq.setSelection(0); break;
 			case 120000 : CPUminfreq.setSelection(1); break;
@@ -296,15 +278,16 @@ public class conf extends Activity {
 			case 352000 : CPUminfreq.setSelection(6); break;
 			case 480000 : CPUminfreq.setSelection(7); break;
 			case 528000 : CPUminfreq.setSelection(8); break;
-			case 547200 : CPUminfreq.setSelection(9); break;
-			case 566400 : CPUminfreq.setSelection(10); break;
-			case 585600 : CPUminfreq.setSelection(11); break;
-			case 614000 : CPUminfreq.setSelection(12); break;
-			case 633200 : CPUminfreq.setSelection(13); break;
-			case 652400 : CPUminfreq.setSelection(14); break;
-			case 671600 : CPUminfreq.setSelection(15); break;
-			case 690800 : CPUminfreq.setSelection(16); break;
-			case 710000 : CPUminfreq.setSelection(17); break;
+			case 576000 : CPUminfreq.setSelection(9); break;
+			case 624000 : CPUminfreq.setSelection(10); break;
+			case 672000 : CPUminfreq.setSelection(11); break;
+			case 720000 : CPUminfreq.setSelection(12); break;
+			case 748800 : CPUminfreq.setSelection(13); break;
+			case 758400 : CPUminfreq.setSelection(14); break;
+			case 768000 : CPUminfreq.setSelection(15); break;
+			case 777600 : CPUminfreq.setSelection(16); break;
+			case 787200 : CPUminfreq.setSelection(17); break;
+			case 796800 : CPUminfreq.setSelection(18); break;
 		}
 		switch (maxfreq) {
 			case 19200 : CPUmaxfreq.setSelection(0); break;
@@ -316,15 +299,16 @@ public class conf extends Activity {
 			case 352000 : CPUmaxfreq.setSelection(6); break;
 			case 480000 : CPUmaxfreq.setSelection(7); break;
 			case 528000 : CPUmaxfreq.setSelection(8); break;
-			case 547200 : CPUmaxfreq.setSelection(9); break;
-			case 566400 : CPUmaxfreq.setSelection(10); break;
-			case 585600 : CPUmaxfreq.setSelection(11); break;
-			case 614000 : CPUmaxfreq.setSelection(12); break;
-			case 633200 : CPUmaxfreq.setSelection(13); break;
-			case 652400 : CPUmaxfreq.setSelection(14); break;
-			case 671600 : CPUmaxfreq.setSelection(15); break;
-			case 690800 : CPUmaxfreq.setSelection(16); break;
-			case 710000 : CPUmaxfreq.setSelection(17); break;
+			case 576000 : CPUmaxfreq.setSelection(9); break;
+			case 624000 : CPUmaxfreq.setSelection(10); break;
+			case 672000 : CPUmaxfreq.setSelection(11); break;
+			case 720000 : CPUmaxfreq.setSelection(12); break;
+			case 748800 : CPUmaxfreq.setSelection(13); break;
+			case 758400 : CPUmaxfreq.setSelection(14); break;
+			case 768000 : CPUmaxfreq.setSelection(15); break;
+			case 777600 : CPUmaxfreq.setSelection(16); break;
+			case 787200 : CPUmaxfreq.setSelection(17); break;
+			case 796800 : CPUmaxfreq.setSelection(18); break;
 		}
 		switch (sensors_sampling) {
 			case 0 : sensorsampling.setSelection(0); break;
@@ -343,40 +327,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.swap);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
-                }
-            });
-    		alertbox.show();
-    		}
-        });
-		Descoverclock1.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
-    		alertbox.setTitle(R.string.TVoverclock1);
-    		alertbox.setMessage(R.string.overclock1);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
-                }
-            });
-    		alertbox.show();
-    		}
-        });
-		Descoverclock2.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
-    		alertbox.setTitle(R.string.TVoverclock2);
-    		alertbox.setMessage(R.string.overclock2);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -388,10 +338,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.sampling);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -403,10 +349,6 @@ public class conf extends Activity {
 	   		alertbox.setMessage(R.string.interactive);
 	   		alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	   			public void onClick(DialogInterface arg0, int arg1) {
-	               	try {
-	               	return; }
-	               	catch (Throwable e) {
-	               	}
 	   			}
 	        });
 	    	alertbox.show();
@@ -418,10 +360,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.sensors);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -433,10 +371,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.ssh);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -448,10 +382,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.renice);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -463,10 +393,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.provisionned);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -478,10 +404,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.vnc);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -493,10 +415,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.bootani);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -508,10 +426,6 @@ public class conf extends Activity {
 	    	alertbox.setMessage(R.string.lcddensity);
 	        alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	        	public void onClick(DialogInterface arg0, int arg1) {
-	               	try {
-	               	return; }
-	               	catch (Throwable e) {
-	               	}
 	            }
 	        });
 	    	alertbox.show();
@@ -523,10 +437,6 @@ public class conf extends Activity {
 		   	alertbox.setMessage(R.string.gallery);
 		    alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 		       	public void onClick(DialogInterface arg0, int arg1) {
-		           	try {
-		           	return; }
-		           	catch (Throwable e) {
-		           	}
 		        }
 		    });
 		   	alertbox.show();
@@ -538,10 +448,6 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.servicemode);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
@@ -553,55 +459,63 @@ public class conf extends Activity {
     		alertbox.setMessage(R.string.kitchen);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
-                	try {
-                	return; }
-                	catch (Throwable e) {
-                	}
                 }
             });
     		alertbox.show();
     		}
         });
 		Descminfreq.setOnClickListener(new View.OnClickListener() {
-	    	public void onClick(View v){ 	
-	    		alertbox.setTitle(R.string.TVminfreq);
-	    		alertbox.setMessage(R.string.minfreq);
-	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	    	public void onClick(View v){
+	    		alertbox2.setTitle(R.string.TVminfreq);
+	    		alertbox2.setMessage(R.string.minfreq);
+	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+	    			public void onClick(DialogInterface arg0, int arg1) {
+	    				alertbox2.show();
+	    			}
+	    		});
+	            alertbox2.setNegativeButton(R.string.decline, new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
+	                	CPUminfreq.setEnabled(false);
 	                }
 	            });
-	    		alertbox.show();
-	    		}
+	    		alertbox2.show();
+	    		alertbox2.setMessage(R.string.ocwarning);
+	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+	    			public void onClick(DialogInterface arg0, int arg1) {
+	    				CPUminfreq.setEnabled(true);
+	    			}
+	    		});
+	    	}
 	    });
 		Descmaxfreq.setOnClickListener(new View.OnClickListener() {
-	    	public void onClick(View v){ 	
-	    		alertbox.setTitle(R.string.TVmaxfreq);
-	    		alertbox.setMessage(R.string.maxfreq);
-	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	    	public void onClick(View v){
+	    		alertbox2.setTitle(R.string.TVmaxfreq);
+	    		alertbox2.setMessage(R.string.maxfreq);
+	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+	    			public void onClick(DialogInterface arg0, int arg1) {
+	    				alertbox2.show();
+	    			}
+	    		});
+	            alertbox2.setNegativeButton(R.string.decline, new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
+	                	CPUmaxfreq.setEnabled(false);
 	                }
 	            });
-	    		alertbox.show();
-	    		}
+	    		alertbox2.show();
+	    		alertbox2.setMessage(R.string.ocwarning);
+	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+	    			public void onClick(DialogInterface arg0, int arg1) {
+	    				CPUmaxfreq.setEnabled(true);
+	    			}
+	    		});
+	    	}
 	    });
 		Descmemorythresholds.setOnClickListener(new View.OnClickListener() {
-	    	public void onClick(View v){ 	
+	    	public void onClick(View v){
 	    		alertbox.setTitle(R.string.TVmemorythresholds);
 	    		alertbox.setMessage(R.string.memorythresholds);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -613,10 +527,6 @@ public class conf extends Activity {
 	    		alertbox.setMessage(R.string.foregroundapp);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -628,10 +538,6 @@ public class conf extends Activity {
 	    		alertbox.setMessage(R.string.visibleapp);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -643,10 +549,6 @@ public class conf extends Activity {
 	    		alertbox.setMessage(R.string.secondaryapp);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -658,10 +560,6 @@ public class conf extends Activity {
 	    		alertbox.setMessage(R.string.hiddenapp);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -673,10 +571,6 @@ public class conf extends Activity {
 	    		alertbox.setMessage(R.string.contentapp);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -688,10 +582,6 @@ public class conf extends Activity {
 	    		alertbox.setMessage(R.string.emptyapp);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-	                	try {
-	                	return; }
-	                	catch (Throwable e) {
-	                	}
 	                }
 	            });
 	    		alertbox.show();
@@ -727,8 +617,6 @@ public class conf extends Activity {
 				Toggle_Renice.setChecked(true);
 				Toggle_Prov.setChecked(true);
 				Toggle_VNC.setChecked(false);
-				Toggle_OverClocking.setChecked(false);
-				Toggle_OverClocking2.setChecked(false);
 				sensorsampling.setSelection(0);
 				CPUminfreq.setSelection(1);
 				CPUmaxfreq.setSelection(8);
@@ -872,27 +760,7 @@ public class conf extends Activity {
 							}		
 					}
 					out.println(" ");
-					
-					// Copy Overclocking setting to conf file
-					out.println("# Overclocking");
-					if (Toggle_OverClocking.isChecked()) {
-						out.println("overclocking=yes");
-					}
-					else {
-						out.println("overclocking=no");
-					}
-					out.println(" ");
-					
-					// Copy Overclocking2 setting to conf file
-					out.println("# Overclocking2");
-					if (Toggle_OverClocking2.isChecked()) {
-						out.println("overclocking2=yes");
-					}
-					else {
-						out.println("overclocking2=no");
-					}
-					out.println(" ");
-					
+									
 					// Copy min cpu frequency setting to conf file
 					out.println("# Min cpu freqency");
 					int finalminfreq = 120000;
@@ -906,15 +774,16 @@ public class conf extends Activity {
 						case 6 : finalminfreq = 352000; break;
 						case 7 : finalminfreq = 480000; break;
 						case 8 : finalminfreq = 528000; break;
-						case 9 : finalminfreq = 547200; break;
-						case 10 : finalminfreq = 566400; break;
-						case 11 : finalminfreq = 585600; break;
-						case 12 : finalminfreq = 614000; break;
-						case 13 : finalminfreq = 633200; break;
-						case 14 : finalminfreq = 652400; break;
-						case 15 : finalminfreq = 671600; break;
-						case 16 : finalminfreq = 690800; break;
-						case 17 : finalminfreq = 710000; break;
+						case 9 : finalminfreq = 576000; break;
+						case 10 : finalminfreq = 624000; break;
+						case 11 : finalminfreq = 672000; break;
+						case 12 : finalminfreq = 720000; break;
+						case 13 : finalminfreq = 748800; break;
+						case 14 : finalminfreq = 758400; break;
+						case 15 : finalminfreq = 768000; break;
+						case 16 : finalminfreq = 777600; break;
+						case 17 : finalminfreq = 787200; break;
+						case 18 : finalminfreq = 796800; break;
 					}
 					out.println("minfreq=" + finalminfreq);
 					out.println(" ");
@@ -932,15 +801,16 @@ public class conf extends Activity {
 						case 6 : finalmaxfreq = 352000; break;
 						case 7 : finalmaxfreq = 480000; break;
 						case 8 : finalmaxfreq = 528000; break;
-						case 9 : finalmaxfreq = 547200; break;
-						case 10 : finalmaxfreq = 566400; break;
-						case 11 : finalmaxfreq = 585600; break;
-						case 12 : finalmaxfreq = 614000; break;
-						case 13 : finalmaxfreq = 633200; break;
-						case 14 : finalmaxfreq = 652400; break;
-						case 15 : finalmaxfreq = 671600; break;
-						case 16 : finalmaxfreq = 690800; break;
-						case 17 : finalmaxfreq = 710000; break;
+						case 9 : finalmaxfreq = 576000; break;
+						case 10 : finalmaxfreq = 624000; break;
+						case 11 : finalmaxfreq = 672000; break;
+						case 12 : finalmaxfreq = 720000; break;
+						case 13 : finalmaxfreq = 748800; break;
+						case 14 : finalmaxfreq = 758400; break;
+						case 15 : finalmaxfreq = 768000; break;
+						case 16 : finalmaxfreq = 777600; break;
+						case 17 : finalmaxfreq = 787200; break;
+						case 18 : finalmaxfreq = 796800; break;
 					}
 					out.println("maxfreq=" + finalmaxfreq);
 					out.println(" ");
@@ -951,7 +821,7 @@ public class conf extends Activity {
 					out.println("sensors_sampling=" + sensorsampling.getSelectedItemPosition());
 					out.println(" ");
 					
-					// Copy minfree settings to conf file				
+					// Copy minfree settings to conf file
 					out.println("# Minfree settings");
 					out.println("mem1=" + Integer.parseInt(memory1_edit.getText().toString())*1024/4);
 					out.println("mem2=" + Integer.parseInt(memory2_edit.getText().toString())*1024/4);
@@ -1011,25 +881,8 @@ public class conf extends Activity {
 				}		
 			}	
 		});
-		Toggle_OverClocking.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-				if (Toggle_OverClocking.isChecked()) {
-					Toggle_OverClocking2.setChecked(false);
-				}
-			}
-		});		
-		Toggle_OverClocking2.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-				if (Toggle_OverClocking2.isChecked()) {
-					Toggle_OverClocking.setChecked(false);
-				}
-			}
-		});
-	}
-			
-
+    }
+    
 	// Create Menu
     public boolean onCreateOptionsMenu(Menu menu) 
     {

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android uses swap space as "extra" memory for pages of application memory that are not being actively used by the application but have been modified (written to). The swap space size plus RAM size is the total amount of virtual memory for the system. Create swap partition with recovery mode first. You need a external SD card (Class 6 recommend). Compcache will be disabled.</string>
-	<string name="overclock1">Overclocking your processor to 614 MHz.</string>
-	<string name="overclock2">Overclocking your processor to 710 MHz. Unstable on some devices.</string>
 	<string name="sampling">It is the time interval in which the device gets its own load. After each sample, device increases or decreases cpu speed regarding the load.</string>
 	<string name="sensors">How fast all Sensors will react.</string>
 	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
@@ -21,7 +19,10 @@
 	<string name="emptyapp">We call these "ghosts." They are applications that you have opened, but are done with them. Android uses a unique style of handling memory management. When an activity is ended, instead of killing it off Android keeps the application in memory so that opening them again is a faster process. Theses "ghost" applications use no battery or CPU time, they just fill RAM that would be otherwise empty. When this memory is needed by a different application or process, the RAM is flushed and made available for the new application.</string>
 	<string name="lcddensity">Lowering the density value will then expand the screen, allowing text to appear longer and not have to scroll or wrap as soon. It also increases spacing between home screen icons, which might come in handy if someone uses Multicon Widget or ADW Launcher’s columns change to pack in more shortcuts. Make a Nandroid Backup before!</string>
 	<string name="gallery">Use a 2D gallery instead of a 3D one. The 2D gallery is faster but not that fancy.</string>
-	<string name="interactive">Experimental!</string>
-	<string name="minfreq">Todo...</string>
-	<string name="maxfreq">Todo...</string>
+	<string name="interactive">The interactive governor should improve responsiveness. It replaces the default ondemand governor.</string>
+	<string name="minfreq">Set your min CPU frequency. Default is 120.0 MHz. Overclocking your phone above 528 can cause instability or brick it. Be careful! Overclock at your own risk! Make a Nandroid Backup before!</string>
+	<string name="maxfreq">Set your max CPU frequency. Default is 528.0 MHz. Overclocking your phone above 528 can cause instability or brick it. Be careful! Overclock at your own risk! Make a Nandroid Backup before!</string>
+	<string name="ocwarning">Values between 528 and 700 are dangerous. Values over 700 are VERY DANGEROUS! You can damage your device!</string>
+	<string name="accept">Accept</string>
+	<string name="decline">Decline</string>
 </resources>
