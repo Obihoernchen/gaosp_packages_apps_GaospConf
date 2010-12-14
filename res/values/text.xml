@@ -23,6 +23,7 @@
 	<string name="TVinteractive">Interactive cpufreq governor</string>
 	<string name="TVminfreq">Min CPU frequency</string>
 	<string name="TVmaxfreq">Max CPU frequency</string>
+	<string name="TVcompcalibration">Calibrate Compass</string>
 	<!-- Buttons -->
 	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>
@@ -32,6 +33,11 @@
     <string name="applied">New config saved and applied. You may have to restart.</string>
 	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
+	<string name="ocwarning">Values between 528 and 700 are dangerous. Values over 700 are VERY DANGEROUS! You can damage your device!</string>
+	<string name="accept">Accept</string>
+	<string name="decline">Decline</string>
+	<string name="compcalibrationdialog1">Your device will now go to sleep. Calibration will start after you wake up your device.</string>
+	<string name="compcalibrationdialog2">To calibrate your compass, rotate your device 3-4 times around each of its 3 axes then lock your screen.</string>
 	<!-- Spinners -->
     <string-array name="Ssampling">
     	<item>Battery</item>

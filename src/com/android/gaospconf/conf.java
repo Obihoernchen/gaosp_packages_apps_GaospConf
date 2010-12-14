@@ -12,12 +12,14 @@ import java.util.regex.Pattern;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-//import android.content.Context; for the future
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-//import android.os.PowerManager; for the future
+import android.os.PowerManager;
+import android.os.SystemClock;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,6 +63,7 @@ public class conf extends Activity {
         Button Apply_Button = (Button) findViewById(R.id.apply);
         Button Service_Button = (Button) findViewById(R.id.service);
         Button Kitchen_Button = (Button) findViewById(R.id.kitchen);
+        Button compcalibration_Button = (Button) findViewById(R.id.compcalibration);
         final CheckBox Toggle_SSH = (CheckBox) findViewById(R.id.ssh);
         final CheckBox Toggle_Renice = (CheckBox) findViewById(R.id.renice);
         final CheckBox Toggle_Prov = (CheckBox) findViewById(R.id.Prov);
@@ -104,9 +107,10 @@ public class conf extends Activity {
 		TextView Desccontentapp = (TextView) findViewById(R.id.Textcontentapp);
 		TextView Descemptyapp = (TextView) findViewById(R.id.Textemptyapp);
 		TextView Desclcddensity = (TextView) findViewById(R.id.Textlcddensity);
+		TextView Desccompcalibration = (TextView) findViewById(R.id.Textcompcalibration);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 		final AlertDialog.Builder alertbox2 = new AlertDialog.Builder(this);
-		//final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE); for the future
+		final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		
         // Open config file
         FileReader FR = null;
@@ -587,6 +591,17 @@ public class conf extends Activity {
 	    		alertbox.show();
 	    		}
 	    });
+		Desccompcalibration.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVcompcalibration);
+	    		alertbox.setMessage(R.string.compcalibration);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
 		
 		// Button Listener
 		Service_Button.setOnClickListener(new View.OnClickListener() {
@@ -605,6 +620,31 @@ public class conf extends Activity {
 				Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setData(Uri.parse("http://kitchen.yaam.mobi/"));
 				startActivity(intent);
+            }
+        });
+		compcalibration_Button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Force auto rotation
+				Settings.System.putInt(getContentResolver(),Settings.System.ACCELEROMETER_ROTATION, 1);
+				// delete old calibration file
+				String[] delcalibration = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done",
+											"/system/xbin/su -c 'rm -f /data/misc/akmd.dat'", "echo deleted akmd.dat",
+											"/system/xbin/su -c /system/xbin/remountro", "echo remount ro done" };
+        		shell.doExec(delcalibration, true);
+				alertbox.setTitle(R.string.TVcompcalibration);
+	    		alertbox.setMessage(R.string.compcalibrationdialog1);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+		            	pm.goToSleep(SystemClock.uptimeMillis());
+	                	alertbox.show();
+	                }
+	            });
+	    		alertbox.show();
+	    		alertbox.setMessage(R.string.compcalibrationdialog2);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                }
+	            });
             }
         });
 		
