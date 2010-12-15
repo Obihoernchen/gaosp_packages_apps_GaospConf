@@ -22,18 +22,49 @@
 	<string name="TVhiddenapp">Applicazioni nascoste (MB)</string>
 	<string name="TVcontentapp">Provider contenuti (MB)</string>
 	<string name="TVemptyapp">Applicazioni terminate (MB)</string>
-    <!-- CheckBoxes -->
-    <string name="CBeco">Eco</string>
-    <string name="CBmix">Mix</string>
-    <string name="CBperf">Perf</string>
+        <string name="TVinteractive">Interactive cpufreq governor</string>
+        <string name="TVminfreq">Min CPU frequency</string>
+        <string name="TVmaxfreq">Max CPU frequency</string>
+        <string name="TVcompcalibration">Calibrate Compass</string>
     <!-- Buttons -->
     <string name="Bopen">Apri</string>
-    <string name="Bdefaults">Imposta defaults</string>
+    <string name="Bdefaults">Imposta default</string>
     <string name="Bapply">Applica nuova configurazione</string>
     <!-- Messages -->
-    <string name="wait">Attendere..</string>
+    <string name="wait">Attendere prego ...</string>
     <string name="applied">Nuova configurazione applicata e salvata. Necessario riavvio</string>
-    <string name="comptobig">Dimensione Compcache troppo grande!</string>
     <string name="swapwarning">Devi avere una MicroSD con una partizione SWAP (Recovery > Format swap+fat32)</string>
-	<string name="defaults">Impostazioni di default caricate. Premi Applica nuova configurazione per salvare.</string>
+    <string name="defaults">Impostazioni di default caricate. Premi Applica nuova configurazione per salvare.</string>
+    <string name="ocwarning">Valori compresi tra 528 e 700 sono pericolosi. Valori superiori a 700 sono MOLTO PERICOLOSI. Puoi danneggiare il telefono!!!</string>
+    <string name="accept">Accetta</string>
+    <string name="decline">Rifiuta</string>
+    <string name="compcalibrationdialog1">Il telefono va in stand by. Sblocca il telefono per proseguire con la calibrazione della bussola.</string>
+    <string name="compcalibrationdialog2">Per calibrare la bussola ruota il telefono 3 - 4 volte per ogni asse, poi blocca lo schermo.</string>
+    <!-- Spinners -->
+    <string-array name="Ssampling">
+     <item>Batteria</item>
+        <item>Mix</item>
+        <item>Prestazioni</item>
+    </string-array>
+    <string-array name="Scpufreq">
+        <item>19.2 MHz</item>
+        <item>120.0 MHz</item>
+        <item>122.88 MHz</item>
+        <item>176.0 MHz</item>
+<item>245.76 MHz</item>
+<item>320.0 MHz</item>
+       <item>352.0 MHz</item>
+       <item>480.0 MHz</item>
+   <item>528.0 MHz</item>
+      <item>576.0 MHz</item>
+        <item>624.0 MHz</item>
+       <item>672.0 MHz</item>
+   <item>720.0 MHz</item>
+   <item>748.8 MHz</item>
+    <item>758.4 MHz</item>
+    <item>768.0 MHz</item>
+    <item>777.6 MHz</item>
+    <item>787.2 MHz</item>
+    <item>796.8 MHz</item>
+    </string-array>
 </resources>
