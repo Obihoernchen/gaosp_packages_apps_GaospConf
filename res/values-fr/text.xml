@@ -22,13 +22,14 @@
     <string name="TVhiddenapp">Application cachée (MB)</string>
     <string name="TVcontentapp">Fournisseur de données (MB)</string>
     <string name="TVemptyapp">Application vide (MB)</string>
+	<string name="TVcompcalibration">Calibrer la boussole</string>
 	<!-- CheckBoxes -->
 	<string name="CBeco">Eco</string>
 	<string name="CBmix">Mix</string>
 	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Ouvrir</string>
-    <string name="Bdefaults">Restaurer valeurs par défaut</string>
+    <string name="Bdefaults">Restaurer les valeurs par défaut</string>
     <string name="Bapply">Appliquer</string>
     <!-- Messages -->
     <string name="wait">Veuillez patientez..</string>
