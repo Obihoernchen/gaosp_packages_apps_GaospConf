@@ -36,8 +36,7 @@
 	<string name="ocwarning">Values between 528 and 700 are dangerous. Values over 700 are VERY DANGEROUS! You can damage your device!</string>
 	<string name="accept">Accept</string>
 	<string name="decline">Decline</string>
-	<string name="compcalibrationdialog1">Your device will now go to sleep. Calibration will start after you wake up your device.</string>
-	<string name="compcalibrationdialog2">To calibrate your compass, rotate your device 3-4 times around each of its 3 axes then lock your screen.</string>
+	<string name="compcalibrationdialog1">You are now in calibration mode, use any compass application and rotate your device around each of its 3 axes until it points North in the right direction. Once calibrated, put device on sleep to save and return to regular mode.</string>
 	<!-- Spinners -->
     <string-array name="Ssampling">
     	<item>Battery</item>

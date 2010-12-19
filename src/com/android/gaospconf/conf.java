@@ -31,8 +31,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 
 public class conf extends Activity {
+
+        //Sensors
+        SensorManager sm;
+        SensorListener o;
+
     /** Called when the activity is first created. */
    
     public void onCreate(Bundle savedInstanceState) {
@@ -112,6 +121,9 @@ public class conf extends Activity {
 		final AlertDialog.Builder alertbox2 = new AlertDialog.Builder(this);
 		final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		
+        sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        o = new SensorListener();
+
         // Open config file
         FileReader FR = null;
 		try {
@@ -624,28 +636,19 @@ public class conf extends Activity {
         });
 		compcalibration_Button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				// Force auto rotation
-				Settings.System.putInt(getContentResolver(),Settings.System.ACCELEROMETER_ROTATION, 1);
 				// delete old calibration file
-				String[] delcalibration = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done",
-											"/system/xbin/su -c 'rm -f /data/misc/akmd.dat'", "echo deleted akmd.dat",
-											"/system/xbin/su -c /system/xbin/remountro", "echo remount ro done" };
-        		shell.doExec(delcalibration, true);
+				String[] delcalibration = { "/system/xbin/su -c 'rm -f /data/misc/akmd.dat'", "echo deleted akmd.dat"};
+                shell.doExec(delcalibration, true);
+                String[] killakmd2 = { "/system/xbin/su -c 'killall akmd2'", "echo akmd2 was killed"};
+                shell.doExec(killakmd2, true);
 				alertbox.setTitle(R.string.TVcompcalibration);
 	    		alertbox.setMessage(R.string.compcalibrationdialog1);
 	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface arg0, int arg1) {
-		            	pm.goToSleep(SystemClock.uptimeMillis());
-	                	alertbox.show();
 	                }
 	            });
 	    		alertbox.show();
-	    		alertbox.setMessage(R.string.compcalibrationdialog2);
-	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-	                public void onClick(DialogInterface arg0, int arg1) {
-	                }
-	            });
-            }
+	            };
         });
 		
 		// Default Button
@@ -953,6 +956,20 @@ public class conf extends Activity {
          return true;
        }    
     
+    @Override
+    protected void onResume() {
+        super.onStart();
+        sm.registerListener(o, sm.getSensorList(Sensor.TYPE_ORIENTATION).get(0), SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onStop();
+        sm.unregisterListener(o);
+    }
+
+
+
     final class Task extends UserTask<String, Void, Void> {
     	// Create ProgressDialog
     	ProgressDialog myProgressDialog;
