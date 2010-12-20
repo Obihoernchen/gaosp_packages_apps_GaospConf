@@ -17,9 +17,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PowerManager;
-import android.os.SystemClock;
-import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -119,7 +116,6 @@ public class conf extends Activity {
 		TextView Desccompcalibration = (TextView) findViewById(R.id.Textcompcalibration);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 		final AlertDialog.Builder alertbox2 = new AlertDialog.Builder(this);
-		final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         o = new SensorListener();

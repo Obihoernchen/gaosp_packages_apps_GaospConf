@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android používa priestor swap ako "extra" pamäť pre stránky aplikačnej pamäte, ktoré nie sú aktívne používané aplikáciou, ale boli modifikované. Veľkosť priestoru swap spolu s veľkosťou RAM tvorí celkové množstvo virtuálnej pamäte dostupnej v systéme. Najskôr vytvorte oddiel swap v režime obnovenia (recovery mode). Budete potrebovať externú SD kartu (odporúča sa aspoň class 6).</string>
-	<string name="overclock1">Pretaktovanie vášho procesora na 614 MHz.</string>
-	<string name="overclock2">Pretaktovanie vášho procesora na 710 MHz. Nestabilné na niektorých zariadeniach.</string>
 	<string name="sampling">Je to časový interval, v ktorom zariadenie zisťuje svoju záťaž. Po každej vzorke zariadenie zvýši alebo zníži rýchlosť CPU v závislosti od aktuálnej záťaže.</string>
 	<string name="sensors">Ako rýchlo budú reagovať všetky senzory.</string>
 	<string name="ssh">Umožní beh linuxového interpretéra príkazov (shell-u) z vášho PC na vašom Galaxy.</string>

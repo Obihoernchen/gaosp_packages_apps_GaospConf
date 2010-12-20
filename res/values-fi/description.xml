@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android käyttää Swap tilaa "extra" muistina sivutiedostoille sovellusmuistissa, joita ei ole aktiivisesti käytetty sovelluksen toimesta, mutta on muokattu. Swap tilan koko plus RAM:in koko on systeemin käytettävissä olevan virtuaalisen muistin määrä. Luo Swap osio Recovery tilassa ennen käyttöä. Tarvitset erillisen SD kortin (Class 6 suositeltu).</string>
-	<string name="overclock1">Ylikellota prosessori -> 614 MHz.</string>
-	<string name="overclock2">Ylikellota prosessori -> 710 MHz. Epävakaa joillakin laitteilla.</string>
 	<string name="sampling">Laite säätelee prosessorin nopeutta tarpeen mukaan.</string>
 	<string name="sensors">Kuinka nopeasti sensorit reagoivat.</string>
 	<string name="ssh">Voit suorittaa Linux runkoa PC:ltäsi Galaxy laitteessasi.</string>

@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Kun swap</string>
-    <string name="TVoverclock1">Overclock CPU til 614 MHz</string>
-    <string name="TVoverclock2">Overclock CPU til 710 MHz</string>
     <string name="TVsampling">CPU sampling</string>
     <string name="TVsensors">Sensor reaktion</string>
     <string name="TVssh">SSH server</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Hidden app (MB)</string>
 	<string name="TVcontentapp">Content provider (MB)</string>
 	<string name="TVemptyapp">Empty app (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Øko</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Fart</string>
 	<!-- Buttons -->
 	<string name="Bopen">Åben</string>
     <string name="Bdefaults">Sæt standard indstillinger</string>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android utilizza la memoria SWAP per aumentare la memoria a disposizione; utile per applicazioni che lavorano in background, utilizzate meno frequentemente o che richiedono molta memoria. La memoria SWAP aumenta la memoria virtuale a disposizione. Prima di attivare creare la partizione SWAP mediante l´opzione in recovery. Necessaria MicroSD esterna (consigliata Classe6).</string>
-    <string name="overclock1">Aumenta la frequenza di lavoro del processore a 614 MHz.</string>
-    <string name="overclock2">Aumenta la frequenza di lavoro del processore a 710 MHz. Instabile su alcuni telefoni.</string>
     <string name="sampling">Intervallo di tempo in cui il processore analizza il carico di lavoro. Dopo l´analisi, viene aumentata o diminuita la frequenza della CPU in base al carico.</string>
   	<string name="sensors">Velocità di reazione dei sensori.</string>
     <string name="ssh">Possibilità di aprire un terminale Linux dal PC sul Galaxy.</string>

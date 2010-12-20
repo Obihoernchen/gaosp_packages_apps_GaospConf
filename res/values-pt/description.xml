@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">O Android usa o espaço swap como memória "extra" para as aplicações que não estão activas, mas cujo estado foi guardado. O espaço swap mais o tamanho da memória RAM equivalem ao total de memória virtual no sistema. É necessário criar uma partição swap no modo Recovery primeiro, e um cartão SD de no mínimo classe 6.</string>
-	<string name="overclock1">Fazer overclock do seu processador para 614 MHz.</string>
-	<string name="overclock2">Fazer overclock do seu processador para 710 MHz. Esta opção é instável em certos dispositivos.</string>
 	<string name="sampling">O intervalo de tempo após o qual o dispositivo altera a velocidade do processador, de acordo com a carga de processamento.</string>
 	<string name="sensors">A velocidade de reacção dos sensores.</string>
 	<string name="ssh">Permite aceder remotamente à linha de comandos no dispositivo.</string>

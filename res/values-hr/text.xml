@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Samo swap</string>
-    <string name="TVoverclock1">O/C CPU na 614 MHz</string>
-    <string name="TVoverclock2">O/C CPU na 710 MHz</string>
     <string name="TVsampling">Sampliranje CPU-a</string>
     <string name="TVsensors">Reagiranje senzora</string>
     <string name="TVssh">SSH server</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Sakrivene aplikacije (MB)</string>
 	<string name="TVcontentapp">Davatelj podataka (MB)</string>
 	<string name="TVemptyapp">Prazna aplikacija (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eko</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otvori</string>
     <string name="Bdefaults">Osnovne postavke</string>

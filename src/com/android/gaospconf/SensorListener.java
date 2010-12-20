@@ -15,4 +15,3 @@ public class SensorListener implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
     }
 }
-

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android gebruikt swap als "extra" geheugen voor applicaties die niet actief worden gebruikt, maar wel zijn gewijzigd. De swap ruimte en de hoeveel RAM samen maken het virtuele RAM geheugen van het systeem. Maak eerst een swap partitie aan met behulp van recovery. Hier is een externe SD kaart voor nodig. (Class 6 wordt aangeraden)</string>
-	<string name="overclock1">Geeft meer rekensnelheid, ten koste van batterijduur.</string>
-	<string name="overclock2">Op sommige devices niet stabiel. Geeft meer rekensnelheid, ten koste van batterijduur.</string>
 	<string name="sampling">Is bepalend voor de reactiesnelheid van het schalen van de CPU. Lager is sneller.</string>
 	<string name="sensors">Is bepalend voor de reactiesnelheid van de sensoren. Lager is sneller.</string>
 	<string name="ssh">Gebruik SSH om in te loggen op je Galaxy.</string>

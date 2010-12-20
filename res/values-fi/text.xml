@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Vain Swap</string>
-    <string name="TVoverclock1">Ylikellotus CPU -> 614 MHz</string>
-    <string name="TVoverclock2">Ylikellotus CPU -> 710 MHz</string>
     <string name="TVsampling">CPU sampling</string>
     <string name="TVsensors">Sensoreiden reaktio</string>
     <string name="TVssh">SSH serveri</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Hidden app (MB)</string>
 	<string name="TVcontentapp">Content provider (MB)</string>
 	<string name="TVemptyapp">Empty app (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Avaa</string>
     <string name="Bdefaults">Aseta oletus</string>

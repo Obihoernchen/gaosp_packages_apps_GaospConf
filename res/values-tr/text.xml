@@ -2,8 +2,6 @@
 <resources>
 <!-- TextViews -->
     <string name="TVswap">Sadece Swap</string>
-    <string name="TVoverclock1">İşlemciyi 614 Mhz´e overclock et</string>
-    <string name="TVoverclock2">İşlemciyi 710 Mhz´e overclock et</string>
     <string name="TVsampling">CPU Örnekleme</string>
     <string name="TVsensors">Sensör tepkileri</string>
     <string name="TVssh">SSH server</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Gizli Uygulamalar (MB)</string>
 	<string name="TVcontentapp">İçerik Sağlayıcı (MB)</string>
 	<string name="TVemptyapp">Boş Uygulamalar (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Aç</string>
     <string name="Bdefaults">Varsayılanı ayarla</string>

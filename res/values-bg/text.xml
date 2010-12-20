@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Само Swap</string>
-    <string name="TVoverclock1">Вдигане честотата на процесора до 614 MHz</string>
-    <string name="TVoverclock2">Вдигане честотата на процесора до 710 MHz</string>
     <string name="TVsampling">Наблюдение на заетостта на CPU </string>
     <string name="TVsensors">Реакция на сензорите</string>
     <string name="TVssh">SSH сървър</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Скрити приложения (MB)</string>
 	<string name="TVcontentapp">Доставчик на съдържание (MB)</string>
 	<string name="TVemptyapp">Празни приложения (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Отвори</string>
     <string name="Bdefaults">Възстанови по подразбиране</string>

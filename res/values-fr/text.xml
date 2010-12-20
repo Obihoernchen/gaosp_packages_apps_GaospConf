@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Swap uniquement</string>
-    <string name="TVoverclock1">Overclocking CPU à 614 MHz</string>
-    <string name="TVoverclock2">Overclocking CPU à 710 MHz</string>
     <string name="TVsampling">CPU sampling</string>
     <string name="TVsensors">Réaction senseurs</string>
     <string name="TVssh">Serveur SSH</string>
@@ -23,10 +21,6 @@
     <string name="TVcontentapp">Fournisseur de données (MB)</string>
     <string name="TVemptyapp">Application vide (MB)</string>
 	<string name="TVcompcalibration">Calibrer la boussole</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Ouvrir</string>
     <string name="Bdefaults">Restaurer les valeurs par défaut</string>

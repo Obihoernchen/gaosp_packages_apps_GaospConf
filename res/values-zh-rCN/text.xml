@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">只使用 Swap</string>
-    <string name="TVoverclock1">CPU 超频到 614 MHz</string>
-    <string name="TVoverclock2">CPU 超频到 710 MHz</string>
     <string name="TVsampling">CPU 性能</string>
     <string name="TVsensors">传感器反应</string>
     <string name="TVssh">SSH 服务器</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Hidden app (MB)</string>
 	<string name="TVcontentapp">Content provider (MB)</string>
 	<string name="TVemptyapp">Empty app (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">经济</string>
-	<string name="CBmix">混合</string>
-	<string name="CBperf">性能</string>
 	<!-- Buttons -->
 	<string name="Bopen">打开</string>
     <string name="Bdefaults">设置默认值</string>

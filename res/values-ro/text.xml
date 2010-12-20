@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Doar Swap</string>
-    <string name="TVoverclock1">Overclock la 614 MHz</string>
-    <string name="TVoverclock2">Overclock la 710 MHz</string>
     <string name="TVsampling">CPU sampling</string>
     <string name="TVsensors">Reactia senzorilor</string>
     <string name="TVssh">Server SSH</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Aplicatie ascunsa</string>
 	<string name="TVcontentapp">Provider de date</string>
 	<string name="TVemptyapp">Aplicatie goala</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Deschide</string>
     <string name="Bdefaults">Setari implicite</string>

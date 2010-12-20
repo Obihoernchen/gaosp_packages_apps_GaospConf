@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android,aktif ama uygulama belleği tarafından kullanılmayan,uygulama belleği sayfaları için "ekstra" bellek olarak takas alanı kullanır. Takas alanı ve RAM´in toplam büyüklüğü sistemin sanal bellek alanıdır. Öncelikle recovery modda takas bölümü oluşturun. Harici bir SD karta ihtiyacınız var.(Önerilen kart tipi Class 6).</string>
-	<string name="overclock1">İşlemciniz 614 Mhz´e overclock ediliyor.</string>
-	<string name="overclock2">İşlemciniz 710 Mhz´e overclock ediliyor. Bazı cihazlarda kararsızlığa neden olabilir.</string>
 	<string name="sampling">Her örneklemeden sonra işlemci hızı yüke bağlı olarak artar veya azalır.</string>
 	<string name="sensors">Sensörlerin ne kadar hızlı tepki vereceği.</string>
 	<string name="ssh">PC´niz üzerinden Galaxy´de Linux shellerini çalıştırmanıza izin verir.</string>

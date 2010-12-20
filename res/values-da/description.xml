@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android benytter swap som "ekstra" hukommelse til sider af en applikations hukommelse, som ikke er i aktiv brug af applikationen, men som er modificeret (skrevet til). Swap størrelsen plus RAM størrelsen er den totale mængde virtuelle hukommelse i systemet. Opret swap område i recovery tilstand først. Du skal have et eksternt SD kort (Klasse 6 anbefales).</string>
-	<string name="overclock1">Overclock din processor til 614 MHz.</string>
-	<string name="overclock2">Overclock din processor til 710 MHz. Ustabilt på nogle enheder.</string>
 	<string name="sampling">Dette er tidsintervallet i hvilket enheden bestemmer sin egen belastning. Efter hver sampling, øger eller mindsker enheden cpu hastigheden afhængig af belastningen.</string>
 	<string name="sensors">Hvor hurtigt alle sensorer reagerer.</string>
 	<string name="ssh">Tillader dig at køre en Linux shell fra din PC på din Galaxy.</string>

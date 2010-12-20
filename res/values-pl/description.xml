@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android używa przestrzeni wymiany (ang. swap) jako dodatkowej pamięci dla stron aplikacji nieużywanych w danym czasie, lecz zmodyfikowanych przez aplikację. Rozmiar przestrzeni wymiany oraz fizycznej pamięci składają się na całkowitą ilość wirtualnej pamięci dla systemu. Wymaga zewnętrznej karty SD (zalecana karta klasy 6) i stworzenia partycji Swap przy użyciu trybu recovery.</string>
-	<string name="overclock1">Podkręca procesor telefonu do 614 MHz.</string>
-	<string name="overclock2">Podkręca procesor telefonu do 710 MHz. Niestabilne na niektórych urządzeniach.</string>
 	<string name="sampling">Odstęp czasu, w którym urządzenie odczytuje swoje obciążenie. Po każdym odczycie, Galaxy zwiększa bądź zmniejsza prędkość procesora w zależności od obciążenia.</string>
 	<string name="sensors">Prędkość reakcji wszystkich sensorów.</string>
 	<string name="ssh">Pozwala uruchomić zdalny dostęp do powłoki Linuksa na telefonie przy użyciu komputera.</string>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android koristi prostor za premještanje dijelova podataka u memoriju (swap) kao dodatnu memoriju za stranice od aplikacijske memorije koje se aktivno ne koriste od strane aplikacija ali su bile izmijenjene (upisane u). Veličina "swap"-a plus veličina RAM-a je sveukupna prividna memorija za sustav. Stvorite particiju za "swap" particiju pomoću načina rada za oporavak - Recovery mode. Treba Vam vanjska SD kartica (preporuka - 6 klase). Compcache će biti isljučen.</string>
-	<string name="overclock1">Overklokanje (O/C) Vašeg procesora na 614 MHz.</string>
-	<string name="overclock2">Overklokanje (O/C) Vašeg procesora na 710 MHz. Nestabino na nekim uređajima.</string>
 	<string name="sampling">Vremenski razmak u kojem uređaj dobiva svoje opterećenje. Nakon svakog uzorka, uređaj povećava ili smanjuje brzinu procesora s obzirom na opterećenje.</string>
 	<string name="sensors">Kako brzo će reagirati svi senzori.</string>
 	<string name="ssh">Dopušta Vam pokretanje Linux-a sa Vašeg računala na Vaš Galaxy.</string>

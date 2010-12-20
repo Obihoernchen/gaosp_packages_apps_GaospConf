@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android foloseşte spatiul de swap ca "extra" memorie pentru aplicatii care nu sunt folosite in mod activ de punerea in aplicare, dar au fost modificate (scrise). Dimensiunea spatiu swap plus RAM reprezinta cantitatea totala de memorie virtuala a sistem-ului. Creaza paritie swap in recovery prima data. Ai nevoie de un card SD extern (recomandat Clasa 6 ).</string>
-	<string name="overclock1">Overclock la 614 MHz.</string>
-	<string name="overclock2">Overclock la 710 MHz. Instabil pe unele aparate.</string>
 	<string name="sampling">Reprezinta intervalul de timp in care aparatul se incarca. Dupa fiecare "proba", aparatul creste sau scade frecventa in functie de incarcare.</string>
 	<string name="sensors">Cat de repede reactioneaza senzorii.</string>
 	<string name="ssh">Va permite ss rulati un shell Linux de pe PC pe Galaxy-ul dumneavoastra</string>

@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Iba swap</string>
-    <string name="TVoverclock1">Pretaktovať CPU na 614 MHz</string>
-    <string name="TVoverclock2">Pretaktovať CPU na 710 MHz</string>
     <string name="TVsampling">Vzorkovanie CPU</string>
     <string name="TVsensors">Odozva senzorov</string>
     <string name="TVssh">Server SSH</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Skrytá apl. (MB)</string>
 	<string name="TVcontentapp">Poskytovateľ obsahu (MB)</string>
 	<string name="TVemptyapp">Prázdna apl. (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eko</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Výkon</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otvoriť</string>
     <string name="Bdefaults">Nastaviť predvolené</string>

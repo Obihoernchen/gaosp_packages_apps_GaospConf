@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Apenas swap</string>
-    <string name="TVoverclock1">Overclock do CPU para 614 MHz</string>
-    <string name="TVoverclock2">Overclock do CPU para 710 MHz</string>
     <string name="TVsampling">Amostragem do CPU</string>
     <string name="TVsensors">Reacção dos Sensores</string>
     <string name="TVssh">Servidor SSH</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Aplicação escondida (MB)</string>
 	<string name="TVcontentapp">Provedor de conteúdos (MB)</string>
 	<string name="TVemptyapp">Aplicação vazia (MB)</string>	
-	<!-- CheckBoxes -->
-	<string name="CBeco">Eco</string>
-	<string name="CBmix">Mix</string>
-	<string name="CBperf">Perf</string>
 	<!-- Buttons -->
 	<string name="Bopen">Abrir</string>
     <string name="Bdefaults">Definir como padrão</string>

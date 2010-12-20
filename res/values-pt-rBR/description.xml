@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android usa o espaço Swap como memória extra para páginas da memória da aplicação que não estão efetivamente sendo usadas pela aplicação, mas foram modificadas (escritas). O espaço Swap mais o espaço RAM é a quantidade de memória virtual para o sistema. Crie a partição Swap com o Recovery primeiro.</string>
-	<string name="overclock1">Overclock de seu processador para 614 MHz.</string>
-	<string name="overclock2">Overclock de seu processador para 710 MHz. Instável em alguns dispositivos.</string>
 	<string name="sampling">É intervalo de tempo no qual o dispositivo faz sua própria carga. Depois de cada intervalo, o dispositivo aumenta ou diminui a velocidade da cpu em função da carga.</string>
 	<string name="sensors">O quão rápido todos os Sensores irão reagir.</string>
 	<string name="ssh">Permite rodar um shell Linux de seu computador no seu Galaxy.</string>

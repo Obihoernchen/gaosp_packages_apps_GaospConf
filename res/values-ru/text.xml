@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
 	<string name="TVswap">Только Swap</string>
-	<string name="TVoverclock1">Разгон ЦП до 614 МГц</string>
-	<string name="TVoverclock2">Разгон ЦП до 710 МГц</string>
 	<string name="TVsampling">Режим</string>
 	<string name="TVsensors">Скорость сенсоров</string>
 	<string name="TVssh">Сервер SSH</string>
@@ -22,10 +20,6 @@
 	<string name="TVhiddenapp">Скрытый процесс(MB)</string>
 	<string name="TVcontentapp">Доставка данных (MB)</string>
 	<string name="TVemptyapp">Пустой процесс (MB)</string>
-	<!-- CheckBoxes -->
-	<string name="CBeco">Экон.</string>
-	<string name="CBmix">Смеш.</string>
-	<string name="CBperf">Произв.</string>
 	<!-- Buttons -->
 	<string name="Bopen">Пуск!</string>
 	<string name="Bdefaults">По умолчанию</string>

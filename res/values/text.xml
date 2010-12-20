@@ -33,7 +33,7 @@
     <string name="applied">New config saved and applied. You may have to restart.</string>
 	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
-	<string name="ocwarning">Values between 528 and 700 are dangerous. Values over 700 are VERY DANGEROUS! You can damage your device!</string>
+	<string name="ocwarning">Values between 528 and 700 are dangerous. Values over 700 are VERY DANGEROUS and will not work for everybody! You can damage your device!</string>
 	<string name="accept">Accept</string>
 	<string name="decline">Decline</string>
 	<string name="compcalibrationdialog1">You are now in calibration mode, use any compass application and rotate your device around each of its 3 axes until it points North in the right direction. Once calibrated, put device on sleep to save and return to regular mode.</string>

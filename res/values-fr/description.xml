@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android utilise le swap comme mémoire supplémentaire pour les pages qui ne sont pas utilisées depuis un certain temps. La taille du swap et celle de la RAM constituent le total de mémoire virtuelle disponible pour le système. Utilisez le mode recovery pour créer une partition swap. Nécessite une carte SD externe (Classe 6 recommandée).</string>
-	<string name="overclock1">Overclocker votre processeur à 614 MHz.</string>
-	<string name="overclock2">Overclocker votre processeur à 710 MHz, peut être instable sur certains terminaux.</string>
 	<string name="sampling">Intervalle de temps pendant lequel le système surveille la charge CPU. À chaque mesure, la fréquence du CPU peut être augmentée ou réduite en fonction de la charge courante.</string>
 	<string name="sensors">Vitesse de réaction des senseurs.</string>
 	<string name="ssh">Fournit un contrôle distant textuel (shell). Client SSH nécessaire.</string>
