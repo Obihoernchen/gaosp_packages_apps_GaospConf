@@ -24,6 +24,8 @@
 	<string name="TVminfreq">Min CPU frequency</string>
 	<string name="TVmaxfreq">Max CPU frequency</string>
 	<string name="TVcompcalibration">Calibrate Compass</string>
+	<string name="TVpresets">Presets</string>
+	<string name="TVswappiness">Swappiness</string>
 	<!-- Buttons -->
 	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>
@@ -37,11 +39,21 @@
 	<string name="accept">Accept</string>
 	<string name="decline">Decline</string>
 	<string name="compcalibrationdialog1">You are now in calibration mode, use any compass application and rotate your device around each of its 3 axes until it points North in the right direction. Once calibrated, put device on sleep to save and return to regular mode.</string>
+	<string name="startup">Click on the text of each setting to get a description or to activate it!</string>
 	<!-- Spinners -->
     <string-array name="Ssampling">
     	<item>Battery</item>
         <item>Mixed</item>
         <item>Performance</item>
+    </string-array>
+    <string-array name="Spresets">
+    	<item>Multitasking</item>
+        <item>Android Default</item>
+        <item>Moderate</item>
+        <item>Obihoernchen´s setting</item>
+        <item>GAOSP Default</item>
+        <item>Singletasking</item>
+        <item>-</item>        
     </string-array>
     <string-array name="Scpufreq">
         <item>19.2 MHz</item>

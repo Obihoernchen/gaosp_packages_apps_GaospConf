@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="swap">Android 使用交换空间做为额外的内存使用，可以使应用程序在不激活时保留在交换空间上。交换空间增加了系统的虚拟内存数量。如果没有建立 SWAP 分区，可以先使用复模式建立。你需要有外置 SD 卡（推荐使用 Class 6 的高速卡）。</string>
-	<string name="sampling">这是手机获取它的负载的时间间隔。每次采样后，手机会增加或减少 CPU 速度来调整负载。</string>
-	<string name="sensors">所有传感器的反应速度。</string>
-	<string name="ssh">允许你从电脑上运行一个在你的 Galaxy 上的 Linux 终端。</string>
-	<string name="renice">改变正在运行程序的优先优先级。</string>
-	<string name="provisionned">你可以无 SIM 卡时使用你的 Galaxy。</string>
-	<string name="vnc">你可以从电脑上控制你的手机（使用指定的程序）。</string>
-	<string name="bootani">使用小的开机动画以减少启动时间。</string>
-	<string name="servicemode">只有专家可以使用！你可以调整声音设置等。</string>
-	<string name="kitchen">建立你自己的 Google 应用程序包。</string>
-	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
-	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
-	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>
-	<string name="secondaryapp">This is a process (a service that an application needs) that is alive and ready in case it is needed to do something. Do not change this value unless you have much knowledge about that!</string>
-	<string name="hiddenapp">This again is a process, that sits idle (but still alive) in case it is needed by an app that is alive and running. Be careful with this setting!</string>
-	<string name="contentapp">They are applications that provide data (content) to the system. So are things like the Android Market, or Google Sync. If they are alive, they can refresh and provide the content they are supposed to at the set interval. If you kill them, they can not of course.</string>
-	<string name="emptyapp">We call these "ghosts." They are applications that you have opened, but are done with them. Android uses a unique style of handling memory management. When an activity is ended, instead of killing it off Android keeps the application in memory so that opening them again is a faster process. Theses "ghost" applications use no battery or CPU time, they just fill RAM that would be otherwise empty. When this memory is needed by a different application or process, the RAM is flushed and made available for the new application.</string>	
-	<string name="lcddensity">Lowering the density value will then expand the screen, allowing text to appear longer and not have to scroll or wrap as soon. It also increases spacing between home screen icons, which might come in handy if someone uses Multicon Widget or ADW Launcher’s columns change to pack in more shortcuts. Make a Nandroid Backup before!</string>
-	<string name="gallery">Use a 2D gallery instead of a 3D one. The 2D gallery is faster but not that fancy.</string>
+	<string name="swap">使用交换空间增大虚拟内存总量。若要使用此功能，应先在恢复模式下创建交换空间分区。需要外置SD卡，建议使用Class 6的高速卡。启用此功能后，Compcache将被禁用。</string>
+	<string name="overclock1">将处理器超频至 614 MHz。</string>
+	<string name="overclock2">将处理器超频至 710 MHz。在某些手机上不稳定。</string>
+	<string name="sampling">系统获取负荷水平的时隔。每隔一定时间，系统将根据负荷水平调整处理器的运行速度。</string>
+	<string name="sensors">所有传感器的响应速度。</string>
+	<string name="ssh">允许从计算机上运行手机的Linux命令行。</string>
+	<string name="renice">调整进程的调度优先级。</string>
+	<string name="provisionned">无Sim卡时使用手机。</string>
+	<string name="vnc">你可以用电脑控制手机（需要一个专门的程序）。</string>
+	<string name="bootani">使用简单的开机动画，提高开机速度。</string>
+	<string name="servicemode">仅限专家使用！可以从这里应用Audio Hack。</string>
+	<string name="kitchen">定制你自己的Google应用程序包。</string>
+	<string name="memorythresholds">内存低于以下阈值时，系统将结束相应类型的进程，以释放内存。修改前务必用Nandroid进行备份！</string>
+	<string name="foregroundapp">当前正在屏幕上运行的程序。请勿随意修改此值！</string>
+	<string name="visibleapp">正在后台运行的程序。请勿随意修改此值！</string>
+	<string name="secondaryapp">活动的服务进程。请勿随意修改此值！</string>
+	<string name="hiddenapp">空闲的服务进程。请谨慎修改！</string>
+	<string name="contentapp">为系统提供数据内容的程序。例如Android市场和Google账户同步。此类进程被结束后，将无法更新和提供相应的数据内容。</string>
+	<string name="emptyapp">已经自然结束的程序。它们既不消耗电池也不占用处理器，系统把它们保留在内存中是为了下次更快地启动这些程序。当需要更多内存时，这些程序占用的空间将被首先释放出来。</string>
+	<string name="lcddensity">设置更小的显示密度值将提高分辨率。修改前务必用Nandroid进行备份！</string>
+	<string name="gallery">使用二维图库而不是三维图库。二维图库运行更快，但是不如三维图库美观。</string>
+	<string name="interactive">试验中！可提高对用户操作的响应速度。</string>
 </resources>

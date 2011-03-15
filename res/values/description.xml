@@ -23,4 +23,6 @@
 	<string name="minfreq">Set your min CPU frequency. Default is 120.0 MHz. Overclocking your phone above 528 can cause instability or brick it. Be careful! Overclock at your own risk! Make a Nandroid Backup before!</string>
 	<string name="maxfreq">Set your max CPU frequency. Default is 528.0 MHz. Overclocking your phone above 528 can cause instability or brick it. Be careful! Overclock at your own risk! Make a Nandroid Backup before!</string>
 	<string name="compcalibration">This will calibrate your compass. Follow instructions!</string>
+	<string name="presets">Select you preferred setting</string>
+	<string name="swappiness">Swappiness is a property for the Linux kernel that changes the balance between swapping out runtime memory, as opposed to dropping pages from the system page cache. Swappiness can be set to values between 0 and 100 inclusive. Higher value means more swap usage. High values are not recommended!</string>
 </resources>

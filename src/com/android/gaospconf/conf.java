@@ -20,6 +20,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -79,6 +81,11 @@ public class conf extends Activity {
         final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
         final CheckBox Toggle_Interactive = (CheckBox) findViewById(R.id.interactive);
         final Spinner sampling = (Spinner) findViewById(R.id.sampling);
+        final Spinner presets = (Spinner) findViewById(R.id.presets);
+        ArrayAdapter presetsArray = ArrayAdapter.createFromResource(this, R.array.Spresets, android.R.layout.simple_spinner_item);
+        presetsArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        presets.setAdapter(presetsArray);
+        presets.setSelection(6);
         final Spinner sensorsampling = (Spinner) findViewById(R.id.sensorsampling);
         final Spinner CPUminfreq = (Spinner) findViewById(R.id.minfreq);
         CPUminfreq.setEnabled(false);
@@ -91,6 +98,8 @@ public class conf extends Activity {
         final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
         final EditText memory6_edit = (EditText) findViewById(R.id.memory6);
         final EditText lcddensity = (EditText) findViewById(R.id.lcddensity);
+        final EditText swappiness_edit = (EditText) findViewById(R.id.swappiness);
+        TextView Descswappiness = (TextView) findViewById(R.id.Textswappiness);
         TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
@@ -114,12 +123,13 @@ public class conf extends Activity {
 		TextView Descemptyapp = (TextView) findViewById(R.id.Textemptyapp);
 		TextView Desclcddensity = (TextView) findViewById(R.id.Textlcddensity);
 		TextView Desccompcalibration = (TextView) findViewById(R.id.Textcompcalibration);
+		TextView Descpresets = (TextView) findViewById(R.id.Textpresets);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 		final AlertDialog.Builder alertbox2 = new AlertDialog.Builder(this);
 		
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         o = new SensorListener();
-
+	
         // Open config file
         FileReader FR = null;
 		try {
@@ -148,7 +158,7 @@ public class conf extends Activity {
 			     * if (record.equals("inadyn=yes")) {
 			     * 	inadyn = true;			    	
 			     * }
-			    */
+			    */ 
 			    if (record.equals("renice=no")) {
 			    	renice = false;
 			    }
@@ -172,6 +182,9 @@ public class conf extends Activity {
 			    }
 			    if (record.equals("swap=yes")) {
 			    	swap = true;
+			    }
+			    if (record.startsWith("swappiness=")) {
+			    	swappiness_edit.setText(record.substring(11));
 			    }
 			    if (record.equals("bootani=no")) {
 			    	bootani = false;
@@ -231,7 +244,7 @@ public class conf extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+	
 		// Open build.prop file (LCD Density)
 		FileReader FR3 = null;
 		try {
@@ -272,8 +285,10 @@ public class conf extends Activity {
 			Toggle_VNC.setChecked(true);
 		}
 		if (swap == true) {
-			Toggle_Swap.setChecked(true);
-		}
+			Toggle_Swap.setChecked(true); }
+		else {
+			swappiness_edit.setEnabled(false);
+		}	
 		if (bootani == true) {
 			Toggle_Bootani.setChecked(true);
 		}
@@ -332,7 +347,10 @@ public class conf extends Activity {
 			sampling.setEnabled(false);
 		}
 		
-		// TextView Listener (Descriptions)
+		// Show startup info
+    	Toast.makeText(getBaseContext(), R.string.startup, Toast.LENGTH_LONG).show();
+
+    	// TextView Listener (Descriptions)
 		Descswap.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVswap);
@@ -344,6 +362,17 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         });
+		Descswappiness.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVswappiness);
+	    		alertbox.setMessage(R.string.swappiness);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	        });
 		Descsampling.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVsampling);
@@ -366,6 +395,17 @@ public class conf extends Activity {
 	    	alertbox.show();
 	   		}
 	    });
+		Descpresets.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVpresets);
+	    		alertbox.setMessage(R.string.presets);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	        });
 		Descsensors.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVsensors);
@@ -612,6 +652,57 @@ public class conf extends Activity {
 	    });
 		
 		// Button Listener
+		presets.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				switch(presets.getSelectedItemPosition()) {
+						case 0:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("17");
+							memory5_edit.setText("18");
+							memory6_edit.setText("19"); break;
+						case 1:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("20");
+							memory5_edit.setText("22");
+							memory6_edit.setText("24"); break;
+						case 2:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("25");
+							memory5_edit.setText("30");
+							memory6_edit.setText("35"); break;	
+						case 3:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("30");
+							memory5_edit.setText("35");
+							memory6_edit.setText("40"); break;
+						case 4:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("36");
+							memory5_edit.setText("40");
+							memory6_edit.setText("40"); break;
+						case 5:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("40");
+							memory5_edit.setText("50");
+							memory6_edit.setText("60"); break;
+				}				
+			}
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
 		Service_Button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 	            	String encodedHash = Uri.encode("#");
@@ -659,16 +750,12 @@ public class conf extends Activity {
 				sensorsampling.setSelection(0);
 				CPUminfreq.setSelection(1);
 				CPUmaxfreq.setSelection(8);
+				swappiness_edit.setText("15");
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
 				Toggle_Gallery.setChecked(false);
 				lcddensity.setText("160");
-				memory1_edit.setText("6");
-		    	memory2_edit.setText("8");
-		    	memory3_edit.setText("16");
-		    	memory4_edit.setText("36");
-		    	memory5_edit.setText("40");
-		    	memory6_edit.setText("40");
+				presets.setSelection(4);  	
 				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             }
         });
@@ -752,6 +839,11 @@ public class conf extends Activity {
 					else {
 						out.println("swap=no");
 					}
+					out.println(" ");
+					
+					// Copy Swappiness setting to conf file
+					out.println("# Swappiness");
+					out.println("swappiness="+swappiness_edit.getText().toString());
 					out.println(" ");
 					
 					// Copy Bootanimation setting to conf file
@@ -903,9 +995,12 @@ public class conf extends Activity {
 		{
 			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
 				if (Toggle_Swap.isChecked()) {
+					swappiness_edit.setEnabled(true);
 					if (new File("/dev/block/mmcblk1p2").exists() == false) {
 						Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
 					}
+				} else {
+					swappiness_edit.setEnabled(false);
 				}
 			}
 		});
@@ -962,7 +1057,7 @@ public class conf extends Activity {
     protected void onPause() {
         super.onStop();
         sm.unregisterListener(o);
-    }
+    } 
 
 
 
