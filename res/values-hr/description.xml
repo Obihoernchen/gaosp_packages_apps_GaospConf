@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android koristi prostor za premještanje dijelova podataka u memoriju (swap) kao dodatnu memoriju za stranice od aplikacijske memorije koje se aktivno ne koriste od strane aplikacija ali su bile izmijenjene (upisane u). Veličina "swap"-a plus veličina RAM-a je sveukupna prividna memorija za sustav. Stvorite particiju za "swap" particiju pomoću načina rada za oporavak - Recovery mode. Treba Vam vanjska SD kartica (preporuka - 6 klase). Compcache će biti isljučen.</string>
-	<string name="overclock1">Overklokanje (O/C) Vašeg procesora na 614 MHz.</string>
-	<string name="overclock2">Overklokanje (O/C) Vašeg procesora na 710 MHz. Nestabino na nekim uređajima.</string>
 	<string name="sampling">Vremenski razmak u kojem uređaj dobiva svoje opterećenje. Nakon svakog uzorka, uređaj povećava ili smanjuje brzinu procesora s obzirom na opterećenje.</string>
 	<string name="sensors">Kako brzo će reagirati svi senzori.</string>
 	<string name="ssh">Dopušta Vam pokretanje Linux-a sa Vašeg računala na Vaš Galaxy.</string>
@@ -21,6 +19,10 @@
 	<string name="emptyapp">Ovo nazivamo "duhovima." To su aplikacije koje ste otvorili, ali ste završili s njima. Android koristi jedinstven stil upravljanjem memorijom. Kada završi neka aktivnost, umjesto njenog prekidanja Android čuva aplikaciju u memoriji tako da njeno ponovno otvaranje je brže obrađeno. Ove "duhove" aplikacije ne koriste bateriju ili CPU vrijeme, nego samo pune RAM (radna memorija) koja bi inače bila prazna. Kada je ova memorija zatražena od druge aplikacije ili procesa, RAM se prazni i biva oslobođen za novu aplikaciju ili proces.</string>
 	<string name="lcddensity">Snižavanjem vrijednosti gustoće će proširiti ekran, dopuštajući da tekst izgleda duže i ne treba pomicati ili povlačiti tako skoro. To također povećava razmak između ikona na početnom zaslonu, koje može biti zgodno ako netko koristi promjenu stupaca u Multicon Widget-u ili ADW Launcher-u da sabije još više prečaca. Prvo napravite Nandroid Backup!</string>
 	<string name="gallery">Koristi galeriju u 2D-u umjesto u 3D-u. 2D galerija je brža ali ne tako elegantna.</string>
-<string name="interactive">Eksperimentalno!</string>
+		<string name="interactive">Interaktivni upravitelj trebao bi poboljšati odziv. On zamjenjiva zadani upravitelj.</string>
+	<string name="minfreq">Postavite svoju minalnu frekvenciju procesora. Zadana je 120.0 MHz. Overklokiranje Vašeg uređaja iznad 528 MHz može izazvati njegovu nestabilnost ili učiniti ga beskorisnim (uništiti ga). Budite oprezni! Overklokirajte na svoju vlastitu odgovornost! Prvo napravite Nandroid Backup!</string>
+	<string name="maxfreq">Postavite svoju maksimalnu frekvenciju procesora. Zadana je 528.0 MHz. Overklokiranje Vašeg uređaja iznad 528 MHz može izazvati njegovu nestabilnost ili učiniti ga beskorisnim (uništiti ga). Budite oprezni! Overklokirajte na svoju vlastitu odgovornost! Prvo napravite Nandroid Backup!</string>
+	<string name="compcalibration">Ovo će kalibrirati Vaš kompas. Slijedite instrukcije!</string>
+	<string name="presets">Odaberite Vašu željenu postavku.</string>
+	<string name="swappiness">Swappiness je svojstvo za Linux jezgru koji mijenja ravnotežu između zamjene iz dužine trajanja memorije, kao protivno ka ispuštanju stranica iz cache sustava stranica. Swappiness može biti postavljen na vrijednost između 0 i 100. Viša vrijednost znači veću upotrebu razmjene. Veće vrijednosti nisu preporučene!</string>
 </resources>
-$ git fetch upstream
