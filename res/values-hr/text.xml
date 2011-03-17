@@ -2,8 +2,6 @@
 <resources>
 	<!-- TextViews -->
     <string name="TVswap">Samo swap</string>
-    <string name="TVoverclock1">O/C CPU na 614 MHz</string>
-    <string name="TVoverclock2">O/C CPU na 710 MHz</string>
     <string name="TVsampling">Sampliranje CPU-a</string>
     <string name="TVsensors">Reagiranje senzora</string>
     <string name="TVssh">SSH server</string>
@@ -22,20 +20,60 @@
 	<string name="TVhiddenapp">Sakrivene aplikacije (MB)</string>
 	<string name="TVcontentapp">Davatelj podataka (MB)</string>
 	<string name="TVemptyapp">Prazna aplikacija (MB)</string>
+        <string name="TVinteractive">Interaktivni upravitelj frekvencije CPU-a</string>
+	<string name="TVminfreq">Min CPU frekvencija</string>
+	<string name="TVmaxfreq">Max CPU frekvencija</string>
+	<string name="TVcompcalibration">Kalibraj kompas</string>
+	<string name="TVpresets">Podešavanja</string>
+	<string name="TVswappiness">Swappiness</string>
 	<!-- Buttons -->
 	<string name="Bopen">Otvori</string>
-    <string name="Bdefaults">Osnovne postavke</string>
-    <string name="Bapply">Primijeni novu konf.</string>
+    <string name="Bdefaults">Zadane postavke</string>
+    <string name="Bapply">Primijeni novu konfiguraciju</string>
     <!-- Messages -->
     <string name="wait">Molimo pričekajte...</string>
     <string name="applied">Nova konfiguracija spremjena i primijenjena. Morati će te ponovo pokrenuti uređaj.</string>
-	<string name="comptobig">Veličina compcache-a je prevelika!</string>
-	<string name="swapwarning">Morate imati vanjsku SD karticu sa swap particijom (Recovery > Format swap+fat32).</string>
-	<string name="defaults">Osnovne postavke uspješno učitane. Pritisnite "Primijeni novu konf." za spremanje.</string>
+    <string name="swapwarning">Morate imate vanjsku (ext SD) karticu sa swap particijom (Recovery > Format swap+fat32)</string>
+	<string name="defaults">Zadane postavke uspješno učitane. Pritisnite Primijeni novu konfiguraciju za spremanje.</string>
+	<string name="ocwarning">Vrijednosti između 528 MHz i 700 MHz su opasne. Vrijednosti iznad 700 MHz su JAKO OPASNE i neće funkcionirati za sve! Možete oštetiti svoj uređaj!</string>
+	<string name="accept">Prihvati</string>
+	<string name="decline">Odustai</string>
+	<string name="compcalibrationdialog1">Sada ste u modu za kalibriranje, koristite bilo koju aplikaciju za kompas i okrečite svoj uređaj okolo svih 3 njegovih osi dok ne prikaže Sjever (North) u pravom pravcu. Jednom kalibriran, stavite uređaj na spavanje za spremanje i povratak na normalan mod.</string>
+	<string name="startup">Kliknite na tekst od svake postavke da biste dobili njihov opis ili da ih aktivirate!</string>
 <!-- Spinners -->
     <string-array name="Ssampling">
      <item>Baterija</item>
         <item>Miješano</item>
         <item>Učinkovitost</item>
+    </string-array>
+<string-array name="Spresets">
+    	<item>Multitasking</item>
+        <item>Androida Zadano</item>
+        <item>Umjereno</item>
+        <item>Obihoernchen-eve postavke</item>
+        <item>GAOSP Zadano</item>
+        <item>Singletasking</item>
+        <item>-</item>        
+    </string-array>
+    <string-array name="Scpufreq">
+        <item>19.2 MHz</item>
+        <item>120.0 MHz</item>
+        <item>122.88 MHz</item>
+        <item>176.0 MHz</item>
+		<item>245.76 MHz</item>
+		<item>320.0 MHz</item>
+      	<item>352.0 MHz</item>
+      	<item>480.0 MHz</item>
+  		<item>528.0 MHz</item>
+     	<item>576.0 MHz</item>
+        <item>624.0 MHz</item>
+      	<item>672.0 MHz</item>
+  		<item>720.0 MHz</item>
+  		<item>748.8 MHz</item>
+   		<item>758.4 MHz</item>
+   		<item>768.0 MHz</item>
+   		<item>777.6 MHz</item>
+   		<item>787.2 MHz</item>
+   		<item>796.8 MHz</item>
     </string-array>
 </resources>
