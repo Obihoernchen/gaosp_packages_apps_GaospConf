@@ -26,6 +26,7 @@
 	<string name="TVcompcalibration">Calibrate Compass</string>
 	<string name="TVpresets">Presets</string>
 	<string name="TVswappiness">Swappiness</string>
+	<string name="TVsdcache">SD read cache</string>
 	<!-- Buttons -->
 	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>

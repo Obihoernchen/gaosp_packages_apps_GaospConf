@@ -25,4 +25,5 @@
 	<string name="compcalibration">This will calibrate your compass. Follow instructions!</string>
 	<string name="presets">Select you preferred setting</string>
 	<string name="swappiness">Swappiness is a property for the Linux kernel that changes the balance between swapping out runtime memory, as opposed to dropping pages from the system page cache. Swappiness can be set to values between 0 and 100 inclusive. Higher value means more swap usage. High values are not recommended!</string>
+	<string name="sdcache">The default read cache size is 128KB. This is pretty small. If you increase this value you will get better reading speed. But it will use more Ram as well. A good value is 2048KB. This setting increases cache of internal and external SD.</string>
 </resources>

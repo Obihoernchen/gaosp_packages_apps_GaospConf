@@ -49,8 +49,6 @@ public class conf extends Activity {
 
         // Define variables
         String record = null;
-        String record2 = null;
-        String record3 = null;
                 
         int cpu_sampling = 0;
         int sensors_sampling = 0;
@@ -97,9 +95,11 @@ public class conf extends Activity {
         final EditText memory4_edit = (EditText) findViewById(R.id.memory4);
         final EditText memory5_edit = (EditText) findViewById(R.id.memory5);
         final EditText memory6_edit = (EditText) findViewById(R.id.memory6);
-        final EditText lcddensity = (EditText) findViewById(R.id.lcddensity);
+        final EditText lcddensity_edit = (EditText) findViewById(R.id.lcddensity);
         final EditText swappiness_edit = (EditText) findViewById(R.id.swappiness);
+        final EditText sdcache_edit = (EditText) findViewById(R.id.sdcache);
         TextView Descswappiness = (TextView) findViewById(R.id.Textswappiness);
+        TextView Descsdcache = (TextView) findViewById(R.id.Textsdcache);
         TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
@@ -137,8 +137,7 @@ public class conf extends Activity {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} 
-		BufferedReader BR = new BufferedReader(FR, 8192);
-		
+		BufferedReader BR = new BufferedReader(FR, 8192);	
 		// Read config file
 		try {
 			while ((record = BR.readLine()) != null) {
@@ -213,59 +212,53 @@ public class conf extends Activity {
 			    if (record.equals("interactive=no")) {
 			    	interactive = false;
 			    }
+			    if (record.startsWith("mem1=")) {
+			    	memory1_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
+			    }
+			    if (record.startsWith("mem2=")) {
+			    	memory2_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
+			    }
+			    if (record.startsWith("mem3=")) {
+			    	memory3_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
+			    }
+			    if (record.startsWith("mem4=")) {
+			    	memory4_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
+			    }
+			    if (record.startsWith("mem5=")) {
+			    	memory5_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
+			    }
+			    if (record.startsWith("mem6=")) {
+			    	memory6_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
+			    }
+			    if (record.startsWith("sdcache=")) {
+			    	sdcache_edit.setText(record.substring(8));
+			    }
 			}
 			BR.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
 		
-		// Open minfree file
-		FileReader FR2 = null;
-		try {
-			FR2 = new FileReader("/sys/module/lowmemorykiller/parameters/minfree");
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} 
-		BufferedReader BR2 = new BufferedReader(FR2, 8192);
-			
-		// Read minfree file
-		try {
-		    while ((record2 = BR2.readLine()) != null) {
-		    	Pattern p = Pattern.compile(",");
-		   	   	String[] mem = p.split(record2);
-		    	memory1_edit.setText(Integer.toString(Integer.parseInt(mem[0])*4/1024));
-		    	memory2_edit.setText(Integer.toString(Integer.parseInt(mem[1])*4/1024));
-		    	memory3_edit.setText(Integer.toString(Integer.parseInt(mem[2])*4/1024));
-		    	memory4_edit.setText(Integer.toString(Integer.parseInt(mem[3])*4/1024));
-		    	memory5_edit.setText(Integer.toString(Integer.parseInt(mem[4])*4/1024));
-		    	memory6_edit.setText(Integer.toString(Integer.parseInt(mem[5])*4/1024));
-			}
-		    BR2.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	
 		// Open build.prop file (LCD Density)
-		FileReader FR3 = null;
+		FR = null;
 		try {
-			FR3 = new FileReader("/system/build.prop");
+			FR = new FileReader("/system/build.prop");
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} 
-		BufferedReader BR3 = new BufferedReader(FR3, 8192);
-			
+		BR = new BufferedReader(FR, 8192);	
 		// Read build.prop file (LCD Density)
 		try {
-		    while ((record3 = BR3.readLine()) != null) {
-		    	if (record3.startsWith("ro.sf.lcd_density=")) {
-		    		lcddensity.setText(record3.substring(18));
+		    while ((record = BR.readLine()) != null) {
+		    	if (record.startsWith("ro.sf.lcd_density=")) {
+		    		lcddensity_edit.setText(record.substring(18));
 		    	}
 			}
-    		BR3.close();
+    		BR.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 		// Set read data
 		switch (cpu_sampling) {
 			case 0 : sampling.setSelection(0); break;
@@ -301,7 +294,7 @@ public class conf extends Activity {
 			case 122880 : CPUminfreq.setSelection(2); break;
 			case 176000 : CPUminfreq.setSelection(3); break;
 			case 245760 : CPUminfreq.setSelection(4); break;
-			case 320000 : CPUminfreq.setSelection(5); break;
+			case 320000 : CPUminfreq.setSelection(5); break;					
 			case 352000 : CPUminfreq.setSelection(6); break;
 			case 480000 : CPUminfreq.setSelection(7); break;
 			case 528000 : CPUminfreq.setSelection(8); break;
@@ -407,7 +400,7 @@ public class conf extends Activity {
 	    		}
 	        });
 		Descsensors.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
+    	public void onClick(View v){ 						
     		alertbox.setTitle(R.string.TVsensors);
     		alertbox.setMessage(R.string.sensors);
             alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
@@ -516,6 +509,17 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         });
+		Descsdcache.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    	alertbox.setTitle(R.string.TVsdcache);
+	    	alertbox.setMessage(R.string.sdcache);
+	        alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	            public void onClick(DialogInterface arg0, int arg1) {
+	            }
+	        });
+	    	alertbox.show();
+	    	}
+	    });
 		Descminfreq.setOnClickListener(new View.OnClickListener() {
 	    	public void onClick(View v){
 	    		alertbox2.setTitle(R.string.TVminfreq);
@@ -754,7 +758,8 @@ public class conf extends Activity {
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
 				Toggle_Gallery.setChecked(false);
-				lcddensity.setText("160");
+				lcddensity_edit.setText("160");
+				sdcache_edit.setText("128");
 				presets.setSelection(4);  	
 				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             }
@@ -836,8 +841,8 @@ public class conf extends Activity {
 					if (Toggle_Swap.isChecked()) {
 						out.println("swap=yes");
 					}
-					else {
-						out.println("swap=no");
+					else {															
+						out.println("swap=no");					
 					}
 					out.println(" ");
 					
@@ -972,9 +977,14 @@ public class conf extends Activity {
 					}
 					out.println(" ");
 					
+					// Copy SD Cache setting to conf file
+					out.println("# SD Read Cache");
+					out.println("sdcache=" + sdcache_edit.getText());
+					out.println(" ");
+					
 					// Set LCD Density
 					String[] lcdchange = { "density=`grep ro.sf.lcd_density= /system/build.prop | awk -F = '{print $2'}`",
-										   "/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+lcddensity.getText().toString()+"/' /system/build.prop'",
+										   "/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+lcddensity_edit.getText().toString()+"/' /system/build.prop'",
 										   "echo LCD Density changed"};
 					shell.doExec(lcdchange, true);
 					
@@ -1057,7 +1067,7 @@ public class conf extends Activity {
     protected void onPause() {
         super.onStop();
         sm.unregisterListener(o);
-    } 
+    }
 
 
 
