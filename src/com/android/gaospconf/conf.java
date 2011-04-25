@@ -7,12 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.regex.Pattern;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,17 +28,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+
 
 public class conf extends Activity {
-
-        //Sensors
-        SensorManager sm;
-        SensorListener o;
-
     /** Called when the activity is first created. */
    
     public void onCreate(Bundle savedInstanceState) {
@@ -50,10 +40,7 @@ public class conf extends Activity {
         // Define variables
         String record = null;
                 
-        int cpu_sampling = 0;
         int sensors_sampling = 0;
-        int minfreq = 0;
-        int maxfreq = 0;
         Boolean ssh = false;
         //Boolean inadyn = false;
         Boolean renice = false;
@@ -62,7 +49,6 @@ public class conf extends Activity {
         Boolean swap = false;
         Boolean bootani = false;
         Boolean gallery = false;
-        Boolean interactive = false;
         
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
@@ -77,18 +63,12 @@ public class conf extends Activity {
         final CheckBox Toggle_Swap = (CheckBox) findViewById(R.id.swap);    
         final CheckBox Toggle_Bootani = (CheckBox) findViewById(R.id.bootani);
         final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
-        final CheckBox Toggle_Interactive = (CheckBox) findViewById(R.id.interactive);
-        final Spinner sampling = (Spinner) findViewById(R.id.sampling);
         final Spinner presets = (Spinner) findViewById(R.id.presets);
         ArrayAdapter presetsArray = ArrayAdapter.createFromResource(this, R.array.Spresets, android.R.layout.simple_spinner_item);
         presetsArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         presets.setAdapter(presetsArray);
         presets.setSelection(6);
         final Spinner sensorsampling = (Spinner) findViewById(R.id.sensorsampling);
-        final Spinner CPUminfreq = (Spinner) findViewById(R.id.minfreq);
-        CPUminfreq.setEnabled(false);
-        final Spinner CPUmaxfreq = (Spinner) findViewById(R.id.maxfreq);
-        CPUmaxfreq.setEnabled(false);
         final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
         final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
@@ -101,11 +81,7 @@ public class conf extends Activity {
         TextView Descswappiness = (TextView) findViewById(R.id.Textswappiness);
         TextView Descsdcache = (TextView) findViewById(R.id.Textsdcache);
         TextView Descswap = (TextView) findViewById(R.id.Textswap);
-		TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
-		TextView Descminfreq = (TextView) findViewById(R.id.Textminfreq);
-		TextView Descmaxfreq = (TextView) findViewById(R.id.Textmaxfreq);
-		TextView Descinteractive = (TextView) findViewById(R.id.Textinteractive);
 		TextView Descssh = (TextView) findViewById(R.id.Textssh);
 		TextView Descrenice = (TextView) findViewById(R.id.Textrenice);
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
@@ -125,10 +101,6 @@ public class conf extends Activity {
 		TextView Desccompcalibration = (TextView) findViewById(R.id.Textcompcalibration);
 		TextView Descpresets = (TextView) findViewById(R.id.Textpresets);
         final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
-		final AlertDialog.Builder alertbox2 = new AlertDialog.Builder(this);
-		
-        sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        o = new SensorListener();
 	
         // Open config file
         FileReader FR = null;
@@ -141,9 +113,6 @@ public class conf extends Activity {
 		// Read config file
 		try {
 			while ((record = BR.readLine()) != null) {
-			    if (record.startsWith("cpu_sampling=")) {
-			    	cpu_sampling = Integer.parseInt(record.substring(13));
-			    }
 			    if (record.equals("sshd=no")) {
 			    	ssh = false;
 			    }
@@ -200,18 +169,6 @@ public class conf extends Activity {
 			    if (record.startsWith("sensors_sampling=")) {
 			    	sensors_sampling = Integer.parseInt(record.substring(17));
 			    }
-			    if (record.startsWith("minfreq=")) {
-			    	minfreq = Integer.parseInt(record.substring(8));
-			    }
-			    if (record.startsWith("maxfreq=")) {
-			    	maxfreq = Integer.parseInt(record.substring(8));
-			    }
-			    if (record.equals("interactive=yes")) {
-			    	interactive = true;
-			    }
-			    if (record.equals("interactive=no")) {
-			    	interactive = false;
-			    }
 			    if (record.startsWith("mem1=")) {
 			    	memory1_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
 			    }
@@ -260,11 +217,6 @@ public class conf extends Activity {
 		}
 		
 		// Set read data
-		switch (cpu_sampling) {
-			case 0 : sampling.setSelection(0); break;
-			case 1 : sampling.setSelection(1); break;
-			case 2 : sampling.setSelection(2); break;
-		}
 		if (ssh == true) {
 			Toggle_SSH.setChecked(true);
 		}
@@ -288,56 +240,10 @@ public class conf extends Activity {
 		if (gallery == true) {
 			Toggle_Gallery.setChecked(true);
 		}
-		switch (minfreq) {
-			case 19200 : CPUminfreq.setSelection(0); break;
-			case 120000 : CPUminfreq.setSelection(1); break;
-			case 122880 : CPUminfreq.setSelection(2); break;
-			case 176000 : CPUminfreq.setSelection(3); break;
-			case 245760 : CPUminfreq.setSelection(4); break;
-			case 320000 : CPUminfreq.setSelection(5); break;					
-			case 352000 : CPUminfreq.setSelection(6); break;
-			case 480000 : CPUminfreq.setSelection(7); break;
-			case 528000 : CPUminfreq.setSelection(8); break;
-			case 576000 : CPUminfreq.setSelection(9); break;
-			case 624000 : CPUminfreq.setSelection(10); break;
-			case 672000 : CPUminfreq.setSelection(11); break;
-			case 720000 : CPUminfreq.setSelection(12); break;
-			case 748800 : CPUminfreq.setSelection(13); break;
-			case 758400 : CPUminfreq.setSelection(14); break;
-			case 768000 : CPUminfreq.setSelection(15); break;
-			case 777600 : CPUminfreq.setSelection(16); break;
-			case 787200 : CPUminfreq.setSelection(17); break;
-			case 796800 : CPUminfreq.setSelection(18); break;
-		}
-		switch (maxfreq) {
-			case 19200 : CPUmaxfreq.setSelection(0); break;
-			case 120000 : CPUmaxfreq.setSelection(1); break;
-			case 122880 : CPUmaxfreq.setSelection(2); break;
-			case 176000 : CPUmaxfreq.setSelection(3); break;
-			case 245760 : CPUmaxfreq.setSelection(4); break;
-			case 320000 : CPUmaxfreq.setSelection(5); break;
-			case 352000 : CPUmaxfreq.setSelection(6); break;
-			case 480000 : CPUmaxfreq.setSelection(7); break;
-			case 528000 : CPUmaxfreq.setSelection(8); break;
-			case 576000 : CPUmaxfreq.setSelection(9); break;
-			case 624000 : CPUmaxfreq.setSelection(10); break;
-			case 672000 : CPUmaxfreq.setSelection(11); break;
-			case 720000 : CPUmaxfreq.setSelection(12); break;
-			case 748800 : CPUmaxfreq.setSelection(13); break;
-			case 758400 : CPUmaxfreq.setSelection(14); break;
-			case 768000 : CPUmaxfreq.setSelection(15); break;
-			case 777600 : CPUmaxfreq.setSelection(16); break;
-			case 787200 : CPUmaxfreq.setSelection(17); break;
-			case 796800 : CPUmaxfreq.setSelection(18); break;
-		}
 		switch (sensors_sampling) {
 			case 0 : sensorsampling.setSelection(0); break;
 			case 1 : sensorsampling.setSelection(1); break;
 			case 2 : sensorsampling.setSelection(2); break;
-		}
-		if (interactive == true) {
-			Toggle_Interactive.setChecked(true);
-			sampling.setEnabled(false);
 		}
 		
 		// Show startup info
@@ -366,28 +272,6 @@ public class conf extends Activity {
 	    		alertbox.show();
 	    		}
 	        });
-		Descsampling.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
-    		alertbox.setTitle(R.string.TVsampling);
-    		alertbox.setMessage(R.string.sampling);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                }
-            });
-    		alertbox.show();
-    		}
-        });
-		Descinteractive.setOnClickListener(new View.OnClickListener() {
-	    public void onClick(View v){ 	
-	   		alertbox.setTitle(R.string.TVinteractive);
-	   		alertbox.setMessage(R.string.interactive);
-	   		alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-	   			public void onClick(DialogInterface arg0, int arg1) {
-	   			}
-	        });
-	    	alertbox.show();
-	   		}
-	    });
 		Descpresets.setOnClickListener(new View.OnClickListener() {
 	    	public void onClick(View v){ 	
 	    		alertbox.setTitle(R.string.TVpresets);
@@ -520,52 +404,6 @@ public class conf extends Activity {
 	    	alertbox.show();
 	    	}
 	    });
-		Descminfreq.setOnClickListener(new View.OnClickListener() {
-	    	public void onClick(View v){
-	    		alertbox2.setTitle(R.string.TVminfreq);
-	    		alertbox2.setMessage(R.string.minfreq);
-	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface arg0, int arg1) {
-	    				alertbox2.show();
-	    			}
-	    		});
-	            alertbox2.setNegativeButton(R.string.decline, new DialogInterface.OnClickListener() {
-	                public void onClick(DialogInterface arg0, int arg1) {
-	                	CPUminfreq.setEnabled(false);
-	                }
-	            });
-	    		alertbox2.show();
-	    		alertbox2.setMessage(R.string.ocwarning);
-	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface arg0, int arg1) {
-	    				CPUminfreq.setEnabled(true);
-	    			}
-	    		});
-	    	}
-	    });
-		Descmaxfreq.setOnClickListener(new View.OnClickListener() {
-	    	public void onClick(View v){
-	    		alertbox2.setTitle(R.string.TVmaxfreq);
-	    		alertbox2.setMessage(R.string.maxfreq);
-	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface arg0, int arg1) {
-	    				alertbox2.show();
-	    			}
-	    		});
-	            alertbox2.setNegativeButton(R.string.decline, new DialogInterface.OnClickListener() {
-	                public void onClick(DialogInterface arg0, int arg1) {
-	                	CPUmaxfreq.setEnabled(false);
-	                }
-	            });
-	    		alertbox2.show();
-	    		alertbox2.setMessage(R.string.ocwarning);
-	    		alertbox2.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface arg0, int arg1) {
-	    				CPUmaxfreq.setEnabled(true);
-	    			}
-	    		});
-	    	}
-	    });
 		Descmemorythresholds.setOnClickListener(new View.OnClickListener() {
 	    	public void onClick(View v){
 	    		alertbox.setTitle(R.string.TVmemorythresholds);
@@ -685,23 +523,23 @@ public class conf extends Activity {
 							memory1_edit.setText("6");
 							memory2_edit.setText("8");
 							memory3_edit.setText("16");
-							memory4_edit.setText("30");
-							memory5_edit.setText("35");
-							memory6_edit.setText("40"); break;
+							memory4_edit.setText("25");
+							memory5_edit.setText("30");
+							memory6_edit.setText("35"); break;
 						case 4:
+							memory1_edit.setText("6");
+							memory2_edit.setText("8");
+							memory3_edit.setText("16");
+							memory4_edit.setText("22");
+							memory5_edit.setText("24");
+							memory6_edit.setText("30"); break;
+						case 5:
 							memory1_edit.setText("6");
 							memory2_edit.setText("8");
 							memory3_edit.setText("16");
 							memory4_edit.setText("36");
 							memory5_edit.setText("40");
 							memory6_edit.setText("40"); break;
-						case 5:
-							memory1_edit.setText("6");
-							memory2_edit.setText("8");
-							memory3_edit.setText("16");
-							memory4_edit.setText("40");
-							memory5_edit.setText("50");
-							memory6_edit.setText("60"); break;
 				}				
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -728,32 +566,19 @@ public class conf extends Activity {
 		compcalibration_Button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// delete old calibration file
-				String[] delcalibration = { "/system/xbin/su -c 'rm -f /data/misc/akmd.dat'", "echo deleted akmd.dat"};
+				String[] delcalibration = { "/system/xbin/su -c 'rm /data/misc/akmd_set.txt'", "echo deleted akmd_set.txt"};
                 shell.doExec(delcalibration, true);
-                String[] killakmd2 = { "/system/xbin/su -c 'killall akmd2'", "echo akmd2 was killed"};
-                shell.doExec(killakmd2, true);
-				alertbox.setTitle(R.string.TVcompcalibration);
-	    		alertbox.setMessage(R.string.compcalibrationdialog1);
-	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-	                public void onClick(DialogInterface arg0, int arg1) {
-	                }
-	            });
-	    		alertbox.show();
-	            };
-        });
+			}
+		});
 		
 		// Default Button
 		Default_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	sampling.setSelection(2);
-            	Toggle_Interactive.setChecked(false);
 				Toggle_SSH.setChecked(false);
 				Toggle_Renice.setChecked(true);
 				Toggle_Prov.setChecked(true);
 				Toggle_VNC.setChecked(false);
 				sensorsampling.setSelection(0);
-				CPUminfreq.setSelection(1);
-				CPUmaxfreq.setSelection(8);
 				swappiness_edit.setText("15");
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
@@ -784,13 +609,7 @@ public class conf extends Activity {
 					out.println("##### Gaosp config file ########");
 					out.println("################################");
 					out.println(" ");
-					
-					// Copy CPU sampling setting to conf file
-					out.println("# CpuFreq sampling rate");
-					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
-					out.println("cpu_sampling=" + sampling.getSelectedItemPosition());
-					out.println(" ");
-					
+									
 					// Copy SSH setting to conf file
 					out.println("# SSH server");
 					if (Toggle_SSH.isChecked()) {
@@ -896,61 +715,7 @@ public class conf extends Activity {
 							}		
 					}
 					out.println(" ");
-									
-					// Copy min cpu frequency setting to conf file
-					out.println("# Min cpu freqency");
-					int finalminfreq = 120000;
-					switch ((int)CPUminfreq.getSelectedItemId()) {
-						case 0 : finalminfreq = 19200; break;
-						case 1 : finalminfreq = 120000; break;
-						case 2 : finalminfreq = 122880; break;
-						case 3 : finalminfreq = 176000; break;
-						case 4 : finalminfreq = 245760; break;
-						case 5 : finalminfreq = 320000; break;
-						case 6 : finalminfreq = 352000; break;
-						case 7 : finalminfreq = 480000; break;
-						case 8 : finalminfreq = 528000; break;
-						case 9 : finalminfreq = 576000; break;
-						case 10 : finalminfreq = 624000; break;
-						case 11 : finalminfreq = 672000; break;
-						case 12 : finalminfreq = 720000; break;
-						case 13 : finalminfreq = 748800; break;
-						case 14 : finalminfreq = 758400; break;
-						case 15 : finalminfreq = 768000; break;
-						case 16 : finalminfreq = 777600; break;
-						case 17 : finalminfreq = 787200; break;
-						case 18 : finalminfreq = 796800; break;
-					}
-					out.println("minfreq=" + finalminfreq);
-					out.println(" ");
-					
-					// Copy max cpu frequency setting to conf file
-					out.println("# Max cpu freqency");
-					int finalmaxfreq = 528000;
-					switch ((int)CPUmaxfreq.getSelectedItemId()) {
-						case 0 : finalmaxfreq = 19200; break;
-						case 1 : finalmaxfreq = 120000; break;
-						case 2 : finalmaxfreq = 122880; break;
-						case 3 : finalmaxfreq = 176000; break;
-						case 4 : finalmaxfreq = 245760; break;
-						case 5 : finalmaxfreq = 320000; break;
-						case 6 : finalmaxfreq = 352000; break;
-						case 7 : finalmaxfreq = 480000; break;
-						case 8 : finalmaxfreq = 528000; break;
-						case 9 : finalmaxfreq = 576000; break;
-						case 10 : finalmaxfreq = 624000; break;
-						case 11 : finalmaxfreq = 672000; break;
-						case 12 : finalmaxfreq = 720000; break;
-						case 13 : finalmaxfreq = 748800; break;
-						case 14 : finalmaxfreq = 758400; break;
-						case 15 : finalmaxfreq = 768000; break;
-						case 16 : finalmaxfreq = 777600; break;
-						case 17 : finalmaxfreq = 787200; break;
-						case 18 : finalmaxfreq = 796800; break;
-					}
-					out.println("maxfreq=" + finalmaxfreq);
-					out.println(" ");
-					
+																		
 					// Copy Sensors setting to conf file
 					out.println("# Sensors sampling rate");
 					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
@@ -966,17 +731,7 @@ public class conf extends Activity {
 					out.println("mem5=" + Integer.parseInt(memory5_edit.getText().toString())*1024/4);
 					out.println("mem6=" + Integer.parseInt(memory6_edit.getText().toString())*1024/4);
 					out.println(" ");
-					
-					// Copy Interactive governor setting to conf file
-					out.println("# Interactive governor");
-					if (Toggle_Interactive.isChecked()) {
-						out.println("interactive=yes");
-					}
-					else {
-						out.println("interactive=no");
-					}
-					out.println(" ");
-					
+										
 					// Copy SD Cache setting to conf file
 					out.println("# SD Read Cache");
 					out.println("sdcache=" + sdcache_edit.getText());
@@ -1014,18 +769,7 @@ public class conf extends Activity {
 				}
 			}
 		});
-		Toggle_Interactive.setOnCheckedChangeListener(new OnCheckedChangeListener()
-		{
-			public void onCheckedChanged(CompoundButton buttonView,	boolean isChecked) {
-				if (Toggle_Interactive.isChecked()) {
-					sampling.setEnabled(false);
-				}
-				else {
-					sampling.setEnabled(true);
-				}		
-			}	
-		});
-    }
+	}
     
 	// Create Menu
     public boolean onCreateOptionsMenu(Menu menu) 
@@ -1057,20 +801,6 @@ public class conf extends Activity {
          return true;
        }    
     
-    @Override
-    protected void onResume() {
-        super.onStart();
-        sm.registerListener(o, sm.getSensorList(Sensor.TYPE_ORIENTATION).get(0), SensorManager.SENSOR_DELAY_UI);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onStop();
-        sm.unregisterListener(o);
-    }
-
-
-
     final class Task extends UserTask<String, Void, Void> {
     	// Create ProgressDialog
     	ProgressDialog myProgressDialog;

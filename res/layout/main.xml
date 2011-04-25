@@ -40,10 +40,9 @@
 	android:layout_height="1dip"
 	android:background="#808080"/>
 
-<!-- Swappines -->
+<!-- Swappiness -->
 <LinearLayout
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="wrap_content" android:layout_width="match_parent">
 <TextView
 	android:id="@+id/Textswappiness"
 	android:layout_width="wrap_content"
@@ -65,128 +64,6 @@
 	android:layout_height="wrap_content"
 	android:layout_marginRight="4dip"
 	android:layout_gravity="center_vertical"/>
-</LinearLayout>
-
-<!-- Dividing line -->
-<View 
-	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:background="#808080"/>
-	
-<!-- Min CPU frequency -->
-<LinearLayout
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<TextView
-	android:id="@+id/Textminfreq"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-    android:text="@string/TVminfreq"
-	android:layout_marginLeft="4dip"
-	android:textSize="16sp"
-	android:textStyle="bold"
-	android:layout_weight="1"
-	android:layout_gravity="center_vertical"
-	android:clickable="true"/>
-<Spinner
-    android:id="@+id/minfreq"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/TVminfreq"
-    android:entries="@array/Scpufreq"
-    android:layout_marginRight="4dip"
-    android:layout_gravity="center_vertical"/>
-</LinearLayout>
-
-<!-- Dividing line -->
-<View 
-	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:background="#808080"/>
-	
-<!-- Max CPU frequency -->
-<LinearLayout
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<TextView
-	android:id="@+id/Textmaxfreq"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-    android:text="@string/TVmaxfreq"
-	android:layout_marginLeft="4dip"
-	android:textSize="16sp"
-	android:textStyle="bold"
-	android:layout_weight="1"
-	android:layout_gravity="center_vertical"
-	android:clickable="true"/>
-<Spinner 
-    android:id="@+id/maxfreq"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/TVmaxfreq"
-    android:entries="@array/Scpufreq"
-    android:layout_marginRight="4dip"
-    android:layout_gravity="center_vertical"/>
-</LinearLayout>
-
-<!-- Dividing line -->
-<View 
-	android:layout_width="fill_parent"		
-	android:layout_height="1dip"
-	android:background="#808080"/>
-	
-<!-- Interactive governor -->
-<LinearLayout
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<TextView
-	android:id="@+id/Textinteractive"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-    android:text="@string/TVinteractive"
-	android:layout_marginLeft="4dip"
-	android:textSize="16sp"
-	android:textStyle="bold"
-	android:layout_weight="1"
-	android:layout_gravity="center_vertical"
-	android:clickable="true"/>
-<CheckBox	
-    android:id="@+id/interactive"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginRight="4dip"	
-	android:layout_gravity="center_vertical"/>
-</LinearLayout>
-
-<!-- Dividing line -->
-<View 
-	android:layout_width="fill_parent"		
-	android:layout_height="1dip"
-	android:background="#808080"/>
-
-<!-- CPU Sampling -->
-<LinearLayout
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<TextView
-	android:id="@+id/Textsampling"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-    android:text="@string/TVsampling"
-	android:layout_marginLeft="4dip"
-	android:textSize="16sp"
-	android:textStyle="bold"
-	android:layout_weight="1"
-	android:layout_gravity="center_vertical"
-	android:clickable="true"/>
-<Spinner 
-    android:id="@+id/sampling"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/TVsampling"
-    android:entries="@array/Ssampling"
-    android:layout_marginRight="4dip"
-    android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
 <!-- Dividing line -->
