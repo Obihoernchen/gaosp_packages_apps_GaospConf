@@ -2,7 +2,6 @@
 <resources>
 	<string name="swap">Android uses swap space as "extra" memory for pages of application memory that are not being actively used by the application but have been modified (written to). The swap space size plus RAM size is the total amount of virtual memory for the system. Create swap partition with recovery mode first. You need a external SD card (Class 6 recommend). Can work with Compcache.</string>
 	<string name="sampling">It is the time interval in which the device gets its own load. After each sample, device increases or decreases CPU speed regarding the load. Ondemand governor must be active!</string>
-	<string name="sensors">How fast all Sensors will react.</string>
 	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
 	<string name="renice">Renice alters the scheduling priority of one or more running processes.</string>
 	<string name="provisionned">You can use your Galaxy without a SIM Card.</string>

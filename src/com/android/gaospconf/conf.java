@@ -41,7 +41,6 @@ public class conf extends Activity {
         String record = null;
                 
         int cpu_sampling = 0;
-        int sensors_sampling = 0;
         Boolean ssh = false;
         //Boolean inadyn = false;
         Boolean renice = false;
@@ -71,7 +70,6 @@ public class conf extends Activity {
         presetsArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         presets.setAdapter(presetsArray);
         presets.setSelection(6);
-        final Spinner sensorsampling = (Spinner) findViewById(R.id.sensorsampling);
         final EditText memory1_edit = (EditText) findViewById(R.id.memory1);
         final EditText memory2_edit = (EditText) findViewById(R.id.memory2);
         final EditText memory3_edit = (EditText) findViewById(R.id.memory3);
@@ -85,7 +83,6 @@ public class conf extends Activity {
         TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
         TextView Descsdcache = (TextView) findViewById(R.id.Textsdcache);
         TextView Descswap = (TextView) findViewById(R.id.Textswap);
-		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
 		TextView Descssh = (TextView) findViewById(R.id.Textssh);
 		TextView Descrenice = (TextView) findViewById(R.id.Textrenice);
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
@@ -172,9 +169,6 @@ public class conf extends Activity {
 			    }
 			    if (record.equals("gallery=yes")) {
 			    	gallery = true;
-			    }
-			    if (record.startsWith("sensors_sampling=")) {
-			    	sensors_sampling = Integer.parseInt(record.substring(17));
 			    }
 			    if (record.startsWith("mem1=")) {
 			    	memory1_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
@@ -272,11 +266,6 @@ public class conf extends Activity {
 		if (gallery == true) {
 			Toggle_Gallery.setChecked(true);
 		}
-		switch (sensors_sampling) {
-			case 0 : sensorsampling.setSelection(0); break;
-			case 1 : sensorsampling.setSelection(1); break;
-			case 2 : sensorsampling.setSelection(2); break;
-		}
 		
 		// Show startup info
     	Toast.makeText(getBaseContext(), R.string.startup, Toast.LENGTH_LONG).show();
@@ -326,17 +315,6 @@ public class conf extends Activity {
 		     alertbox.show();
 		     }
 		});
-		Descsensors.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 						
-    		alertbox.setTitle(R.string.TVsensors);
-    		alertbox.setMessage(R.string.sensors);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                }
-            });
-    		alertbox.show();
-    		}
-        });
 		Descssh.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVssh);
@@ -622,7 +600,6 @@ public class conf extends Activity {
 				Toggle_Renice.setChecked(true);
 				Toggle_Prov.setChecked(true);
 				Toggle_VNC.setChecked(false);
-				sensorsampling.setSelection(0);
 				swappiness_edit.setText("15");
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
@@ -765,13 +742,7 @@ public class conf extends Activity {
 							}		
 					}
 					out.println(" ");
-																		
-					// Copy Sensors setting to conf file
-					out.println("# Sensors sampling rate");
-					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode");
-					out.println("sensors_sampling=" + sensorsampling.getSelectedItemPosition());
-					out.println(" ");
-					
+																					
 					// Copy minfree settings to conf file
 					out.println("# Minfree settings");
 					out.println("mem1=" + Integer.parseInt(memory1_edit.getText().toString())*1024/4);

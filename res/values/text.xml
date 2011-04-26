@@ -3,7 +3,6 @@
 	<!-- TextViews -->
     <string name="TVswap">Swap only</string>
     <string name="TVsampling">CPU sampling</string>
-    <string name="TVsensors">Sensors reaction</string>
     <string name="TVssh">SSH server</string>
     <string name="TVrenice">Renice</string>
     <string name="TVprovisionned">Provisioned</string>
