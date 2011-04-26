@@ -40,6 +40,7 @@ public class conf extends Activity {
         // Define variables
         String record = null;
                 
+        int cpu_sampling = 0;
         int sensors_sampling = 0;
         Boolean ssh = false;
         //Boolean inadyn = false;
@@ -63,6 +64,8 @@ public class conf extends Activity {
         final CheckBox Toggle_Swap = (CheckBox) findViewById(R.id.swap);    
         final CheckBox Toggle_Bootani = (CheckBox) findViewById(R.id.bootani);
         final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
+        final Spinner sampling = (Spinner) findViewById(R.id.sampling);
+        sampling.setEnabled(false);
         final Spinner presets = (Spinner) findViewById(R.id.presets);
         ArrayAdapter presetsArray = ArrayAdapter.createFromResource(this, R.array.Spresets, android.R.layout.simple_spinner_item);
         presetsArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -79,6 +82,7 @@ public class conf extends Activity {
         final EditText swappiness_edit = (EditText) findViewById(R.id.swappiness);
         final EditText sdcache_edit = (EditText) findViewById(R.id.sdcache);
         TextView Descswappiness = (TextView) findViewById(R.id.Textswappiness);
+        TextView Descsampling = (TextView) findViewById(R.id.Textsampling);
         TextView Descsdcache = (TextView) findViewById(R.id.Textsdcache);
         TextView Descswap = (TextView) findViewById(R.id.Textswap);
 		TextView Descsensors = (TextView) findViewById(R.id.Textsensors);
@@ -113,7 +117,10 @@ public class conf extends Activity {
 		// Read config file
 		try {
 			while ((record = BR.readLine()) != null) {
-			    if (record.equals("sshd=no")) {
+				if (record.startsWith("cpu_sampling=")) {
+					cpu_sampling = Integer.parseInt(record.substring(13));
+				}
+				if (record.equals("sshd=no")) {
 			    	ssh = false;
 			    }
 			    if (record.equals("sshd=yes")) {
@@ -216,7 +223,32 @@ public class conf extends Activity {
 			e.printStackTrace();
 		}
 		
+		// Open scaling_governor file (for CPU Sampling)
+		FR = null;
+		try {
+			FR = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} 
+		BR = new BufferedReader(FR, 8192);	
+		// Read scaling_governor file (for CPU Sampling)
+		try {
+		    while ((record = BR.readLine()) != null) {
+		    	if (record.equals("ondemand")) {
+		    		sampling.setEnabled(true);
+		    	}
+			}
+    		BR.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		// Set read data
+		switch (cpu_sampling) {
+			case 0 : sampling.setSelection(0); break;
+			case 1 : sampling.setSelection(1); break;
+			case 2 : sampling.setSelection(2); break;
+		}
 		if (ssh == true) {
 			Toggle_SSH.setChecked(true);
 		}
@@ -283,6 +315,17 @@ public class conf extends Activity {
 	    		alertbox.show();
 	    		}
 	        });
+		Descsampling.setOnClickListener(new View.OnClickListener() {
+		     public void onClick(View v){
+		     alertbox.setTitle(R.string.TVsampling);
+		     alertbox.setMessage(R.string.sampling);
+		     alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+		    	 public void onClick(DialogInterface arg0, int arg1) {
+		         }
+		     });
+		     alertbox.show();
+		     }
+		});
 		Descsensors.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 						
     		alertbox.setTitle(R.string.TVsensors);
@@ -574,7 +617,8 @@ public class conf extends Activity {
 		// Default Button
 		Default_Button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-				Toggle_SSH.setChecked(false);
+            	sampling.setSelection(2);
+            	Toggle_SSH.setChecked(false);
 				Toggle_Renice.setChecked(true);
 				Toggle_Prov.setChecked(true);
 				Toggle_VNC.setChecked(false);
@@ -610,6 +654,12 @@ public class conf extends Activity {
 					out.println("################################");
 					out.println(" ");
 									
+					// Copy CPU sampling setting to conf file
+					out.println("# CpuFreq sampling rate");
+					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
+					out.println("cpu_sampling=" + sampling.getSelectedItemPosition());
+					out.println(" ");
+					
 					// Copy SSH setting to conf file
 					out.println("# SSH server");
 					if (Toggle_SSH.isChecked()) {

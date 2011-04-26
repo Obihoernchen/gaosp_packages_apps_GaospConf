@@ -68,6 +68,37 @@
 </LinearLayout>
 
 <!-- Dividing line -->
+<View
+android:layout_width="fill_parent"
+android:layout_height="1dip"
+android:background="#808080"/>
+
+<!-- CPU Sampling -->
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<TextView
+	android:id="@+id/Textsampling"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVsampling"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>
+<Spinner
+    android:id="@+id/sampling"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:prompt="@string/TVsampling"
+    android:entries="@array/Ssampling"
+    android:layout_marginRight="4dip"
+    android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
+<!-- Dividing line -->
 <View 
 	android:layout_width="fill_parent"		
 	android:layout_height="1dip"
