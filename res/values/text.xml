@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- TextViews -->
-    <string name="TVswap">Swap only</string>
+    <string name="TVswap">Swap</string>
     <string name="TVsampling">CPU sampling</string>
     <string name="TVssh">SSH server</string>
     <string name="TVrenice">Renice</string>
