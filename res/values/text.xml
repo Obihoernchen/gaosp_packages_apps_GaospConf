@@ -23,10 +23,12 @@
 	<string name="TVpresets">Presets</string>
 	<string name="TVswappiness">Swappiness</string>
 	<string name="TVsdcache">SD read cache</string>
+	<string name="TVgmail">GMail</string>
 	<!-- Buttons -->
 	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>
     <string name="Bapply">Apply new config</string>
+    <string name="Bgmailset">Apply</string>
     <!-- Messages -->
     <string name="wait">Please wait..</string>
     <string name="applied">New config saved and applied. You may have to restart.</string>

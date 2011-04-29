@@ -56,6 +56,7 @@ public class conf extends Activity {
         Button Service_Button = (Button) findViewById(R.id.service);
         Button Kitchen_Button = (Button) findViewById(R.id.kitchen);
         Button compcalibration_Button = (Button) findViewById(R.id.compcalibration);
+        Button gmail_Button = (Button) findViewById(R.id.gmailset);
         final CheckBox Toggle_SSH = (CheckBox) findViewById(R.id.ssh);
         final CheckBox Toggle_Renice = (CheckBox) findViewById(R.id.renice);
         final CheckBox Toggle_Prov = (CheckBox) findViewById(R.id.Prov);
@@ -101,7 +102,8 @@ public class conf extends Activity {
 		TextView Desclcddensity = (TextView) findViewById(R.id.Textlcddensity);
 		TextView Desccompcalibration = (TextView) findViewById(R.id.Textcompcalibration);
 		TextView Descpresets = (TextView) findViewById(R.id.Textpresets);
-        final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
+		TextView Descgmail = (TextView) findViewById(R.id.Textgmail);
+		final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 	
         // Open config file
         FileReader FR = null;
@@ -513,6 +515,17 @@ public class conf extends Activity {
 	    		alertbox.show();
 	    		}
 	    });
+		Descgmail.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVgmail);
+	    		alertbox.setMessage(R.string.gmail);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
 		
 		// Button Listener
 		presets.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -589,6 +602,16 @@ public class conf extends Activity {
 				// delete old calibration file
 				String[] delcalibration = { "/system/xbin/su -c 'rm /data/misc/akmd_set.txt'", "echo deleted akmd_set.txt"};
                 shell.doExec(delcalibration, true);
+			}
+		});
+		gmail_Button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Set provider to T-Mobile Austria
+				String[] bypassgmail = { "/system/xbin/su -c 'setprop gsm.sim.operator.numeric 23203'",
+										 "/system/xbin/su -c 'killall com.android.venedig'",
+										 "/system/xbin/su -c 'rm -rf /data/data/com.android.vending/cache/*'",
+										 "echo bypassed GMail restriction"};
+                shell.doExec(bypassgmail, true);
 			}
 		});
 		

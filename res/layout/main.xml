@@ -428,6 +428,36 @@ android:background="#808080"/>
 	android:layout_gravity="center_vertical"/>
 </LinearLayout>
 
+<!-- Dividing line -->
+<View 
+	android:layout_width="fill_parent"		
+	android:layout_height="1dip"
+	android:background="#808080"/>
+
+<!-- GMail -->
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<TextView
+	android:id="@+id/Textgmail"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:text="@string/TVgmail"
+	android:layout_marginLeft="4dip"
+	android:textSize="16sp"
+	android:textStyle="bold"
+	android:layout_weight="1"
+	android:layout_gravity="center_vertical"
+	android:clickable="true"/>
+<Button
+	android:id="@+id/gmailset"
+    android:text="@string/Bgmailset"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginRight="4dip"
+	android:layout_gravity="center_vertical"/>
+</LinearLayout>
+
 <!-- ### Big Dividing line ### -->
 <View 
 	android:layout_width="fill_parent"		
