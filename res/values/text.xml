@@ -11,7 +11,6 @@
     <string name="TVlcddensity">LCD Density</string>
     <string name="TVgallery">2D gallery</string>
     <string name="TVservicemode">Samsung service mode</string>
-	<string name="TVkitchen">GAOSP Kitchen</string>
 	<string name="TVmemorythresholds">Memory Thresholds</string>
 	<string name="TVforegroundapp">Foreground app (MB)</string>
 	<string name="TVvisibleapp">Visible app (MB)</string>
@@ -24,11 +23,12 @@
 	<string name="TVswappiness">Swappiness</string>
 	<string name="TVsdcache">SD read cache</string>
 	<string name="TVgmail">GMail</string>
+	<string name="TVclearcache">Clear Cache</string>
 	<!-- Buttons -->
 	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>
     <string name="Bapply">Apply new config</string>
-    <string name="Bgmailset">Apply</string>
+    <string name="Bgmailset">Apply</string> 
     <!-- Messages -->
     <string name="wait">Please wait..</string>
     <string name="applied">New config saved and applied. You may have to restart.</string>
@@ -49,5 +49,5 @@
         <item>Gingerbread Default</item>
         <item>Froyo Default</item>
         <item>-</item>        
-    </string-array>
+    </string-array>    
 </resources>

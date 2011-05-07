@@ -54,9 +54,9 @@ public class conf extends Activity {
         Button Default_Button = (Button) findViewById(R.id.defaults);
         Button Apply_Button = (Button) findViewById(R.id.apply);
         Button Service_Button = (Button) findViewById(R.id.service);
-        Button Kitchen_Button = (Button) findViewById(R.id.kitchen);
         Button compcalibration_Button = (Button) findViewById(R.id.compcalibration);
         Button gmail_Button = (Button) findViewById(R.id.gmailset);
+        Button clearcache_Button = (Button) findViewById(R.id.clearcache);
         final CheckBox Toggle_SSH = (CheckBox) findViewById(R.id.ssh);
         final CheckBox Toggle_Renice = (CheckBox) findViewById(R.id.renice);
         final CheckBox Toggle_Prov = (CheckBox) findViewById(R.id.Prov);
@@ -91,7 +91,6 @@ public class conf extends Activity {
 		TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
 		TextView Descgallery = (TextView) findViewById(R.id.Textgallery);
 		TextView Descservice = (TextView) findViewById(R.id.Textservice);
-		TextView Desckitchen = (TextView) findViewById(R.id.Textkitchen);
 		TextView Descmemorythresholds = (TextView) findViewById(R.id.Textmemorythresholds);		
 		TextView Descforegroundapp = (TextView) findViewById(R.id.Textforegroundapp);
 		TextView Descvisibleapp = (TextView) findViewById(R.id.Textvisibleapp);
@@ -103,6 +102,7 @@ public class conf extends Activity {
 		TextView Desccompcalibration = (TextView) findViewById(R.id.Textcompcalibration);
 		TextView Descpresets = (TextView) findViewById(R.id.Textpresets);
 		TextView Descgmail = (TextView) findViewById(R.id.Textgmail);
+        TextView Descclearcache = (TextView) findViewById(R.id.Textclearcache);
 		final AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 	
         // Open config file
@@ -405,17 +405,6 @@ public class conf extends Activity {
     		alertbox.show();
     		}
         });   
-		Desckitchen.setOnClickListener(new View.OnClickListener() {
-    	public void onClick(View v){ 	
-    		alertbox.setTitle(R.string.TVkitchen);
-    		alertbox.setMessage(R.string.kitchen);
-            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                }
-            });
-    		alertbox.show();
-    		}
-        });
 		Descsdcache.setOnClickListener(new View.OnClickListener() {
 	    	public void onClick(View v){ 	
 	    	alertbox.setTitle(R.string.TVsdcache);
@@ -526,6 +515,17 @@ public class conf extends Activity {
 	    		alertbox.show();
 	    		}
 	    });
+		Descclearcache.setOnClickListener(new View.OnClickListener() {
+	    	public void onClick(View v){ 	
+	    		alertbox.setTitle(R.string.TVclearcache);
+	    		alertbox.setMessage(R.string.clearcache);
+	            alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface arg0, int arg1) {
+	                }
+	            });
+	    		alertbox.show();
+	    		}
+	    });
 		
 		// Button Listener
 		presets.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -590,13 +590,6 @@ public class conf extends Activity {
 	                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             }
         });
-		Kitchen_Button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent(Intent.ACTION_VIEW);
-				intent.setData(Uri.parse("http://kitchen.yaam.mobi/"));
-				startActivity(intent);
-            }
-        });
 		compcalibration_Button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// delete old calibration file
@@ -612,6 +605,14 @@ public class conf extends Activity {
 										 "/system/xbin/su -c 'rm -rf /data/data/com.android.vending/cache/*'",
 										 "echo bypassed GMail restriction"};
                 shell.doExec(bypassgmail, true);
+			}
+		});
+		clearcache_Button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				String[] dropcache = { "/system/xbin/su -c 'sync'",
+						 "/system/xbin/su -c 'echo 3 > /proc/sys/vm/drop_caches'",
+						 "echo Dropped cache"};
+				shell.doExec(dropcache, true); 
 			}
 		});
 		

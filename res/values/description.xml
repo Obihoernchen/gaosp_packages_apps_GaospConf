@@ -8,7 +8,6 @@
 	<string name="vnc">You can control your phone from your computer (using a specialized app).</string>
 	<string name="bootani">Uses a smaller bootanimation to decrease boot time.</string>
 	<string name="servicemode">For experts only! You can apply Audio Hack here.</string>
-	<string name="kitchen">Create your own custom Google Application Package.</string>
 	<string name="memorythresholds">These are the thresholds from which the device will kill some processes, to free memory (below these thresholds, internal task killer will kill these apps). Make a Nandroid Backup before!</string>
 	<string name="foregroundapp">This is the application currently on the screen, and running. Do not change this value unless you have much knowledge about that!</string>
 	<string name="visibleapp">This is an application that is open, and running in the background because it is still doing something. Do not change this value unless you have much knowledge about that!</string>
@@ -23,4 +22,5 @@
 	<string name="swappiness">Swappiness is a property for the Linux kernel that changes the balance between swapping out runtime memory, as opposed to dropping pages from the system page cache. Swappiness can be set to values between 0 and 100 inclusive. Higher value means more swap usage. High values are not recommended!</string>
 	<string name="sdcache">The default read cache size is 128KB. This is pretty small. If you increase this value you will get better reading speed. But it will use more Ram as well. A good value is 2048KB. This setting increases cache of internal and external SD.</string>
 	<string name="gmail">In Germany you can not download GMail app. Press apply to bypass this restriction. Search for "Google Mail". Each time you want to update GMail you have to press Apply again.</string>
+	<string name="clearcache">Tells kernel to drop all file system caches and your device will be snappy again. Should be applied once a day if you do not reboot your device.</string>
 </resources>
