@@ -48,7 +48,6 @@ public class conf extends Activity {
         Boolean vnc = false;
         Boolean swap = false;
         Boolean bootani = false;
-        Boolean gallery = false;
         
         // Define objects
         Button Default_Button = (Button) findViewById(R.id.defaults);
@@ -63,7 +62,6 @@ public class conf extends Activity {
         final CheckBox Toggle_VNC = (CheckBox) findViewById(R.id.vnc);
         final CheckBox Toggle_Swap = (CheckBox) findViewById(R.id.swap);    
         final CheckBox Toggle_Bootani = (CheckBox) findViewById(R.id.bootani);
-        final CheckBox Toggle_Gallery = (CheckBox) findViewById(R.id.gallery);
         final Spinner sampling = (Spinner) findViewById(R.id.sampling);
         sampling.setEnabled(false);
         final Spinner presets = (Spinner) findViewById(R.id.presets);
@@ -89,7 +87,6 @@ public class conf extends Activity {
 		TextView Descprovisionned = (TextView) findViewById(R.id.Textprovisionned);
 		TextView Descvnc = (TextView) findViewById(R.id.Textvnc);
 		TextView Descbootani = (TextView) findViewById(R.id.Textbootani);
-		TextView Descgallery = (TextView) findViewById(R.id.Textgallery);
 		TextView Descservice = (TextView) findViewById(R.id.Textservice);
 		TextView Descmemorythresholds = (TextView) findViewById(R.id.Textmemorythresholds);		
 		TextView Descforegroundapp = (TextView) findViewById(R.id.Textforegroundapp);
@@ -165,12 +162,6 @@ public class conf extends Activity {
 			    }
 			    if (record.equals("bootani=yes")) {
 			    	bootani = true;
-			    }
-			    if (record.equals("gallery=no")) {
-			    	gallery = false;
-			    }
-			    if (record.equals("gallery=yes")) {
-			    	gallery = true;
 			    }
 			    if (record.startsWith("mem1=")) {
 			    	memory1_edit.setText(Integer.toString(Integer.parseInt(record.substring(5))*4/1024));
@@ -264,9 +255,6 @@ public class conf extends Activity {
 		}	
 		if (bootani == true) {
 			Toggle_Bootani.setChecked(true);
-		}
-		if (gallery == true) {
-			Toggle_Gallery.setChecked(true);
 		}
 		
 		// Show startup info
@@ -383,17 +371,6 @@ public class conf extends Activity {
 	    	alertbox.show();
 	    	}
 	    });
-		Descgallery.setOnClickListener(new View.OnClickListener() {
-		public void onClick(View v){ 	
-		   	alertbox.setTitle(R.string.TVgallery);
-		   	alertbox.setMessage(R.string.gallery);
-		    alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-		       	public void onClick(DialogInterface arg0, int arg1) {
-		        }
-		    });
-		   	alertbox.show();
-		    }
-		});
 		Descservice.setOnClickListener(new View.OnClickListener() {
     	public void onClick(View v){ 	
     		alertbox.setTitle(R.string.TVservicemode);
@@ -627,7 +604,6 @@ public class conf extends Activity {
 				swappiness_edit.setText("15");
 				Toggle_Swap.setChecked(false);
 				Toggle_Bootani.setChecked(true);
-				Toggle_Gallery.setChecked(false);
 				lcddensity_edit.setText("160");
 				sdcache_edit.setText("128");
 				presets.setSelection(4);  	
@@ -742,28 +718,6 @@ public class conf extends Activity {
 				    								"echo Bootanimation changed"};
 				    		shell.doExec(bootchange, true);
 							}
-					}
-					out.println(" ");
-					
-					// Copy Gallery setting to conf file
-					out.println("# Gallery");
-					if (Toggle_Gallery.isChecked()) {
-						out.println("gallery=yes");
-						if (new File("/data/app_s/Gallery.apk").exists() == false) {
-				    		String[] gallerychange1 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.apk /data/app_s/Gallery3D.no'",
-				    								   	"/system/xbin/su -c 'mv /data/app_s/Gallery.no /data/app_s/Gallery.apk'",
-				    								   	"echo Gallery changed"};
-				    		shell.doExec(gallerychange1, true);
-							}
-					}
-					else {
-						out.println("gallery=no");
-						if (new File("/data/app_s/Gallery3D.apk").exists() == false) {
-				    		String[] gallerychange2 = { "/system/xbin/su -c 'mv /data/app_s/Gallery3D.no /data/app_s/Gallery3D.apk'",
-				    									"/system/xbin/su -c 'mv /data/app_s/Gallery.apk /data/app_s/Gallery.no'",
-				    									"echo Gallery changed"};
-				    		shell.doExec(gallerychange2, true);
-							}		
 					}
 					out.println(" ");
 																					
