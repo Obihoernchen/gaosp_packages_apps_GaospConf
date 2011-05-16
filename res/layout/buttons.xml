@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+<ListView
+	android:id="@android:id/list"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_weight="1">
+</ListView>
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<Button
+    	android:id="@+id/defaults"
+    	android:text="@string/Bdefaults"
+    	android:textSize="16sp"
+    	android:textStyle="bold"
+    	android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="2dip"
+		android:layout_marginLeft="2dip"
+    	android:layout_weight="1"/>
+	<Button
+    	android:id="@+id/apply"
+		android:text="@string/Bapply"
+		android:textSize="16sp"
+		android:textStyle="bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="2dip"
+		android:layout_marginLeft="2dip"
+		android:layout_weight="1"/>
+</LinearLayout>
+</LinearLayout>

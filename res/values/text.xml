@@ -24,17 +24,17 @@
 	<string name="TVgmail">GMail</string>
 	<string name="TVclearcache">Clear Cache</string>
 	<!-- Buttons -->
-	<string name="Bopen">Open</string>
     <string name="Bdefaults">Set defaults</string>
     <string name="Bapply">Apply new config</string>
-    <string name="Bgmailset">Apply</string> 
     <!-- Messages -->
     <string name="wait">Please wait..</string>
     <string name="applied">New config saved and applied. You may have to restart.</string>
 	<string name="swapwarning">You must have a ext SD with a swap partition (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
-	<string name="startup">Click on the text of each setting to get a description!</string>
-	<!-- Spinners -->
+	<!-- Menu -->
+	<string name="about">About</string>
+	<string name="exit">Exit</string>
+	<!-- Lists -->
     <string-array name="Ssampling">
     	<item>Battery</item>
         <item>Mixed</item>
@@ -47,6 +47,18 @@
         <item>Obihoernchen´s setting</item>
         <item>Gingerbread Default</item>
         <item>Froyo Default</item>
-        <item>-</item>        
-    </string-array>    
+    </string-array>
+        <string-array name="Spresetsvalue">
+    	<item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="Ssamplingvalue">
+    	<item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
