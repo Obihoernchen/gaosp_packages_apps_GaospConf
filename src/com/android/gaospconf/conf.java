@@ -51,6 +51,7 @@ public class conf extends PreferenceActivity {
         final EditTextPreference Swappiness = (EditTextPreference) findPreference("Swappiness");
         final EditTextPreference SDReadCache = (EditTextPreference) findPreference("SD Read Cache");
         final EditTextPreference LCDDensity = (EditTextPreference) findPreference("LCD Density");
+        final EditTextPreference Wifi = (EditTextPreference) findPreference("Wifi Scan");
         final EditTextPreference Mem1 = (EditTextPreference) findPreference("Mem1");
         final EditTextPreference Mem2 = (EditTextPreference) findPreference("Mem2");
         final EditTextPreference Mem3 = (EditTextPreference) findPreference("Mem3");
@@ -138,6 +139,9 @@ public class conf extends PreferenceActivity {
 		    while ((record = BR.readLine()) != null) {
 		    	if (record.startsWith("ro.sf.lcd_density=")) {
 		    		LCDDensity.setText(record.substring(18));
+		    	}
+		    	if (record.startsWith("wifi.supplicant_scan_interval=")) {
+		    		Wifi.setText(record.substring(30));
 		    	}
 			}
     		BR.close();
@@ -406,7 +410,13 @@ public class conf extends PreferenceActivity {
 									   "/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+LCDDensity.getText()+"/' /system/build.prop'",
 									   "echo LCD Density changed"};
 				shell.doExec(lcdchange, true);
-
+				
+				// Set Wifi scan interval
+				String[] wifichange = { "wifi=`grep wifi.supplicant_scan_interval= /system/build.prop | awk -F = '{print $2'}`",
+									   "/system/xbin/su -c 'sed -i 's/wifi.supplicant_scan_interval=$wifi/wifi.supplicant_scan_interval="+Wifi.getText()+"/' /system/build.prop'",
+									   "echo Wifi scan interval changed"};
+				shell.doExec(wifichange, true);
+				
 				// Close file
 				out.flush();
 				out.close();

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- Short -->
 	<string name="swap">Android uses swap space as "extra" memory. You need a external SD Card.</string>
 	<string name="sampling">Threshold check intervall. Only ondemand governor.</string>
 	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
@@ -23,4 +22,5 @@
 	<string name="sdcache">Higher values will boost SD reading speed.</string>
 	<string name="gmail">In Germany you can not download GMail app. Press apply to bypass this restriction. Search for "Google Mail".</string>
 	<string name="clearcache">Tells kernel to drop caches and your device will be snappy again. Should be applied once a day if you do not reboot your device.</string>
+	<string name="wifi">Time between Wifi scan intervals (s)</string>
 </resources>

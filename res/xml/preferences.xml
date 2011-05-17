@@ -28,6 +28,7 @@
 		<CheckBoxPreference android:title="@string/TVprovisionned" android:key="Provisionned" android:summary="@string/provisionned"></CheckBoxPreference>
 		<CheckBoxPreference android:title="@string/TVssh" android:key="SSH Server" android:summary="@string/ssh"></CheckBoxPreference>
 		<CheckBoxPreference android:title="@string/TVvnc" android:key="VNC" android:summary="@string/vnc"></CheckBoxPreference>
+		<EditTextPreference android:summary="@string/wifi" android:key="Wifi Scan" android:title="@string/TVwifi" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
 		<Preference android:summary="@string/compcalibration" android:title="@string/TVcompcalibration" android:key="GPS Calibration"></Preference>
 		<Preference android:summary="@string/servicemode" android:title="@string/TVservicemode" android:key="Servicemode"></Preference>
 		<Preference android:summary="@string/gmail" android:title="@string/TVgmail" android:key="Gmail"></Preference>	
