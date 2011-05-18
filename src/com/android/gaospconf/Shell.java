@@ -7,7 +7,7 @@ import java.util.List;
 import android.os.Message;
 import android.util.Log;
 
-public class shell {
+public class Shell {
         public static void doExec(String[] commands, boolean suNeeded) {
                 List<String> res = new ArrayList<String>();
                 Process process = null;
@@ -16,7 +16,7 @@ public class shell {
                 Message msg = null;
                 int i = 1;
 
-                try {                       
+                try {
                         if (suNeeded) {
                                 // Getting Root ;)
                                 Log.i("GaospConf", "Starting exec of su");
@@ -27,7 +27,7 @@ public class shell {
                         }
 
                         os = new DataOutputStream(process.getOutputStream());
-                       
+
                         // Doing Stuff ;)
                         Log.i("GaospConf", "Starting command loop");
                         for (String single : commands) {
@@ -42,7 +42,7 @@ public class shell {
 
                                 Thread.sleep(200);
                         }
-                       
+
                         os.writeBytes("exit\n");
                         os.flush();
 
@@ -50,7 +50,7 @@ public class shell {
                         msg = Message.obtain();
                         msg.arg1 = 0;
                         msg.arg2 = 0;
- 
+
 
         } catch (Exception e) {
                         Log.d("GaospConf", "Unexpected error - Here is what I know: "
