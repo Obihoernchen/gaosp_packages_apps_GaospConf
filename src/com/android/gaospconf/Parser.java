@@ -15,7 +15,7 @@ public class Parser
 		if(match.matches())
 		{
 			int count = match.groupCount();
-			for(int i = 0; i < count; i++)
+			for(int i = 0; i < count + 1; i++)
 			{
 				result[i] = match.group(i);
 			}
