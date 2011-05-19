@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -33,7 +32,7 @@ import android.view.animation.AnimationUtils;
 
 public class Config extends PreferenceActivity
 {
-	private final long SPLASH_TIME = 700;
+	private final long SPLASH_TIME = 1500;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -43,8 +42,6 @@ public class Config extends PreferenceActivity
 		addPreferencesFromResource(R.xml.preferences);
 		// Buttons
 		setContentView(R.layout.main);
-
-		long time = SystemClock.uptimeMillis();
 
 		// Links to Layout
 		Preference ClearCache = findPreference("Clear Cache");
@@ -537,8 +534,8 @@ public class Config extends PreferenceActivity
 			}
 		});
 
-		new Handler().postDelayed(new Runnable()
-		{
+        new Handler().postDelayed(new Runnable()
+        {
 			@Override
 			public void run()
 			{
@@ -546,7 +543,7 @@ public class Config extends PreferenceActivity
 				splash.startAnimation(AnimationUtils.loadAnimation(Config.this, android.R.anim.fade_out));
 				splash.setVisibility(View.INVISIBLE);
 			}
-		}, SPLASH_TIME - (SystemClock.uptimeMillis() - time));
+		}, SPLASH_TIME);
 	}
 
 	// Create Menu

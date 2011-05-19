@@ -49,6 +49,7 @@
 		android:id="@+id/splash"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-		android:src="@drawable/splash"/>
+		android:src="@drawable/splash"
+        android:scaleType="centerCrop"/>
 
 </FrameLayout>
