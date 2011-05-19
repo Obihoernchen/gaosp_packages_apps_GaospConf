@@ -18,7 +18,7 @@
 		android:label="@string/app_name">
 
         <activity
-			android:name=".Config"
+			android:name="Config"
 			android:windowSoftInputMode="stateUnchanged"
 			android:screenOrientation="portrait">
 
