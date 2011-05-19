@@ -44,10 +44,10 @@ public class Config extends PreferenceActivity
 		setContentView(R.layout.main);
 
 		// Links to Layout
-		Preference ClearCache = findPreference("Clear Cache");
-		Preference Calibration = findPreference("GPS Calibration");
-		Preference Servicemode = findPreference("Servicemode");
-		Preference Gmail = findPreference("Gmail");
+		final Preference ClearCache = findPreference("Clear Cache");
+		final Preference Calibration = findPreference("GPS Calibration");
+		final Preference Servicemode = findPreference("Servicemode");
+		final Preference Gmail = findPreference("Gmail");
 		final CheckBoxPreference Swap = (CheckBoxPreference)findPreference("Swap");
 		final CheckBoxPreference Renice = (CheckBoxPreference)findPreference("Renice");
 		final CheckBoxPreference Bootanimation = (CheckBoxPreference)findPreference("Bootanimation");
@@ -66,8 +66,8 @@ public class Config extends PreferenceActivity
 		final EditTextPreference Mem6 = (EditTextPreference)findPreference("Mem6");
 		final ListPreference CPUSampling = (ListPreference)findPreference("CPU Sampling");
 		final ListPreference Presets = (ListPreference)findPreference("Presets");
-		Button Default_Button = (Button)findViewById(R.id.defaults);
-		Button Apply_Button = (Button)findViewById(R.id.apply);
+		final Button Default_Button = (Button)findViewById(R.id.defaults);
+		final Button Apply_Button = (Button)findViewById(R.id.apply);
 
 		// Open config file
 		String[] result = new String[3];
@@ -198,73 +198,62 @@ public class Config extends PreferenceActivity
 			e.printStackTrace();
 		}
 
-		// Custom preferences listener
-		ClearCache.setOnPreferenceClickListener(new OnPreferenceClickListener()
+		OnPreferenceClickListener prefClickListener = new OnPreferenceClickListener()
 		{
 			@Override
 			public boolean onPreferenceClick(Preference preference)
 			{
-				// Drop cache
-				String[] dropcache =
+				if(preference.equals(ClearCache))
 				{
-					"/system/xbin/su -c 'sync'",
-					"/system/xbin/su -c 'echo 3 > /proc/sys/vm/drop_caches'",
-					"echo Dropped cache"
-				};
-				Shell.doExec(dropcache, true);
-				return true;
-			}
-		});
-
-		Calibration.setOnPreferenceClickListener(new OnPreferenceClickListener()
-		{
-			@Override
-			public boolean onPreferenceClick(Preference preference)
-			{
-				// Delete old calibration file
-				String[] delcalibration =
+					// Drop cache
+					String[] dropcache =
+					{
+						"/system/xbin/su -c 'sync'",
+						"/system/xbin/su -c 'echo 3 > /proc/sys/vm/drop_caches'",
+						"echo Dropped cache"
+					};
+					Shell.doExec(dropcache, true);
+				}
+				else if(preference.equals(Calibration))
 				{
-					"/system/xbin/su -c 'rm /data/misc/akmd_set.txt'", "echo deleted akmd_set.txt"
-				};
-				Shell.doExec(delcalibration, true);
-				return true;
-			}
-		});
-
-		Servicemode.setOnPreferenceClickListener(new OnPreferenceClickListener()
-		{
-			@Override
-			public boolean onPreferenceClick(Preference preference)
-			{
-				// Open Servicemode app via dialer
-				String encodedHash = Uri.encode("#");
-				Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:*" + encodedHash + "*" + encodedHash + "197328640" + encodedHash + "*" + encodedHash + "*"));
-				startActivity(intent);
-				return true;
-			}
-		});
-
-		Gmail.setOnPreferenceClickListener(new OnPreferenceClickListener()
-		{
-			@Override
-			public boolean onPreferenceClick(Preference preference)
-			{
-				// Set provider to T-Mobile Austria
-				String[] bypassgmail =
+					// Delete old calibration file
+					String[] delcalibration =
+					{
+						"/system/xbin/su -c 'rm /data/misc/akmd_set.txt'", "echo deleted akmd_set.txt"
+					};
+					Shell.doExec(delcalibration, true);
+				}
+				else if(preference.equals(Servicemode))
 				{
-					"/system/xbin/su -c 'setprop gsm.sim.operator.numeric 23203'",
-					"/system/xbin/su -c 'killall com.android.venedig'",
-					"/system/xbin/su -c 'rm -rf /data/data/com.android.vending/cache/*'",
-					"echo bypassed GMail restriction"
-				};
-				Shell.doExec(bypassgmail, true);
+					// Open Servicemode app via dialer
+					String encodedHash = Uri.encode("#");
+					Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:*" + encodedHash + "*" + encodedHash + "197328640" + encodedHash + "*" + encodedHash + "*"));
+					startActivity(intent);
+				}
+				else if(preference.equals(Gmail))
+				{
+					// Set provider to T-Mobile Austria
+					String[] bypassgmail =
+					{
+						"/system/xbin/su -c 'setprop gsm.sim.operator.numeric 23203'",
+						"/system/xbin/su -c 'killall com.android.venedig'",
+						"/system/xbin/su -c 'rm -rf /data/data/com.android.vending/cache/*'",
+						"echo bypassed GMail restriction"
+					};
+					Shell.doExec(bypassgmail, true);
+				}
 				return true;
 			}
-		});
-
+		};
+        
+		ClearCache.setOnPreferenceClickListener(prefClickListener);
+		Calibration.setOnPreferenceClickListener(prefClickListener);
+		Servicemode.setOnPreferenceClickListener(prefClickListener);
+		Gmail.setOnPreferenceClickListener(prefClickListener);
+        
 		// Memory thresholds presets
 		Presets.setOnPreferenceChangeListener(new OnPreferenceChangeListener()
-		{
+                                              {
 			@Override
 			public boolean onPreferenceChange(Preference preference, Object newValue)
 			{
@@ -324,215 +313,214 @@ public class Config extends PreferenceActivity
 				return true;
 			}
 		});
-
-		// Default Button
-		Default_Button.setOnClickListener(new View.OnClickListener()
+        
+		View.OnClickListener clickListener = new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				CPUSampling.setValueIndex(2);
-				SSHServer.setChecked(false);
-				Renice.setChecked(true);
-				Provisionned.setChecked(true);
-				VNC.setChecked(false);
-				Swappiness.setText("15");
-				Swap.setChecked(false);
-				Bootanimation.setChecked(true);
-				LCDDensity.setText("160");
-				SDReadCache.setText("128");
-				Presets.setValueIndex(4);
-				Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
-			}
-		});
-
-		// Apply Button
-		Apply_Button.setOnClickListener(new View.OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-				PrintWriter out = null;
-
-				// Remount in read/write
-				String[] rw =
+				if(v.equals(Default_Button))
 				{
-					"/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"
-				};
-				Shell.doExec(rw, true);
-
-				try
-				{
-					out = new PrintWriter(new FileWriter("/system/etc/gaosp.conf"));
+					CPUSampling.setValueIndex(2);
+					SSHServer.setChecked(false);
+					Renice.setChecked(true);
+					Provisionned.setChecked(true);
+					VNC.setChecked(false);
+					Swappiness.setText("15");
+					Swap.setChecked(false);
+					Bootanimation.setChecked(true);
+					LCDDensity.setText("160");
+					SDReadCache.setText("128");
+					Presets.setValueIndex(4);
+					Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
 				}
-				catch(IOException e)
+				else if(v.equals(Apply_Button))
 				{
-					e.printStackTrace();
-				}
-
-				out.println("################################");
-				out.println("##### Gaosp config file ########");
-				out.println("################################");
-				out.println(" ");
-
-				// Copy CPU sampling setting to conf file
-				out.println("# CpuFreq sampling rate");
-				out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
-				out.println("cpu_sampling=" + CPUSampling.getValue());
-				out.println(" ");
-
-				// Copy SSH setting to conf file
-				out.println("# SSH server");
-				if(SSHServer.isChecked())
-				{
-					out.println("sshd=yes");
-				}
-				else
-				{
-					out.println("sshd=no");
-				}
-				out.println(" ");
-
-				// Copy inadyn setting to conf file
-				out.println("# Inadyn");
-				out.println("inadyn=no");
-				out.println(" ");
-
-				// Copy Renice setting to conf file
-				out.println("# Renice");
-				if(Renice.isChecked())
-				{
-					out.println("renice=yes");
-				}
-				else
-				{
-					out.println("renice=no");
-				}
-				out.println(" ");
-
-				// Copy Provisioned setting to conf file
-				out.println("# Device provisionned");
-				if(Provisionned.isChecked())
-				{
-					out.println("provisionned=yes");
-				}
-				else
-				{
-					out.println("provisionned=no");
-				}
-				out.println(" ");
-
-				// Copy VNC Server setting to conf file
-				out.println("# VNC Server");
-				if(VNC.isChecked())
-				{
-					out.println("vnc=yes");
-				}
-				else
-				{
-					out.println("vnc=no");
-				}
-				out.println(" ");
-
-				// Copy Swap setting to conf file
-				out.println("# Swap");
-				if(Swap.isChecked())
-				{
-					out.println("swap=yes");
-				}
-				else
-				{
-					out.println("swap=no");
-				}
-				out.println(" ");
-
-				// Copy Swappiness setting to conf file
-				out.println("# Swappiness");
-				out.println("swappiness=" + Swappiness.getText());
-				out.println(" ");
-
-				// Copy Bootanimation setting to conf file
-				out.println("# Bootanimation");
-				if(Bootanimation.isChecked())
-				{
-					out.println("bootani=yes");
-					if(new File("/system/media/bootanimation.zip").length() > 3000000)
+					PrintWriter out = null;
+                    
+					// Remount in read/write
+					String[] rw =
 					{
-						String[] bootchange =
-						{
-							"/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-							"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-							"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-							"echo Bootanimation changed"
-						};
-						Shell.doExec(bootchange, true);
-					}
-				}
-				else
-				{
-					out.println("bootani=no");
-					if(new File("/system/media/bootanimation.zip").length() < 3000000)
+						"/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"
+					};
+					Shell.doExec(rw, true);
+                    
+					try
 					{
-						String[] bootchange =
-						{
-							"/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-							"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-							"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-							"echo Bootanimation changed"
-						};
-						Shell.doExec(bootchange, true);
+						out = new PrintWriter(new FileWriter("/system/etc/gaosp.conf"));
 					}
+					catch(IOException e)
+					{
+						e.printStackTrace();
+					}
+                    
+					out.println("################################");
+					out.println("##### Gaosp config file ########");
+					out.println("################################");
+					out.println(" ");
+                    
+					// Copy CPU sampling setting to conf file
+					out.println("# CpuFreq sampling rate");
+					out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
+					out.println("cpu_sampling=" + CPUSampling.getValue());
+					out.println(" ");
+                    
+					// Copy SSH setting to conf file
+					out.println("# SSH server");
+					if(SSHServer.isChecked())
+					{
+						out.println("sshd=yes");
+					}
+					else
+					{
+						out.println("sshd=no");
+					}
+					out.println(" ");
+                    
+					// Copy inadyn setting to conf file
+					out.println("# Inadyn");
+					out.println("inadyn=no");
+					out.println(" ");
+                    
+					// Copy Renice setting to conf file
+					out.println("# Renice");
+					if(Renice.isChecked())
+					{
+						out.println("renice=yes");
+					}
+					else
+					{
+						out.println("renice=no");
+					}
+					out.println(" ");
+                    
+					// Copy Provisioned setting to conf file
+					out.println("# Device provisionned");
+					if(Provisionned.isChecked())
+					{
+						out.println("provisionned=yes");
+					}
+					else
+					{
+						out.println("provisionned=no");
+					}
+					out.println(" ");
+                    
+					// Copy VNC Server setting to conf file
+					out.println("# VNC Server");
+					if(VNC.isChecked())
+					{
+						out.println("vnc=yes");
+					}
+					else
+					{
+						out.println("vnc=no");
+					}
+					out.println(" ");
+                    
+					// Copy Swap setting to conf file
+					out.println("# Swap");
+					if(Swap.isChecked())
+					{
+						out.println("swap=yes");
+					}
+					else
+					{
+						out.println("swap=no");
+					}
+					out.println(" ");
+                    
+					// Copy Swappiness setting to conf file
+					out.println("# Swappiness");
+					out.println("swappiness=" + Swappiness.getText());
+					out.println(" ");
+                    
+					// Copy Bootanimation setting to conf file
+					out.println("# Bootanimation");
+					if(Bootanimation.isChecked())
+					{
+						out.println("bootani=yes");
+						if(new File("/system/media/bootanimation.zip").length() > 3000000)
+						{
+							String[] bootchange =
+							{
+								"/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+								"echo Bootanimation changed"
+							};
+							Shell.doExec(bootchange, true);
+						}
+					}
+					else
+					{
+						out.println("bootani=no");
+						if(new File("/system/media/bootanimation.zip").length() < 3000000)
+						{
+							String[] bootchange =
+							{
+								"/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
+								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
+								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
+								"echo Bootanimation changed"
+							};
+							Shell.doExec(bootchange, true);
+						}
+					}
+					out.println(" ");
+                    
+					// Copy minfree settings to conf file
+					out.println("# Minfree settings");
+					out.println("mem1=" + Integer.parseInt(Mem1.getText()) * 1024 / 4);
+					out.println("mem2=" + Integer.parseInt(Mem2.getText()) * 1024 / 4);
+					out.println("mem3=" + Integer.parseInt(Mem3.getText()) * 1024 / 4);
+					out.println("mem4=" + Integer.parseInt(Mem4.getText()) * 1024 / 4);
+					out.println("mem5=" + Integer.parseInt(Mem5.getText()) * 1024 / 4);
+					out.println("mem6=" + Integer.parseInt(Mem6.getText()) * 1024 / 4);
+					out.println(" ");
+                    
+					// Copy SD Cache setting to conf file
+					out.println("# SD Read Cache");
+					out.println("sdcache=" + SDReadCache.getText());
+					out.println(" ");
+                    
+					// Set LCD Density
+					String[] lcdchange =
+					{
+						"density=`grep ro.sf.lcd_density= /system/build.prop | awk -F = '{print $2'}`",
+						"/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density=" + LCDDensity.getText() + "/' /system/build.prop'",
+						"echo LCD Density changed"
+					};
+					Shell.doExec(lcdchange, true);
+                    
+					// Set Wifi scan interval
+					String[] wifichange =
+					{
+						"wifi=`grep wifi.supplicant_scan_interval= /system/build.prop | awk -F = '{print $2'}`",
+						"/system/xbin/su -c 'sed -i 's/wifi.supplicant_scan_interval=$wifi/wifi.supplicant_scan_interval=" + Wifi.getText() + "/' /system/build.prop'",
+						"echo Wifi scan interval changed"
+					};
+					Shell.doExec(wifichange, true);
+                    
+					// Close file
+					out.flush();
+					out.close();
+                    
+					// Remount in read only
+					String[] ro =
+					{
+						"/system/xbin/su -c /system/xbin/remountro", "echo remount ro done"
+					};
+					Shell.doExec(ro, true);
+                    
+					// Execute rc
+					new Task().execute();
 				}
-				out.println(" ");
-
-				// Copy minfree settings to conf file
-				out.println("# Minfree settings");
-				out.println("mem1=" + Integer.parseInt(Mem1.getText()) * 1024 / 4);
-				out.println("mem2=" + Integer.parseInt(Mem2.getText()) * 1024 / 4);
-				out.println("mem3=" + Integer.parseInt(Mem3.getText()) * 1024 / 4);
-				out.println("mem4=" + Integer.parseInt(Mem4.getText()) * 1024 / 4);
-				out.println("mem5=" + Integer.parseInt(Mem5.getText()) * 1024 / 4);
-				out.println("mem6=" + Integer.parseInt(Mem6.getText()) * 1024 / 4);
-				out.println(" ");
-
-				// Copy SD Cache setting to conf file
-				out.println("# SD Read Cache");
-				out.println("sdcache=" + SDReadCache.getText());
-				out.println(" ");
-
-				// Set LCD Density
-				String[] lcdchange =
-				{
-					"density=`grep ro.sf.lcd_density= /system/build.prop | awk -F = '{print $2'}`",
-					"/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density=" + LCDDensity.getText() + "/' /system/build.prop'",
-					"echo LCD Density changed"
-				};
-				Shell.doExec(lcdchange, true);
-
-				// Set Wifi scan interval
-				String[] wifichange =
-				{
-					"wifi=`grep wifi.supplicant_scan_interval= /system/build.prop | awk -F = '{print $2'}`",
-					"/system/xbin/su -c 'sed -i 's/wifi.supplicant_scan_interval=$wifi/wifi.supplicant_scan_interval=" + Wifi.getText() + "/' /system/build.prop'",
-					"echo Wifi scan interval changed"
-				};
-				Shell.doExec(wifichange, true);
-
-				// Close file
-				out.flush();
-				out.close();
-
-				// Remount in read only
-				String[] ro =
-				{
-					"/system/xbin/su -c /system/xbin/remountro", "echo remount ro done"
-				};
-				Shell.doExec(ro, true);
-
-				// Execute rc
-				new Task().execute();
 			}
-		});
+		};
+        
+		Default_Button.setOnClickListener(clickListener);
+		Apply_Button.setOnClickListener(clickListener);
 
         new Handler().postDelayed(new Runnable()
         {
