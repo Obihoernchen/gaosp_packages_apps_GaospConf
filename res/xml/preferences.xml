@@ -3,7 +3,7 @@
 
 	<PreferenceCategory android:title="Performance">
 		<CheckBoxPreference android:title="@string/TVswap" android:key="Swap" android:summary="@string/swap"/>
-		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:title="@string/TVswappiness" android:dependency="Swap" android:maxLength="3" android:singleLine="true" android:numeric="integer"></EditTextPreference>
+		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:title="@string/TVswappiness" android:dependency="Swap" android:numeric="integer" android:singleLine="true" android:maxLength="3"></EditTextPreference>
 		<PreferenceScreen android:key="Memorythresholds" android:title="@string/TVmemorythresholds" android:summary="@string/memorythresholds">
 			<ListPreference android:summary="@string/presets" android:key="Presets" android:entries="@array/Spresets" android:title="@string/TVpresets" android:entryValues="@array/Spresetsvalue"></ListPreference>
 			<EditTextPreference android:summary="@string/foregroundapp" android:title="@string/TVforegroundapp" android:key="Mem1" android:singleLine="true" android:numeric="integer" android:maxLength="2"></EditTextPreference>

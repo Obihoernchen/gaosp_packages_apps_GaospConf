@@ -89,13 +89,13 @@ public class conf extends PreferenceActivity {
         try {
         	BR = new BufferedReader(new FileReader("/system/etc/gaosp.conf"), 8192);
         }
-        catch(FileNotFoundException e) {
+        catch (FileNotFoundException e) {
         	e.printStackTrace();
         }
 		// Read config file and set preferences
 		try {
-			while((record = BR.readLine()) != null) {
-				if(Parser.parse(record, result)) {
+			while ((record = BR.readLine()) != null) {
+				if (Parser.parse(record, result)) {
 					if (result[1].equals("cpu_sampling="))
 						CPUSampling.setValueIndex(Integer.parseInt(result[2]));
 					else if (result[1].equals("sshd"))
@@ -130,7 +130,7 @@ public class conf extends PreferenceActivity {
 			}
 			BR.close();
 		}
-		catch(IOException e) {
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 
@@ -138,7 +138,7 @@ public class conf extends PreferenceActivity {
 		try {
 			BR = new BufferedReader(new FileReader("/system/build.prop"), 8192);
 		}
-		catch(FileNotFoundException e) {
+		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		// Read build.prop file (LCD Density)
@@ -153,7 +153,7 @@ public class conf extends PreferenceActivity {
 			}
 			BR.close();
 		}
-		catch(IOException e) {
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 
@@ -161,26 +161,26 @@ public class conf extends PreferenceActivity {
 		try	{
 			BR = new BufferedReader(new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"), 8192);
 		}
-		catch(FileNotFoundException e)
+		catch (FileNotFoundException e)
 		{
 			e.printStackTrace();
 		}
 		// Read scaling_governor file (CPU Sampling)
 		try	{
-			while((record = BR.readLine()) != null)	{
-				if(record.equals("ondemand"))
+			while ((record = BR.readLine()) != null)	{
+				if (record.equals("ondemand"))
 					CPUSampling.setEnabled(true);
 			}
 			BR.close();
 		}
-		catch(IOException e) {
+		catch (IOException e) {
 			e.printStackTrace();
 		}
           
         // Custom preferences listener
 		OnPreferenceClickListener prefClickListener = new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference)	{
-				if(preference.equals(ClearCache)) {
+				if (preference.equals(ClearCache)) {
 					// Drop cache
 					String[] dropcache =
 					{
@@ -189,22 +189,25 @@ public class conf extends PreferenceActivity {
 						"echo Dropped cache"
 					};
 					shell.doExec(dropcache, true);
+					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if(preference.equals(Calibration))	{
+				else if (preference.equals(Calibration)) {
 					// Delete old calibration file
 					String[] delcalibration =
 					{
 						"/system/xbin/su -c 'rm /data/misc/akmd_set.txt'", "echo deleted akmd_set.txt"
 					};
 					shell.doExec(delcalibration, true);
+					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if(preference.equals(Servicemode))	{
+				else if (preference.equals(Servicemode)) {
 					// Open Servicemode app via dialer
 					String encodedHash = Uri.encode("#");
 					Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:*" + encodedHash + "*" + encodedHash + "197328640" + encodedHash + "*" + encodedHash + "*"));
 					startActivity(intent);
+					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if(preference.equals(Gmail)) {
+				else if (preference.equals(Gmail)) {
 					// Set provider to T-Mobile Austria
 					String[] bypassgmail =
 					{
@@ -214,75 +217,95 @@ public class conf extends PreferenceActivity {
 						"echo bypassed GMail restriction"
 					};
 					shell.doExec(bypassgmail, true);
+					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
 				return true;
 			}
 		};
-		
 		ClearCache.setOnPreferenceClickListener(prefClickListener);
 		Calibration.setOnPreferenceClickListener(prefClickListener);
 		Servicemode.setOnPreferenceClickListener(prefClickListener);
 		Gmail.setOnPreferenceClickListener(prefClickListener);
-        
-        // Memory thresholds presets
-        Presets.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-        	public boolean onPreferenceChange(Preference preference,Object newValue) {
-        		final String val = newValue.toString();
-        		int index = Presets.findIndexOfValue(val);
-				switch (index) {
-        		case 0:
-					Mem1.setText("6");
-					Mem2.setText("8");
-					Mem3.setText("16");
-					Mem4.setText("17");
-					Mem5.setText("18");
-					Mem6.setText("19");
-					break;
-				case 1:
-					Mem1.setText("6");
-					Mem2.setText("8");
-					Mem3.setText("16");
-					Mem4.setText("20");
-					Mem5.setText("22");
-					Mem6.setText("24");
-					break;
-				case 2:
-					Mem1.setText("6");
-					Mem2.setText("8");
-					Mem3.setText("16");
-					Mem4.setText("25");
-					Mem5.setText("30");
-					Mem6.setText("35");
-					break;	
-				case 3:
-					Mem1.setText("6");
-					Mem2.setText("8");
-					Mem3.setText("16");
-					Mem4.setText("25");
-					Mem5.setText("30");
-					Mem6.setText("35");
-					break;
-				case 4:
-					Mem1.setText("6");
-					Mem2.setText("8");
-					Mem3.setText("16");
-					Mem4.setText("22");
-					Mem5.setText("24");
-					Mem6.setText("30");
-					break;
-				case 5:
-					Mem1.setText("6");
-					Mem2.setText("8");
-					Mem3.setText("16");
-					Mem4.setText("36");
-					Mem5.setText("40");
-					Mem6.setText("40");
-					break; 
+        	
+		// Memory thresholds preset and Swap listener
+		OnPreferenceChangeListener prefChangeListener = new OnPreferenceChangeListener() {
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				if (preference.equals(Presets)) {
+					// Set memory thresholds
+					final String val = newValue.toString();
+	        		int index = Presets.findIndexOfValue(val);
+					switch (index) {
+	        		case 0:
+						Mem1.setText("6");
+						Mem2.setText("8");
+						Mem3.setText("16");
+						Mem4.setText("17");
+						Mem5.setText("18");
+						Mem6.setText("19");
+						break;
+					case 1:
+						Mem1.setText("6");
+						Mem2.setText("8");
+						Mem3.setText("16");
+						Mem4.setText("20");
+						Mem5.setText("22");
+						Mem6.setText("24");
+						break;
+					case 2:
+						Mem1.setText("6");
+						Mem2.setText("8");
+						Mem3.setText("16");
+						Mem4.setText("25");
+						Mem5.setText("30");
+						Mem6.setText("35");
+						break;	
+					case 3:
+						Mem1.setText("6");
+						Mem2.setText("8");
+						Mem3.setText("16");
+						Mem4.setText("25");
+						Mem5.setText("30");
+						Mem6.setText("35");
+						break;
+					case 4:
+						Mem1.setText("6");
+						Mem2.setText("8");
+						Mem3.setText("16");
+						Mem4.setText("22");
+						Mem5.setText("24");
+						Mem6.setText("30");
+						break;
+					case 5:
+						Mem1.setText("6");
+						Mem2.setText("8");
+						Mem3.setText("16");
+						Mem4.setText("36");
+						Mem5.setText("40");
+						Mem6.setText("40");
+						break;			
+					}
+					return false;
 				}
-				return true;
+				else if (preference.equals(Swap)) {
+					// Check Swappartition
+					if (newValue.equals(true)) {
+						if (new File("/dev/block/mmcblk1p2").exists() == false) {
+							Toast.makeText(getBaseContext(), R.string.swapwarning, Toast.LENGTH_LONG).show();
+							return false;
+						}
+						else
+							return true;
+					}
+					else
+						return true;
+				}
+				else
+					return true;
 			}
-        });
- 
+		};
+		Presets.setOnPreferenceChangeListener(prefChangeListener);
+		Swap.setOnPreferenceChangeListener(prefChangeListener);
+
         // Button listener
         View.OnClickListener clickListener = new View.OnClickListener() {
             public void onClick(View v) {
@@ -304,15 +327,14 @@ public class conf extends PreferenceActivity {
             	}
         		// Apply Button
             	else if (v.equals(Apply_Button)) {
-            		// Execute rc
+            		// Save settings and execute rc
             		new Task().execute();
             }
         }
 	};
-
 	Default_Button.setOnClickListener(clickListener);
 	Apply_Button.setOnClickListener(clickListener);
-}
+	}
 	
 	// Create Menu
 	@Override
@@ -355,7 +377,7 @@ public class conf extends PreferenceActivity {
         	String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"};
         	shell.doExec(rw, true);
         	
-            try {
+        	try {
 				out  = new PrintWriter(new FileWriter("/system/etc/gaosp.conf"));
 			} catch (IOException e) {
 				e.printStackTrace();
