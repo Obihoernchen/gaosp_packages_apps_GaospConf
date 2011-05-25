@@ -329,9 +329,9 @@ public class conf extends PreferenceActivity {
             	else if (v.equals(Apply_Button)) {
             		// Save settings and execute rc
             		new Task().execute();
+            	}
             }
-        }
-	};
+        };
 	Default_Button.setOnClickListener(clickListener);
 	Apply_Button.setOnClickListener(clickListener);
 	}

@@ -27,6 +27,8 @@
 	<!-- Buttons -->
     <string name="Bdefaults">Set defaults</string>
     <string name="Bapply">Apply new config</string>
+    <string name="Bok">OK</string>
+    <string name="Bcancel">Cancel</string>
     <!-- Messages -->
     <string name="waittitle">Progressing</string>
     <string name="wait">Please wait...</string>

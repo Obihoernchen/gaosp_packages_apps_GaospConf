@@ -24,5 +24,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".WidgetConfigure">
+    		<intent-filter>
+        		<action android:name="com.android.gaospconf.WidgetConfigure"/>
+    		</intent-filter>
+		</activity>
+        <service android:name=".ClearCache" />
+        <receiver android:name="widget">
+        	<intent-filter>
+        		<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+    		</intent-filter>
+       		<meta-data android:name="android.appwidget.provider"
+            		   android:resource="@xml/widget" />
+		</receiver>
     </application>
 </manifest>
