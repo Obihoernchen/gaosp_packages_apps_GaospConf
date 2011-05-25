@@ -3,7 +3,7 @@
 	<string name="swap">Android uses swap space as "extra" memory. You need a external SD Card.</string>
 	<string name="sampling">Threshold check intervall. Only ondemand governor.</string>
 	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
-	<string name="renice">Renice alters the scheduling priority of one or more running processes.</string>
+	<string name="renice">Give some processes more priority so you will get incoming calls/sms faster.</string>
 	<string name="provisionned">You can use your Galaxy without a SIM Card.</string>
 	<string name="vnc">You can control your phone from your computer.</string>
 	<string name="bootani">Use a smaller bootanimation to decrease boot time.</string>
