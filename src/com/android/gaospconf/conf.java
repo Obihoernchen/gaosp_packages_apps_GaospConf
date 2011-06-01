@@ -60,7 +60,17 @@ public class conf extends PreferenceActivity {
         final Preference ClearCache = findPreference("Clear Cache");            
         final Preference Calibration = findPreference("GPS Calibration");           
         final Preference Servicemode = findPreference("Servicemode");   
-        final Preference Gmail = findPreference("Gmail");  
+        final Preference Gmail = findPreference("Gmail");
+        final Preference FOTAKill = findPreference("FOTAKill");
+        final Preference PicoTts = findPreference("PicoTts");
+        final Preference TtsService = findPreference("TtsService");
+        final Preference DSPManager = findPreference("DSPManager");
+        final Preference Development = findPreference("Development");
+        final Preference VoiceDialer = findPreference("VoiceDialer");
+        final Preference QuickSearchBox = findPreference("QuickSearchBox");
+        final Preference Email = findPreference("Email");
+        final Preference GenieWidget = findPreference("GenieWidget");
+        final Preference CustomLocale = findPreference("CustomLocale");
         Swap = (CheckBoxPreference) findPreference("Swap");
         Renice = (CheckBoxPreference) findPreference("Renice");
         Bootanimation = (CheckBoxPreference) findPreference("Bootanimation");
@@ -219,6 +229,9 @@ public class conf extends PreferenceActivity {
 					shell.doExec(bypassgmail, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
+				else {
+					deleteSystemApp(preference.getKey());
+				}
 				return true;
 			}
 		};
@@ -226,7 +239,17 @@ public class conf extends PreferenceActivity {
 		Calibration.setOnPreferenceClickListener(prefClickListener);
 		Servicemode.setOnPreferenceClickListener(prefClickListener);
 		Gmail.setOnPreferenceClickListener(prefClickListener);
-        	
+		FOTAKill.setOnPreferenceClickListener(prefClickListener);
+		PicoTts.setOnPreferenceClickListener(prefClickListener);
+		TtsService.setOnPreferenceClickListener(prefClickListener);
+		DSPManager.setOnPreferenceClickListener(prefClickListener);
+		Development.setOnPreferenceClickListener(prefClickListener);
+		VoiceDialer.setOnPreferenceClickListener(prefClickListener);
+		QuickSearchBox.setOnPreferenceClickListener(prefClickListener);
+		Email.setOnPreferenceClickListener(prefClickListener);
+		GenieWidget.setOnPreferenceClickListener(prefClickListener);
+		CustomLocale.setOnPreferenceClickListener(prefClickListener);
+		
 		// Memory thresholds preset and Swap listener
 		OnPreferenceChangeListener prefChangeListener = new OnPreferenceChangeListener() {
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -334,6 +357,20 @@ public class conf extends PreferenceActivity {
         };
 	Default_Button.setOnClickListener(clickListener);
 	Apply_Button.setOnClickListener(clickListener);
+	}
+	
+	// Delete System apps
+	public void deleteSystemApp(String app) {
+		Toast.makeText(getBaseContext(), "Deleting "+app+".apk ...", Toast.LENGTH_LONG).show();
+		String[] delete =
+		{
+			"/system/xbin/su -c /system/xbin/remountrw",
+			"/system/xbin/su -c 'rm -rf /data/app_s/'"+app+".apk",
+			"/system/xbin/su -c /system/xbin/remountro",
+			"echo deleted"+app+".apk"
+		};
+		shell.doExec(delete, true);
+		Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 	}
 	
 	// Create Menu

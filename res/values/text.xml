@@ -24,6 +24,7 @@
 	<string name="TVgmail">GMail</string>
 	<string name="TVclearcache">Clear Cache</string>
 	<string name="TVwifi">Wifi scan interval</string>
+	<string name="TVsystemapps">Remove unnecessary system apps</string>
 	<!-- Buttons -->
     <string name="Bdefaults">Set defaults</string>
     <string name="Bapply">Apply new config</string>
