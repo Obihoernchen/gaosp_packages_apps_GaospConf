@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -27,6 +28,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceScreen;
 
 public class conf extends PreferenceActivity {	
 
@@ -91,6 +93,13 @@ public class conf extends PreferenceActivity {
         final ListPreference Presets = (ListPreference) findPreference("Presets"); 
         final Button Default_Button = (Button) findViewById(R.id.defaults);
         final Button Apply_Button = (Button) findViewById(R.id.apply);        
+        // Set remove system apps preferences
+        final ListAdapter adapter = ((PreferenceScreen) findPreference("Systemapps")).getRootAdapter();
+        for (int app = 0; app < adapter.getCount(); app++) {
+        	Object object = adapter.getItem(app);
+        	if (new File("/data/app_s/"+((Preference)object).getKey()+".apk").exists())
+        		((Preference)object).setEnabled(true);
+        }
         
         // Open config file
         String[] result = new String[3];
@@ -231,7 +240,8 @@ public class conf extends PreferenceActivity {
 				}
 				else {
 					deleteSystemApp(preference.getKey());
-				}
+					preference.setEnabled(false);
+				}	
 				return true;
 			}
 		};
@@ -360,14 +370,13 @@ public class conf extends PreferenceActivity {
 	}
 	
 	// Delete System apps
-	public void deleteSystemApp(String app) {
-		Toast.makeText(getBaseContext(), "Deleting "+app+".apk ...", Toast.LENGTH_LONG).show();
+	public void deleteSystemApp(String appname) {
 		String[] delete =
 		{
 			"/system/xbin/su -c /system/xbin/remountrw",
-			"/system/xbin/su -c 'rm -rf /data/app_s/'"+app+".apk",
+			"/system/xbin/su -c 'rm -rf /data/app_s/'"+appname+".apk",
 			"/system/xbin/su -c /system/xbin/remountro",
-			"echo deleted"+app+".apk"
+			"echo deleted"+appname+".apk"
 		};
 		shell.doExec(delete, true);
 		Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();

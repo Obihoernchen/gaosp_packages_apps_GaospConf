@@ -26,16 +26,16 @@
 	
 	<PreferenceCategory android:title="Misc">
 		<PreferenceScreen android:summary="@string/systemapps" android:title="@string/TVsystemapps" android:key="Systemapps">
-			<Preference android:title="FOTAKill.apk" android:key="FOTAKill" android:summary="@string/fotakill"></Preference>
-			<Preference android:title="TtsService.apk" android:key="TtsService"></Preference>
-			<Preference android:title="PicoTts.apk" android:key="PicoTts"></Preference>
-			<Preference android:title="DSPManager.apk" android:key="DSPManager"></Preference>
-			<Preference android:key="Development" android:title="Development.apk"></Preference>
-			<Preference android:title="VoiceDialer.apk" android:key="VoiceDialer"></Preference>
-			<Preference android:title="QuickSearchBox.apk" android:key="QuickSearchBox"></Preference>
-			<Preference android:title="Email.apk" android:key="Email"></Preference>
-			<Preference android:title="GenieWidget.apk" android:key="GenieWidget"></Preference>
-			<Preference android:title="CustomLocale.apk" android:key="CustomLocale"></Preference>
+			<Preference android:title="FOTAKill.apk" android:key="FOTAKill" android:summary="@string/fotakill" android:enabled="false"></Preference>
+			<Preference android:title="TtsService.apk" android:key="TtsService" android:enabled="false"></Preference>
+			<Preference android:title="PicoTts.apk" android:key="PicoTts" android:enabled="false"></Preference>
+			<Preference android:title="DSPManager.apk" android:key="DSPManager" android:enabled="false"></Preference>
+			<Preference android:key="Development" android:title="Development.apk" android:enabled="false"></Preference>
+			<Preference android:title="VoiceDialer.apk" android:key="VoiceDialer" android:enabled="false"></Preference>
+			<Preference android:title="QuickSearchBox.apk" android:key="QuickSearchBox" android:enabled="false"></Preference>
+			<Preference android:title="Email.apk" android:key="Email" android:enabled="false"></Preference>
+			<Preference android:title="GenieWidget.apk" android:key="GenieWidget" android:enabled="false"></Preference>
+			<Preference android:title="CustomLocale.apk" android:key="CustomLocale" android:enabled="false"></Preference>
 		</PreferenceScreen>
 		<CheckBoxPreference android:title="@string/TVprovisionned" android:key="Provisionned" android:summary="@string/provisionned"></CheckBoxPreference>
 		<CheckBoxPreference android:title="@string/TVssh" android:key="SSH Server" android:summary="@string/ssh"></CheckBoxPreference>
