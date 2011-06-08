@@ -2,48 +2,47 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<PreferenceCategory android:title="Performance">
-		<CheckBoxPreference android:title="@string/TVswap" android:key="Swap" android:summary="@string/swap"/>
-		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:title="@string/TVswappiness" android:dependency="Swap" android:numeric="integer" android:singleLine="true" android:maxLength="3"></EditTextPreference>
-		<PreferenceScreen android:key="Memorythresholds" android:title="@string/TVmemorythresholds" android:summary="@string/memorythresholds">
-			<ListPreference android:summary="@string/presets" android:key="Presets" android:entries="@array/Spresets" android:title="@string/TVpresets" android:entryValues="@array/Spresetsvalue"></ListPreference>
-			<EditTextPreference android:summary="@string/foregroundapp" android:title="@string/TVforegroundapp" android:key="Mem1" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
-			<EditTextPreference android:summary="@string/visibleapp" android:title="@string/TVvisibleapp" android:key="Mem2" android:singleLine="true" android:numeric="integer" android:maxLength="2"></EditTextPreference>
-			<EditTextPreference android:summary="@string/secondaryapp" android:title="@string/TVsecondaryapp" android:key="Mem3" android:singleLine="true" android:numeric="integer" android:maxLength="2"></EditTextPreference>
-			<EditTextPreference android:summary="@string/hiddenapp" android:title="@string/TVhiddenapp" android:key="Mem4" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
-			<EditTextPreference android:summary="@string/contentapp" android:title="@string/TVcontentapp" android:key="Mem5" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
-			<EditTextPreference android:summary="@string/emptyapp" android:title="@string/TVemptyapp" android:key="Mem6" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
+		<CheckBoxPreference android:key="Swap" android:summary="@string/swap" android:title="Swap"/>
+		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:dependency="Swap" android:title="Swappiness" android:maxLength="3" android:singleLine="true" android:numeric="integer"></EditTextPreference>
+		<PreferenceScreen android:key="Memorythresholds" android:summary="@string/memorythresholds" android:title="Memory thresholds">
+			<ListPreference android:summary="@string/presets" android:key="Presets" android:entries="@array/Spresets" android:entryValues="@array/Spresetsvalue" android:title="Presets"></ListPreference>
+			<EditTextPreference android:summary="@string/foregroundapp" android:key="Mem1" android:singleLine="true" android:maxLength="2" android:numeric="integer" android:title="Foreground app (MB)"></EditTextPreference>
+			<EditTextPreference android:summary="@string/visibleapp" android:key="Mem2" android:maxLength="2" android:numeric="integer" android:singleLine="true" android:title="Visible app (MB)"></EditTextPreference>
+			<EditTextPreference android:summary="@string/secondaryapp" android:key="Mem3" android:title="Secondary Server (MB)" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
+			<EditTextPreference android:summary="@string/hiddenapp" android:key="Mem4" android:maxLength="2" android:singleLine="true" android:numeric="integer" android:title="Hidden app (MB)"></EditTextPreference>
+			<EditTextPreference android:summary="@string/contentapp" android:key="Mem5" android:maxLength="2" android:numeric="integer" android:singleLine="true" android:title="Content provider (MB)"></EditTextPreference>
+			<EditTextPreference android:summary="@string/emptyapp" android:key="Mem6" android:maxLength="2" android:numeric="integer" android:singleLine="true" android:title="Empty app (MB)"></EditTextPreference>
 		</PreferenceScreen>
-		<ListPreference android:entries="@array/Ssampling" android:key="CPU Sampling" android:title="@string/TVsampling" android:summary="@string/sampling" android:entryValues="@array/Ssamplingvalue" android:enabled="false"></ListPreference>
-		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="@string/TVsdcache" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
-		<CheckBoxPreference android:title="@string/TVrenice" android:key="Renice" android:summary="@string/renice"></CheckBoxPreference>
-		<Preference android:summary="@string/clearcache" android:title="@string/TVclearcache" android:key="Clear Cache"></Preference>		                      
+		<ListPreference android:entries="@array/Ssampling" android:key="CPU Sampling" android:summary="@string/sampling" android:entryValues="@array/Ssamplingvalue" android:enabled="false" android:title="CPU sampling"></ListPreference>
+		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD read cache" android:maxLength="4" android:numeric="integer" android:singleLine="true"></EditTextPreference>
+		<Preference android:summary="@string/clearcache" android:title="Clear cache" android:key="Clear Cache"></Preference>		                      
 	</PreferenceCategory>
 	
 	<PreferenceCategory android:title="Appearance">
-		<EditTextPreference android:summary="@string/lcddensity" android:key="LCD Density" android:title="@string/TVlcddensity" android:numeric="integer" android:maxLength="3" android:singleLine="true"></EditTextPreference>
-		<CheckBoxPreference android:title="@string/TVbootani" android:key="Bootanimation" android:summary="@string/bootani"></CheckBoxPreference>
+		<EditTextPreference android:summary="@string/lcddensity" android:key="LCD Density" android:title="LCD density" android:numeric="integer" android:singleLine="true" android:maxLength="3"></EditTextPreference>
+		<CheckBoxPreference android:key="Bootanimation" android:summary="@string/bootani" android:title="Use smaller bootanimation"></CheckBoxPreference>
 	</PreferenceCategory>
 	
 	<PreferenceCategory android:title="Misc">
-		<PreferenceScreen android:summary="@string/systemapps" android:title="@string/TVsystemapps" android:key="Systemapps">
-			<Preference android:title="FOTAKill.apk" android:key="FOTAKill" android:summary="@string/fotakill" android:enabled="false"></Preference>
-			<Preference android:title="TtsService.apk" android:key="TtsService" android:enabled="false"></Preference>
-			<Preference android:title="PicoTts.apk" android:key="PicoTts" android:enabled="false"></Preference>
-			<Preference android:title="DSPManager.apk" android:key="DSPManager" android:enabled="false"></Preference>
-			<Preference android:key="Development" android:title="Development.apk" android:enabled="false"></Preference>
-			<Preference android:title="VoiceDialer.apk" android:key="VoiceDialer" android:enabled="false"></Preference>
-			<Preference android:title="QuickSearchBox.apk" android:key="QuickSearchBox" android:enabled="false"></Preference>
-			<Preference android:title="Email.apk" android:key="Email" android:enabled="false"></Preference>
-			<Preference android:title="GenieWidget.apk" android:key="GenieWidget" android:enabled="false"></Preference>
-			<Preference android:title="CustomLocale.apk" android:key="CustomLocale" android:enabled="false"></Preference>
+		<PreferenceScreen android:summary="@string/systemapps" android:key="Systemapps" android:title="Remove system apps">
+			<Preference android:title="FOTAKill.apk" android:summary="@string/fotakill" android:enabled="false" android:key="FOTAKill"></Preference>
+			<Preference android:title="TtsService.apk" android:enabled="false" android:key="TtsService"></Preference>
+			<Preference android:title="PicoTts.apk" android:enabled="false" android:key="PicoTts"></Preference>
+			<Preference android:title="DSPManager.apk" android:enabled="false" android:key="DSPManager"></Preference>
+			<Preference android:title="Development.apk" android:enabled="false" android:key="Development"></Preference>
+			<Preference android:title="VoiceDialer.apk" android:enabled="false" android:key="VoiceDialer"></Preference>
+			<Preference android:title="QuickSearchBox.apk" android:enabled="false" android:key="QuickSearchBox"></Preference>
+			<Preference android:title="Email.apk" android:enabled="false" android:key="Email"></Preference>
+			<Preference android:title="GenieWidget.apk" android:enabled="false" android:key="GenieWidget"></Preference>
+			<Preference android:title="CustomLocale.apk" android:enabled="false" android:key="CustomLocale"></Preference>
 		</PreferenceScreen>
-		<CheckBoxPreference android:title="@string/TVprovisionned" android:key="Provisionned" android:summary="@string/provisionned"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/TVssh" android:key="SSH Server" android:summary="@string/ssh"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/TVvnc" android:key="VNC" android:summary="@string/vnc"></CheckBoxPreference>
-		<EditTextPreference android:summary="@string/wifi" android:key="Wifi Scan" android:title="@string/TVwifi" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
-		<Preference android:summary="@string/compcalibration" android:title="@string/TVcompcalibration" android:key="GPS Calibration"></Preference>
-		<Preference android:summary="@string/servicemode" android:title="@string/TVservicemode" android:key="Servicemode"></Preference>
-		<Preference android:summary="@string/gmail" android:title="@string/TVgmail" android:key="Gmail"></Preference>
+		<CheckBoxPreference android:key="Provisionned" android:summary="@string/provisionned" android:title="Provisionned"></CheckBoxPreference>
+		<CheckBoxPreference android:key="SSH Server" android:summary="@string/ssh" android:title="SSH server"></CheckBoxPreference>
+		<CheckBoxPreference android:key="VNC" android:summary="@string/vnc" android:title="VNC server (port 5901)"></CheckBoxPreference>
+		<EditTextPreference android:summary="@string/wifi" android:key="Wifi Scan" android:title="Wifi scan interval" android:singleLine="true" android:maxLength="4" android:numeric="integer"></EditTextPreference>
+		<Preference android:summary="@string/compcalibration" android:title="Calibrate compass" android:key="Compass Calibration"></Preference>
+		<Preference android:summary="@string/servicemode" android:title="Samsung service mode" android:key="Servicemode"></Preference>
+		<Preference android:summary="@string/gmail" android:title="GMail" android:key="Gmail"></Preference>
 			
 	</PreferenceCategory>
 </PreferenceScreen>

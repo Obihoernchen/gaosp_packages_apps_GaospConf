@@ -27,13 +27,11 @@ public class WidgetConfigure extends Activity {
         
         // show the user interface of configuration
         setContentView(R.layout.widgetpreferences);
-        final Button OK_Button = (Button) findViewById(R.id.ok);
-        final Button Cancel_Button = (Button) findViewById(R.id.cancel);
         
         // Button listener
         View.OnClickListener clickListener = new View.OnClickListener() {
         	public void onClick(View v) {
-        		if (v.equals(OK_Button)) {        		
+        		if (v.getId() == R.id.ok) {        		
                         // change the result to OK
                         Intent resultValue = new Intent();
                         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
@@ -41,13 +39,13 @@ public class WidgetConfigure extends Activity {
                         // Close activity
                         finish();
                 }
-        		else if (v.equals(Cancel_Button)) {  
+        		else if (v.getId() == R.id.cancel) {  
         			// Close activity
         			finish();      
         		}
         	}
         };
-    	OK_Button.setOnClickListener(clickListener);
-    	Cancel_Button.setOnClickListener(clickListener);
+    	((Button) findViewById(R.id.ok)).setOnClickListener(clickListener);
+    	((Button) findViewById(R.id.cancel)).setOnClickListener(clickListener);
 	}       	
 }

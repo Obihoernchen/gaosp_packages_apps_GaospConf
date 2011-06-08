@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- TextViews -->
-    <string name="TVswap">Swap</string>
-    <string name="TVsampling">CPU sampling</string>
-    <string name="TVssh">SSH server</string>
-    <string name="TVrenice">Renice</string>
-    <string name="TVprovisionned">Provisioned</string>
-    <string name="TVvnc">VNC server (port 5901)</string>
-    <string name="TVbootani">Use smaller bootanimation</string>
-    <string name="TVlcddensity">LCD Density</string>
-    <string name="TVservicemode">Samsung service mode</string>
-	<string name="TVmemorythresholds">Memory Thresholds</string>
-	<string name="TVforegroundapp">Foreground app (MB)</string>
-	<string name="TVvisibleapp">Visible app (MB)</string>
-	<string name="TVsecondaryapp">Secondary Server (MB)</string>
-	<string name="TVhiddenapp">Hidden app (MB)</string>
-	<string name="TVcontentapp">Content provider (MB)</string>
-	<string name="TVemptyapp">Empty app (MB)</string>
-	<string name="TVcompcalibration">Calibrate Compass</string>
-	<string name="TVpresets">Presets</string>
-	<string name="TVswappiness">Swappiness</string>
-	<string name="TVsdcache">SD read cache</string>
-	<string name="TVgmail">GMail</string>
-	<string name="TVclearcache">Clear Cache</string>
-	<string name="TVwifi">Wifi scan interval</string>
-	<string name="TVsystemapps">Remove unnecessary system apps</string>
 	<!-- Buttons -->
     <string name="Bdefaults">Set defaults</string>
     <string name="Bapply">Apply new config</string>

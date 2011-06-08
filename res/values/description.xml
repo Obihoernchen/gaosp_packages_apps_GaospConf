@@ -23,7 +23,7 @@
 	<string name="gmail">In Germany you can not download GMail app. Press apply to bypass this restriction. Search for "Google Mail".</string>
 	<string name="clearcache">Tells kernel to drop caches and your device will be snappy again. There is a GAOSP Conf widget which will do this for you automatically.</string>
 	<string name="wifi">Time between Wifi scan intervals (s)</string>
-	<string name="updateinterval">This widget will clear cache every 5 hours. Useful if you use swap because it clears everything and speeds up your Galaxy. You can also click on the widget to do this manually.</string>
+	<string name="updateinterval">This widget will clear cache every 3 hours. Useful if you use swap because it clears everything and speeds up your Galaxy. You can also click on the widget to do this manually.</string>
 	<string name="systemapps">This can slightly speed up your phone.</string>
 	<string name="fotakill">Prevents OTA updates (Samsung will not release OTA updates for Galaxy).</string>
 </resources>

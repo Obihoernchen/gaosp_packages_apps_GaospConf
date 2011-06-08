@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,7 +32,6 @@ import android.preference.PreferenceScreen;
 public class conf extends PreferenceActivity {	
 
 	private CheckBoxPreference Swap;
-	private CheckBoxPreference Renice;
 	private CheckBoxPreference Bootanimation;
 	private CheckBoxPreference Provisionned;
 	private CheckBoxPreference SSHServer;
@@ -59,22 +57,7 @@ public class conf extends PreferenceActivity {
         setContentView(R.layout.buttons);
 
         // Links to Layout
-        final Preference ClearCache = findPreference("Clear Cache");            
-        final Preference Calibration = findPreference("GPS Calibration");           
-        final Preference Servicemode = findPreference("Servicemode");   
-        final Preference Gmail = findPreference("Gmail");
-        final Preference FOTAKill = findPreference("FOTAKill");
-        final Preference PicoTts = findPreference("PicoTts");
-        final Preference TtsService = findPreference("TtsService");
-        final Preference DSPManager = findPreference("DSPManager");
-        final Preference Development = findPreference("Development");
-        final Preference VoiceDialer = findPreference("VoiceDialer");
-        final Preference QuickSearchBox = findPreference("QuickSearchBox");
-        final Preference Email = findPreference("Email");
-        final Preference GenieWidget = findPreference("GenieWidget");
-        final Preference CustomLocale = findPreference("CustomLocale");
         Swap = (CheckBoxPreference) findPreference("Swap");
-        Renice = (CheckBoxPreference) findPreference("Renice");
         Bootanimation = (CheckBoxPreference) findPreference("Bootanimation");
         Provisionned = (CheckBoxPreference) findPreference("Provisionned");
         SSHServer = (CheckBoxPreference) findPreference("SSH Server");
@@ -90,17 +73,8 @@ public class conf extends PreferenceActivity {
         Mem5 = (EditTextPreference) findPreference("Mem5");
         Mem6 = (EditTextPreference) findPreference("Mem6");
         CPUSampling = (ListPreference) findPreference("CPU Sampling");
-        final ListPreference Presets = (ListPreference) findPreference("Presets"); 
-        final Button Default_Button = (Button) findViewById(R.id.defaults);
-        final Button Apply_Button = (Button) findViewById(R.id.apply);        
-        // Set remove system apps preferences
-        final ListAdapter adapter = ((PreferenceScreen) findPreference("Systemapps")).getRootAdapter();
-        for (int app = 0; app < adapter.getCount(); app++) {
-        	Object object = adapter.getItem(app);
-        	if (new File("/data/app_s/"+((Preference)object).getKey()+".apk").exists())
-        		((Preference)object).setEnabled(true);
-        }
-        
+        final ListPreference Presets = (ListPreference) findPreference("Presets");   
+        	
         // Open config file
         String[] result = new String[3];
         String record = null;
@@ -119,8 +93,6 @@ public class conf extends PreferenceActivity {
 						CPUSampling.setValueIndex(Integer.parseInt(result[2]));
 					else if (result[1].equals("sshd"))
 						SSHServer.setChecked(result[2].equals("yes"));
-					else if (result[1].equals("renice"))
-						Renice.setChecked(result[2].equals("yes"));
 					else if (result[1].equals("provisionned"))
 						Provisionned.setChecked(result[2].equals("yes"));
 					else if (result[1].equals("vnc"))
@@ -199,7 +171,7 @@ public class conf extends PreferenceActivity {
         // Custom preferences listener
 		OnPreferenceClickListener prefClickListener = new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference)	{
-				if (preference.equals(ClearCache)) {
+				if (preference.getKey().equals("Clear Cache")) {
 					// Drop cache
 					String[] dropcache =
 					{
@@ -210,7 +182,7 @@ public class conf extends PreferenceActivity {
 					shell.doExec(dropcache, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if (preference.equals(Calibration)) {
+				else if (preference.getKey().equals("Compass Calibration")) {
 					// Delete old calibration file
 					String[] delcalibration =
 					{
@@ -219,14 +191,14 @@ public class conf extends PreferenceActivity {
 					shell.doExec(delcalibration, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if (preference.equals(Servicemode)) {
+				else if (preference.getKey().equals("Servicemode")) {
 					// Open Servicemode app via dialer
 					String encodedHash = Uri.encode("#");
 					Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:*" + encodedHash + "*" + encodedHash + "197328640" + encodedHash + "*" + encodedHash + "*"));
 					startActivity(intent);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if (preference.equals(Gmail)) {
+				else if (preference.getKey().equals("Gmail")) {
 					// Set provider to T-Mobile Austria
 					String[] bypassgmail =
 					{
@@ -239,35 +211,34 @@ public class conf extends PreferenceActivity {
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
 				else {
-					deleteSystemApp(preference.getKey());
+					// Delete system app
+					deleteSystemApp(preference.getTitle());
 					preference.setEnabled(false);
-				}	
+				}
 				return true;
 			}
 		};
-		ClearCache.setOnPreferenceClickListener(prefClickListener);
-		Calibration.setOnPreferenceClickListener(prefClickListener);
-		Servicemode.setOnPreferenceClickListener(prefClickListener);
-		Gmail.setOnPreferenceClickListener(prefClickListener);
-		FOTAKill.setOnPreferenceClickListener(prefClickListener);
-		PicoTts.setOnPreferenceClickListener(prefClickListener);
-		TtsService.setOnPreferenceClickListener(prefClickListener);
-		DSPManager.setOnPreferenceClickListener(prefClickListener);
-		Development.setOnPreferenceClickListener(prefClickListener);
-		VoiceDialer.setOnPreferenceClickListener(prefClickListener);
-		QuickSearchBox.setOnPreferenceClickListener(prefClickListener);
-		Email.setOnPreferenceClickListener(prefClickListener);
-		GenieWidget.setOnPreferenceClickListener(prefClickListener);
-		CustomLocale.setOnPreferenceClickListener(prefClickListener);
+		// Set custom preferences listener
+		((Preference) findPreference("Clear Cache")).setOnPreferenceClickListener(prefClickListener);
+		((Preference) findPreference("Compass Calibration")).setOnPreferenceClickListener(prefClickListener);
+		((Preference) findPreference("Servicemode")).setOnPreferenceClickListener(prefClickListener);
+		((Preference) findPreference("Gmail")).setOnPreferenceClickListener(prefClickListener);
+		// Set system apps listener
+		final ListAdapter adapter = ((PreferenceScreen) findPreference("Systemapps")).getRootAdapter();
+        for (int app = 0; app < adapter.getCount(); app++) {
+        	Object object = adapter.getItem(app);
+       		if (new File("/data/app_s/"+((Preference)object).getTitle()).exists()) {
+       			((Preference)object).setEnabled(true);
+       			((Preference)object).setOnPreferenceClickListener(prefClickListener);
+        	}
+        }
 		
 		// Memory thresholds preset and Swap listener
 		OnPreferenceChangeListener prefChangeListener = new OnPreferenceChangeListener() {
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
 				if (preference.equals(Presets)) {
 					// Set memory thresholds
-					final String val = newValue.toString();
-	        		int index = Presets.findIndexOfValue(val);
-					switch (index) {
+					switch (Presets.findIndexOfValue(newValue.toString())) {
 	        		case 0:
 						Mem1.setText("6");
 						Mem2.setText("8");
@@ -343,10 +314,9 @@ public class conf extends PreferenceActivity {
         View.OnClickListener clickListener = new View.OnClickListener() {
             public void onClick(View v) {
                 // Default Button
-            	if (v.equals(Default_Button)) {
+            	if (v.getId() == (R.id.defaults)) {
             		CPUSampling.setValueIndex(2);
             		SSHServer.setChecked(false);
-            		Renice.setChecked(true);
             		Provisionned.setChecked(true);
             		VNC.setChecked(false);
             		Swappiness.setText("15");
@@ -359,24 +329,24 @@ public class conf extends PreferenceActivity {
 					Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             	}
         		// Apply Button
-            	else if (v.equals(Apply_Button)) {
+            	else if (v.getId() == (R.id.apply)) {
             		// Save settings and execute rc
             		new Task().execute();
             	}
             }
         };
-	Default_Button.setOnClickListener(clickListener);
-	Apply_Button.setOnClickListener(clickListener);
+        ((Button) findViewById(R.id.defaults)).setOnClickListener(clickListener);
+		((Button) findViewById(R.id.apply)).setOnClickListener(clickListener);
 	}
-	
+
 	// Delete System apps
-	public void deleteSystemApp(String appname) {
+	public void deleteSystemApp(CharSequence appname) {
 		String[] delete =
 		{
 			"/system/xbin/su -c /system/xbin/remountrw",
-			"/system/xbin/su -c 'rm -rf /data/app_s/'"+appname+".apk",
+			"/system/xbin/su -c 'rm -rf /data/app_s/'"+appname,
 			"/system/xbin/su -c /system/xbin/remountro",
-			"echo deleted"+appname+".apk"
+			"echo deleted"+appname
 		};
 		shell.doExec(delete, true);
 		Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
@@ -385,28 +355,25 @@ public class conf extends PreferenceActivity {
 	// Create Menu
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.layout.menu, menu);
+		((MenuInflater) getMenuInflater()).inflate(R.layout.menu, menu);
     	return true;
     }
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-  		switch (item.getItemId()) {
-  		case R.id.About:
+  		if (item.getItemId() == R.id.About) {
   			// Print the about
     		AlertDialog.Builder about = new AlertDialog.Builder(this);
     		about.setTitle("About");
     		about.setMessage("GAOSP Configuration 3 by Obihoernchen");
     		about.setCancelable(true);
     		about.create().show();
-    		break;
-  		case R.id.Exit:
+  		}
+  		else if (item.getItemId() == R.id.Exit) {
   			// Close
-    		this.finish();
-    		break;
+    		finish();
     	}
         return true;
-    }
+	}
     
 	// AsyncTask to execute rc
 	private class Task extends AsyncTask<String, Void, Void> {
@@ -453,16 +420,6 @@ public class conf extends PreferenceActivity {
 			// Copy inadyn setting to conf file
 			out.println("# Inadyn");
 			out.println("inadyn=no");
-			out.println(" ");
-			
-			// Copy Renice setting to conf file
-			out.println("# Renice");
-			if (Renice.isChecked()) {
-				out.println("renice=yes");
-			}
-			else {
-				out.println("renice=no");
-			}
 			out.println(" ");
 			
 			// Copy Provisioned setting to conf file
