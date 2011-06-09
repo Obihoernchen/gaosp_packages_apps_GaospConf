@@ -36,7 +36,9 @@ public class conf extends PreferenceActivity {
 	private CheckBoxPreference Provisionned;
 	private CheckBoxPreference SSHServer;
 	private CheckBoxPreference VNC;
+	private CheckBoxPreference IgnoreNiceLoad;
 	private EditTextPreference Swappiness;
+	private EditTextPreference Fudgeswap;
 	private EditTextPreference SDReadCache;
 	private EditTextPreference LCDDensity;
 	private EditTextPreference Wifi;
@@ -46,8 +48,10 @@ public class conf extends PreferenceActivity {
 	private EditTextPreference Mem4;
 	private EditTextPreference Mem5;
 	private EditTextPreference Mem6;
+	private EditTextPreference Bias;
+	private EditTextPreference Threshold;	
 	private ListPreference CPUSampling;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +66,11 @@ public class conf extends PreferenceActivity {
         Provisionned = (CheckBoxPreference) findPreference("Provisionned");
         SSHServer = (CheckBoxPreference) findPreference("SSH Server");
         VNC = (CheckBoxPreference) findPreference("VNC");
+        IgnoreNiceLoad = (CheckBoxPreference) findPreference("Ignore Nice Load");
         Swappiness = (EditTextPreference) findPreference("Swappiness");
         SDReadCache = (EditTextPreference) findPreference("SD Read Cache");
         LCDDensity = (EditTextPreference) findPreference("LCD Density");
+        Fudgeswap = (EditTextPreference) findPreference("Fudgeswap");
         Wifi = (EditTextPreference) findPreference("Wifi Scan");
         Mem1 = (EditTextPreference) findPreference("Mem1");
         Mem2 = (EditTextPreference) findPreference("Mem2");
@@ -72,6 +78,8 @@ public class conf extends PreferenceActivity {
         Mem4 = (EditTextPreference) findPreference("Mem4");
         Mem5 = (EditTextPreference) findPreference("Mem5");
         Mem6 = (EditTextPreference) findPreference("Mem6");
+        Bias = (EditTextPreference) findPreference("Powersave Bias");
+        Threshold = (EditTextPreference) findPreference("Up Threshold");
         CPUSampling = (ListPreference) findPreference("CPU Sampling");
         final ListPreference Presets = (ListPreference) findPreference("Presets");   
         	
@@ -93,6 +101,12 @@ public class conf extends PreferenceActivity {
 						CPUSampling.setValueIndex(Integer.parseInt(result[2]));
 					else if (result[1].equals("sshd"))
 						SSHServer.setChecked(result[2].equals("yes"));
+					else if (result[1].equals("ignoreniceload"))
+						IgnoreNiceLoad.setChecked(result[2].equals("yes"));
+					else if (result[1].equals("threshold"))
+						Threshold.setText(result[2]);
+					else if (result[1].equals("bias"))
+						Bias.setText(result[2]);
 					else if (result[1].equals("provisionned"))
 						Provisionned.setChecked(result[2].equals("yes"));
 					else if (result[1].equals("vnc"))
@@ -101,6 +115,8 @@ public class conf extends PreferenceActivity {
 						Swap.setChecked(result[2].equals("yes"));
 					else if (result[1].equals("swappiness"))
 						Swappiness.setText(result[2]);
+					else if (result[1].equals("fudgeswap"))
+						Fudgeswap.setText(Integer.toString(Integer.parseInt(result[2]) * 4));
 					else if (result[1].equals("bootani"))
 						Bootanimation.setChecked(result[2].equals("yes"));
 					else if (result[1].equals("mem1"))
@@ -125,14 +141,14 @@ public class conf extends PreferenceActivity {
 			e.printStackTrace();
 		}
 
-		// Open build.prop file (LCD Density)
+		// Open build.prop file (LCD Density, wifi scan interval)
 		try {
 			BR = new BufferedReader(new FileReader("/system/build.prop"), 8192);
 		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		// Read build.prop file (LCD Density)
+		// Read build.prop file (LCD Density, wifi scan interval)
 		try	{
 			while ((record = BR.readLine()) != null) {
 				if (Parser.parse(record, result)) {
@@ -148,7 +164,7 @@ public class conf extends PreferenceActivity {
 			e.printStackTrace();
 		}
 
-		// Open scaling_governor file (CPU Sampling)
+		// Open scaling_governor file (CPU governor settings)
 		try	{
 			BR = new BufferedReader(new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"), 8192);
 		}
@@ -156,11 +172,15 @@ public class conf extends PreferenceActivity {
 		{
 			e.printStackTrace();
 		}
-		// Read scaling_governor file (CPU Sampling)
+		// Read scaling_governor file (CPU governor settings)
 		try	{
-			while ((record = BR.readLine()) != null)	{
-				if (record.equals("ondemand"))
+			while ((record = BR.readLine()) != null) {
+				if (record.equals("ondemand")) {
 					CPUSampling.setEnabled(true);
+					Threshold.setEnabled(true);	
+					Bias.setEnabled(true);
+					IgnoreNiceLoad.setEnabled(true);
+				}
 			}
 			BR.close();
 		}
@@ -320,12 +340,16 @@ public class conf extends PreferenceActivity {
             		Provisionned.setChecked(true);
             		VNC.setChecked(false);
             		Swappiness.setText("15");
+            		Fudgeswap.setText("2048");
             		Swap.setChecked(false);
             		Bootanimation.setChecked(true);
             		LCDDensity.setText("160");
 					SDReadCache.setText("128");
 					Presets.setValueIndex(4);  	
 					Wifi.setText("15");
+					Threshold.setText("35");
+					Bias.setText("0");
+					IgnoreNiceLoad.setChecked(true);
 					Toast.makeText(getBaseContext(), R.string.defaults, Toast.LENGTH_LONG).show();
             	}
         		// Apply Button
@@ -403,8 +427,27 @@ public class conf extends PreferenceActivity {
 							
 			// Copy CPU sampling setting to conf file
 			out.println("# CpuFreq sampling rate");
-			out.println("# Set to 0 to eco mode, 1 to mixte mode, 2 to Performance mode ");
 			out.println("cpu_sampling=" + CPUSampling.getValue());
+			out.println(" ");
+
+			// Copy powersave bias setting to conf file
+			out.println("# Powersave bias");
+			out.println("bias=" + Bias.getText());
+			out.println(" ");
+			
+			// Copy Ignore nice load setting to conf file
+			out.println("# Ignore nice load");
+			if (IgnoreNiceLoad.isChecked()) {
+				out.println("ignoreniceload=yes");
+			}
+			else {
+				out.println("ignoreniceload=no");
+			}
+			out.println(" ");
+			
+			// Copy threshold setting to conf file
+			out.println("# Threshold");
+			out.println("threshold=" + Threshold.getText());
 			out.println(" ");
 			
 			// Copy SSH setting to conf file
@@ -454,7 +497,12 @@ public class conf extends PreferenceActivity {
 			
 			// Copy Swappiness setting to conf file
 			out.println("# Swappiness");
-			out.println("swappiness="+Swappiness.getText());
+			out.println("swappiness=" + Swappiness.getText());
+			out.println(" ");
+			
+			// Copy Fudgeswap setting to conf file
+			out.println("# Fusgeswap");
+			out.println("fudgeswap=" + Integer.parseInt(Fudgeswap.getText())/4);
 			out.println(" ");
 			
 			// Copy Bootanimation setting to conf file

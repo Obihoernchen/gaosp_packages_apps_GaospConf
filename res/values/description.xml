@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="swap">Android uses swap space as "extra" memory. You need a external SD Card.</string>
-	<string name="sampling">Threshold check intervall. Only ondemand governor.</string>
+	<string name="sampling">Threshold check interval. Only ondemand gov.</string>
 	<string name="ssh">Allows you to run a Linux shell from your PC on your Galaxy.</string>
-	<string name="renice">Give some processes more priority so you will get incoming calls/sms faster.</string>
 	<string name="provisionned">You can use your Galaxy without a SIM Card.</string>
 	<string name="vnc">You can control your phone from your computer.</string>
 	<string name="bootani">Use a smaller bootanimation to decrease boot time.</string>
@@ -18,12 +17,16 @@
 	<string name="lcddensity">Lowering the density value will "expand" the screen, allowing to see more without scrolling. Make a Nandroid Backup before!</string>
 	<string name="compcalibration">This will reset some compass settings.</string>
 	<string name="presets">Select you preferred setting</string>
-	<string name="swappiness">How much Android should use Swap (%)</string>
+	<string name="swappiness">How much Android should use Swap.</string>
 	<string name="sdcache">Higher values will boost SD reading speed.</string>
 	<string name="gmail">In Germany you can not download GMail app. Press apply to bypass this restriction. Search for "Google Mail".</string>
 	<string name="clearcache">Tells kernel to drop caches and your device will be snappy again. There is a GAOSP Conf widget which will do this for you automatically.</string>
-	<string name="wifi">Time between Wifi scan intervals (s)</string>
+	<string name="wifi">Time between Wifi scan intervals.</string>
 	<string name="updateinterval">This widget will clear cache every 3 hours. Useful if you use swap because it clears everything and speeds up your Galaxy. You can also click on the widget to do this manually.</string>
 	<string name="systemapps">This can slightly speed up your phone.</string>
 	<string name="fotakill">Prevents OTA updates (Samsung will not release OTA updates for Galaxy).</string>
+	<string name="threshold">When the CPU load reaches this point, the governor will scale the CPU up. Only ondemand gov.</string>
+	<string name="bias">Setting this value higher will "bias" the governor toward lower frequencies. Only ondemand gov.</string>
+	<string name="niceload">System will ignore higher background process priorities (saves battery) Only ondemand gov.</string>
+	<string name="fudgeswap">Use a specified amount of Swap and Compcache as free memory. High values can cause slowdowns.</string>
 </resources>
