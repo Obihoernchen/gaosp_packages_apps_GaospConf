@@ -12,9 +12,8 @@ public class ClearCache extends IntentService {
     	// Drop cache
 		String[] dropcache =
 		{
-				"/system/xbin/su -c 'sync'",
-				"/system/xbin/su -c 'echo 3 > /proc/sys/vm/drop_caches'",
-				"echo Dropped cache"
+				"sync",
+				"echo 3 > /proc/sys/vm/drop_caches"
 		};
 		shell.doExec(dropcache, true);
     }

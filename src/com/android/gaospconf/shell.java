@@ -4,7 +4,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import android.os.Message;
 import android.util.Log;
 
 public class shell {
@@ -13,17 +12,15 @@ public class shell {
 		Process process = null;
 		DataOutputStream os = null;
 		DataInputStream osRes = null;
-		Message msg = null;
-		int i = 1;
 
 		try {
 			if (suNeeded) {
 				// Getting Root ;)
 				Log.i("GaospConf", "Starting exec of su");
-				process = Runtime.getRuntime().exec("su");
+				process = Runtime.getRuntime().exec("/system/xbin/su");
 			} else {
 				Log.i("GaospConf", "Starting exec of sh");
-				process = Runtime.getRuntime().exec("sh");
+				process = Runtime.getRuntime().exec("/system/xbin/sh");
 			}
 
 			os = new DataOutputStream(process.getOutputStream());
@@ -33,9 +30,6 @@ public class shell {
 				Log.i("GaospConf", "Executing [" + single + "]");
 				os.writeBytes(single + "\n");
 				os.flush();
-				msg = Message.obtain();
-				msg.arg1 = i++;
-				msg.arg2 = -1; // This because when 0 i will dismiss the progressbar.
 				Thread.sleep(200);
 			}
 
@@ -43,16 +37,10 @@ public class shell {
 			os.flush();
 
 			process.waitFor();
-			msg = Message.obtain();
-			msg.arg1 = 0;
-			msg.arg2 = 0;
 
 		} catch (Exception e) {
 			Log.d("GaospConf","Unexpected error - Here is what I know: " + e.getMessage());
 			e.printStackTrace();
-			msg = Message.obtain();
-			msg.arg1 = 1;
-			msg.arg2 = 0;
 			res.add(e.getMessage());
 		} finally {
 			try {

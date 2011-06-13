@@ -195,9 +195,8 @@ public class conf extends PreferenceActivity {
 					// Drop cache
 					String[] dropcache =
 					{
-						"/system/xbin/su -c 'sync'",
-						"/system/xbin/su -c 'echo 3 > /proc/sys/vm/drop_caches'",
-						"echo Dropped cache"
+						"sync",
+						"echo 3 > /proc/sys/vm/drop_caches"
 					};
 					shell.doExec(dropcache, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
@@ -206,7 +205,7 @@ public class conf extends PreferenceActivity {
 					// Delete old calibration file
 					String[] delcalibration =
 					{
-						"/system/xbin/su -c 'rm /data/misc/akmd_set.txt'", "echo deleted akmd_set.txt"
+						"rm /data/misc/akmd_set.txt"
 					};
 					shell.doExec(delcalibration, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
@@ -222,10 +221,9 @@ public class conf extends PreferenceActivity {
 					// Set provider to T-Mobile Austria
 					String[] bypassgmail =
 					{
-						"/system/xbin/su -c 'setprop gsm.sim.operator.numeric 23203'",
-						"/system/xbin/su -c 'killall com.android.venedig'",
-						"/system/xbin/su -c 'rm -rf /data/data/com.android.vending/cache/*'",
-						"echo bypassed GMail restriction"
+						"setprop gsm.sim.operator.numeric 23203",
+						"killall com.android.venedig",
+						"rm -rf /data/data/com.android.vending/cache/*"
 					};
 					shell.doExec(bypassgmail, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
@@ -367,10 +365,9 @@ public class conf extends PreferenceActivity {
 	public void deleteSystemApp(CharSequence appname) {
 		String[] delete =
 		{
-			"/system/xbin/su -c /system/xbin/remountrw",
-			"/system/xbin/su -c 'rm -rf /data/app_s/'"+appname,
-			"/system/xbin/su -c /system/xbin/remountro",
-			"echo deleted"+appname
+			"/system/xbin/remountrw",
+			"rm -rf /data/app_s/"+appname,
+			"/system/xbin/remountro"
 		};
 		shell.doExec(delete, true);
 		Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
@@ -411,7 +408,7 @@ public class conf extends PreferenceActivity {
 	    	PrintWriter out = null;
         	
         	// Remount in read/write
-        	String[] rw = { "/system/xbin/su -c /system/xbin/remountrw", "echo remount rw done"};
+        	String[] rw = { "/system/xbin/remountrw" };
         	shell.doExec(rw, true);
         	
         	try {
@@ -510,20 +507,20 @@ public class conf extends PreferenceActivity {
 			if (Bootanimation.isChecked()) {
 				out.println("bootani=yes");
 				if (new File("/system/media/bootanimation.zip").length() > 3000000 ) {
-			   		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-			   								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-			   								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-			   								"echo Bootanimation changed"};
+			   		String[] bootchange = { "mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip",
+			   								"mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip",
+			   								"mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip"
+			   							  };
 			   		shell.doExec(bootchange, true);
 					}
 			}
 			else {
 				out.println("bootani=no");
 				if (new File("/system/media/bootanimation.zip").length() < 3000000 ) {
-			   		String[] bootchange = { "/system/xbin/su -c 'mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip'",
-			   								"/system/xbin/su -c 'mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip'",
-			   								"/system/xbin/su -c 'mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip'",
-			   								"echo Bootanimation changed"};
+			   		String[] bootchange = { "mv /system/media/bootanimation.zip /system/media/bootanimation_temp.zip",
+			   								"mv /system/media/bootanimation_old.zip /system/media/bootanimation.zip",
+			   								"mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip"
+			   							  };
 			   		shell.doExec(bootchange, true);
 					}
 			}
@@ -546,14 +543,14 @@ public class conf extends PreferenceActivity {
 			
 			// Set LCD Density
 			String[] lcdchange = { "density=`grep ro.sf.lcd_density= /system/build.prop | awk -F = '{print $2'}`",
-								   "/system/xbin/su -c 'sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+LCDDensity.getText()+"/' /system/build.prop'",
-								   "echo LCD Density changed"};
+								   "sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+LCDDensity.getText()+"/' /system/build.prop"
+								 };
 			shell.doExec(lcdchange, true);
 			
 			// Set Wifi scan interval
 			String[] wifichange = { "wifi=`grep wifi.supplicant_scan_interval= /system/build.prop | awk -F = '{print $2'}`",
-								   "/system/xbin/su -c 'sed -i 's/wifi.supplicant_scan_interval=$wifi/wifi.supplicant_scan_interval="+Wifi.getText()+"/' /system/build.prop'",
-								   "echo Wifi scan interval changed"};
+								    "sed -i 's/wifi.supplicant_scan_interval=$wifi/wifi.supplicant_scan_interval="+Wifi.getText()+"/' /system/build.prop"
+								  };
 			shell.doExec(wifichange, true);
 			
 			// Close file
@@ -561,10 +558,10 @@ public class conf extends PreferenceActivity {
 			out.close();
 
 			// Remount in read only
-			String[] ro = { "/system/xbin/su -c /system/xbin/remountro", "echo remount ro done" };
+			String[] ro = { "/system/xbin/remountro" };
         	shell.doExec(ro, true);
 	    	
-	    	String[] rc = { "/system/xbin/su -c /system/bin/rc", "echo rc executed" };
+	    	String[] rc = { "/system/bin/rc" };
 	    	shell.doExec(rc, true);
 	    	return null;
 	    }
