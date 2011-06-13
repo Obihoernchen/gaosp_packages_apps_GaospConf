@@ -97,7 +97,7 @@ public class conf extends PreferenceActivity {
 		try {
 			while ((record = BR.readLine()) != null) {
 				if (Parser.parse(record, result)) {
-					if (result[1].equals("cpu_sampling="))
+					if (result[1].equals("cpu_sampling"))
 						CPUSampling.setValueIndex(Integer.parseInt(result[2]));
 					else if (result[1].equals("sshd"))
 						SSHServer.setChecked(result[2].equals("yes"));

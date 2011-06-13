@@ -3,8 +3,8 @@
 
 	<PreferenceCategory android:title="Performance">
 		<CheckBoxPreference android:key="Swap" android:summary="@string/swap" android:title="Swap"/>
-		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:dependency="Swap" android:title="Swappiness" android:maxLength="3" android:singleLine="true" android:numeric="integer" android:dialogMessage="0-100%"></EditTextPreference>
-		<EditTextPreference android:singleLine="true" android:summary="@string/fudgeswap" android:key="Fudgeswap" android:title="Fudgeswap" android:numeric="signed" android:dialogMessage="±Kilobyte (kB)" android:maxLength="5"></EditTextPreference>
+		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:dependency="Swap" android:title="Swappiness" android:dialogMessage="0-100%" android:singleLine="true" android:numeric="integer" android:maxLength="3"></EditTextPreference>
+		<EditTextPreference android:summary="@string/fudgeswap" android:key="Fudgeswap" android:title="Fudgeswap" android:dialogMessage="±Kilobyte (kB)" android:maxLength="5" android:singleLine="true" android:numeric="integer"></EditTextPreference>
 		<PreferenceScreen android:key="Memorythresholds" android:summary="@string/memorythresholds" android:title="Memory Thresholds">
 			<ListPreference android:summary="@string/presets" android:key="Presets" android:entries="@array/Spresets" android:entryValues="@array/Spresetsvalue" android:title="Presets"></ListPreference>
 			<EditTextPreference android:summary="@string/foregroundapp" android:key="Mem1" android:numeric="integer" android:maxLength="2" android:singleLine="true" android:title="Foreground App" android:dialogMessage="Megabyte (MB)"></EditTextPreference>
@@ -14,7 +14,7 @@
 			<EditTextPreference android:summary="@string/contentapp" android:key="Mem5" android:numeric="integer" android:maxLength="2" android:singleLine="true" android:title="Content Provider" android:dialogMessage="Megabyte (MB)"></EditTextPreference>
 			<EditTextPreference android:summary="@string/emptyapp" android:key="Mem6" android:numeric="integer" android:singleLine="true" android:maxLength="2" android:title="Empty App" android:dialogMessage="Megabyte (MB)"></EditTextPreference>
 		</PreferenceScreen>
-		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:numeric="integer" android:maxLength="4" android:singleLine="true" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)"></EditTextPreference>
+		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)" android:maxLength="4" android:numeric="integer" android:singleLine="true"></EditTextPreference>
 		<ListPreference android:entries="@array/Ssampling" android:key="CPU Sampling" android:summary="@string/sampling" android:entryValues="@array/Ssamplingvalue" android:enabled="false" android:title="CPU Sampling"></ListPreference>	
 		<EditTextPreference android:key="Up Threshold" android:summary="@string/threshold" android:maxLength="3" android:enabled="false" android:singleLine="true" android:numeric="integer" android:dialogMessage="0-100%" android:title="CPU Up Threshold"></EditTextPreference>
 		<CheckBoxPreference android:key="Ignore Nice Load" android:enabled="false" android:summary="@string/niceload" android:title="CPU Ignore Nice Load"></CheckBoxPreference>
