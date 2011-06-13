@@ -34,9 +34,9 @@
 			<Preference android:title="DSPManager.apk" android:enabled="false" android:key="DSPManager"></Preference>
 			<Preference android:title="Development.apk" android:enabled="false" android:key="Development"></Preference>
 			<Preference android:title="VoiceDialer.apk" android:enabled="false" android:key="VoiceDialer"></Preference>
-			<Preference android:title="QuickSearchBox.apk" android:enabled="false" android:key="QuickSearchBox"></Preference>
+			<Preference android:title="QuickSearchBox.apk" android:enabled="false" android:key="QuickSearchBox" android:summary="@string/searchbox"></Preference>
 			<Preference android:title="Email.apk" android:enabled="false" android:key="Email"></Preference>
-			<Preference android:title="GenieWidget.apk" android:enabled="false" android:key="GenieWidget"></Preference>
+			<Preference android:title="GenieWidget.apk" android:enabled="false" android:key="GenieWidget" android:summary="@string/geniewidget"></Preference>
 			<Preference android:title="CustomLocale.apk" android:enabled="false" android:key="CustomLocale"></Preference>
 		</PreferenceScreen>
 		<CheckBoxPreference android:key="Provisionned" android:summary="@string/provisionned" android:title="Provisionned"></CheckBoxPreference>

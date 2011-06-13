@@ -29,4 +29,6 @@
 	<string name="bias">Setting this value higher will "bias" the governor toward lower frequencies. Only ondemand gov.</string>
 	<string name="niceload">System will ignore higher background process priorities (saves battery) Only ondemand gov.</string>
 	<string name="fudgeswap">Use a specified amount of Swap (SD and Compcache) as free memory. High values can cause slowdowns.</string>
+	<string name="geniewidget">News & Weather widget.</string>
+	<string name="searchbox">Searchbox widget.</string>
 </resources>
