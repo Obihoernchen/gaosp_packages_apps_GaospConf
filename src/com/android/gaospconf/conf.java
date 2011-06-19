@@ -60,6 +60,7 @@ public class conf extends PreferenceActivity {
 	public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
 	private String old_DensityValue;
 	private String old_WifiValue;
+	private boolean RamHackEnabled = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +92,14 @@ public class conf extends PreferenceActivity {
         Threshold = (EditTextPreference) findPreference("Up Threshold");
         CPUSampling = (ListPreference) findPreference("CPU Sampling");
         final ListPreference Presets = (ListPreference) findPreference("Presets");   
-		
-        // Open config file
+		final Preference RamHack = findPreference("GPU RAM Hack");
+        
+		// Open config file
         String[] result = new String[3];
         String record = null;
         BufferedReader BR = null;
         try {
-        	BR = new BufferedReader(new FileReader("/system/etc/gaosp.conf"), 8192);
+        	BR = new BufferedReader(new FileReader("/system/etc/gaosp.conf"));
         }
         catch (FileNotFoundException e) {
         	e.printStackTrace();
@@ -152,7 +154,7 @@ public class conf extends PreferenceActivity {
 
 		// Open build.prop file (LCD Density, wifi scan interval)
 		try {
-			BR = new BufferedReader(new FileReader("/system/build.prop"), 8192);
+			BR = new BufferedReader(new FileReader("/system/build.prop"));
 		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -179,7 +181,7 @@ public class conf extends PreferenceActivity {
 
 		// Open scaling_governor file (CPU governor settings)
 		try	{
-			BR = new BufferedReader(new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"), 8192);
+			BR = new BufferedReader(new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"));
 		}
 		catch (FileNotFoundException e)
 		{
@@ -200,7 +202,32 @@ public class conf extends PreferenceActivity {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-          
+		
+		// Open meminfo file (RamHack)
+		try {
+			BR = new BufferedReader(new FileReader("/proc/meminfo"));
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		// Read meminfo file (RamHack)
+		try {
+			while ((record = BR.readLine()) != null) {
+				if (record.contains("MemTotal")) {
+					if (Long.parseLong(record.split(" +",3)[1]) > 100000) {
+						RamHack.setTitle("Normal Kernel");
+						RamHack.setSummary(R.string.normalkernel);
+						RamHackEnabled = true;
+					}
+				}
+			}
+			BR.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
         // Custom preferences listener
 		OnPreferenceClickListener prefClickListener = new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference)	{
@@ -241,8 +268,13 @@ public class conf extends PreferenceActivity {
 					shell.doExec(bypassgmail, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
-				else if (preference.getKey().equals("GPU RAM Hack")) {
-					new DownloadFile().execute("http://obihoernchen.androidcodex.com/downloads/GAOSP_RAM_Hack_Kernel/boot.img");				
+				else if (preference.equals(RamHack)) {
+					if (RamHackEnabled) {
+						new DownloadFile().execute("http://obihoernchen.androidcodex.com/downloads/GAOSP_RAM_Hack_Kernel/boot_normal.img");
+					}
+					else {
+						new DownloadFile().execute("http://obihoernchen.androidcodex.com/downloads/GAOSP_RAM_Hack_Kernel/boot.img");
+					}
 				}
 				else {
 					// Delete system app
@@ -257,7 +289,7 @@ public class conf extends PreferenceActivity {
 		((Preference) findPreference("Compass Calibration")).setOnPreferenceClickListener(prefClickListener);
 		((Preference) findPreference("Servicemode")).setOnPreferenceClickListener(prefClickListener);
 		((Preference) findPreference("Gmail")).setOnPreferenceClickListener(prefClickListener);
-		((Preference) findPreference("GPU RAM Hack")).setOnPreferenceClickListener(prefClickListener);
+		RamHack.setOnPreferenceClickListener(prefClickListener);
 		// Set system apps listener
 		final ListAdapter adapter = ((PreferenceScreen) findPreference("Systemapps")).getRootAdapter();
         for (int app = 0; app < adapter.getCount(); app++) {
@@ -418,7 +450,7 @@ public class conf extends PreferenceActivity {
         switch (id) {
             case DIALOG_DOWNLOAD_PROGRESS:
             	DownloadProgress = new ProgressDialog(this);
-            	DownloadProgress.setMessage("Downloading and flashing kernel...");
+            	DownloadProgress.setMessage(getString(R.string.download));
             	DownloadProgress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             	DownloadProgress.setCancelable(false);
             	DownloadProgress.show();
@@ -613,39 +645,55 @@ public class conf extends PreferenceActivity {
 	    protected String doInBackground(String... path) {
 	    	int count;
 	    	try {
-		    	// Download
+	    		// Connect
 	    		URL url = new URL(path[0]);
 	            URLConnection connection = url.openConnection();
 	            connection.connect();
 
 	            int lenghtOfFile = connection.getContentLength();
 	            
-	            InputStream input = connection.getInputStream();
-	            File bootimage = new File("/sdcard/","boot.img");
-	            FileOutputStream output = new FileOutputStream(bootimage);
+	            File bootimage;
+	            if (RamHackEnabled) {
+	            	bootimage = new File("/sdcard/","boot_normal.img");
+	            }
+	            else {
+	            	bootimage = new File("/sdcard/","boot.img");
+	            }
 	            
-	            byte buffer[] = new byte[1024];
-	            long total = 0;
-	            
-                while ((count = input.read(buffer)) != -1) {
-                    total += count;
-                    publishProgress(""+(int)((total*100)/lenghtOfFile));
-                    output.write(buffer, 0, count);
-                }
-                
-	            output.flush();
-	            output.close();
-	            input.close();
+	            // Download if there is a newer file
+	            if (connection.getLastModified() > bootimage.lastModified()) {
+		            InputStream input = connection.getInputStream();
+		            FileOutputStream output = new FileOutputStream(bootimage);
+		            
+		            byte[] buffer = new byte[1024];
+		            long total = 0;
+		            
+	                while ((count = input.read(buffer)) != -1) {
+	                    total += count;
+	                    publishProgress(String.valueOf(((total*100)/lenghtOfFile)));
+	                    output.write(buffer, 0, count);
+	                }
+	                
+		            output.flush();
+		            output.close();
+		            input.close();
+	            }
+	            else {
+	            	publishProgress("100");
+	            }            	
 	            
 	            // TODO: MD5 Check
-	            
-	            // Flash
-				String[] flash =
-				{
-					"flash_image boot /sdcard/boot.img"
-				};
-				shell.doExec(flash, true);
-				
+	            if (lenghtOfFile == bootimage.length()){           
+	            	// Flash
+	        		String[] flash = new String[1];
+	            	if (RamHackEnabled) {
+	            		flash[0] = "flash_image boot /sdcard/boot_normal.img";
+	            	}
+	            	else {
+	            		flash[0] = "flash_image boot /sdcard/boot.img";
+	            	}	            	
+	            	shell.doExec(flash, true);
+	            }
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -655,6 +703,9 @@ public class conf extends PreferenceActivity {
 		@Override
 		protected void onProgressUpdate(String... progress) {
 	        DownloadProgress.setProgress(Integer.parseInt(progress[0]));
+	        if (progress[0].equals("100")) {
+	        	DownloadProgress.setMessage(getString(R.string.flash));
+	        }
 	    }
 		
 		@Override

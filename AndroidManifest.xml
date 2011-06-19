@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".conf"
-                  android:windowSoftInputMode="stateUnchanged">
+        <activity android:name=".conf">
             <intent-filter>
                 <action android:name="com.android.gaospconf.splashscreen.conf" />
                 <category android:name="android.intent.category.DEFAULT" />
