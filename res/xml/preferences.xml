@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<PreferenceCategory android:title="Performance">
-		<CheckBoxPreference android:key="Swap" android:summary="@string/swap" android:title="Swap"/>
+	<PreferenceCategory android:title="Memory"><CheckBoxPreference android:key="Swap" android:summary="@string/swap" android:title="Swap" />
 		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:dependency="Swap" android:title="Swappiness" android:dialogMessage="0-100%" android:maxLength="3" android:numeric="integer" android:singleLine="true"></EditTextPreference>
 		<EditTextPreference android:summary="@string/fudgeswap" android:key="Fudgeswap" android:title="Fudgeswap" android:dialogMessage="Kilobyte (kB)" android:maxLength="5" android:singleLine="true" android:numeric="integer"></EditTextPreference>
 		<PreferenceScreen android:key="Memorythresholds" android:summary="@string/memorythresholds" android:title="Memory Thresholds">
@@ -15,12 +14,14 @@
 			<EditTextPreference android:summary="@string/emptyapp" android:key="Mem6" android:title="Empty App" android:dialogMessage="Megabyte (MB)" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
 		</PreferenceScreen>
 		<Preference android:title="GPU RAM Hack Kernel" android:summary="@string/ramhack" android:key="GPU RAM Hack"></Preference>
-		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)" android:singleLine="true" android:maxLength="4" android:numeric="integer"></EditTextPreference>
-		<ListPreference android:entries="@array/Ssampling" android:key="CPU Sampling" android:summary="@string/sampling" android:entryValues="@array/Ssamplingvalue" android:enabled="false" android:title="CPU Sampling"></ListPreference>	
-		<EditTextPreference android:key="Up Threshold" android:summary="@string/threshold" android:enabled="false" android:dialogMessage="0-100%" android:title="CPU Up Threshold" android:numeric="integer" android:maxLength="3" android:singleLine="true"></EditTextPreference>
-		<CheckBoxPreference android:key="Ignore Nice Load" android:enabled="false" android:summary="@string/niceload" android:title="CPU Ignore Nice Load"></CheckBoxPreference>
-		<EditTextPreference android:key="Powersave Bias" android:enabled="false" android:summary="@string/bias" android:dialogMessage="0-1000‰" android:title="CPU Powersave Bias" android:maxLength="4" android:numeric="integer" android:singleLine="true"></EditTextPreference>
-				                      
+		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
+	</PreferenceCategory>
+		
+	<PreferenceCategory android:title="CPU">
+		<ListPreference android:entries="@array/Ssampling" android:key="CPU Sampling" android:summary="@string/sampling" android:entryValues="@array/Ssamplingvalue" android:enabled="false" android:title="Sampling"></ListPreference>	
+		<EditTextPreference android:key="Up Threshold" android:summary="@string/threshold" android:enabled="false" android:dialogMessage="0-100%" android:title="Up Threshold" android:maxLength="3" android:singleLine="true" android:numeric="integer"></EditTextPreference>
+		<CheckBoxPreference android:key="Ignore Nice Load" android:enabled="false" android:summary="@string/niceload" android:title="Ignore Nice Load"></CheckBoxPreference>
+		<EditTextPreference android:key="Powersave Bias" android:enabled="false" android:summary="@string/bias" android:dialogMessage="0-1000‰" android:title="Powersave Bias" android:numeric="integer" android:singleLine="true" android:maxLength="4"></EditTextPreference>
 	</PreferenceCategory>
 	
 	<PreferenceCategory android:title="Appearance">
@@ -41,8 +42,7 @@
 			<Preference android:title="GenieWidget.apk" android:key="GenieWidget" android:summary="@string/geniewidget" android:enabled="false"></Preference>
 			<Preference android:title="CustomLocale.apk" android:key="CustomLocale" android:enabled="false"></Preference>
 			<Preference android:key="BooksPhone" android:title="BooksPhone.apk" android:enabled="false"></Preference>
-			<Preference android:key="CarHomeGoogle" android:title="CarHomeGoogle.apk" android:enabled="false"></Preference>
-			
+			<Preference android:key="CarHomeGoogle" android:title="CarHomeGoogle.apk" android:enabled="false"></Preference>	
 		</PreferenceScreen>
 		<CheckBoxPreference android:key="Provisionned" android:summary="@string/provisionned" android:title="Provisionned"></CheckBoxPreference>
 		<CheckBoxPreference android:key="SSH Server" android:summary="@string/ssh" android:title="SSH Server"></CheckBoxPreference>
@@ -50,7 +50,7 @@
 		<EditTextPreference android:summary="@string/wifi" android:key="Wifi Scan" android:title="Wifi Scan Interval" android:dialogMessage="Seconds (s)" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
 		<Preference android:summary="@string/compcalibration" android:key="Compass Calibration" android:title="Calibrate Compass"></Preference>
 		<Preference android:summary="@string/servicemode" android:key="Servicemode" android:title="Samsung Service Mode"></Preference>
-		<Preference android:summary="@string/gmail" android:title="GMail" android:key="Gmail"></Preference><Preference android:summary="@string/clearcache" android:key="Clear Cache" android:title="Clear Cache"></Preference>
-			
+		<Preference android:summary="@string/gmail" android:title="GMail" android:key="Gmail"></Preference><Preference android:summary="@string/clearcache" android:key="Clear Cache" android:title="Clear Cache"></Preference>		
 	</PreferenceCategory>
+	
 </PreferenceScreen>
