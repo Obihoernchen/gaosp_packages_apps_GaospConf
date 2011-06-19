@@ -711,6 +711,7 @@ public class conf extends PreferenceActivity {
 		@Override
 	    protected void onPostExecute(String unused) {
 			dismissDialog(DIALOG_DOWNLOAD_PROGRESS);
+			Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 	    }
 	}
 }
