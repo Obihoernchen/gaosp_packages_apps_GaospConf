@@ -31,4 +31,5 @@
 	<string name="fudgeswap">Use a specified amount of Swap (SD and Compcache) as free memory. High values can cause slowdowns.</string>
 	<string name="geniewidget">News and Weather widget.</string>
 	<string name="searchbox">Searchbox widget.</string>
+	<string name="ramhack">Flash a new kernel which will give 8MB more RAM but 3D and Camera will not work. Make a Nandroid Backup before!</string>	
 </resources>

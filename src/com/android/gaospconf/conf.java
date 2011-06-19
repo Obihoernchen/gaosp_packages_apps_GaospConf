@@ -3,11 +3,16 @@ package com.android.gaospconf;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLConnection;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -51,9 +56,13 @@ public class conf extends PreferenceActivity {
 	private EditTextPreference Bias;
 	private EditTextPreference Threshold;	
 	private ListPreference CPUSampling;
+	private ProgressDialog DownloadProgress;
+	public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
+	private String old_DensityValue;
+	private String old_WifiValue;
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // PreferenceView
         addPreferencesFromResource(R.xml.preferences);
@@ -82,7 +91,7 @@ public class conf extends PreferenceActivity {
         Threshold = (EditTextPreference) findPreference("Up Threshold");
         CPUSampling = (ListPreference) findPreference("CPU Sampling");
         final ListPreference Presets = (ListPreference) findPreference("Presets");   
-        	
+		
         // Open config file
         String[] result = new String[3];
         String record = null;
@@ -152,10 +161,14 @@ public class conf extends PreferenceActivity {
 		try	{
 			while ((record = BR.readLine()) != null) {
 				if (Parser.parse(record, result)) {
-					if (result[1].equals("ro.sf.lcd_density"))
+					if (result[1].equals("ro.sf.lcd_density")) {
 						LCDDensity.setText(result[2]);
-					else if (result[1].equals("wifi.supplicant_scan_interval"))
+						old_DensityValue = result[2];
+					}
+					else if (result[1].equals("wifi.supplicant_scan_interval")) {
 						Wifi.setText(result[2]);
+						old_WifiValue = result[2];
+					}
 				}
 			}
 			BR.close();
@@ -228,6 +241,9 @@ public class conf extends PreferenceActivity {
 					shell.doExec(bypassgmail, true);
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
+				else if (preference.getKey().equals("GPU RAM Hack")) {
+					new DownloadFile().execute("http://obihoernchen.androidcodex.com/downloads/GAOSP_RAM_Hack_Kernel/boot.img");				
+				}
 				else {
 					// Delete system app
 					deleteSystemApp(preference.getTitle());
@@ -241,6 +257,7 @@ public class conf extends PreferenceActivity {
 		((Preference) findPreference("Compass Calibration")).setOnPreferenceClickListener(prefClickListener);
 		((Preference) findPreference("Servicemode")).setOnPreferenceClickListener(prefClickListener);
 		((Preference) findPreference("Gmail")).setOnPreferenceClickListener(prefClickListener);
+		((Preference) findPreference("GPU RAM Hack")).setOnPreferenceClickListener(prefClickListener);
 		// Set system apps listener
 		final ListAdapter adapter = ((PreferenceScreen) findPreference("Systemapps")).getRootAdapter();
         for (int app = 0; app < adapter.getCount(); app++) {
@@ -362,7 +379,7 @@ public class conf extends PreferenceActivity {
 	}
 
 	// Delete System apps
-	public void deleteSystemApp(CharSequence appname) {
+	private void deleteSystemApp(CharSequence appname) {
 		String[] delete =
 		{
 			"/system/xbin/remountrw",
@@ -396,6 +413,21 @@ public class conf extends PreferenceActivity {
         return true;
 	}
     
+	@Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DIALOG_DOWNLOAD_PROGRESS:
+            	DownloadProgress = new ProgressDialog(this);
+            	DownloadProgress.setMessage("Downloading and flashing kernel...");
+            	DownloadProgress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            	DownloadProgress.setCancelable(false);
+            	DownloadProgress.show();
+                return DownloadProgress;
+            default:
+                return null;
+        }
+    }
+	
 	// AsyncTask to execute rc
 	private class Task extends AsyncTask<String, Void, Void> {
 		ProgressDialog PleaseWait;
@@ -512,7 +544,7 @@ public class conf extends PreferenceActivity {
 			   								"mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip"
 			   							  };
 			   		shell.doExec(bootchange, true);
-					}
+				}
 			}
 			else {
 				out.println("bootani=no");
@@ -522,7 +554,7 @@ public class conf extends PreferenceActivity {
 			   								"mv /system/media/bootanimation_temp.zip /system/media/bootanimation_old.zip"
 			   							  };
 			   		shell.doExec(bootchange, true);
-					}
+				}
 			}
 			out.println(" ");
 																			
@@ -540,22 +572,18 @@ public class conf extends PreferenceActivity {
 			out.println("# SD Read Cache");
 			out.println("sdcache=" + SDReadCache.getText());
 			out.println(" ");
-			
-			// Set LCD Density
-			String[] lcdchange = { "density=`grep ro.sf.lcd_density= /system/build.prop | awk -F = '{print $2'}`",
-								   "sed -i 's/ro.sf.lcd_density=$density/ro.sf.lcd_density="+LCDDensity.getText()+"/' /system/build.prop"
-								 };
-			shell.doExec(lcdchange, true);
-			
-			// Set Wifi scan interval
-			String[] wifichange = { "wifi=`grep wifi.supplicant_scan_interval= /system/build.prop | awk -F = '{print $2'}`",
-								    "sed -i 's/wifi.supplicant_scan_interval=$wifi/wifi.supplicant_scan_interval="+Wifi.getText()+"/' /system/build.prop"
-								  };
-			shell.doExec(wifichange, true);
-			
+						
 			// Close file
 			out.flush();
 			out.close();
+			
+			// Set LCD Density
+			String[] lcdchange = { "sed -i 's/ro.sf.lcd_density="+old_DensityValue+"/ro.sf.lcd_density="+LCDDensity.getText()+"/' /system/build.prop" };
+			shell.doExec(lcdchange, true);
+			
+			// Set Wifi scan interval
+			String[] wifichange = { "sed -i 's/wifi.supplicant_scan_interval="+old_WifiValue+"/wifi.supplicant_scan_interval="+Wifi.getText()+"/' /system/build.prop" };
+			shell.doExec(wifichange, true);
 
 			// Remount in read only
 			String[] ro = { "/system/xbin/remountro" };
@@ -567,10 +595,71 @@ public class conf extends PreferenceActivity {
 	    }
 	    @Override
 	    protected void onPostExecute(Void unused) {    		
-	    	if (PleaseWait.isShowing()) {
-	    		PleaseWait.dismiss();
-		       	Toast.makeText(getBaseContext(), R.string.applied, Toast.LENGTH_LONG).show();
-	    	}
+    		PleaseWait.dismiss();
+	       	Toast.makeText(getBaseContext(), R.string.applied, Toast.LENGTH_LONG).show();
+	    }
+	}
+	
+	// AsyncTask to download and flash bootimage
+	private class DownloadFile extends AsyncTask<String, String, String>{
+       
+		@Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            showDialog(DIALOG_DOWNLOAD_PROGRESS);
+        }
+		
+		@Override
+	    protected String doInBackground(String... path) {
+	    	int count;
+	    	try {
+		    	// Download
+	    		URL url = new URL(path[0]);
+	            URLConnection connection = url.openConnection();
+	            connection.connect();
+
+	            int lenghtOfFile = connection.getContentLength();
+	            
+	            InputStream input = connection.getInputStream();
+	            File bootimage = new File("/sdcard/","boot.img");
+	            FileOutputStream output = new FileOutputStream(bootimage);
+	            
+	            byte buffer[] = new byte[1024];
+	            long total = 0;
+	            
+                while ((count = input.read(buffer)) != -1) {
+                    total += count;
+                    publishProgress(""+(int)((total*100)/lenghtOfFile));
+                    output.write(buffer, 0, count);
+                }
+                
+	            output.flush();
+	            output.close();
+	            input.close();
+	            
+	            // TODO: MD5 Check
+	            
+	            // Flash
+				String[] flash =
+				{
+					"flash_image boot /sdcard/boot.img"
+				};
+				shell.doExec(flash, true);
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        return null;
+	    }
+		
+		@Override
+		protected void onProgressUpdate(String... progress) {
+	        DownloadProgress.setProgress(Integer.parseInt(progress[0]));
+	    }
+		
+		@Override
+	    protected void onPostExecute(String unused) {
+			dismissDialog(DIALOG_DOWNLOAD_PROGRESS);
 	    }
 	}
 }
