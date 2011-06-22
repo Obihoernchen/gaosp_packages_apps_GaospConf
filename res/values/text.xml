@@ -13,6 +13,7 @@
 	<string name="swapwarning">You must have an external SD card with a swap partition (Recovery > Format swap+fat32)</string>
 	<string name="defaults">Defaults successfully loaded. Press Apply new config to save.</string>
 	<string name="done">Done</string>
+	<string name="flashed">Flashed successfully. You have to reboot now!</string>
 	<string name="flash">Flashing kernel...</string>
 	<string name="download">Downloading kernel...</string>
 	<!-- Menu -->

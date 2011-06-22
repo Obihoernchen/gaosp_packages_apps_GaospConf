@@ -42,7 +42,8 @@
 			<Preference android:title="GenieWidget.apk" android:key="GenieWidget" android:summary="@string/geniewidget" android:enabled="false"></Preference>
 			<Preference android:title="CustomLocale.apk" android:key="CustomLocale" android:enabled="false"></Preference>
 			<Preference android:key="BooksPhone" android:title="BooksPhone.apk" android:enabled="false"></Preference>
-			<Preference android:key="CarHomeGoogle" android:title="CarHomeGoogle.apk" android:enabled="false"></Preference>	
+			<Preference android:key="CarHomeGoogle" android:title="CarHomeGoogle.apk" android:enabled="false"></Preference>
+			<Preference android:key="ADWLauncher" android:title="ADWLauncher.apk" android:enabled="false"></Preference>	
 		</PreferenceScreen>
 		<CheckBoxPreference android:key="Provisionned" android:summary="@string/provisionned" android:title="Provisionned"></CheckBoxPreference>
 		<CheckBoxPreference android:key="SSH Server" android:summary="@string/ssh" android:title="SSH Server"></CheckBoxPreference>
