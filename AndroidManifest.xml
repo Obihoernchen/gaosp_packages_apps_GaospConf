@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.android.gaospconf"
-      android:versionCode="5" android:versionName="3">
+      android:versionName="3"
+      android:sharedUserId="android.uid.system">
     <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />

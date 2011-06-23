@@ -16,6 +16,7 @@
 	<string name="flashed">Flashed successfully. You have to reboot now!</string>
 	<string name="flash">Flashing kernel...</string>
 	<string name="download">Downloading kernel...</string>
+	<string name="error">Error!</string>
 	<!-- Menu -->
 	<string name="about">About</string>
 	<string name="exit">Exit</string>

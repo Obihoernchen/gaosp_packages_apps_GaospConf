@@ -243,11 +243,12 @@ public class conf extends PreferenceActivity {
 				}
 				else if (preference.getKey().equals("Compass Calibration")) {
 					// Delete old calibration file
-					String[] delcalibration =
-					{
-						"rm /data/misc/akmd_set.txt"
-					};
-					shell.doExec(delcalibration, true);
+					if (new File("rm /data/misc/akmd_set.txt").delete()) {
+						Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
+					}
+					else {
+						Toast.makeText(getBaseContext(), R.string.error, Toast.LENGTH_LONG).show();
+					}	
 					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
 				else if (preference.getKey().equals("Servicemode")) {
@@ -255,7 +256,6 @@ public class conf extends PreferenceActivity {
 					String encodedHash = Uri.encode("#");
 					Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:*" + encodedHash + "*" + encodedHash + "197328640" + encodedHash + "*" + encodedHash + "*"));
 					startActivity(intent);
-					Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
 				}
 				else if (preference.getKey().equals("Gmail")) {
 					// Set provider to T-Mobile Austria
@@ -412,14 +412,12 @@ public class conf extends PreferenceActivity {
 
 	// Delete System apps
 	private void deleteSystemApp(CharSequence appname) {
-		String[] delete =
-		{
-			"/system/xbin/remountrw",
-			"rm -rf /data/app_s/"+appname,
-			"/system/xbin/remountro"
-		};
-		shell.doExec(delete, true);
-		Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
+		if (new File("/data/app_s/"+appname).delete()) {
+			Toast.makeText(getBaseContext(), R.string.done, Toast.LENGTH_LONG).show();
+		}
+		else {
+			Toast.makeText(getBaseContext(), R.string.error, Toast.LENGTH_LONG).show();
+		}			
 	}
 	
 	// Create Menu
@@ -649,7 +647,7 @@ public class conf extends PreferenceActivity {
 	    		URL url = new URL(path[0]);
 	            URLConnection connection = url.openConnection();
 	            connection.connect();
-
+	            
 	            int lenghtOfFile = connection.getContentLength();
 	            
 	            File bootimage;
@@ -680,10 +678,10 @@ public class conf extends PreferenceActivity {
 	            }
 	            else {
 	            	publishProgress("100");
-	            }            	
+	            }
 	            
 	            // TODO: MD5 Check
-	            if (lenghtOfFile == bootimage.length()){           
+	            if (lenghtOfFile == bootimage.length()){
 	            	// Flash
 	        		String[] flash = new String[1];
 	            	if (RamHackEnabled) {
@@ -691,7 +689,7 @@ public class conf extends PreferenceActivity {
 	            	}
 	            	else {
 	            		flash[0] = "flash_image boot /sdcard/boot.img";
-	            	}	            	
+	            	}
 	            	shell.doExec(flash, true);
 	            }
 			} catch (IOException e) {
