@@ -25,9 +25,9 @@
 	<string name="updateinterval">This widget will clear cache every 3 hours. Useful if you use swap because it clears everything and speeds up your Galaxy. You can also click on the widget to do this manually.</string>
 	<string name="systemapps">This can slightly speed up your phone.</string>
 	<string name="fotakill">Prevents OTA updates (Samsung will not release OTA updates for Galaxy).</string>
-	<string name="threshold">When the CPU load reaches this point, the governor will scale the CPU up. Only ondemand gov.</string>
-	<string name="bias">Setting this value higher will "bias" the governor toward lower frequencies. Only ondemand gov.</string>
-	<string name="niceload">System will ignore higher background process priorities (saves battery) Only ondemand gov.</string>
+	<string name="threshold">When the CPU load reaches this point, the governor will scale the CPU up.</string>
+	<string name="bias">Setting this value higher will "bias" the governor toward lower frequencies.</string>
+	<string name="niceload">System will ignore higher background process priorities (saves battery).</string>
 	<string name="fudgeswap">Use a specified amount of Swap (SD and Compcache) as free memory. High values can cause slowdowns.</string>
 	<string name="geniewidget">News and Weather widget.</string>
 	<string name="searchbox">Searchbox widget.</string>

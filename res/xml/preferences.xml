@@ -17,11 +17,11 @@
 		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
 	</PreferenceCategory>
 		
-	<PreferenceCategory android:title="CPU">
+	<PreferenceCategory android:key="CPUgroup" android:title="CPU - only ondemand governor!">
 		<ListPreference android:entries="@array/Ssampling" android:key="CPU Sampling" android:summary="@string/sampling" android:entryValues="@array/Ssamplingvalue" android:enabled="false" android:title="Sampling"></ListPreference>	
-		<EditTextPreference android:key="Up Threshold" android:summary="@string/threshold" android:enabled="false" android:dialogMessage="0-100%" android:title="Up Threshold" android:maxLength="3" android:singleLine="true" android:numeric="integer"></EditTextPreference>
+		<EditTextPreference android:key="Up Threshold" android:summary="@string/threshold" android:enabled="false" android:dialogMessage="0-100%" android:title="Up Threshold" android:singleLine="true" android:maxLength="3" android:numeric="integer"></EditTextPreference>
 		<CheckBoxPreference android:key="Ignore Nice Load" android:enabled="false" android:summary="@string/niceload" android:title="Ignore Nice Load"></CheckBoxPreference>
-		<EditTextPreference android:key="Powersave Bias" android:enabled="false" android:summary="@string/bias" android:dialogMessage="0-1000‰" android:title="Powersave Bias" android:numeric="integer" android:singleLine="true" android:maxLength="4"></EditTextPreference>
+		<EditTextPreference android:key="Powersave Bias" android:enabled="false" android:summary="@string/bias" android:dialogMessage="0-1000‰" android:title="Powersave Bias" android:singleLine="true" android:maxLength="4" android:numeric="integer"></EditTextPreference>
 	</PreferenceCategory>
 	
 	<PreferenceCategory android:title="Appearance">

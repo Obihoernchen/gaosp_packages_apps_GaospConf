@@ -32,6 +32,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 
 public class conf extends PreferenceActivity {	
@@ -195,6 +196,7 @@ public class conf extends PreferenceActivity {
 					Threshold.setEnabled(true);	
 					Bias.setEnabled(true);
 					IgnoreNiceLoad.setEnabled(true);
+					((PreferenceGroup) findPreference("CPUgroup")).setTitle(R.string.ondemand);
 				}
 			}
 			BR.close();
@@ -631,14 +633,12 @@ public class conf extends PreferenceActivity {
 	}
 	
 	// AsyncTask to download and flash bootimage
-	private class DownloadFile extends AsyncTask<String, String, String>{
-       
+	private class DownloadFile extends AsyncTask<String, String, String>{ 
 		@Override
         protected void onPreExecute() {
             super.onPreExecute();
             showDialog(DIALOG_DOWNLOAD_PROGRESS);
-        }
-		
+        }	
 		@Override
 	    protected String doInBackground(String... path) {
 	    	int count;
@@ -696,16 +696,14 @@ public class conf extends PreferenceActivity {
 				e.printStackTrace();
 			}
 	        return null;
-	    }
-		
+	    }		
 		@Override
 		protected void onProgressUpdate(String... progress) {
 	        DownloadProgress.setProgress(Integer.parseInt(progress[0]));
 	        if (progress[0].equals("100")) {
 	        	DownloadProgress.setMessage(getString(R.string.flash));
 	        }
-	    }
-		
+	    }		
 		@Override
 	    protected void onPostExecute(String unused) {
 			dismissDialog(DIALOG_DOWNLOAD_PROGRESS);

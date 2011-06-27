@@ -17,6 +17,7 @@
 	<string name="flash">Flashing kernel...</string>
 	<string name="download">Downloading kernel...</string>
 	<string name="error">Error!</string>
+	<string name="ondemand">CPU</string>
 	<!-- Menu -->
 	<string name="about">About</string>
 	<string name="exit">Exit</string>
