@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<PreferenceCategory android:title="Memory"><CheckBoxPreference android:key="Swap" android:summary="@string/swap" android:title="Swap" />
-		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:dependency="Swap" android:title="Swappiness" android:dialogMessage="0-100%" android:maxLength="3" android:numeric="integer" android:singleLine="true"></EditTextPreference>
-		<EditTextPreference android:summary="@string/fudgeswap" android:key="Fudgeswap" android:title="Fudgeswap" android:dialogMessage="Kilobyte (kB)" android:maxLength="5" android:singleLine="true" android:numeric="integer"></EditTextPreference>
+	<PreferenceCategory android:key="KernelCategory">
 		<Preference android:title="GPU RAM Hack Kernel" android:summary="@string/ramhack" android:key="GPU RAM Hack"></Preference>
+	</PreferenceCategory>
+	
+	<PreferenceCategory android:title="Memory">
+		<CheckBoxPreference android:key="Swap" android:summary="@string/swap" android:title="Swap" />
+		<EditTextPreference android:summary="@string/swappiness" android:key="Swappiness" android:dependency="Swap" android:title="Swappiness" android:dialogMessage="0-100%" android:maxLength="3" android:singleLine="true" android:numeric="integer"></EditTextPreference>
+		<EditTextPreference android:summary="@string/fudgeswap" android:key="Fudgeswap" android:title="Fudgeswap" android:dialogMessage="Kilobyte (kB)" android:numeric="integer" android:maxLength="5" android:singleLine="true"></EditTextPreference>
 		<PreferenceScreen android:key="Memorythresholds" android:summary="@string/memorythresholds" android:title="Memory Thresholds">
 			<ListPreference android:summary="@string/presets" android:key="Presets" android:entries="@array/Spresets" android:entryValues="@array/Spresetsvalue" android:title="Presets"></ListPreference>
 			<EditTextPreference android:summary="@string/foregroundapp" android:key="Mem1" android:title="Foreground App" android:dialogMessage="Megabyte (MB)" android:maxLength="2" android:numeric="integer" android:singleLine="true"></EditTextPreference>
@@ -14,7 +18,7 @@
 			<EditTextPreference android:summary="@string/contentapp" android:key="Mem5" android:title="Content Provider" android:dialogMessage="Megabyte (MB)" android:numeric="integer" android:singleLine="true" android:maxLength="2"></EditTextPreference>
 			<EditTextPreference android:summary="@string/emptyapp" android:key="Mem6" android:title="Empty App" android:dialogMessage="Megabyte (MB)" android:numeric="integer" android:maxLength="2" android:singleLine="true"></EditTextPreference>
 		</PreferenceScreen>
-		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)" android:numeric="integer" android:maxLength="4" android:singleLine="true"></EditTextPreference>
+		<EditTextPreference android:summary="@string/sdcache" android:key="SD Read Cache" android:title="SD Read Cache" android:dialogMessage="Kilobyte (kB)" android:singleLine="true" android:numeric="integer" android:maxLength="4"></EditTextPreference>
 	</PreferenceCategory>
 		
 	<PreferenceCategory android:key="CPUgroup" android:title="CPU - only ondemand governor!">

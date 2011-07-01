@@ -32,6 +32,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 
@@ -94,7 +95,8 @@ public class conf extends PreferenceActivity {
         CPUSampling = (ListPreference) findPreference("CPU Sampling");
         final ListPreference Presets = (ListPreference) findPreference("Presets");   
 		final Preference RamHack = findPreference("GPU RAM Hack");
-        
+        final PreferenceCategory Kernel = (PreferenceCategory) findPreference("KernelCategory");
+		
 		// Open config file
         String[] result = new String[3];
         String record = null;
@@ -128,21 +130,21 @@ public class conf extends PreferenceActivity {
 					else if (result[1].equals("swappiness"))
 						Swappiness.setText(result[2]);
 					else if (result[1].equals("fudgeswap"))
-						Fudgeswap.setText(Integer.toString(Integer.parseInt(result[2]) * 4));
+						Fudgeswap.setText(String.valueOf(Integer.parseInt(result[2]) * 4));
 					else if (result[1].equals("bootani"))
 						Bootanimation.setChecked(result[2].equals("yes"));
 					else if (result[1].equals("mem1"))
-						Mem1.setText(Integer.toString(Integer.parseInt(result[2]) * 4 / 1024));
+						Mem1.setText(String.valueOf(Integer.parseInt(result[2]) * 4 / 1024));
 					else if (result[1].equals("mem2"))
-						Mem2.setText(Integer.toString(Integer.parseInt(result[2]) * 4 / 1024));
+						Mem2.setText(String.valueOf(Integer.parseInt(result[2]) * 4 / 1024));
 					else if (result[1].equals("mem3"))
-						Mem3.setText(Integer.toString(Integer.parseInt(result[2]) * 4 / 1024));
+						Mem3.setText(String.valueOf(Integer.parseInt(result[2]) * 4 / 1024));
 					else if (result[1].equals("mem4"))
-						Mem4.setText(Integer.toString(Integer.parseInt(result[2]) * 4 / 1024));
+						Mem4.setText(String.valueOf(Integer.parseInt(result[2]) * 4 / 1024));
 					else if (result[1].equals("mem5"))
-						Mem5.setText(Integer.toString(Integer.parseInt(result[2]) * 4 / 1024));
+						Mem5.setText(String.valueOf(Integer.parseInt(result[2]) * 4 / 1024));
 					else if (result[1].equals("mem6"))
-						Mem6.setText(Integer.toString(Integer.parseInt(result[2]) * 4 / 1024));
+						Mem6.setText(String.valueOf(Integer.parseInt(result[2]) * 4 / 1024));
 					else if (result[1].equals("sdcache"))
 						SDReadCache.setText(result[2]);
 				}
@@ -217,10 +219,15 @@ public class conf extends PreferenceActivity {
 		try {
 			while ((record = BR.readLine()) != null) {
 				if (record.contains("MemTotal")) {
-					if (Long.parseLong(record.split(" +",3)[1]) > 100000) {
+					int totalram = Integer.parseInt(record.split(" +",3)[1]);
+					if (totalram > 100000) {
 						RamHack.setTitle("Normal Kernel");
 						RamHack.setSummary(R.string.normalkernel);
 						RamHackEnabled = true;
+						Kernel.setTitle("Running GPU RAM Hack Kernel ("+String.valueOf(totalram/1024)+"MB)");
+					}
+					else {
+						Kernel.setTitle("Running Normal Kernel ("+String.valueOf(totalram/1024)+"MB)");
 					}
 				}
 			}
